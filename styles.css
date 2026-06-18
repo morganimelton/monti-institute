@@ -6887,3 +6887,18 @@ html { scroll-snap-type: none; }
     body.dark-theme .ba-section{background:var(--ivory)}
     body.dark-theme .ba-tab-b{border-color:rgba(255,255,255,.1)}
     @media(max-width:540px){.ba-meta{flex-direction:column;gap:.25rem}.ba-tdesc{text-align:left}}
+
+/* --- TEAM CARD IMAGE ALIGNMENT FIX --- */
+.team-card picture {
+  display: block !important;
+  width: 100% !important;
+  aspect-ratio: 3 / 4 !important; /* Enforces a perfect portrait crop on all screens */
+  overflow: hidden !important;
+}
+
+.team-card picture img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important; /* Crops the photo automatically without stretching */
+  object-position: center top !important; /* Ensures heads/faces don't get cut off */
+} 
