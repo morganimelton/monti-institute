@@ -12,10 +12,12 @@
 </head>
 <body>
 
+  <!-- ── Dark Mode Toast ── -->
   <div id="dark-toast" role="status" aria-live="polite" aria-atomic="true">
     <span id="dark-toast__title">Migraine Mode — On</span>
     <p id="dark-toast__body">Low-glare display activated. Optimized for light-sensitive viewing.</p>
   </div>
+
 
   <div id="scroll-progress" role="progressbar" aria-hidden="true"></div>
   <button id="back-to-top" type="button" aria-label="Back to top">
@@ -24,7 +26,7 @@
     </svg>
   </button>
 
-  <nav class="nav" id="js-nav" role="navigation" aria-label="Main navigation">
+    <nav class="nav" id="js-nav" role="navigation" aria-label="Main navigation">
     <div class="nav__inner">
       <a href="/" class="nav__brand" aria-label="Monti Institute — Home">
         <img src="images/official-logo.png" alt="Monti Institute" class="nav__logo-img site-logo">
@@ -42,76 +44,21 @@
         <i aria-hidden="true"></i>
       </button>
       <ul class="nav__list" id="js-nav-list" role="list">
-        <li><a href="/" class="nav__link">Home</a></li>
-        <li><a href="neurological-medicine.html" class="nav__link">Neurological Medicine</a></li>
-        <li><a href="aesthetic-medicine.html" class="nav__link">Aesthetic Medicine</a></li>
-        <li><a href="about.html" class="nav__link">About</a></li>
-        <li><a href="clinical-standards.html" class="nav__link">Clinical Standards</a></li>
-        <li><a href="wellness-store.html" class="nav__link">Wellness Store</a></li>
-        <li><a href="gift-credits.html" class="nav__link">Gift Credits</a></li>
-        <li><a href="contact.html" class="nav__link is-active" aria-current="page">Contact</a></li>
-        
-        <button class="dark-toggle nav__migraine-toggle"
-                id="dark-mode-toggle"
-                type="button"
-                aria-label="Toggle Migraine-Friendly Viewing Mode"
-                aria-pressed="false"
-                title="Migraine Mode — reduces brightness for light-sensitive viewing">
-          <svg class="dark-toggle__icon" viewBox="0 0 24 24" aria-hidden="true" width="14" height="14">
-            <ellipse cx="12" cy="12" rx="4" ry="4" fill="none" stroke="currentColor" stroke-width="1.5"/>
-            <path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.93 4.93l1.41 1.41 M17.66 17.66l1.41 1.41M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-          </svg>
-          <span class="dark-toggle__label">Migraine Mode</span>
-          <span class="dark-toggle__switch" aria-hidden="true"></span>
-        </button>
-    </div>
-  </nav>
+      <li><a href="/" class="nav__link">Home</a></li>
+      <li><a href="neurological-medicine.html" class="nav__link">Neurological Medicine</a></li>
+      <li><a href="aesthetic-medicine.html" class="nav__link">Aesthetic Medicine</a></li>
+      <li><a href="about.html" class="nav__link">About</a></li>
+      <li><a href="clinical-standards.html" class="nav__link">Clinical Standards</a></li>
+      <li><a href="wellness-store.html" class="nav__link">Wellness Store</a></li>
+     </div> 
+</div>
 
-  <main id="js-outlet">
-    <div class="page" id="page-contact">
-      <div class="about-page-bg" aria-hidden="true"></div>
-      <div class="inner-page">
-        <div class="inner-page__inner">
-
-          <div class="contact-header">
-            <span class="inner-page__eyebrow">Get in Touch</span>
-            <h1 class="inner-page__title">Contact &amp;<br><em>Scheduling</em></h1>
-            <p class="contact-header__subtitle">
-              Reach our team for consultations, scheduling, and general enquiries.
-              All messages are reviewed and responded to within one business day.
-            </p>
-          </div>
-
-          <section class="biz-card-section" aria-label="Interactive digital business card — tap to flip">
-            <span class="biz-card-section__eyebrow">Our Card</span>
-
-            <div class="flip-scene"
-                 id="js-flip-card"
-                 role="button"
-                 tabindex="0"
-                 aria-pressed="false"
-                 aria-label="Business card: front shows contact info, back shows QR booking code. Press to flip.">
-
-              <div class="flip-inner" id="js-flip-inner">
-                <div class="flip-face flip-face--front">
-                  <picture>
-                    <source type="image/webp" srcset="data:image/webp;base64,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">
-                  </picture>
-                </div>
-              </div>
-            </div>
-
-          </section>
-
-        </div>
-      </div>
-    </div>
-  </main>
-
-  <footer class="site-footer" style="padding: 40px 20px; text-align: center; font-family: 'DM Sans', sans-serif; font-size: 0.9rem; color: #777; border-top: 1px solid rgba(0,0,0,0.05);">
-    <p>&copy; 2026 Monti Institute of Neuro Aesthetics. All Rights Reserved.</p>
-    <p><a href="privacy-policy.html" style="color: var(--gold, #c5a880); text-decoration: none; font-weight: 300; letter-spacing: 0.5px;">Privacy Policy</a></p>
-  </footer>
+<footer style="text-align: center; padding: 20px; font-family: 'DM Sans', sans-serif; margin-top: 40px; border-top: 1px solid #eaeaea;">
+    <p style="color: #666; font-size: 14px;">
+        © 2026 Monti Institute of Neuro Aesthetics. All rights reserved. 
+        | <a href="privacy-policy.html" style="color: #0076ff; text-decoration: none;">Privacy Policy</a>
+    </p>
+</footer>
 
 </body>
 </html>
