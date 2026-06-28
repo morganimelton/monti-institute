@@ -5690,28 +5690,7 @@ html { scroll-snap-type: none; }
     }
 
 
-    /* ═══════════════════════════════════════════════════════════════
-       DEFINITIVE PAGE ROUTING ENGINE
-       Inserted LAST — highest cascade authority.
-       Inactive pages: zero height, zero display, zero contribution.
-       Active page:    full layout restored.
-    ═══════════════════════════════════════════════════════════════ */
-
-    /* INACTIVE — strip all dimensional contribution */
-    .page {
-      display:    none    !important;
-      height:     0       !important;
-      min-height: 0       !important;
-      max-height: 0       !important;
-      overflow:   hidden  !important;
-      margin:     0       !important;
-      padding:    0       !important;
-      opacity:    0       !important;
-      pointer-events: none !important;
-      position:   absolute !important;
-      top:        -9999px !important;
-      left:       -9999px !important;
-    }
+  
 
     /* ACTIVE — full layout, all properties restored */
     .page.page--active,
