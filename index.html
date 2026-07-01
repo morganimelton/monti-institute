@@ -11,16 +11,12 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
+<style>
 /* --- iPhone Mobile Overrides for Migraine Mode --- */
 @media (max-width: 480px) {
-  /* Assumes your JS toggles a class on the body. 
-     If it uses a different class name, change '.migraine-mode' to match it. */
   .migraine-mode {
-    background-color: #1e201f !important; /* Muted, ultra-low-glare warm charcoal */
+    background-color: #1e201f !important;
   }
-
-  /* 1. Fix the Notification Toast readability on iPhone */
   .migraine-mode #dark-toast {
     background-color: #2a2d2b !important;
     border: 1px solid #3d423f !important;
@@ -28,58 +24,49 @@
     border-radius: 8px !important;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4) !important;
   }
-  
   .migraine-mode #dark-toast__title {
-    color: #c2bcaf !important; /* Soft gold/cream instead of harsh white */
+    color: #c2bcaf !important;
     font-weight: 600 !important;
     font-size: 15px !important;
     display: block !important;
     margin-bottom: 4px !important;
   }
-
   .migraine-mode #dark-toast__body {
-    color: #aeb3ae !important; /* Desaturated sage gray text, easy on active migraines */
+    color: #aeb3ae !important;
     font-size: 13px !important;
     line-height: 1.5 !important;
     margin: 0 !important;
   }
-
-  /* 2. Optimize Mobile Navigation and Links */
   .migraine-mode .nav {
     background-color: #1e201f !important;
     border-bottom: 1px solid #2d302e !important;
   }
-
   .migraine-mode .nav__link {
-    color: #d1cdc4 !important; /* Highly readable matte cream */
-    font-size: 16px !important; /* Prevents squinting on mobile viewports */
+    color: #d1cdc4 !important;
+    font-size: 16px !important;
     padding: 12px 0 !important;
   }
-
   .migraine-mode .nav__link.is-active {
-    color: #a3b899 !important; /* Soft, low-luminance sage green for active state */
+    color: #a3b899 !important;
   }
-
-  /* 3. Soften the Migraine Mode Button itself in the mobile menu */
   .migraine-mode .nav__migraine-toggle {
     background-color: #2a2d2b !important;
     color: #a3b899 !important;
     border: 1px solid #3d423f !important;
     border-radius: 6px !important;
     padding: 10px 14px !important;
-    width: 100% !important; /* Easier mobile tap target */
+    width: 100% !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
     gap: 8px !important;
   }
-  
-  /* 4. Fix Back-to-Top Button visibility */
   .migraine-mode #back-to-top {
     background-color: #2a2d2b !important;
     border: 1px solid #3d423f !important;
   }
 }
+</style>
   <main id="js-outlet">
 <section class="hero" aria-labelledby="hero-heading">
         <div class="hero__eyebrow">
