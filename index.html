@@ -12,69 +12,74 @@
 </head>
 <body>
 
-  <!-- ── Dark Mode Toast ── -->
-  <div id="dark-toast" role="status" aria-live="polite" aria-atomic="true">
-    <span id="dark-toast__title">Migraine Mode — On</span>
-    <p id="dark-toast__body">Low-glare display activated. Optimized for light-sensitive viewing.</p>
-  </div>
+/* --- iPhone Mobile Overrides for Migraine Mode --- */
+@media (max-width: 480px) {
+  /* Assumes your JS toggles a class on the body. 
+     If it uses a different class name, change '.migraine-mode' to match it. */
+  .migraine-mode {
+    background-color: #1e201f !important; /* Muted, ultra-low-glare warm charcoal */
+  }
 
+  /* 1. Fix the Notification Toast readability on iPhone */
+  .migraine-mode #dark-toast {
+    background-color: #2a2d2b !important;
+    border: 1px solid #3d423f !important;
+    padding: 16px !important;
+    border-radius: 8px !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4) !important;
+  }
+  
+  .migraine-mode #dark-toast__title {
+    color: #c2bcaf !important; /* Soft gold/cream instead of harsh white */
+    font-weight: 600 !important;
+    font-size: 15px !important;
+    display: block !important;
+    margin-bottom: 4px !important;
+  }
 
-  <div id="scroll-progress" role="progressbar" aria-hidden="true"></div>
-  <button id="back-to-top" type="button" aria-label="Back to top" title="Back to top">
-    <svg viewBox="0 0 24 24" aria-hidden="true" style="width:14px;height:14px;stroke:var(--gold);stroke-width:1.5;fill:none;stroke-linecap:round;stroke-linejoin:round">
-      <path d="M12 19V5M5 12l7-7 7 7"/>
-    </svg>
-  </button>
+  .migraine-mode #dark-toast__body {
+    color: #aeb3ae !important; /* Desaturated sage gray text, easy on active migraines */
+    font-size: 13px !important;
+    line-height: 1.5 !important;
+    margin: 0 !important;
+  }
 
-    <nav class="nav" id="js-nav" role="navigation" aria-label="Main navigation">
-    <div class="nav__inner">
-      <a href="/" class="nav__brand" aria-label="Monti Institute — Home">
-        <img src="images/official-logo.png" alt="Monti Institute" class="nav__logo-img site-logo">
-        <span class="nav__brand-text">Monti Institute</span>
-      </a>
-      <button
-        class="nav__toggle"
-        id="js-nav-toggle"
-        aria-expanded="false"
-        aria-controls="js-nav-list"
-        aria-label="Toggle navigation"
-      >
-        <i aria-hidden="true"></i>
-        <i aria-hidden="true"></i>
-        <i aria-hidden="true"></i>
-      </button>
-      <ul class="nav__list" id="js-nav-list" role="list">
-      <li><a href="/" class="nav__link is-active" aria-current="page">Home</a></li>
-      <li><a href="neurological-medicine.html" class="nav__link">Neurological Medicine</a></li>
-      <li><a href="aesthetic-medicine.html" class="nav__link">Aesthetic Medicine</a></li>
-      <li><a href="about.html" class="nav__link">About</a></li>
-      <li><a href="clinical-standards.html" class="nav__link">Clinical Standards</a></li>
-      <li><a href="wellness-store.html" class="nav__link">Wellness Store</a></li>
-      <li><a href="financing & memberships.html" class="nav__link">Financing & Memberships</a></li>
-      <li><a href="contact.html" class="nav__link">Contact</a></li>
-      
-      <button class="dark-toggle nav__migraine-toggle"
-              id="dark-mode-toggle"
-              type="button"
-              aria-label="Toggle Migraine-Friendly Viewing Mode"
-              aria-pressed="false"
-              title="Migraine Mode — reduces brightness for light-sensitive viewing">
-        <svg class="dark-toggle__icon" viewBox="0 0 24 24"
-             aria-hidden="true" width="14" height="14">
-          <ellipse cx="12" cy="12" rx="4" ry="4"
-                   fill="none" stroke="currentColor" stroke-width="1.5"/>
-          <path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.93 4.93l1.41 1.41
-                   M17.66 17.66l1.41 1.41M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"
-                fill="none" stroke="currentColor"
-                stroke-width="1.5" stroke-linecap="round"/>
-        </svg>
-        <span class="dark-toggle__label">Migraine Mode</span>
-        <span class="dark-toggle__switch" aria-hidden="true"></span>
-      </button>
-</ul>
-    </div>
-  </nav>
+  /* 2. Optimize Mobile Navigation and Links */
+  .migraine-mode .nav {
+    background-color: #1e201f !important;
+    border-bottom: 1px solid #2d302e !important;
+  }
 
+  .migraine-mode .nav__link {
+    color: #d1cdc4 !important; /* Highly readable matte cream */
+    font-size: 16px !important; /* Prevents squinting on mobile viewports */
+    padding: 12px 0 !important;
+  }
+
+  .migraine-mode .nav__link.is-active {
+    color: #a3b899 !important; /* Soft, low-luminance sage green for active state */
+  }
+
+  /* 3. Soften the Migraine Mode Button itself in the mobile menu */
+  .migraine-mode .nav__migraine-toggle {
+    background-color: #2a2d2b !important;
+    color: #a3b899 !important;
+    border: 1px solid #3d423f !important;
+    border-radius: 6px !important;
+    padding: 10px 14px !important;
+    width: 100% !important; /* Easier mobile tap target */
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
+  }
+  
+  /* 4. Fix Back-to-Top Button visibility */
+  .migraine-mode #back-to-top {
+    background-color: #2a2d2b !important;
+    border: 1px solid #3d423f !important;
+  }
+}
   <main id="js-outlet">
 <section class="hero" aria-labelledby="hero-heading">
         <div class="hero__eyebrow">
