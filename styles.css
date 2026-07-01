@@ -6881,3 +6881,36 @@ html { scroll-snap-type: none; }
   object-fit: cover !important; /* Crops the photo automatically without stretching */
   object-position: center top !important; /* Ensures heads/faces don't get cut off */
 } 
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   DISCIPLINES SPLIT — authoritative layout fix
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+@media (min-width: 861px) {
+  .disciplines-split {
+    display: grid !important;
+    grid-template-columns: 1fr 1px 1fr !important;
+    grid-template-rows: 1fr !important;
+    min-height: clamp(540px, 72vh, 800px) !important;
+    flex-direction: unset !important;
+  }
+  .disc-panel--neuro    { grid-column: 1 !important; width: auto !important; }
+  .disc-divider         { grid-column: 2 !important; width: 1px !important; display: flex !important; flex-direction: column !important; align-items: center !important; justify-content: center !important; }
+  .disc-panel--aesthetic{ grid-column: 3 !important; width: auto !important; }
+}
+@media (max-width: 860px) {
+  .disciplines-split { display: flex !important; flex-direction: column !important; min-height: auto !important; }
+  .disc-panel         { width: 100% !important; min-height: 55vw !important; }
+  .disc-divider       { width: 100% !important; height: 1px !important; flex-direction: row !important; }
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   MIGRAINE MODE — Neurological panel legibility
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+body.dark-theme .disc-panel--neuro { background: #0d1525 !important; }
+body.dark-theme .disc-panel--neuro .disc-panel__title { color: #e6e1da !important; }
+body.dark-theme .disc-panel--neuro .disc-panel__copy  { color: rgba(230,225,218,0.78) !important; }
+body.dark-theme .disc-panel--neuro .disc-panel__list-item { color: rgba(230,225,218,0.68) !important; }
+body.dark-theme .disc-panel--neuro .disc-panel__btn   { border-color: rgba(196,169,125,0.55) !important; color: #e6e1da !important; background: transparent !important; }
+body.dark-theme .disc-panel--neuro .disc-panel__btn:hover { background: rgba(196,169,125,0.15) !important; border-color: rgba(196,169,125,0.8) !important; color: #ffffff !important; }
+body.dark-theme .disc-panel--aesthetic .disc-panel__title { color: #2a2218 !important; }
+body.dark-theme .disc-panel--aesthetic .disc-panel__copy  { color: rgba(42,34,24,0.75) !important; }
+body.dark-theme .disc-panel--aesthetic .disc-panel__list-item { color: rgba(42,34,24,0.68) !important; }
