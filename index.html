@@ -1053,3 +1053,55 @@
 
 </body>
 </html>
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   DISCIPLINES SPLIT — authoritative layout fix
+   Placed last so it wins over all earlier rules.
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+@media (min-width: 861px) {
+  .disciplines-split {
+    display: grid !important;
+    grid-template-columns: 1fr 1px 1fr !important;
+    grid-template-rows: 1fr !important;
+    min-height: clamp(540px, 72vh, 800px) !important;
+    flex-direction: unset !important;
+    flex: unset !important;
+  }
+  .disc-panel--neuro {
+    grid-column: 1 !important;
+    width: auto !important;
+    min-height: unset !important;
+  }
+  .disc-divider {
+    grid-column: 2 !important;
+    width: 1px !important;
+    min-height: unset !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+  .disc-panel--aesthetic {
+    grid-column: 3 !important;
+    width: auto !important;
+    min-height: unset !important;
+  }
+}
+
+/* Mobile — stack vertically */
+@media (max-width: 860px) {
+  .disciplines-split {
+    display: flex !important;
+    flex-direction: column !important;
+    min-height: auto !important;
+  }
+  .disc-panel {
+    width: 100% !important;
+    min-height: 55vw !important;
+  }
+  .disc-divider {
+    width: 100% !important;
+    height: 1px !important;
+    flex-direction: row !important;
+  }
+}
