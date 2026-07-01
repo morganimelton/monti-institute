@@ -6903,14 +6903,142 @@ html { scroll-snap-type: none; }
 }
 
 /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-   MIGRAINE MODE — Neurological panel legibility
+   MIGRAINE MODE — Global text legibility fix
+   Targets all sections where text disappears
+   against dark backgrounds.
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
-body.dark-theme .disc-panel--neuro { background: #0d1525 !important; }
-body.dark-theme .disc-panel--neuro .disc-panel__title { color: #e6e1da !important; }
-body.dark-theme .disc-panel--neuro .disc-panel__copy  { color: rgba(230,225,218,0.78) !important; }
-body.dark-theme .disc-panel--neuro .disc-panel__list-item { color: rgba(230,225,218,0.68) !important; }
-body.dark-theme .disc-panel--neuro .disc-panel__btn   { border-color: rgba(196,169,125,0.55) !important; color: #e6e1da !important; background: transparent !important; }
-body.dark-theme .disc-panel--neuro .disc-panel__btn:hover { background: rgba(196,169,125,0.15) !important; border-color: rgba(196,169,125,0.8) !important; color: #ffffff !important; }
-body.dark-theme .disc-panel--aesthetic .disc-panel__title { color: #2a2218 !important; }
-body.dark-theme .disc-panel--aesthetic .disc-panel__copy  { color: rgba(42,34,24,0.75) !important; }
-body.dark-theme .disc-panel--aesthetic .disc-panel__list-item { color: rgba(42,34,24,0.68) !important; }
+
+/* ── Aesthetic panel — warm dark bg, needs light text ── */
+body.dark-theme .disc-panel--aesthetic {
+  background: #1a1510 !important;
+}
+body.dark-theme .disc-panel--aesthetic .disc-panel__title {
+  color: #e6e1da !important;
+}
+body.dark-theme .disc-panel--aesthetic .disc-panel__copy {
+  color: rgba(230,225,218,0.78) !important;
+}
+body.dark-theme .disc-panel--aesthetic .disc-panel__list-item {
+  color: rgba(230,225,218,0.68) !important;
+}
+body.dark-theme .disc-panel--aesthetic .disc-panel__btn {
+  border-color: rgba(196,169,125,0.55) !important;
+  color: #e6e1da !important;
+  background: transparent !important;
+}
+body.dark-theme .disc-panel--aesthetic .disc-panel__btn:hover {
+  background: rgba(196,169,125,0.15) !important;
+  color: #ffffff !important;
+}
+
+/* ── Philosophy section "Two disciplines..." ── */
+body.dark-theme .philosophy__quote {
+  color: #e6e1da !important;
+}
+body.dark-theme .philosophy__source {
+  color: rgba(196,169,125,0.75) !important;
+}
+body.dark-theme .philosophy__body {
+  color: rgba(230,225,218,0.65) !important;
+}
+body.dark-theme .section__label {
+  color: #C9A876 !important;
+}
+
+/* ── CS Bridge section "Clinical Standards & Case Frameworks" ── */
+body.dark-theme .cs-bridge-section {
+  background: #111827 !important;
+}
+body.dark-theme .cs-bridge__label {
+  color: #C9A876 !important;
+}
+body.dark-theme .cs-bridge__heading {
+  color: #e6e1da !important;
+}
+body.dark-theme .cs-bridge__body {
+  color: rgba(230,225,218,0.68) !important;
+}
+
+/* ── Accreditations section ── */
+body.dark-theme .accreditations-section {
+  background: #07090F !important;
+}
+body.dark-theme .accreditations-label {
+  color: rgba(230,225,218,0.45) !important;
+}
+body.dark-theme .accreditation-badge__abbr {
+  color: #e6e1da !important;
+}
+body.dark-theme .accreditation-badge__name {
+  color: rgba(230,225,218,0.5) !important;
+}
+
+/* ── Quiz section ── */
+body.dark-theme .quiz-section {
+  background: #111827 !important;
+}
+body.dark-theme .quiz-section__eyebrow {
+  color: #C9A876 !important;
+}
+body.dark-theme .quiz-section__heading {
+  color: #e6e1da !important;
+}
+body.dark-theme .quiz-section__sub {
+  color: rgba(230,225,218,0.65) !important;
+}
+
+/* ── Concierge flow section ── */
+body.dark-theme .concierge-flow__heading {
+  color: #e6e1da !important;
+}
+body.dark-theme .concierge-flow__sub {
+  color: rgba(230,225,218,0.65) !important;
+}
+body.dark-theme .concierge-panel__question {
+  color: #e6e1da !important;
+}
+body.dark-theme .concierge-option__title {
+  color: #e6e1da !important;
+}
+body.dark-theme .concierge-option__desc {
+  color: rgba(230,225,218,0.6) !important;
+}
+body.dark-theme .concierge-final__msg {
+  color: rgba(230,225,218,0.75) !important;
+}
+
+/* ── Hero section ── */
+body.dark-theme .hero__title {
+  color: #e6e1da !important;
+}
+body.dark-theme .hero__title em {
+  color: #C9A876 !important;
+}
+body.dark-theme .hero__tagline {
+  color: rgba(230,225,218,0.65) !important;
+}
+body.dark-theme .hero__sub {
+  color: rgba(230,225,218,0.55) !important;
+}
+body.dark-theme .hero__eyebrow-text {
+  color: #C9A876 !important;
+}
+
+/* ── Footer ── */
+body.dark-theme footer {
+  color: rgba(230,225,218,0.55) !important;
+}
+body.dark-theme footer a {
+  color: rgba(230,225,218,0.7) !important;
+}
+
+/* ── Global safety net — any remaining dark text on dark bg ── */
+body.dark-theme h1,
+body.dark-theme h2,
+body.dark-theme h3,
+body.dark-theme h4 {
+  color: #e6e1da !important;
+}
+body.dark-theme p {
+  color: rgba(230,225,218,0.72) !important;
+}
