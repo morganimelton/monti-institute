@@ -28,7 +28,34 @@
           </p>
         </div>
 
-
+  <nav class="nav" id="js-nav" role="navigation" aria-label="Main navigation">
+    <div class="nav__inner">
+      <a href="/" class="nav__brand" aria-label="Monti Institute — Home">
+        <img src="images/official-logo.png" alt="Monti Institute" class="nav__logo-img site-logo">
+        <span class="nav__brand-text">Monti Institute</span>
+      </a>
+      <button
+        class="nav__toggle"
+        id="js-nav-toggle"
+        aria-expanded="false"
+        aria-controls="js-nav-list"
+        aria-label="Toggle navigation"
+      >
+        <i aria-hidden="true"></i>
+        <i aria-hidden="true"></i>
+        <i aria-hidden="true"></i>
+      </button>
+      <ul class="nav__list" id="js-nav-list" role="list">
+      <li><a href="/" class="nav__link">Home</a></li>
+      <li><a href="neurological-medicine" class="nav__link">Neurological Medicine</a></li>
+      <li><a href="aesthetic-medicine" class="nav__link">Aesthetic Medicine</a></li>
+        <li><a href="infusion-center" class="nav__link">Infusion Center</a></li>
+      <li><a href="about" class="nav__link">About</a></li>
+      <li><a href="clinical-standards" class="nav__link">Clinical Standards</a></li>
+      <li><a href="wellness-store" class="nav__link">Wellness Store</a></li>
+      <li><a href="gift-credits" class="nav__link is-active" aria-current="page">Gift Credits</a></li>
+      <li><a href="contact" class="nav__link">Contact</a></li>
+      
 
           </div>
         <!-- MAIN GRID: CONTACT INFO + INQUIRY FORM -->
