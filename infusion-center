@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Infusion Center — Monti Institute of Neuro Aesthetics</title>
+  <meta name="description" content="Precision-dosed, clinician-supervised infusion therapies at Monti Institute — ketamine, migraine, IV nutrients, NAD+, and custom compounded drips. Reno, Nevada.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@200;300;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <nav class="nav" id="js-nav" role="navigation" aria-label="Main navigation">
+    <div class="nav__inner">
+      <a href="/" class="nav__brand" aria-label="Monti Institute — Home">
+        <img src="images/official-logo.png" alt="Monti Institute" class="nav__logo-img site-logo">
+        <span class="nav__brand-text">Monti Institute</span>
+      </a>
+
+      <button class="dark-toggle nav__migraine-toggle"
+              id="dark-mode-toggle"
+              type="button"
+              role="switch"
+              aria-checked="false"
+              aria-label="Migraine-Friendly Viewing Mode"
+              title="Migraine Mode — reduces brightness for light-sensitive viewing">
+        <svg class="dark-toggle__icon" viewBox="0 0 24 24"
+             aria-hidden="true" focusable="false" width="14" height="14">
+          <ellipse cx="12" cy="12" rx="4" ry="4"
+                   fill="none" stroke="currentColor" stroke-width="1.5"/>
+          <path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"
+                fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        <span class="dark-toggle__label" aria-hidden="true">Migraine Mode</span>
+        <span class="dark-toggle__switch" aria-hidden="true"></span>
+      </button>
+
+      <button
+        class="nav__toggle"
+        id="js-nav-toggle"
+        aria-expanded="false"
+        aria-controls="js-nav-list"
+        aria-label="Toggle navigation"
+      >
+        <i aria-hidden="true"></i>
+        <i aria-hidden="true"></i>
+        <i aria-hidden="true"></i>
+      </button>
+
+      <ul class="nav__list" id="js-nav-list" role="list">
+        <li><a href="/" class="nav__link">Home</a></li>
+        <li><a href="neurological-medicine.html" class="nav__link">Neurological Medicine</a></li>
+        <li><a href="aesthetic-medicine.html" class="nav__link">Aesthetic Medicine</a></li>
+        <li><a href="infusion-center.html" class="nav__link is-active" aria-current="page">Infusion Center</a></li>
+        <li><a href="about.html" class="nav__link">About</a></li>
+        <li><a href="clinical-standards.html" class="nav__link">Clinical Standards</a></li>
+        <li><a href="wellness-store.html" class="nav__link">Wellness Store</a></li>
+        <li><a href="financing-memberships.html" class="nav__link">Financing &amp; Memberships</a></li>
+        <li><a href="contact.html" class="nav__link">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div id="dark-toast" role="status" aria-live="polite" aria-atomic="true">
+    <span id="dark-toast__title"></span>
+    <span id="dark-toast__body"></span>
+  </div>
+
+  <div id="scroll-progress" aria-hidden="true"></div>
+
+  <button id="back-to-top" aria-label="Back to top" type="button">
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M18 15l-6-6-6 6" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </button>
+
+  <main id="js-outlet">
+
+    <!-- ══════════════════════════════════════════════════════════
+         INFUSION CENTER PAGE
+    ══════════════════════════════════════════════════════════ -->
+
+    <!-- Ambient page background — IV-drip line motif -->
+    <div class="infusion-page-bg" aria-hidden="true">
+      <svg viewBox="0 0 500 900" xmlns="http://www.w3.org/2000/svg" fill="none">
+        <rect x="190" y="30" width="120" height="90" rx="18" stroke="currentColor" stroke-width="0.8"/>
+        <line x1="250" y1="120" x2="250" y2="870" stroke="currentColor" stroke-width="0.8"/>
+        <line x1="250" y1="220" x2="340" y2="280" stroke="currentColor" stroke-width="0.5"/>
+        <line x1="250" y1="340" x2="160" y2="400" stroke="currentColor" stroke-width="0.5"/>
+        <line x1="250" y1="460" x2="360" y2="520" stroke="currentColor" stroke-width="0.5"/>
+        <line x1="250" y1="580" x2="150" y2="630" stroke="currentColor" stroke-width="0.5"/>
+        <line x1="250" y1="700" x2="350" y2="750" stroke="currentColor" stroke-width="0.5"/>
+        <circle cx="250" cy="160" r="3" fill="currentColor" opacity="0.5"/>
+        <circle cx="250" cy="200" r="3" fill="currentColor" opacity="0.5"/>
+      </svg>
+    </div>
+
+    <div class="inner-page">
+      <div class="inner-page__inner">
+
+        <!-- ── PAGE HEADER ── -->
+        <header class="infusion-header reveal">
+          <span class="inner-page__eyebrow">Monti Institute &middot; Reno, NV</span>
+          <h1 class="inner-page__title">Infusion <em>Center</em></h1>
+          <p class="inner-page__lead">
+            Precision-dosed, clinician-supervised infusion therapies &mdash; designed
+            to treat neurological and physiological conditions from the inside out,
+            in an environment built for calm.
+          </p>
+          <div class="inner-page__rule"></div>
+        </header>
+
+        <!-- ── STATS STRIP ── -->
+        <section class="infusion-env reveal" aria-label="About the infusion center">
+          <div class="infusion-env__grid">
+            <div class="infusion-env__stat">
+              <span class="infusion-env__stat-num">Private</span>
+              <span class="infusion-env__stat-label">Treatment Suites</span>
+            </div>
+            <div class="infusion-env__divider" aria-hidden="true"></div>
+            <div class="infusion-env__stat">
+              <span class="infusion-env__stat-num">MD-Led</span>
+              <span class="infusion-env__stat-label">Clinical Oversight</span>
+            </div>
+            <div class="infusion-env__divider" aria-hidden="true"></div>
+            <div class="infusion-env__stat">
+              <span class="infusion-env__stat-num">5</span>
+              <span class="infusion-env__stat-label">Infusion Modalities</span>
+            </div>
+            <div class="infusion-env__divider" aria-hidden="true"></div>
+            <div class="infusion-env__stat">
+              <span class="infusion-env__stat-num">Tailored</span>
+              <span class="infusion-env__stat-label">Protocols Per Patient</span>
+            </div>
+          </div>
+        </section>
+
+      </div><!-- /.inner-page__inner -->
+    </div><!-- /.inner-page -->
+
+
+    <!-- ── SERVICE MENU — full-width tinted band ── -->
+    <section class="section section--tint infusion-services" aria-labelledby="services-heading">
+      <div class="section__inner">
+
+        <div class="infusion-services__header reveal">
+          <span class="section__label">Treatment Menu</span>
+          <h2 class="section__heading" id="services-heading">What we offer</h2>
+          <p class="infusion-services__sub">
+            Every protocol is developed with your physician before your first
+            appointment &mdash; dose, duration, and frequency calibrated to your
+            neurology and goals.
+          </p>
+        </div>
+
+        <div class="infusion-menu">
+
+          <!-- 01 Ketamine -->
+          <article class="infusion-item reveal" aria-label="Ketamine Infusion Therapy">
+            <div class="infusion-item__head">
+              <span class="infusion-item__index">01</span>
+              <div class="infusion-item__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M12 3C12 3 7 7.5 7 12.5C7 15.54 9.24 18 12 18C14.76 18 17 15.54 17 12.5C17 7.5 12 3 12 3Z" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round"/>
+                  <line x1="12" y1="18" x2="12" y2="21" stroke="currentColor" stroke-width="1.25"/>
+                </svg>
+              </div>
+            </div>
+            <div class="infusion-item__body">
+              <h3 class="infusion-item__name">Ketamine Infusion Therapy</h3>
+              <p class="infusion-item__desc">
+                Sub-anesthetic ketamine for treatment-resistant depression, anxiety,
+                PTSD, and chronic pain. Protocols follow ASAM and AAPM guidelines &mdash;
+                typically a series of six infusions over two to three weeks, with
+                maintenance sessions as clinically indicated.
+              </p>
+              <ul class="infusion-item__tags" aria-label="Indicated conditions">
+                <li>Depression</li>
+                <li>PTSD</li>
+                <li>Anxiety</li>
+                <li>Chronic Pain</li>
+                <li>OCD</li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- 02 Migraine -->
+          <article class="infusion-item reveal" aria-label="Migraine and Headache Infusions">
+            <div class="infusion-item__head">
+              <span class="infusion-item__index">02</span>
+              <div class="infusion-item__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.25"/>
+                  <path d="M12 3V5M12 19V21M3 12H5M19 12H21M5.64 5.64L7.05 7.05M16.95 16.95L18.36 18.36M5.64 18.36L7.05 16.95M16.95 7.05L18.36 5.64" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"/>
+                </svg>
+              </div>
+            </div>
+            <div class="infusion-item__body">
+              <h3 class="infusion-item__name">Migraine &amp; Headache Infusions</h3>
+              <p class="infusion-item__desc">
+                Multi-agent IV protocols for acute migraine abort and intractable
+                headache &mdash; including DHE-45, magnesium sulfate, antiemetics, and
+                hydration. Designed for patients who have not responded adequately
+                to oral therapies or are in status migrainosus.
+              </p>
+              <ul class="infusion-item__tags" aria-label="Indicated conditions">
+                <li>Acute Migraine</li>
+                <li>Cluster Headache</li>
+                <li>Status Migrainosus</li>
+                <li>Rebound Headache</li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- 03 IV Nutrients -->
+          <article class="infusion-item reveal" aria-label="IV Nutrient Therapy">
+            <div class="infusion-item__head">
+              <span class="infusion-item__index">03</span>
+              <div class="infusion-item__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M8 3H16L18 8H6L8 3Z" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round"/>
+                  <path d="M6 8L5 19C5 20.1 5.9 21 7 21H17C18.1 21 19 20.1 19 19L18 8" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round"/>
+                  <line x1="12" y1="12" x2="12" y2="17" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"/>
+                  <line x1="9.5" y1="14.5" x2="14.5" y2="14.5" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"/>
+                </svg>
+              </div>
+            </div>
+            <div class="infusion-item__body">
+              <h3 class="infusion-item__name">IV Nutrient Therapy</h3>
+              <p class="infusion-item__desc">
+                High-dose intravenous micronutrient formulations &mdash; including
+                Myers&rsquo; Cocktail, vitamin C, B-complex, zinc, and glutathione &mdash;
+                for immune support, energy optimization, and recovery. Blends
+                are physician-selected based on your lab panel and health goals.
+              </p>
+              <ul class="infusion-item__tags" aria-label="Applications">
+                <li>Energy &amp; Fatigue</li>
+                <li>Immune Support</li>
+                <li>Recovery</li>
+                <li>Hydration</li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- 04 NAD+ -->
+          <article class="infusion-item reveal" aria-label="NAD+ Infusion Therapy">
+            <div class="infusion-item__head">
+              <span class="infusion-item__index">04</span>
+              <div class="infusion-item__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M9 3L15 3M12 3V6M9 21L15 21M12 21V18" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"/>
+                  <path d="M6 6H18C18 6 20 12 18 18H6C4 12 6 6 6 6Z" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round"/>
+                  <path d="M10 10.5C10 10.5 10 13.5 12 13.5C14 13.5 14 10.5 14 10.5" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"/>
+                </svg>
+              </div>
+            </div>
+            <div class="infusion-item__body">
+              <h3 class="infusion-item__name">NAD+ Infusions</h3>
+              <p class="infusion-item__desc">
+                Nicotinamide adenine dinucleotide administered intravenously
+                to support cellular energy metabolism, cognitive clarity, and
+                neurological resilience. Often used as an adjunct to ketamine
+                protocols or alongside addiction recovery programs.
+              </p>
+              <ul class="infusion-item__tags" aria-label="Applications">
+                <li>Cognitive Function</li>
+                <li>Cellular Recovery</li>
+                <li>Anti-Aging</li>
+                <li>Addiction Support</li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- 05 Custom Compounded -->
+          <article class="infusion-item reveal" aria-label="Custom Compounded Infusions">
+            <div class="infusion-item__head">
+              <span class="infusion-item__index">05</span>
+              <div class="infusion-item__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M9 3L6 8V19C6 20.1 6.9 21 8 21H16C17.1 21 18 20.1 18 19V8L15 3H9Z" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round"/>
+                  <line x1="6" y1="8" x2="18" y2="8" stroke="currentColor" stroke-width="1.25"/>
+                  <path d="M12 11V15M10 13H14" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"/>
+                </svg>
+              </div>
+            </div>
+            <div class="infusion-item__body">
+              <h3 class="infusion-item__name">Custom &amp; Compounded Drips</h3>
+              <p class="infusion-item__desc">
+                Physician-designed formulations prepared at an accredited
+                compounding pharmacy &mdash; combining agents from multiple categories
+                into a single infusion tailored to your presenting symptoms,
+                labs, and treatment history. Developed in consultation only.
+              </p>
+              <ul class="infusion-item__tags" aria-label="Applications">
+                <li>Physician-Designed</li>
+                <li>Lab-Guided</li>
+                <li>Multi-Agent</li>
+                <li>By Consultation</li>
+              </ul>
+            </div>
+          </article>
+
+        </div><!-- /.infusion-menu -->
+      </div><!-- /.section__inner -->
+    </section>
+
+
+    <!-- ── WHAT TO EXPECT ── -->
+    <section class="section infusion-process" aria-labelledby="process-heading">
+      <div class="section__inner">
+        <div class="infusion-process__header reveal">
+          <span class="section__label">Your Experience</span>
+          <h2 class="section__heading" id="process-heading">What to expect</h2>
+        </div>
+        <div class="infusion-steps">
+          <div class="infusion-step reveal">
+            <span class="infusion-step__num">I</span>
+            <div class="infusion-step__content">
+              <h3 class="infusion-step__title">Intake &amp; consultation</h3>
+              <p class="infusion-step__body">
+                A physician reviews your medical history, current medications,
+                and goals. Lab work may be ordered before your first session.
+                No infusion begins without a clinical clearance.
+              </p>
+            </div>
+          </div>
+          <div class="infusion-step reveal">
+            <span class="infusion-step__num">II</span>
+            <div class="infusion-step__content">
+              <h3 class="infusion-step__title">Protocol design</h3>
+              <p class="infusion-step__body">
+                Your physician builds a custom infusion plan &mdash; selecting agents,
+                dose, rate, and session cadence. For ketamine, integration
+                support and preparation guidance are included.
+              </p>
+            </div>
+          </div>
+          <div class="infusion-step reveal">
+            <span class="infusion-step__num">III</span>
+            <div class="infusion-step__content">
+              <h3 class="infusion-step__title">Your infusion session</h3>
+              <p class="infusion-step__body">
+                Administered in a private, low-stimulus suite. A clinician
+                monitors vitals throughout. Sessions range from 45 minutes
+                to four hours depending on the modality.
+              </p>
+            </div>
+          </div>
+          <div class="infusion-step reveal">
+            <span class="infusion-step__num">IV</span>
+            <div class="infusion-step__content">
+              <h3 class="infusion-step__title">Follow-up &amp; continuity</h3>
+              <p class="infusion-step__body">
+                After each session your care team reviews response and adjusts
+                the plan as needed. Maintenance schedules are built around your
+                clinical trajectory, not a fixed package.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ── ENVIRONMENT — dark band ── -->
+    <section class="section section--dark infusion-environment" aria-label="About the center environment">
+      <div class="section__inner infusion-environment__inner">
+        <blockquote class="infusion-env__quote reveal">
+          <p>The infusion suite is designed to disappear &mdash; quiet light, still air,
+          no clinical noise. The only thing present is the therapy.</p>
+          <cite class="infusion-env__cite">The Monti Institute Infusion Center, Reno</cite>
+        </blockquote>
+        <div class="infusion-env__pillars reveal">
+          <div class="infusion-env__pillar">
+            <span class="infusion-env__pillar-label">Environment</span>
+            <p class="infusion-env__pillar-text">Private, low-stimulus treatment suites with adjustable lighting and sound.</p>
+          </div>
+          <div class="infusion-env__pillar">
+            <span class="infusion-env__pillar-label">Supervision</span>
+            <p class="infusion-env__pillar-text">Physician-led team present throughout every infusion. Vitals monitored continuously.</p>
+          </div>
+          <div class="infusion-env__pillar">
+            <span class="infusion-env__pillar-label">Privacy</span>
+            <p class="infusion-env__pillar-text">No shared infusion bays. Your session, your space &mdash; no other patients present.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ── BOOK CTA ── -->
+    <section class="section infusion-cta" aria-label="Book an infusion appointment">
+      <div class="section__inner infusion-cta__inner reveal">
+        <span class="section__label">Ready to begin</span>
+        <h2 class="infusion-cta__heading">Schedule your infusion appointment</h2>
+        <p class="infusion-cta__body">
+          Infusion appointments begin with a physician consultation. Use the
+          link below to request a time &mdash; our team will confirm your slot and
+          send pre-appointment instructions within one business day.
+        </p>
+        <a href="contact.html" class="btn btn--primary infusion-cta__btn"
+           style="text-decoration:none;display:inline-flex;align-items:center;gap:0.6rem">
+          Book an appointment
+          <svg viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
+               style="width:13px;height:13px;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round">
+            <path d="M2 7H12M8 3L12 7L8 11"/>
+          </svg>
+        </a>
+        <p class="infusion-cta__note">
+          For urgent migraine infusions or same-day needs, call the clinic directly.
+        </p>
+      </div>
+    </section>
+
+  </main><!-- /#js-outlet -->
+
+
+  <footer style="background:transparent;color:rgba(255,255,255,0.6);font-size:0.85rem;padding:20px 40px;display:flex;justify-content:space-between;align-items:center;">
+    <p style="margin:0;">&copy; 2026 Monti Institute of Neuro Aesthetics. All Rights Reserved.</p>
+    <p style="margin:0;"><a href="privacy-policy.html" style="color:rgba(255,255,255,0.8);text-decoration:none;">Privacy Policy</a></p>
+  </footer>
+
+  <script src="script.js"></script>
+
+  <!-- NextivaCX Widget -->
+  <script
+    id="nextivacx-code-snippet"
+    src="https://d3po7etsbw5eiv.cloudfront.net/Simplify360Chat.js?key=NmEyYzY1ZDk1ZDlkM2I5YWJmMjM1MzAyfDQzMTk0Mjc=">
+  </script>
+
+  <!-- ══════════════════════════════════════════════════════════
+       INFUSION CENTER — SCOPED CSS
+       All selectors are prefixed to prevent bleed into other pages.
+  ══════════════════════════════════════════════════════════ -->
+  <style>
+
+  /* ── Page atmosphere: IV drip line art, right side ── */
+  .infusion-page-bg {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+  }
+  .infusion-page-bg svg {
+    position: absolute;
+    right: -4%;
+    top: 8%;
+    width: clamp(260px, 38vw, 480px);
+    height: auto;
+    color: var(--gold);
+    opacity: 0.05;
+  }
+  .inner-page { position: relative; z-index: 1; }
+
+  /* ── Page header ── */
+  .infusion-header {
+    padding-block-end: clamp(2rem, 3vw, 3rem);
+  }
+
+  /* ── Stat strip ── */
+  .infusion-env {
+    margin-block-start: clamp(2rem, 4vw, 3.5rem);
+    padding-block: clamp(2rem, 3vw, 2.5rem);
+    border-top: 1px solid var(--stone);
+    border-bottom: 1px solid var(--stone);
+  }
+  .infusion-env__grid {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .infusion-env__stat {
+    flex: 1;
+    min-width: 120px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    padding-inline: clamp(1rem, 2vw, 2rem);
+  }
+  .infusion-env__stat:first-child { padding-inline-start: 0; }
+  .infusion-env__stat-num {
+    font-family: var(--f-display);
+    font-size: clamp(1.4rem, 2.4vw, 2rem);
+    font-weight: 300;
+    color: var(--deep);
+    line-height: 1;
+    letter-spacing: -0.01em;
+  }
+  .infusion-env__stat-label {
+    font-size: 0.62rem;
+    font-weight: 400;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--taupe);
+  }
+  .infusion-env__divider {
+    width: 1px;
+    height: 2.5rem;
+    background: var(--stone);
+    flex-shrink: 0;
+  }
+
+  /* ── Services header ── */
+  .infusion-services__header {
+    margin-block-end: clamp(2.5rem, 4vw, 4rem);
+  }
+  .infusion-services__sub {
+    font-size: clamp(0.875rem, 1.3vw, 1rem);
+    font-weight: 300;
+    color: var(--muted);
+    line-height: 1.88;
+    max-width: 52ch;
+    margin-block-start: 0.85rem;
+  }
+
+  /* ── Service menu ── */
+  .infusion-menu {
+    display: flex;
+    flex-direction: column;
+  }
+  .infusion-item {
+    display: grid;
+    grid-template-columns: 5rem 1fr;
+    gap: 0 clamp(1.5rem, 3vw, 3rem);
+    padding-block: clamp(1.75rem, 3vw, 2.5rem);
+    border-top: 1px solid var(--stone);
+    transition: border-color 0.3s ease;
+    align-items: start;
+  }
+  .infusion-item:last-child { border-bottom: 1px solid var(--stone); }
+  .infusion-item:hover { border-color: var(--gold); }
+  .infusion-item__head {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.85rem;
+    padding-block-start: 0.2rem;
+  }
+  .infusion-item__index {
+    font-family: var(--f-display);
+    font-size: 0.68rem;
+    letter-spacing: 0.22em;
+    color: var(--taupe);
+  }
+  .infusion-item__icon {
+    width: 32px;
+    height: 32px;
+    color: var(--gold);
+    opacity: 0.7;
+  }
+  .infusion-item__icon svg { width: 100%; height: 100%; }
+  .infusion-item__name {
+    font-family: var(--f-display);
+    font-size: clamp(1.2rem, 2vw, 1.55rem);
+    font-weight: 400;
+    color: var(--deep);
+    line-height: 1.2;
+    margin-block-end: 0.65rem;
+  }
+  .infusion-item__desc {
+    font-size: 0.875rem;
+    font-weight: 300;
+    color: var(--muted);
+    line-height: 1.88;
+    max-width: 56ch;
+    margin-block-end: 1rem;
+  }
+  .infusion-item__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .infusion-item__tags li {
+    font-size: 0.6rem;
+    font-weight: 400;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--muted);
+    border: 1px solid var(--stone);
+    padding: 0.25rem 0.65rem;
+    transition: border-color 0.25s, color 0.25s;
+  }
+  .infusion-item:hover .infusion-item__tags li {
+    border-color: rgba(154,128,96,0.35);
+    color: var(--charcoal);
+  }
+
+  /* ── Process steps ── */
+  .infusion-process__header { margin-block-end: clamp(2.5rem, 4vw, 4rem); }
+  .infusion-steps { display: flex; flex-direction: column; }
+  .infusion-step {
+    display: grid;
+    grid-template-columns: 5rem 1fr;
+    gap: 0 clamp(1.5rem, 3vw, 3rem);
+    padding-block: clamp(1.5rem, 2.5vw, 2.25rem);
+    border-top: 1px solid var(--stone);
+  }
+  .infusion-step:last-child { border-bottom: 1px solid var(--stone); }
+  .infusion-step__num {
+    font-family: var(--f-display);
+    font-size: clamp(1.4rem, 2.2vw, 1.8rem);
+    font-weight: 300;
+    color: var(--gold);
+    opacity: 0.5;
+    line-height: 1;
+    padding-block-start: 0.15rem;
+  }
+  .infusion-step__title {
+    font-family: var(--f-display);
+    font-size: clamp(1.05rem, 1.7vw, 1.3rem);
+    font-weight: 400;
+    color: var(--deep);
+    margin-block-end: 0.5rem;
+  }
+  .infusion-step__body {
+    font-size: 0.875rem;
+    font-weight: 300;
+    color: var(--muted);
+    line-height: 1.88;
+    max-width: 54ch;
+  }
+
+  /* ── Dark environment band ── */
+  .infusion-environment__inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(3rem, 6vw, 7rem);
+    align-items: center;
+  }
+  .infusion-env__quote { margin: 0; padding: 0; border: none; }
+  .infusion-env__quote p {
+    font-family: var(--f-display);
+    font-size: clamp(1.4rem, 2.8vw, 2.2rem);
+    font-weight: 300;
+    font-style: italic;
+    color: var(--ivory);
+    line-height: 1.48;
+    margin-block-end: 1.25rem;
+  }
+  .infusion-env__cite {
+    font-size: 0.62rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(184,173,158,0.35);
+    font-style: normal;
+    display: block;
+  }
+  .infusion-env__pillars { display: flex; flex-direction: column; gap: 1.75rem; }
+  .infusion-env__pillar-label {
+    display: block;
+    font-size: 0.6rem;
+    font-weight: 400;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-block-end: 0.5rem;
+  }
+  .infusion-env__pillar-text {
+    font-size: 0.875rem;
+    font-weight: 300;
+    color: rgba(248,245,240,0.52);
+    line-height: 1.82;
+  }
+
+  /* ── CTA ── */
+  .infusion-cta { border-top: 1px solid var(--stone); }
+  .infusion-cta__inner {
+    max-width: 640px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .infusion-cta__heading {
+    font-family: var(--f-display);
+    font-size: clamp(1.6rem, 3vw, 2.6rem);
+    font-weight: 300;
+    color: var(--deep);
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    margin-block-end: 1rem;
+  }
+  .infusion-cta__body {
+    font-size: clamp(0.875rem, 1.2vw, 0.95rem);
+    font-weight: 300;
+    color: var(--muted);
+    line-height: 1.88;
+    max-width: 52ch;
+    margin-block-end: 2rem;
+  }
+  .infusion-cta__btn { margin-block-end: 1.25rem; }
+  .infusion-cta__note {
+    font-size: 0.72rem;
+    font-weight: 300;
+    color: var(--taupe);
+    letter-spacing: 0.04em;
+    line-height: 1.7;
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 860px) {
+    .infusion-environment__inner { grid-template-columns: 1fr; gap: clamp(2rem, 4vw, 3.5rem); }
+  }
+  @media (max-width: 680px) {
+    .infusion-item,
+    .infusion-step { grid-template-columns: 3rem 1fr; gap: 0 1rem; }
+    .infusion-env__grid { gap: 1.5rem 0; }
+    .infusion-env__divider { display: none; }
+    .infusion-env__stat { min-width: 45%; padding-inline: 0; }
+  }
+  @media (max-width: 480px) {
+    .infusion-item,
+    .infusion-step { grid-template-columns: 1fr; }
+    .infusion-item__head { flex-direction: row; align-items: center; gap: 1rem; }
+  }
+
+  /* ── Migraine Mode overrides ── */
+  body.dark-theme .infusion-page-bg svg { opacity: 0.07; }
+  body.dark-theme .infusion-env { border-color: rgba(255,255,255,0.07); }
+  body.dark-theme .infusion-env__divider { background: rgba(255,255,255,0.07); }
+  body.dark-theme .infusion-env__stat-num { color: rgba(220,215,205,0.9); }
+  body.dark-theme .infusion-item,
+  body.dark-theme .infusion-step { border-color: rgba(255,255,255,0.07); }
+  body.dark-theme .infusion-item__name,
+  body.dark-theme .infusion-step__title { color: rgba(220,215,205,0.9); }
+  body.dark-theme .infusion-item__tags li { border-color: rgba(255,255,255,0.1); color: rgba(200,190,175,0.55); }
+  body.dark-theme .infusion-cta { border-color: rgba(255,255,255,0.07); }
+  body.dark-theme .infusion-cta__heading { color: rgba(220,215,205,0.9); }
+  body.dark-theme .infusion-services__sub,
+  body.dark-theme .infusion-item__desc,
+  body.dark-theme .infusion-step__body,
+  body.dark-theme .infusion-cta__body { color: rgba(200,190,175,0.6); }
+
+  </style>
+
+</body>
+</html>
