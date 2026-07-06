@@ -44,14 +44,16 @@
         <i aria-hidden="true"></i>
       </button>
       <ul class="nav__list" id="js-nav-list" role="list">
-  <li><a href="/" class="nav__link">Home</a></li>
-      <li><a href="/neurological-medicine" class="nav__link">Neurological Medicine</a></li>
-      <li><a href="/infusion-center" class="nav__link">Infusion Center</a></li>
-      <li><a href="about" class="nav__link is-active" aria-current="page">About</a></li>
-      <li><a href="clinical-standards" class="nav__link">Clinical Standards</a></li>
-      <li><a href="wellness-store" class="nav__link">Wellness Store</a></li>
-      <li><a href="gift-credits" class="nav__link">Gift Credits</a></li>
-      <li><a href="contact" class="nav__link">Contact</a></li>
+ <li><a href="/" class="nav__link">Home</a></li>
+<li><a href="/neurological-medicine" class="nav__link">Neurological Medicine</a></li>
+<li><a href="/aesthetic-medicine" class="nav__link">Aesthetic Medicine</a></li>
+<li><a href="/infusion-center" class="nav__link">Infusion Center</a></li>
+<li><a href="/about" class="nav__link">About</a></li>
+<li><a href="/clinical-standards" class="nav__link">Clinical Standards</a></li>
+<li><a href="/wellness-store" class="nav__link">Wellness Store</a></li>
+<li><a href="/gift-credits" class="nav__link">Gift Credits</a></li>
+<li><a href="/financing-memberships" class="nav__link">Financing &amp; Memberships</a></li>
+<li><a href="/contact" class="nav__link">Contact</a></li>
       
       <button class="dark-toggle nav__migraine-toggle"
               id="dark-mode-toggle"
