@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gift Credits — Monti Institute of Neuro Aesthetics</title>
-  <meta name="description" content="Monti Institute of Neuro Aesthetics — Physician-led neurological and aesthetic medicine in Reno, Nevada.">
+  <title>Memberships &amp; Financing &mdash; Monti Institute of Neuro Aesthetics</title>
+  <meta name="description" content="Membership programs and financing options at Monti Institute of Neuro Aesthetics, Reno, Nevada.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@200;300;400&display=swap" rel="stylesheet">
@@ -12,118 +12,82 @@
 </head>
 <body>
 
-  <!-- ── Dark Mode Toast ── -->
   <div id="dark-toast" role="status" aria-live="polite" aria-atomic="true">
-    <span id="dark-toast__title">Migraine Mode — On</span>
-    <p id="dark-toast__body">Low-glare display activated. Optimized for light-sensitive viewing.</p>
+    <span id="dark-toast__title"></span>
+    <span id="dark-toast__body"></span>
   </div>
 
-
   <div id="scroll-progress" role="progressbar" aria-hidden="true"></div>
-  <button id="back-to-top" type="button" aria-label="Back to top" title="Back to top">
+
+  <button id="back-to-top" type="button" aria-label="Back to top">
     <svg viewBox="0 0 24 24" aria-hidden="true" style="width:14px;height:14px;stroke:var(--gold);stroke-width:1.5;fill:none;stroke-linecap:round;stroke-linejoin:round">
       <path d="M12 19V5M5 12l7-7 7 7"/>
     </svg>
   </button>
 
-    <nav class="nav" id="js-nav" role="navigation" aria-label="Main navigation">
+  <nav class="nav" id="js-nav" role="navigation" aria-label="Main navigation">
     <div class="nav__inner">
-      <a href="/" class="nav__brand" aria-label="Monti Institute — Home">
+      <a href="/" class="nav__brand" aria-label="Monti Institute &mdash; Home">
         <img src="images/official-logo.png" alt="Monti Institute" class="nav__logo-img site-logo">
         <span class="nav__brand-text">Monti Institute</span>
       </a>
-      <button
-        class="nav__toggle"
-        id="js-nav-toggle"
-        aria-expanded="false"
-        aria-controls="js-nav-list"
-        aria-label="Toggle navigation"
-      >
+      <button class="nav__toggle" id="js-nav-toggle"
+              aria-expanded="false" aria-controls="js-nav-list" aria-label="Toggle navigation">
         <i aria-hidden="true"></i>
         <i aria-hidden="true"></i>
         <i aria-hidden="true"></i>
       </button>
-     /* ── Nav Dropdowns ── */
-.nav__item--dropdown { position: relative; list-style: none; }
-.nav__dropdown-toggle {
-  background: none;
-  border: none;
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-  padding: 0;
-  font: inherit;
-  color: inherit;
-}
-.nav__chevron {
-  width: 10px;
-  height: 10px;
-  transition: transform 0.25s ease;
-  flex-shrink: 0;
-}
-.nav__item--dropdown[data-open] .nav__chevron { transform: rotate(180deg); }
-.nav__dropdown {
-  display: none;
-  position: absolute;
-  top: calc(100% + 0.75rem);
-  left: 50%;
-  transform: translateX(-50%);
-  min-width: 220px;
-  background: var(--ivory);
-  border: 1px solid var(--stone);
-  padding: 0.5rem 0;
-  list-style: none;
-  z-index: 200;
-  box-shadow: 0 8px 32px rgba(26,22,20,0.10);
-}
-.nav__item--dropdown[data-open] .nav__dropdown { display: block; }
-.nav__dropdown-link {
-  display: block;
-  padding: 0.6rem 1.25rem;
-  font-size: 0.78rem;
-  font-weight: 300;
-  letter-spacing: 0.08em;
-  color: var(--charcoal);
-  text-decoration: none;
-  transition: color 0.2s, background 0.2s;
-  white-space: nowrap;
-}
-.nav__dropdown-link:hover { color: var(--gold); background: rgba(154,128,96,0.05); }
-
-/* Dark mode */
-body.dark-theme .nav__dropdown { background: #1A1614; border-color: rgba(255,255,255,0.08); }
-body.dark-theme .nav__dropdown-link { color: rgba(220,215,205,0.75); }
-body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
-      
-      <button class="dark-toggle nav__migraine-toggle"
-              id="dark-mode-toggle"
-              type="button"
-              aria-label="Toggle Migraine-Friendly Viewing Mode"
-              aria-pressed="false"
-              title="Migraine Mode — reduces brightness for light-sensitive viewing">
-        <svg class="dark-toggle__icon" viewBox="0 0 24 24"
-             aria-hidden="true" width="14" height="14">
-          <ellipse cx="12" cy="12" rx="4" ry="4"
-                   fill="none" stroke="currentColor" stroke-width="1.5"/>
-          <path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.93 4.93l1.41 1.41
-                   M17.66 17.66l1.41 1.41M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"
-                fill="none" stroke="currentColor"
-                stroke-width="1.5" stroke-linecap="round"/>
-        </svg>
-        <span class="dark-toggle__label">Migraine Mode</span>
-        <span class="dark-toggle__switch" aria-hidden="true"></span>
-      </button>
-</ul>
+      <ul class="nav__list" id="js-nav-list" role="list">
+        <li><a href="/" class="nav__link">Home</a></li>
+        <li class="nav__item--dropdown">
+          <button class="nav__link nav__dropdown-toggle" aria-expanded="false" aria-haspopup="true">
+            Services
+            <svg viewBox="0 0 12 12" aria-hidden="true" class="nav__chevron"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <ul class="nav__dropdown" role="list">
+            <li><a href="neurological-medicine.html" class="nav__dropdown-link">Neurological Medicine</a></li>
+            <li><a href="aesthetic-medicine.html" class="nav__dropdown-link">Aesthetic Medicine</a></li>
+            <li><a href="infusion-center.html" class="nav__dropdown-link">Infusion Center</a></li>
+          </ul>
+        </li>
+        <li class="nav__item--dropdown">
+          <button class="nav__link nav__dropdown-toggle" aria-expanded="false" aria-haspopup="true">
+            About
+            <svg viewBox="0 0 12 12" aria-hidden="true" class="nav__chevron"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <ul class="nav__dropdown" role="list">
+            <li><a href="about.html" class="nav__dropdown-link">Our Team &amp; Philosophy</a></li>
+            <li><a href="clinical-standards.html" class="nav__dropdown-link">Clinical Standards</a></li>
+            <li><a href="financing-memberships.html" class="nav__dropdown-link is-active" aria-current="page">Memberships &amp; Financing</a></li>
+          </ul>
+        </li>
+        <li><a href="wellness-store.html" class="nav__link">Store</a></li>
+        <li><a href="contact.html" class="nav__link">Contact</a></li>
+      </ul>
     </div>
   </nav>
+
+  <button class="dark-toggle nav__migraine-toggle"
+          id="dark-mode-toggle"
+          type="button"
+          aria-label="Toggle Migraine-Friendly Viewing Mode"
+          aria-pressed="false"
+          title="Migraine Mode &mdash; reduces brightness for light-sensitive viewing">
+    <svg class="dark-toggle__icon" viewBox="0 0 24 24" aria-hidden="true" width="14" height="14">
+      <ellipse cx="12" cy="12" rx="4" ry="4" fill="none" stroke="currentColor" stroke-width="1.5"/>
+      <path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"
+            fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+    </svg>
+    <span class="dark-toggle__label">Migraine Mode</span>
+    <span class="dark-toggle__switch" aria-hidden="true"></span>
+  </button>
 
   <main id="js-outlet">
 <div class="inner-page">
       <div class="inner-page__inner">
 
         <span class="inner-page__eyebrow">A gift worthy of the people you value most</span>
-        <h1 class="inner-page__title">Gift<br><em>Credits</em></h1>
+        <h1 class="inner-page__title">Memberships &amp;<br><em>Financing</em></h1>
         <p class="inner-page__lead">
           Bestow the gift of precision clinical care. Monti Institute gift credits
           are redeemable across both divisions of the practice &mdash; neurological
@@ -139,7 +103,7 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
         <div class="gift-grid">
 
           <!-- $250 -->
-          <div class="gift-card" aria-label="$250 — The Introductory Consultation Credit">
+          <div class="gift-card" aria-label="$250  The Introductory Consultation Credit">
             <p class="gift-card__amount">$250</p>
             <p class="gift-card__label">The Introductory Consultation</p>
             <p class="gift-card__desc">
@@ -158,7 +122,7 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
           </div>
 
           <!-- $500 -->
-          <div class="gift-card" aria-label="$500 — The Clinical Treatment Credit">
+          <div class="gift-card" aria-label="$500  The Clinical Treatment Credit">
             <p class="gift-card__amount">$500</p>
             <p class="gift-card__label">The Clinical Treatment Credit</p>
             <p class="gift-card__desc">
@@ -177,7 +141,7 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
           </div>
 
           <!-- $1,000 -->
-          <div class="gift-card" aria-label="$1,000 — The Clinical Wellness Credit">
+          <div class="gift-card" aria-label="$1,000  The Clinical Wellness Credit">
             <p class="gift-card__amount">$1,000</p>
             <p class="gift-card__label">The Clinical Wellness Credit</p>
             <p class="gift-card__desc">
@@ -196,7 +160,7 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
           </div>
 
           <!-- $2,500 -->
-          <div class="gift-card" aria-label="$2,500 — The Continuum Care Credit">
+          <div class="gift-card" aria-label="$2,500  The Continuum Care Credit">
             <p class="gift-card__amount">$2,500</p>
             <p class="gift-card__label">The Continuum Care Credit</p>
             <p class="gift-card__desc">
@@ -215,7 +179,7 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
           </div>
 
           <!-- Custom -->
-          <div class="gift-card" aria-label="Custom — A Bespoke Contribution">
+          <div class="gift-card" aria-label="Custom  A Bespoke Contribution">
             <p class="gift-card__amount">Custom</p>
             <p class="gift-card__label">A Bespoke Contribution</p>
             <p class="gift-card__desc">
@@ -256,10 +220,15 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
     </div><!-- inner-page -->
   </main>
 
-  <!-- CHERRY WIDGET BEGIN -->
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400..900&family=Slabo+27px&family=Lato:wght@100;300;400;700;900&family=Raleway:wght@100..900&family=Montserrat:wght@100..900&family=Oswald:wght@200..700&family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@100..900&family=Source+Sans+3:wght@200..900&family=PT+Sans:wght@400;700&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet" />
-<script>
-    (function (w, d, s, o, f, js, fjs) {
+  <footer style="background:transparent;color:rgba(255,255,255,0.6);font-size:0.85rem;padding:20px 40px;display:flex;justify-content:space-between;align-items:center;">
+    <p style="margin:0;">&copy; 2026 Monti Institute of Neuro Aesthetics. All Rights Reserved.</p>
+    <p style="margin:0;"><a href="privacy.html" style="color:rgba(255,255,255,0.8);text-decoration:none;">Privacy Policy</a></p>
+  </footer>
+
+  <script src="script.js"></script>
+
+  <script>
+  (function (w, d, s, o, f, js, fjs) {
         w[o] = w[o] || function () {
             (w[o].q = w[o].q || []).push(arguments);
         };
@@ -288,17 +257,12 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
             headerFontFamily: 'Open Sans',
         }
     }, ['hero','calculator','howitworks','faq']);
-</script>
-<div id="all"></div>
-      <div id="hero"></div>
-      <div id="calculator"></div>
-      <div id="howitworks"></div>
-      <div id="testimony"></div>
-      <div id="faq"></div>
-<!-- CHERRY WIDGET END -->
+  </script>
 
-
-  <script src="script.js"></script>
+  <script
+    id="nextivacx-code-snippet"
+    src="https://d3po7etsbw5eiv.cloudfront.net/Simplify360Chat.js?key=NmEyYzY1ZDk1ZDlkM2I5YWJmMjM1MzAyfDQzMTk0Mjc=">
+  </script>
 
 </body>
 </html>
