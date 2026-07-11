@@ -64,7 +64,9 @@
           </ul>
         </li>
         <li><a href="wellness-store.html" class="nav__link">Store</a></li>
-        <li><a href="contact.html" class="nav__link is-active" aria-current="page">Contact</a></li>
+        <li><a href="medical-disclaimer.html" style="font-size:0.72rem;letter-spacing:0.15em;text-transform:uppercase;color:rgba(154,128,96,0.85);text-decoration:none;" onmouseover="this.style.color=\'#C4A97D\'" onmouseout="this.style.color=\'rgba(154,128,96,0.85)\'">Medical Disclaimer</a>
+      <a href="accessibility.html" style="font-size:0.72rem;letter-spacing:0.15em;text-transform:uppercase;color:rgba(154,128,96,0.85);text-decoration:none;" onmouseover="this.style.color='#C4A97D'" onmouseout="this.style.color='rgba(154,128,96,0.85)'">Accessibility</a>
+      <a href="contact.html" class="nav__link is-active" aria-current="page">Contact</a></li>
       </ul>
     </div>
   </nav>
@@ -159,7 +161,7 @@
               <div class="contact-qr__code">
                 <img
                   src="images/qr-code-navy.png"
-                  alt="Monti Institute QR Code  scan to visit monti-institute.com"
+                  alt="Monti Institute QR Code  scan to visit monti-institute.com"
                   width="400"
                   height="400"
                   loading="lazy"
@@ -212,7 +214,7 @@
                   <label class="form-label" for="cf-firstname">
                     First Name <span class="form-required" aria-hidden="true">*</span>
                   </label>
-                  <input class="form-input" id="cf-firstname" type="text"
+                  <input class="form-input" id="cf-firstname"  aria-invalid="false" aria-describedby="err-cf-firstname"
                          name="firstname" autocomplete="given-name" required aria-required="true"/>
                   <span class="form-error-msg" id="err-cf-firstname" role="alert">
                     First name is required.
@@ -222,7 +224,7 @@
                   <label class="form-label" for="cf-lastname">
                     Last Name <span class="form-required" aria-hidden="true">*</span>
                   </label>
-                  <input class="form-input" id="cf-lastname" type="text"
+                  <input class="form-input" id="cf-lastname"  aria-invalid="false" aria-describedby="err-cf-lastname"
                          name="lastname" autocomplete="family-name" required aria-required="true"/>
                   <span class="form-error-msg" id="err-cf-lastname" role="alert">
                     Last name is required.
@@ -235,7 +237,7 @@
                   <label class="form-label" for="cf-email">
                     Email Address <span class="form-required" aria-hidden="true">*</span>
                   </label>
-                  <input class="form-input" id="cf-email" type="email"
+                  <input class="form-input" id="cf-email"  aria-invalid="false" aria-describedby="err-cf-email"
                          name="email" autocomplete="email" required aria-required="true"/>
                   <span class="form-error-msg" id="err-cf-email" role="alert">
                     A valid email address is required.
@@ -243,7 +245,7 @@
                 </div>
                 <div class="form-field-wrap">
                   <label class="form-label" for="cf-phone">Phone Number</label>
-                  <input class="form-input" id="cf-phone" type="tel"
+                  <input class="form-input" id="cf-phone"  aria-invalid="false" aria-describedby="err-cf-phone"
                          name="phone" autocomplete="tel"/>
                 </div>
               </div>
@@ -279,7 +281,7 @@
                 <label class="form-label" for="cf-message">
                   Message <span class="form-required" aria-hidden="true">*</span>
                 </label>
-                <textarea class="form-textarea" id="cf-message" name="message" rows="5"
+                <textarea class="form-textarea" id="cf-message" aria-invalid="false" aria-describedby="err-cf-message" name="message" rows="5"
                           required aria-required="true"
                           placeholder="Please describe your enquiry, any relevant history, or preferred scheduling windows."></textarea>
                 <span class="form-error-msg" id="err-cf-message" role="alert">
@@ -289,7 +291,7 @@
 
               <div class="form-consent">
                 <input type="checkbox" class="form-consent__checkbox"
-                       id="cf-consent" name="consent" required aria-required="true"/>
+                       id="cf-consent" name="consent" required aria-required="true" aria-describedby="err-cf-consent"/>
                 <label class="form-consent__text" for="cf-consent">
                   I consent to Monti Institute collecting and processing my information
                   to respond to this enquiry. I understand this form is not a secure channel
@@ -299,6 +301,23 @@
               <span class="form-error-msg" id="err-cf-consent" role="alert">
                 Please confirm your consent to continue.
               </span>
+
+              
+              <!-- Form disclaimer — no provider relationship established -->
+              <div class="form-disclaimer" role="note" aria-label="Legal notice">
+                <p class="form-disclaimer__text">
+                  <strong>Important:</strong> Submitting this form does not establish
+                  a provider-patient relationship, constitute medical advice, or create
+                  a clinical contract of any kind. A formal care relationship is
+                  established only following a completed in-person clinical evaluation
+                  and execution of all required intake and consent documentation.
+                  Do not submit urgent medical concerns through this form.
+                  If you are experiencing a medical emergency, call&nbsp;911.
+                </p>
+                <a href="medical-disclaimer.html" class="form-disclaimer__link">
+                  Read our full Medical Disclaimer
+                </a>
+              </div>
 
               <div style="padding-block-start:0.5rem">
                 <button type="submit" id="cf-submit" class="btn btn--primary"
@@ -315,13 +334,13 @@
         </div><!-- /.contact-grid -->
 
 
-        <!-- VISIT THE INSTITUTE  Map section -->
+        <!-- VISIT THE INSTITUTE  Map section -->
         <section class="map-section map-section--dark" aria-labelledby="map-heading">
           <div class="map-photo-banner">
             <img
               class="map-photo-banner__img"
               src="images/Vassar.PNG"
-              alt="Monti Institute of Neuro Aesthetics  2440 Vassar Street, Reno NV"
+              alt="Monti Institute of Neuro Aesthetics  2440 Vassar Street, Reno NV"
               loading="lazy"
               width="1200"
               height="374"
@@ -717,7 +736,20 @@
 
   </main>
 
-  <footer style="background:transparent;color:rgba(255,255,255,0.6);font-size:0.85rem;padding:20px 40px;display:flex;justify-content:space-between;align-items:center;">
+    <div class="site-disclaimer" role="note" aria-label="Medical and legal disclaimer">
+    <p class="site-disclaimer__text">
+      The content on this website is for informational purposes only and does not
+      constitute medical advice, diagnosis, or treatment, and does not establish a
+      provider-patient relationship. Always consult a qualified healthcare professional
+      regarding your individual health circumstances. In a medical emergency, call 911.
+      &nbsp;&middot;&nbsp;
+      <a href="medical-disclaimer.html">Full Medical Disclaimer</a>
+      &nbsp;&middot;&nbsp;
+      <a href="privacy-policy.html">Privacy Policy</a>
+    </p>
+  </div>
+
+<footer role="contentinfo" style="background:transparent;color:rgba(255,255,255,0.6);font-size:0.85rem;padding:20px 40px;display:flex;justify-content:space-between;align-items:center;">
     <p style="margin:0;">&copy; 2026 Monti Institute of Neuro Aesthetics. All Rights Reserved.</p>
     <p style="margin:0;"><a href="privacy-policy.html" style="color:rgba(255,255,255,0.8);text-decoration:none;">Privacy Policy</a></p>
   </footer>
@@ -738,7 +770,7 @@
         test: v => v.trim().length > 0,
         msg:  'Last name is required.' },
       { id: 'cf-email',     errId: 'err-cf-email',
-        test: v => /^[^\@]+@[^\@]+\\.[^\@]+$/.test(v.trim()),
+        test: v => /^[^\\@]+@[^\\@]+\\\\.[^\\@]+$/.test(v.trim()),
         msg:  'A valid email address is required.' },
       { id: 'cf-message',   errId: 'err-cf-message',
         test: v => v.trim().length >= 10,
@@ -802,7 +834,7 @@
       }
 
       const btn = document.getElementById('cf-submit');
-      if (btn) { btn.disabled = true; btn.textContent = 'Sending\'; }
+      if (btn) { btn.disabled = true; btn.textContent = 'Sending\\'; }
 
       setTimeout(() => {
         form.style.display = 'none';
