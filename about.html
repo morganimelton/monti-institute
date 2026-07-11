@@ -43,20 +43,36 @@
         <i aria-hidden="true"></i>
         <i aria-hidden="true"></i>
       </button>
-      <ul class="nav__list" id="js-nav-list" role="list">
- <li><a href="/" class="nav__link">Home</a></li>
-<li><a href="neurological-medicine.html" class="nav__link">Neurological Medicine</a></li>
-<li><a href="aesthetic-medicine.html" class="nav__link">Aesthetic Medicine</a></li>
-<li><a href="infusion-center.html" class="nav__link">Infusion Center</a></li>
-<li><a href="about.html" class="nav__link">About</a></li>
-<li><a href="clinical-standards.html" class="nav__link">Clinical Standards</a></li>
-<li><a href="wellness-store.html" class="nav__link">Wellness Store</a></li>
-<li><a href="financing-memberships.html" class="nav__link">Financing &amp; Memberships</a></li>
-<li><a href="contact.html" class="nav__link">Contact</a></li>
-        <li><a href="privacy-policy.html" class="nav__link">Privacy Policy</a></li>
-      </ul>
-    </div>
-  </nav>
+   <ul class="nav__list" id="js-nav-list" role="list">
+  <li><a href="/" class="nav__link">Home</a></li>
+
+  <li class="nav__item--dropdown">
+    <button class="nav__link nav__dropdown-toggle" aria-expanded="false" aria-haspopup="true">
+      Services
+      <svg viewBox="0 0 12 12" aria-hidden="true" class="nav__chevron"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <ul class="nav__dropdown" role="list">
+      <li><a href="neurological-medicine.html" class="nav__dropdown-link">Neurological Medicine</a></li>
+      <li><a href="aesthetic-medicine.html" class="nav__dropdown-link">Aesthetic Medicine</a></li>
+      <li><a href="infusion-center.html" class="nav__dropdown-link">Infusion Center</a></li>
+    </ul>
+  </li>
+
+  <li class="nav__item--dropdown">
+    <button class="nav__link nav__dropdown-toggle" aria-expanded="false" aria-haspopup="true">
+      About
+      <svg viewBox="0 0 12 12" aria-hidden="true" class="nav__chevron"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <ul class="nav__dropdown" role="list">
+      <li><a href="about.html" class="nav__dropdown-link">Our Team &amp; Philosophy</a></li>
+      <li><a href="clinical-standards.html" class="nav__dropdown-link">Clinical Standards</a></li>
+      <li><a href="financing-memberships.html" class="nav__dropdown-link">Memberships &amp; Financing</a></li>
+    </ul>
+  </li>
+
+  <li><a href="wellness-store.html" class="nav__link">Store</a></li>
+  <li><a href="contact.html" class="nav__link">Contact</a></li>
+</ul>
       
       <button class="dark-toggle nav__migraine-toggle"
               id="dark-mode-toggle"
