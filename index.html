@@ -11,6 +11,8 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <a href="#js-outlet" class="skip-to-main" id="skip-to-main">Skip to main content</a>
+
 
   <nav class="nav" id="js-nav" role="navigation" aria-label="Main navigation">
     <div class="nav__inner">
@@ -24,7 +26,7 @@
         id="js-nav-toggle"
         aria-expanded="false"
         aria-controls="js-nav-list"
-        aria-label="Toggle navigation"
+        aria-label="Toggle navigation menu"
       >
         <i aria-hidden="true"></i>
         <i aria-hidden="true"></i>
@@ -90,7 +92,7 @@
     </svg>
   </button>
 
-  <main id="js-outlet">
+  <main id="js-outlet" tabindex="-1">
 
     <section class="hero" aria-labelledby="hero-heading">
       <div class="hero__eyebrow">
