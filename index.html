@@ -883,11 +883,12 @@
 
   <!-- Dropdown nav init -->
   <script>
-  (function initDropdowns() {
+  document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('.nav__item--dropdown').forEach(function(item) {
       var toggle = item.querySelector('.nav__dropdown-toggle');
       if (!toggle) return;
       toggle.addEventListener('click', function(e) {
+        e.preventDefault();
         e.stopPropagation();
         var isOpen = item.hasAttribute('data-open');
         document.querySelectorAll('.nav__item--dropdown[data-open]').forEach(function(el) {
@@ -901,14 +902,16 @@
         }
       });
     });
-    document.addEventListener('click', function() {
-      document.querySelectorAll('.nav__item--dropdown[data-open]').forEach(function(el) {
-        el.removeAttribute('data-open');
-        var t = el.querySelector('.nav__dropdown-toggle');
-        if (t) t.setAttribute('aria-expanded', 'false');
-      });
+    document.addEventListener('click', function(e) {
+      if (!e.target.closest('.nav__item--dropdown')) {
+        document.querySelectorAll('.nav__item--dropdown[data-open]').forEach(function(el) {
+          el.removeAttribute('data-open');
+          var t = el.querySelector('.nav__dropdown-toggle');
+          if (t) t.setAttribute('aria-expanded', 'false');
+        });
+      }
     });
-  })();
+  });
   </script>
 
 </body>
