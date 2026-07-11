@@ -7297,3 +7297,119 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
   }
   .nav__dropdown-link { font-size: 0.75rem; padding: 0.4rem 0.5rem; }
 }
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   ADA / WCAG 2.1 AA COMPLIANCE STYLES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+/* ── Skip to main content link ── */
+.skip-to-main {
+  position:    absolute;
+  top:         -100%;
+  left:        1rem;
+  z-index:     9999;
+  background:  var(--deep, #1A1614);
+  color:       var(--ivory, #F8F5F0);
+  padding:     0.75rem 1.25rem;
+  font-size:   0.8rem;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  text-transform: uppercase;
+  border:      2px solid var(--gold, #9A8060);
+  transition:  top 0.2s;
+}
+.skip-to-main:focus {
+  top: 1rem;
+  outline: 3px solid var(--gold, #9A8060);
+  outline-offset: 2px;
+}
+
+/* ── Global focus styles — visible on all interactive elements ── */
+*:focus-visible {
+  outline:        3px solid var(--gold, #9A8060);
+  outline-offset: 3px;
+  border-radius:  2px;
+}
+/* Remove outline for mouse users only (keyboard still shows) */
+*:focus:not(:focus-visible) { outline: none; }
+
+/* ── Nav focus styles ── */
+.nav__link:focus-visible,
+.nav__dropdown-toggle:focus-visible,
+.nav__dropdown-link:focus-visible,
+.nav__toggle:focus-visible,
+.nav__brand:focus-visible {
+  outline:        2px solid var(--gold, #9A8060);
+  outline-offset: 3px;
+  border-radius:  2px;
+}
+
+/* ── Button focus ── */
+.btn:focus-visible,
+button:focus-visible {
+  outline:        3px solid var(--gold, #9A8060);
+  outline-offset: 3px;
+}
+
+/* ── Form field focus ── */
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+  outline:        2px solid var(--gold, #9A8060);
+  outline-offset: 0;
+  border-color:   var(--gold, #9A8060);
+}
+
+/* ── Error states — sufficient contrast ── */
+.form-error-msg {
+  color: #C0392B; /* 4.5:1+ contrast on white */
+}
+body.dark-theme .form-error-msg {
+  color: #FF8A80; /* sufficient contrast on dark bg */
+}
+
+/* ── aria-invalid field styling ── */
+.form-input[aria-invalid="true"],
+.form-select[aria-invalid="true"],
+.form-textarea[aria-invalid="true"] {
+  border-color:   #C0392B;
+  outline:        1px solid #C0392B;
+}
+
+/* ── Reduced motion: disable all animations ── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration:   0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration:  0.01ms !important;
+    scroll-behavior:      auto !important;
+  }
+  .reveal {
+    opacity:   1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+/* ── High contrast mode support ── */
+@media (forced-colors: active) {
+  .nav__dropdown { border: 1px solid ButtonText; }
+  .btn--primary  { forced-color-adjust: none; }
+  .skip-to-main  { forced-color-adjust: none; }
+}
+
+/* ── Migraine Mode toggle — consistent aria-pressed state ── */
+.dark-toggle[aria-pressed="true"] .dark-toggle__switch {
+  background: var(--gold, #9A8060);
+}
+.dark-toggle[aria-pressed="true"] .dark-toggle__switch::after {
+  transform: translateX(18px);
+}
+
+/* ── Dropdown: aria-expanded state ── */
+.nav__dropdown-toggle[aria-expanded="true"] .nav__chevron {
+  transform: rotate(180deg);
+}
