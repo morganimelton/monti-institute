@@ -10,6 +10,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@200;300;400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <style>
+  /* ── Reveal fallback — ensure content shows even before IntersectionObserver fires ── */
+  .reveal { opacity:1 !important; transform:none !important; }
+
   /* ── Page atmosphere ── */
   .infusion-page-bg { position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden; }
   .infusion-page-bg svg { position:absolute;right:-4%;top:8%;width:clamp(260px,38vw,480px);height:auto;color:var(--gold);opacity:0.05; }
