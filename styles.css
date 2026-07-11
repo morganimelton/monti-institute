@@ -315,7 +315,6 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
       display: flex;
       align-items: center;
       width: 100%;
-      gap: clamp(2rem, 4vw, 4rem);
     }
     .nav__brand {
       overflow: visible;
@@ -417,6 +416,8 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
     .nav__list {
       display: flex; align-items: center;
       gap: clamp(1.25rem, 2.5vw, 2.75rem);
+      margin-inline-start: auto;
+      padding-inline-start: clamp(2rem, 4vw, 5rem);
     }
     .nav__list a {
       font-size: 0.7rem; font-weight: 400;
@@ -6561,7 +6562,7 @@ html { scroll-snap-type: none; }
     .dark-toggle[aria-pressed="true"] .dark-toggle__icon {
       stroke: var(--gold-lt, #C4A97D);
     }
-    .nav__migraine-toggle { margin-inline-start: auto; }
+    .nav__migraine-toggle { margin-inline-start: clamp(1rem, 2vw, 2rem); flex-shrink: 0; }
     @media (max-width: 860px) {
       .dark-toggle__label { display: none; }
       .dark-toggle { padding: 0.45rem 0.65rem; gap: 0.3rem; }
