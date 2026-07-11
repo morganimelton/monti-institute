@@ -311,10 +311,11 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
       overflow: visible;
     }
     .nav__inner {
-      overflow: visible;
       display: flex;
       align-items: center;
       width: 100%;
+      overflow: visible;
+      flex-wrap: nowrap;
     }
     .nav__brand {
       overflow: visible;
@@ -416,8 +417,8 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
     .nav__list {
       display: flex; align-items: center;
       gap: clamp(1.25rem, 2.5vw, 2.75rem);
-      margin-inline-start: auto;
-      padding-inline-start: clamp(2rem, 4vw, 5rem);
+      margin-inline-start: clamp(4rem, 8vw, 10rem);
+      flex-shrink: 0;
     }
     .nav__list a {
       font-size: 0.7rem; font-weight: 400;
@@ -6492,296 +6493,6 @@ html { scroll-snap-type: none; }
     /* 
        MIGRAINE MODE TOGGLE  COMPLETE CSS
      */
-    .dark-toggle {
-      display:         inline-flex;
-      align-items:     center;
-      gap:             0.45rem;
-      padding:         0.45rem 0.85rem 0.45rem 0.65rem;
-      background:      transparent;
-      border:          1px solid rgba(154,128,96,0.35);
-      border-radius:   2px;
-      color:           var(--muted);
-      font-family:     var(--f-body);
-      font-size:       0.58rem;
-      font-weight:     400;
-      letter-spacing:  0.14em;
-      text-transform:  uppercase;
-      cursor:          pointer;
-      white-space:     nowrap;
-      min-height:      32px;
-      flex-shrink:     0;
-      transition:      border-color 0.2s ease, color 0.2s ease, background 0.2s ease;
-    }
-    .dark-toggle:hover {
-      border-color: rgba(154,128,96,0.65);
-      color:        var(--charcoal);
-    }
-    .dark-toggle:focus-visible {
-      outline: 2px solid var(--gold);
-      outline-offset: 3px;
-    }
-    .dark-toggle__icon {
-      width: 14px; height: 14px;
-      stroke: currentColor; fill: none;
-      stroke-width: 1.5; stroke-linecap: round;
-      flex-shrink: 0;
-      transition: transform 0.4s ease;
-    }
-    .dark-toggle:hover .dark-toggle__icon { transform: rotate(20deg); }
-    .dark-toggle__label {
-      font-size: 0.58rem; letter-spacing: 0.12em; text-transform: uppercase;
-    }
-    .dark-toggle__switch {
-      display: inline-block;
-      width: 26px; height: 14px;
-      border-radius: 7px;
-      background: rgba(154,128,96,0.15);
-      border: 1px solid rgba(154,128,96,0.35);
-      position: relative;
-      flex-shrink: 0;
-      transition: background 0.25s, border-color 0.25s;
-    }
-    .dark-toggle__switch::after {
-      content: '';
-      position: absolute;
-      left: 2px; top: 50%; transform: translateY(-50%);
-      width: 8px; height: 8px; border-radius: 50%;
-      background: rgba(154,128,96,0.55);
-      transition: left 0.25s, background 0.25s;
-    }
-    .dark-toggle[aria-pressed="true"] {
-      background: var(--deep); border-color: var(--deep);
-      color: var(--gold-lt, #C4A97D);
-    }
-    .dark-toggle[aria-pressed="true"] .dark-toggle__switch {
-      background: rgba(196,169,125,0.2); border-color: var(--gold-lt, #C4A97D);
-    }
-    .dark-toggle[aria-pressed="true"] .dark-toggle__switch::after {
-      left: calc(100% - 10px); background: var(--gold-lt, #C4A97D);
-    }
-    .dark-toggle[aria-pressed="true"] .dark-toggle__icon {
-      stroke: var(--gold-lt, #C4A97D);
-    }
-    .nav__migraine-toggle { margin-inline-start: clamp(1rem, 2vw, 2rem); flex-shrink: 0; }
-    @media (max-width: 860px) {
-      .dark-toggle__label { display: none; }
-      .dark-toggle { padding: 0.45rem 0.65rem; gap: 0.3rem; }
-    }
-    @media (max-width: 480px) { .dark-toggle__switch { display: none; } }
-    body.dark-theme {
-      /*  Backgrounds  warm, low-glare matte (NOT pure black/navy) 
-         #1f1e1b reads as a deep warm charcoal rather than the cooler,
-         harsher #111827/#07090F previously used. */
-      --ivory:      #1f1e1b;
-      --warm-white: #1a1a1a;
-
-      /*  --deep was the bug: at #07090F it is used as a TEXT color
-         throughout the site (headings, names, .staff-card__name, etc.)
-         A near-black value on a near-black background made that text
-         almost invisible. Redefining it to a soft sand/champagne tone
-         fixes every heading at once while keeping a calm hierarchy. */
-      --deep:       #e6e1da;   /* soft sand  headings, names, primary emphasis */
-
-      /*  Body copy  warm ivory, not pure #fff (avoids glare) 
-         #e3dfd5 vs #1f1e1b  13.3:1 contrast (WCAG AAA, comfortably
-         clears the 4.5:1 AA minimum without the vibration of #fff). */
-      --charcoal:   #e3dfd5;
-
-      --stone:      rgba(255,255,255,0.08);
-      --taupe:      rgba(220,215,205,0.35);
-      --gold:       #C9A876;   /* slightly brightened for legibility on dark */
-      --gold-lt:    #D9BC92;
-      --muted:      rgba(227,223,213,0.6);
-      --font-body:  var(--f-body);
-      --nav-bg:     rgba(26, 26, 26, 0.97);
-    }
-
-    /*  Body background  */
-    body.dark-theme {
-      background-color: var(--ivory);  /* #1f1e1b  warm matte charcoal */
-      color:            var(--charcoal); /* #e3dfd5  soft warm ivory, ~13:1 contrast */
-    }
-
-    /*  Navigation  */
-    body.dark-theme .nav {
-      background: var(--nav-bg) !important;  /* rgba(26,26,26,0.97)  warm matte */
-      border-bottom: 1px solid rgba(255,255,255,0.06) !important;
-    }
-    body.dark-theme .nav__list a {
-      color: rgba(200,190,175,0.65);
-    }
-    body.dark-theme .nav__list a:hover,
-    body.dark-theme .nav__list a.is-active,
-    body.dark-theme .nav__list a[aria-current] {
-      color: var(--gold);
-    }
-    body.dark-theme .nav__brand-text { color: rgba(220,215,205,0.9); }
-
-    /*  Hero  */
-    body.dark-theme .hero {
-      background: linear-gradient(
-        170deg,
-        #07090F 0%,
-        #0D1422 45%,
-        #111827 100%
-      ) !important;
-    }
-    body.dark-theme .hero__tagline { color: rgba(190,182,170,0.55) !important; }
-    body.dark-theme .hero__eyebrow { color: var(--gold) !important; }
-
-    /*  Disc split panels  */
-    body.dark-theme .disc-panel--neuro {
-      background: #070C18 !important;
-    }
-    body.dark-theme .disc-panel--aesthetic {
-      background: #0F1520 !important;
-    }
-    body.dark-theme .disc-panel--aesthetic .disc-panel__title,
-    body.dark-theme .disc-panel--aesthetic .disc-panel__body,
-    body.dark-theme .disc-panel--aesthetic .disc-panel__eyebrow {
-      color: rgba(220,215,205,0.8) !important;
-    }
-
-    /*  Philosophy / Section dark  */
-    body.dark-theme .section--dark {
-      background: #070C18 !important;
-      border-top: 1px solid rgba(255,255,255,0.04) !important;
-      border-bottom: 1px solid rgba(255,255,255,0.04) !important;
-    }
-
-    /*  Cards: team, commitment, protocol, glossary, staff  */
-    body.dark-theme .team-card,
-    body.dark-theme .commitment-item,
-    body.dark-theme .protocol-item,
-    body.dark-theme .staff-card,
-    body.dark-theme .glossary-term,
-    body.dark-theme .research-card__inner,
-    body.dark-theme .transport-card,
-    body.dark-theme .dossier-deliverable,
-    body.dark-theme .anatomy-pillar,
-    body.dark-theme .gift-card,
-    body.dark-theme .hotel-card {
-      background: #0F1520 !important;
-      border-color: rgba(255,255,255,0.07) !important;
-    }
-    body.dark-theme .commitment-item:hover,
-    body.dark-theme .protocol-item:hover,
-    body.dark-theme .staff-card:hover,
-    body.dark-theme .transport-card:hover { background: #151E30 !important; }
-
-    /*  Inner-page backgrounds  */
-    body.dark-theme .inner-page {
-      background: #111827 !important;
-    }
-
-    /*  Condition pills  */
-    body.dark-theme .condition-pill {
-      background:   #0F1520 !important;
-      border-color: rgba(255,255,255,0.1) !important;
-      color:        rgba(220,215,205,0.75) !important;
-    }
-    body.dark-theme .condition-pill:hover,
-    body.dark-theme .cond-item.is-open .condition-pill {
-      background:   #1A2540 !important;
-      border-color: var(--gold) !important;
-    }
-
-    /*  Dark feature sections  */
-    body.dark-theme .dossier-section,
-    body.dark-theme .timeline-viz,
-    body.dark-theme .concierge-flow,
-    body.dark-theme .accreditations-section,
-    body.dark-theme .portal-gateway,
-    body.dark-theme .cs-bridge-section,
-    body.dark-theme .cs-cta-section {
-      background: #07090F !important;
-    }
-
-    /*  Clinical Standards / Case study  */
-    body.dark-theme .case-study-section,
-    body.dark-theme .anatomy-module,
-    body.dark-theme .glossary-section,
-    body.dark-theme .cs-hero {
-      background: var(--ivory) !important;
-    }
-    body.dark-theme .case-study__callout {
-      background:   #0F1520 !important;
-      border-color: rgba(255,255,255,0.07) !important;
-    }
-    body.dark-theme .case-study__timeline-item::before {
-      background: rgba(255,255,255,0.08) !important;
-    }
-
-    /*  Input fields (contact / portal)  */
-    body.dark-theme input,
-    body.dark-theme textarea,
-    body.dark-theme select,
-    body.dark-theme .portal-gateway__input {
-      background:   rgba(255,255,255,0.04) !important;
-      border-color: rgba(255,255,255,0.1) !important;
-      color:        rgba(220,215,205,0.85) !important;
-    }
-    body.dark-theme input::placeholder,
-    body.dark-theme .portal-gateway__input::placeholder {
-      color: rgba(200,190,175,0.3) !important;
-    }
-
-    /*  Buttons  */
-    body.dark-theme .btn--ghost {
-      border-color: rgba(200,190,175,0.3) !important;
-      color:        rgba(200,190,175,0.7) !important;
-    }
-    body.dark-theme .btn--ghost:hover {
-      border-color: var(--gold) !important;
-      color:        var(--gold) !important;
-    }
-
-    /*  Rule / divider lines  */
-    body.dark-theme .inner-page__rule {
-      background: rgba(255,255,255,0.07) !important;
-    }
-    body.dark-theme hr,
-    body.dark-theme .cs-page-divider {
-      background: rgba(255,255,255,0.05) !important;
-    }
-
-    /*  Team photo wrap: richer dark bg  */
-    body.dark-theme .team-card__photo-wrap {
-      background: #0A0E18 !important;
-    }
-
-    /*  About page profile  */
-    body.dark-theme .about-profile__credentials .about-profile__name {
-      color: rgba(220,215,205,0.9) !important;
-    }
-    body.dark-theme .dossier-wrap {
-      border-color: rgba(255,255,255,0.08) !important;
-      background:   #0F1520 !important;
-    }
-    body.dark-theme .dossier-body {
-      background: #0F1520 !important;
-    }
-
-    /*  Timeline visualizer  */
-    body.dark-theme .timeline-cycle {
-      background: rgba(7,9,15,0.9) !important;
-    }
-    body.dark-theme .timeline-cycle.is-active,
-    body.dark-theme .timeline-cycle:hover {
-      background: rgba(20,30,55,0.9) !important;
-    }
-
-    /*  Accreditation badges  */
-    body.dark-theme .accreditation-badge { opacity: 0.45; }
-    body.dark-theme .accreditation-badge:hover { opacity: 0.8; }
-
-    /*  Scroll chrome  */
-    body.dark-theme #back-to-top {
-      background: rgba(7,9,15,0.92) !important;
-      border-color: rgba(255,255,255,0.1) !important;
-    }
-
-    /* 
        NAV TOGGLE SWITCH  "Migraine Mode"
        Sits inside .nav__inner, right of the nav list.
      */
@@ -6795,7 +6506,6 @@ html { scroll-snap-type: none; }
       background:   transparent;
       cursor:       pointer;
       transition:   border-color 0.3s, background 0.3s !important;
-      margin-inline-start: auto;
       flex-shrink:  0;
       white-space:  nowrap;
     }
