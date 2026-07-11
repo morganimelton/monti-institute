@@ -19,24 +19,6 @@
         <span class="nav__brand-text">Monti Institute</span>
       </a>
 
-      <button class="dark-toggle nav__migraine-toggle"
-              id="dark-mode-toggle"
-              type="button"
-              role="switch"
-              aria-checked="false"
-              aria-label="Migraine-Friendly Viewing Mode"
-              title="Migraine Mode  reduces brightness for light-sensitive viewing">
-        <svg class="dark-toggle__icon" viewBox="0 0 24 24"
-             aria-hidden="true" focusable="false" width="14" height="14">
-          <ellipse cx="12" cy="12" rx="4" ry="4"
-                   fill="none" stroke="currentColor" stroke-width="1.5"/>
-          <path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"
-                fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-        </svg>
-        <span class="dark-toggle__label" aria-hidden="true">Migraine Mode</span>
-        <span class="dark-toggle__switch" aria-hidden="true"></span>
-      </button>
-
       <button
         class="nav__toggle"
         id="js-nav-toggle"
@@ -78,6 +60,22 @@
       </ul>
     </div>
   </nav>
+
+
+  <button class="dark-toggle nav__migraine-toggle"
+          id="dark-mode-toggle"
+          type="button"
+          aria-label="Migraine-Friendly Viewing Mode"
+          aria-pressed="false"
+          title="Migraine Mode &mdash; reduces brightness for light-sensitive viewing">
+    <svg class="dark-toggle__icon" viewBox="0 0 24 24" aria-hidden="true" width="14" height="14">
+      <ellipse cx="12" cy="12" rx="4" ry="4" fill="none" stroke="currentColor" stroke-width="1.5"/>
+      <path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"
+            fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+    </svg>
+    <span class="dark-toggle__label">Migraine Mode</span>
+    <span class="dark-toggle__switch" aria-hidden="true"></span>
+  </button>
 
   <div id="dark-toast" role="status" aria-live="polite" aria-atomic="true">
     <span id="dark-toast__title"></span>
