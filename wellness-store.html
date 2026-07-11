@@ -3,15 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Wellness &amp; Skincare Store — Monti Institute of Neuro Aesthetics</title>
-  <meta name="description" content="Shop physician-curated supplements through Fullscript and advanced clinical skincare through SkinCeuticals — directly from Monti Institute of Neuro Aesthetics.">
+  <title>Wellness &amp; Skincare Store &mdash; Monti Institute of Neuro Aesthetics</title>
+  <meta name="description" content="Shop physician-curated supplements through Fullscript and advanced clinical skincare through SkinCeuticals &mdash; directly from Monti Institute of Neuro Aesthetics.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@200;300;400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
-  
-<style>
-  /* Wellness Store — page-local styles */
+  <style>
+  /* Wellness Store  page-local styles */
   .store-hero {
     padding-block-start: calc(var(--nav-h, 64px) + 3rem);
     padding-block-end:   clamp(3rem, 6vw, 5.5rem);
@@ -352,124 +351,83 @@
     .store-trust { gap: 1rem 2rem; }
   }
 </style>
-  
- /* ── Nav Dropdowns ── */
-.nav__item--dropdown { position: relative; list-style: none; }
-.nav__dropdown-toggle {
-  background: none;
-  border: none;
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-  padding: 0;
-  font: inherit;
-  color: inherit;
-}
-.nav__chevron {
-  width: 10px;
-  height: 10px;
-  transition: transform 0.25s ease;
-  flex-shrink: 0;
-}
-.nav__item--dropdown[data-open] .nav__chevron { transform: rotate(180deg); }
-.nav__dropdown {
-  display: none;
-  position: absolute;
-  top: calc(100% + 0.75rem);
-  left: 50%;
-  transform: translateX(-50%);
-  min-width: 220px;
-  background: var(--ivory);
-  border: 1px solid var(--stone);
-  padding: 0.5rem 0;
-  list-style: none;
-  z-index: 200;
-  box-shadow: 0 8px 32px rgba(26,22,20,0.10);
-}
-.nav__item--dropdown[data-open] .nav__dropdown { display: block; }
-.nav__dropdown-link {
-  display: block;
-  padding: 0.6rem 1.25rem;
-  font-size: 0.78rem;
-  font-weight: 300;
-  letter-spacing: 0.08em;
-  color: var(--charcoal);
-  text-decoration: none;
-  transition: color 0.2s, background 0.2s;
-  white-space: nowrap;
-}
-.nav__dropdown-link:hover { color: var(--gold); background: rgba(154,128,96,0.05); }
-
-/* Dark mode */
-body.dark-theme .nav__dropdown { background: #1A1614; border-color: rgba(255,255,255,0.08); }
-body.dark-theme .nav__dropdown-link { color: rgba(220,215,205,0.75); }
-body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
-        <li><a href="privacy-policy.html" class="nav__link">Privacy Policy</a></li>
-      </ul>
-    </div>
-  </nav>
+  </style>
 </head>
 <body>
 
+  <div id="dark-toast" role="status" aria-live="polite" aria-atomic="true">
+    <span id="dark-toast__title"></span>
+    <span id="dark-toast__body"></span>
+  </div>
+
   <div id="scroll-progress" role="progressbar" aria-hidden="true"></div>
+
   <button id="back-to-top" type="button" aria-label="Back to top">
-    <svg viewBox="0 0 24 24" aria-hidden="true" style="width:14px;height:14px;stroke:var(--gold);stroke-width:1.5;fill:none;stroke-linecap:round;stroke-linejoin:round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+    <svg viewBox="0 0 24 24" aria-hidden="true" style="width:14px;height:14px;stroke:var(--gold);stroke-width:1.5;fill:none;stroke-linecap:round;stroke-linejoin:round">
+      <path d="M12 19V5M5 12l7-7 7 7"/>
+    </svg>
   </button>
 
   <nav class="nav" id="js-nav" role="navigation" aria-label="Main navigation">
     <div class="nav__inner">
-      <a href="/" class="nav__brand" aria-label="Monti Institute — Home">
+      <a href="/" class="nav__brand" aria-label="Monti Institute &mdash; Home">
         <img src="images/official-logo.png" alt="Monti Institute" class="nav__logo-img site-logo">
         <span class="nav__brand-text">Monti Institute</span>
       </a>
-      <button
-        class="nav__toggle"
-        id="js-nav-toggle"
-        aria-expanded="false"
-        aria-controls="js-nav-list"
-        aria-label="Toggle navigation"
-      >
+      <button class="nav__toggle" id="js-nav-toggle"
+              aria-expanded="false" aria-controls="js-nav-list" aria-label="Toggle navigation">
         <i aria-hidden="true"></i>
         <i aria-hidden="true"></i>
         <i aria-hidden="true"></i>
       </button>
       <ul class="nav__list" id="js-nav-list" role="list">
-      <li><a href="/" class="nav__link">Home</a></li>
-      <li><a href="neurological-medicine" class="nav__link">Neurological Medicine</a></li>
-      <li><a href="aesthetic-medicine" class="nav__link">Aesthetic Medicine</a></li>
-        <li><a href="infusion-center" class="nav__link">Infusion Center</a></li>
-      <li><a href="about" class="nav__link">About</a></li>
-      <li><a href="clinical-standards" class="nav__link">Clinical Standards</a></li>
-      <li><a href="wellness-store" class="nav__link is-active" aria-current="page">Wellness Store</a></li>
-      <li><a href="contact" class="nav__link">Contact</a></li>
-      
-      <button class="dark-toggle nav__migraine-toggle"
-              id="dark-mode-toggle"
-              type="button"
-              aria-label="Toggle Migraine-Friendly Viewing Mode"
-              aria-pressed="false"
-              title="Migraine Mode — reduces brightness for light-sensitive viewing">
-        <svg class="dark-toggle__icon" viewBox="0 0 24 24"
-             aria-hidden="true" width="14" height="14">
-          <ellipse cx="12" cy="12" rx="4" ry="4"
-                   fill="none" stroke="currentColor" stroke-width="1.5"/>
-          <path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.93 4.93l1.41 1.41
-                   M17.66 17.66l1.41 1.41M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"
-                fill="none" stroke="currentColor"
-                stroke-width="1.5" stroke-linecap="round"/>
-        </svg>
-        <span class="dark-toggle__label">Migraine Mode</span>
-        <span class="dark-toggle__switch" aria-hidden="true"></span>
-      </button>
-</ul>
-      
+        <li><a href="/" class="nav__link">Home</a></li>
+        <li class="nav__item--dropdown">
+          <button class="nav__link nav__dropdown-toggle" aria-expanded="false" aria-haspopup="true">
+            Services
+            <svg viewBox="0 0 12 12" aria-hidden="true" class="nav__chevron"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <ul class="nav__dropdown" role="list">
+            <li><a href="neurological-medicine.html" class="nav__dropdown-link">Neurological Medicine</a></li>
+            <li><a href="aesthetic-medicine.html" class="nav__dropdown-link">Aesthetic Medicine</a></li>
+            <li><a href="infusion-center.html" class="nav__dropdown-link">Infusion Center</a></li>
+          </ul>
+        </li>
+        <li class="nav__item--dropdown">
+          <button class="nav__link nav__dropdown-toggle" aria-expanded="false" aria-haspopup="true">
+            About
+            <svg viewBox="0 0 12 12" aria-hidden="true" class="nav__chevron"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <ul class="nav__dropdown" role="list">
+            <li><a href="about.html" class="nav__dropdown-link">Our Team &amp; Philosophy</a></li>
+            <li><a href="clinical-standards.html" class="nav__dropdown-link">Clinical Standards</a></li>
+            <li><a href="financing-memberships.html" class="nav__dropdown-link">Memberships &amp; Financing</a></li>
+          </ul>
+        </li>
+        <li><a href="wellness-store.html" class="nav__link is-active" aria-current="page">Store</a></li>
+        <li><a href="contact.html" class="nav__link">Contact</a></li>
+      </ul>
     </div>
   </nav>
 
+  <button class="dark-toggle nav__migraine-toggle"
+          id="dark-mode-toggle"
+          type="button"
+          aria-label="Toggle Migraine-Friendly Viewing Mode"
+          aria-pressed="false"
+          title="Migraine Mode &mdash; reduces brightness for light-sensitive viewing">
+    <svg class="dark-toggle__icon" viewBox="0 0 24 24" aria-hidden="true" width="14" height="14">
+      <ellipse cx="12" cy="12" rx="4" ry="4" fill="none" stroke="currentColor" stroke-width="1.5"/>
+      <path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"
+            fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+    </svg>
+    <span class="dark-toggle__label">Migraine Mode</span>
+    <span class="dark-toggle__switch" aria-hidden="true"></span>
+  </button>
+
   <main id="js-outlet">
 
-    <!-- ── HERO ── -->
+    <!--  HERO  -->
     <header class="store-hero">
       <span class="store-hero__eyebrow">Patient Wellness Resources</span>
       <h1 class="store-hero__heading">
@@ -486,7 +444,7 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
       </p>
     </header>
 
-    <!-- ── TRUST BAR ── -->
+    <!--  TRUST BAR  -->
     <div class="store-trust" aria-hidden="true">
       <div class="store-trust__item">
         <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
@@ -506,13 +464,13 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
       </div>
     </div>
 
-    <!-- ── STORE GRID ── -->
+    <!--  STORE GRID  -->
     <section class="store-grid-section" aria-labelledby="store-grid-heading">
       <h2 id="store-grid-heading" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)">Our partner wellness and skincare dispensaries</h2>
 
       <div class="store-grid">
 
-        <!-- ─── FULLSCRIPT ─────────────────────────────────── -->
+        <!--  FULLSCRIPT  -->
         <div class="store-card" aria-labelledby="fs-heading">
           <div class="store-card__header">
             <span class="store-card__badge">Internal Wellness &nbsp;&middot;&nbsp; Medical Nutrition</span>
@@ -602,7 +560,7 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
         </div>
 
 
-        <!-- ─── SKINCEUTICALS ──────────────────────────────── -->
+        <!--  SKINCEUTICALS  -->
         <div class="store-card" aria-labelledby="sc-heading">
           <div class="store-card__header">
             <span class="store-card__badge">Clinical Skincare &nbsp;&middot;&nbsp; Advanced Dermal Therapeutics</span>
@@ -696,7 +654,7 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
       </div><!-- /store-grid -->
     </section>
 
-    <!-- ── HOW IT WORKS ── -->
+    <!--  HOW IT WORKS  -->
     <section class="store-how" aria-labelledby="how-heading">
       <div class="store-how__inner">
         <span class="store-how__label">How It Works</span>
@@ -749,7 +707,7 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
       </div>
     </section>
 
-    <!-- ── DISCLAIMER ── -->
+    <!--  DISCLAIMER  -->
     <section class="store-disclaimer" aria-labelledby="disclaimer-heading">
       <div class="store-disclaimer__inner">
         <div class="store-disclaimer__rule" aria-hidden="true"></div>
@@ -785,20 +743,17 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
 
   </main>
 
-  
-  <script>
-  (function(){
-    var k='monti-dark-mode';
-    var s=localStorage.getItem(k);
-    if(s==='on'||(s!=='off'&&window.matchMedia('(prefers-color-scheme:dark)').matches)){
-      document.body.classList.add('dark-theme');
-      var b=document.getElementById('dark-mode-toggle');
-      if(b)b.setAttribute('aria-pressed','true');
-    }
-  })();
-  </script>
+  <footer style="background:transparent;color:rgba(255,255,255,0.6);font-size:0.85rem;padding:20px 40px;display:flex;justify-content:space-between;align-items:center;">
+    <p style="margin:0;">&copy; 2026 Monti Institute of Neuro Aesthetics. All Rights Reserved.</p>
+    <p style="margin:0;"><a href="privacy.html" style="color:rgba(255,255,255,0.8);text-decoration:none;">Privacy Policy</a></p>
+  </footer>
 
   <script src="script.js"></script>
+
+  <script
+    id="nextivacx-code-snippet"
+    src="https://d3po7etsbw5eiv.cloudfront.net/Simplify360Chat.js?key=NmEyYzY1ZDk1ZDlkM2I5YWJmMjM1MzAyfDQzMTk0Mjc=">
+  </script>
 
 </body>
 </html>
