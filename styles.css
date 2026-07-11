@@ -371,7 +371,7 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
     }
     @media (max-width: 600px) {
       .site-logo,
-      .nav__logo-img { height: 44px; max-height: 52px; }
+      .nav__logo-img { height: 38px; max-height: 38px; object-position: center bottom; }
     }
 
     .nav__brand:hover .nav__logo-img {
