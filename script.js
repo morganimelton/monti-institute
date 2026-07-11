@@ -160,62 +160,21 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
-  /*  Nav: JS click routing (replaces default href follow) 
-     Prevents "external link" browser warnings in some environments
-     by handling page navigation explicitly through window.location.
-     href attributes are kept intact for SEO and accessibility.     */
-  (function initNavClick() {
+    /*  Nav: close mobile menu on any link click  */
+  (function initNavLinkClose() {
     function setup() {
       var list = document.getElementById('js-nav-list');
       var btn  = document.getElementById('js-nav-toggle');
-
-      /* Collect all navigable anchors: nav links + brand logo link */
-      var links = document.querySelectorAll(
-        '#js-nav .nav__link, #js-nav .nav__brand'
-      );
-
-      links.forEach(function(link) {
-        link.addEventListener('click', function(e) {
-          var href = link.getAttribute('href');
-
-          /* External-link bypass  explicit flags take priority and
-             are checked first regardless of href format. Covers
-             gift-card / merchant-portal links and any link marked
-             external, even if its href is a relative or unusual path. */
-          if (link.hasAttribute('data-nav') && link.getAttribute('data-nav') === 'external') return;
-          if (link.classList.contains('external-link')) return;
-          if (link.getAttribute('target') === '_blank') return;
-
-          /* Dropdown toggles are buttons not nav links — skip so dropdowns open */
-          if (link.classList.contains('nav__dropdown-toggle')) return;
-
-          /* Dropdown links should navigate normally — skip router interception */
-          if (link.classList.contains('nav__dropdown-link')) return;
-
-          /* Leave external, mailto, tel, and hash-only links alone */
-          if (!href
-            || href === '#'
-            || href.indexOf('://') !== -1
-            || href.indexOf('mailto:') === 0
-            || href.indexOf('tel:') === 0) {
-            return;
-          }
-
-          /* Stop the default anchor follow */
-          e.preventDefault();
-
-          /* Close mobile menu if open */
-          if (list && list.classList.contains('is-open')) {
+      if (!list || !btn) return;
+      list.querySelectorAll('a').forEach(function(link) {
+        link.addEventListener('click', function() {
+          if (list.classList.contains('is-open')) {
             list.classList.remove('is-open');
-            if (btn) btn.setAttribute('aria-expanded', 'false');
+            btn.setAttribute('aria-expanded', 'false');
           }
-
-          /* Navigate via JavaScript */
-          window.location.href = href;
         });
       });
     }
-
     if (document.readyState === 'loading') {
       document.addEventListener('DOMContentLoaded', setup);
     } else {
