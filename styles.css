@@ -33,7 +33,58 @@
     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
+/* ── Nav Dropdowns ── */
+.nav__item--dropdown { position: relative; list-style: none; }
+.nav__dropdown-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+}
+.nav__chevron {
+  width: 10px;
+  height: 10px;
+  transition: transform 0.25s ease;
+  flex-shrink: 0;
+}
+.nav__item--dropdown[data-open] .nav__chevron { transform: rotate(180deg); }
+.nav__dropdown {
+  display: none;
+  position: absolute;
+  top: calc(100% + 0.75rem);
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 220px;
+  background: var(--ivory);
+  border: 1px solid var(--stone);
+  padding: 0.5rem 0;
+  list-style: none;
+  z-index: 200;
+  box-shadow: 0 8px 32px rgba(26,22,20,0.10);
+}
+.nav__item--dropdown[data-open] .nav__dropdown { display: block; }
+.nav__dropdown-link {
+  display: block;
+  padding: 0.6rem 1.25rem;
+  font-size: 0.78rem;
+  font-weight: 300;
+  letter-spacing: 0.08em;
+  color: var(--charcoal);
+  text-decoration: none;
+  transition: color 0.2s, background 0.2s;
+  white-space: nowrap;
+}
+.nav__dropdown-link:hover { color: var(--gold); background: rgba(154,128,96,0.05); }
 
+/* Dark mode */
+body.dark-theme .nav__dropdown { background: #1A1614; border-color: rgba(255,255,255,0.08); }
+body.dark-theme .nav__dropdown-link { color: rgba(220,215,205,0.75); }
+body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
     /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
        LOGO WATERMARK — fixed, viewport-centered background mark
        ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
