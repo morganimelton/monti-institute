@@ -7166,6 +7166,9 @@ body.dark-theme footer {
 body.dark-theme footer a {
   color: rgba(230,225,218,0.7) !important;
 }
+body.dark-theme footer a[href*="privacy"] {
+  color: rgba(154,128,96,0.85) !important;
+}
 
 /*  Global safety net  any remaining dark text on dark bg  */
 body.dark-theme h1,
@@ -7413,4 +7416,12 @@ body.dark-theme .form-error-msg {
 /* ── Dropdown: aria-expanded state ── */
 .nav__dropdown-toggle[aria-expanded="true"] .nav__chevron {
   transform: rotate(180deg);
+}
+
+/* ── Footer always visible ── */
+footer {
+  display: flex !important;
+  position: relative;
+  z-index: 10;
+  background: rgba(26,22,20,0.95) !important;
 }
