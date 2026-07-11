@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Neurological Medicine — Monti Institute of Neuro Aesthetics</title>
-  <meta name="description" content="Monti Institute of Neuro Aesthetics — Physician-led neurological and aesthetic medicine in Reno, Nevada.">
+  <title>Neurological Medicine &mdash; Monti Institute of Neuro Aesthetics</title>
+  <meta name="description" content="Physician-led neurological medicine at Monti Institute in Reno, Nevada. Migraine, headache, and complex neurological care.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@200;300;400&display=swap" rel="stylesheet">
@@ -12,117 +12,81 @@
 </head>
 <body>
 
-  <!-- ── Dark Mode Toast ── -->
   <div id="dark-toast" role="status" aria-live="polite" aria-atomic="true">
-    <span id="dark-toast__title">Migraine Mode — On</span>
-    <p id="dark-toast__body">Low-glare display activated. Optimized for light-sensitive viewing.</p>
+    <span id="dark-toast__title"></span>
+    <span id="dark-toast__body"></span>
   </div>
 
-
   <div id="scroll-progress" role="progressbar" aria-hidden="true"></div>
-  <button id="back-to-top" type="button" aria-label="Back to top" title="Back to top">
+
+  <button id="back-to-top" type="button" aria-label="Back to top">
     <svg viewBox="0 0 24 24" aria-hidden="true" style="width:14px;height:14px;stroke:var(--gold);stroke-width:1.5;fill:none;stroke-linecap:round;stroke-linejoin:round">
       <path d="M12 19V5M5 12l7-7 7 7"/>
     </svg>
   </button>
 
-    <nav class="nav" id="js-nav" role="navigation" aria-label="Main navigation">
+  <nav class="nav" id="js-nav" role="navigation" aria-label="Main navigation">
     <div class="nav__inner">
-      <a href="/" class="nav__brand" aria-label="Monti Institute — Home">
+      <a href="/" class="nav__brand" aria-label="Monti Institute &mdash; Home">
         <img src="images/official-logo.png" alt="Monti Institute" class="nav__logo-img site-logo">
         <span class="nav__brand-text">Monti Institute</span>
       </a>
-      <button
-        class="nav__toggle"
-        id="js-nav-toggle"
-        aria-expanded="false"
-        aria-controls="js-nav-list"
-        aria-label="Toggle navigation"
-      >
+      <button class="nav__toggle" id="js-nav-toggle"
+              aria-expanded="false" aria-controls="js-nav-list" aria-label="Toggle navigation">
         <i aria-hidden="true"></i>
         <i aria-hidden="true"></i>
         <i aria-hidden="true"></i>
       </button>
-     /* ── Nav Dropdowns ── */
-.nav__item--dropdown { position: relative; list-style: none; }
-.nav__dropdown-toggle {
-  background: none;
-  border: none;
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-  padding: 0;
-  font: inherit;
-  color: inherit;
-}
-.nav__chevron {
-  width: 10px;
-  height: 10px;
-  transition: transform 0.25s ease;
-  flex-shrink: 0;
-}
-.nav__item--dropdown[data-open] .nav__chevron { transform: rotate(180deg); }
-.nav__dropdown {
-  display: none;
-  position: absolute;
-  top: calc(100% + 0.75rem);
-  left: 50%;
-  transform: translateX(-50%);
-  min-width: 220px;
-  background: var(--ivory);
-  border: 1px solid var(--stone);
-  padding: 0.5rem 0;
-  list-style: none;
-  z-index: 200;
-  box-shadow: 0 8px 32px rgba(26,22,20,0.10);
-}
-.nav__item--dropdown[data-open] .nav__dropdown { display: block; }
-.nav__dropdown-link {
-  display: block;
-  padding: 0.6rem 1.25rem;
-  font-size: 0.78rem;
-  font-weight: 300;
-  letter-spacing: 0.08em;
-  color: var(--charcoal);
-  text-decoration: none;
-  transition: color 0.2s, background 0.2s;
-  white-space: nowrap;
-}
-.nav__dropdown-link:hover { color: var(--gold); background: rgba(154,128,96,0.05); }
-
-/* Dark mode */
-body.dark-theme .nav__dropdown { background: #1A1614; border-color: rgba(255,255,255,0.08); }
-body.dark-theme .nav__dropdown-link { color: rgba(220,215,205,0.75); }
-body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
-      
-      <button class="dark-toggle nav__migraine-toggle"
-              id="dark-mode-toggle"
-              type="button"
-              aria-label="Toggle Migraine-Friendly Viewing Mode"
-              aria-pressed="false"
-              title="Migraine Mode — reduces brightness for light-sensitive viewing">
-        <svg class="dark-toggle__icon" viewBox="0 0 24 24"
-             aria-hidden="true" width="14" height="14">
-          <ellipse cx="12" cy="12" rx="4" ry="4"
-                   fill="none" stroke="currentColor" stroke-width="1.5"/>
-          <path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.93 4.93l1.41 1.41
-                   M17.66 17.66l1.41 1.41M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"
-                fill="none" stroke="currentColor"
-                stroke-width="1.5" stroke-linecap="round"/>
-        </svg>
-        <span class="dark-toggle__label">Migraine Mode</span>
-        <span class="dark-toggle__switch" aria-hidden="true"></span>
-      </button>
-</ul>
+      <ul class="nav__list" id="js-nav-list" role="list">
+        <li><a href="/" class="nav__link">Home</a></li>
+        <li class="nav__item--dropdown">
+          <button class="nav__link nav__dropdown-toggle" aria-expanded="false" aria-haspopup="true">
+            Services
+            <svg viewBox="0 0 12 12" aria-hidden="true" class="nav__chevron"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <ul class="nav__dropdown" role="list">
+            <li><a href="neurological-medicine.html" class="nav__dropdown-link is-active" aria-current="page">Neurological Medicine</a></li>
+            <li><a href="aesthetic-medicine.html" class="nav__dropdown-link">Aesthetic Medicine</a></li>
+            <li><a href="infusion-center.html" class="nav__dropdown-link">Infusion Center</a></li>
+          </ul>
+        </li>
+        <li class="nav__item--dropdown">
+          <button class="nav__link nav__dropdown-toggle" aria-expanded="false" aria-haspopup="true">
+            About
+            <svg viewBox="0 0 12 12" aria-hidden="true" class="nav__chevron"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <ul class="nav__dropdown" role="list">
+            <li><a href="about.html" class="nav__dropdown-link">Our Team &amp; Philosophy</a></li>
+            <li><a href="clinical-standards.html" class="nav__dropdown-link">Clinical Standards</a></li>
+            <li><a href="financing-memberships.html" class="nav__dropdown-link">Memberships &amp; Financing</a></li>
+          </ul>
+        </li>
+        <li><a href="wellness-store.html" class="nav__link">Store</a></li>
+        <li><a href="contact.html" class="nav__link">Contact</a></li>
+      </ul>
     </div>
   </nav>
+
+  <button class="dark-toggle nav__migraine-toggle"
+          id="dark-mode-toggle"
+          type="button"
+          aria-label="Toggle Migraine-Friendly Viewing Mode"
+          aria-pressed="false"
+          title="Migraine Mode &mdash; reduces brightness for light-sensitive viewing">
+    <svg class="dark-toggle__icon" viewBox="0 0 24 24" aria-hidden="true" width="14" height="14">
+      <ellipse cx="12" cy="12" rx="4" ry="4" fill="none" stroke="currentColor" stroke-width="1.5"/>
+      <path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"
+            fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+    </svg>
+    <span class="dark-toggle__label">Migraine Mode</span>
+    <span class="dark-toggle__switch" aria-hidden="true"></span>
+  </button>
 
   <main id="js-outlet">
 <!-- Neural atmosphere [PHOTO-READY: swap SVG for <img class="neuro-page-bg"> with neural photo] -->
     <div class="neuro-page-bg" aria-hidden="true">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 680" fill="none" aria-hidden="true">
-  <!-- ─ SOMA (cell body) ─ -->
+  <!--  SOMA (cell body)  -->
   <circle cx="280" cy="340" r="32" stroke="rgba(255,255,255,0.55)" stroke-width="1.5" fill="rgba(255,255,255,0.06)"/>
   <circle cx="280" cy="340" r="20" stroke="rgba(255,255,255,0.3)"  stroke-width="1"   fill="rgba(255,255,255,0.03)"/>
   <circle cx="280" cy="340" r="10" stroke="rgba(255,255,255,0.2)"  stroke-width="0.8" fill="rgba(154,128,96,0.08)"/>
@@ -131,7 +95,7 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
   <circle cx="280" cy="340" r="80"  stroke="rgba(255,255,255,0.055)" stroke-width="0.8" fill="none"/>
   <circle cx="280" cy="340" r="110" stroke="rgba(255,255,255,0.035)" stroke-width="0.6" fill="none"/>
 
-  <!-- ─ AXON (long right extension) ─ -->
+  <!--  AXON (long right extension)  -->
   <path d="M312,340 Q370,328 440,342 Q510,354 570,338 Q630,325 680,332"
     stroke="rgba(255,255,255,0.45)" stroke-width="1.8" stroke-linecap="round"/>
   <!-- Axon myelin nodes (nodes of Ranvier) -->
@@ -147,7 +111,7 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
   <circle cx="706" cy="315" r="3"   fill="rgba(196,169,125,0.7)"/>
   <circle cx="708" cy="348" r="3"   fill="rgba(196,169,125,0.7)"/>
 
-  <!-- ─ DENDRITE 1 — upper left ─ -->
+  <!--  DENDRITE 1  upper left  -->
   <path d="M262,312 Q218,258 170,205 Q132,162 90,128"
     stroke="rgba(255,255,255,0.38)" stroke-width="1.4" stroke-linecap="round"/>
   <path d="M218,258 Q188,232 158,210 Q128,190 100,178"
@@ -162,7 +126,7 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
   <circle cx="72"  cy="142" r="3"   fill="rgba(196,169,125,0.55)"/>
   <circle cx="55"  cy="152" r="2.5" fill="rgba(196,169,125,0.45)"/>
 
-  <!-- ─ DENDRITE 2 — straight up ─ -->
+  <!--  DENDRITE 2  straight up  -->
   <path d="M272,308 Q255,248 242,185 Q230,128 225,72"
     stroke="rgba(255,255,255,0.36)" stroke-width="1.4" stroke-linecap="round"/>
   <path d="M255,248 Q230,228 208,210 Q185,194 162,185"
@@ -177,7 +141,7 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
   <circle cx="332"  cy="178" r="3.5" fill="rgba(196,169,125,0.6)"/>
   <circle cx="155"  cy="128" r="3"   fill="rgba(196,169,125,0.5)"/>
 
-  <!-- ─ DENDRITE 3 — upper right ─ -->
+  <!--  DENDRITE 3  upper right  -->
   <path d="M305,315 Q355,265 405,218 Q445,180 480,148"
     stroke="rgba(255,255,255,0.36)" stroke-width="1.4" stroke-linecap="round"/>
   <path d="M405,218 Q440,195 468,175 Q492,158 510,145"
@@ -189,7 +153,7 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
   <circle cx="510" cy="145" r="3.5" fill="rgba(196,169,125,0.6)"/>
   <circle cx="435" cy="258" r="3"   fill="rgba(196,169,125,0.5)"/>
 
-  <!-- ─ DENDRITE 4 — left ─ -->
+  <!--  DENDRITE 4  left  -->
   <path d="M248,340 Q185,338 122,330 Q68,324 25,318"
     stroke="rgba(255,255,255,0.35)" stroke-width="1.4" stroke-linecap="round"/>
   <path d="M122,330 Q108,308 90,290 Q72,272 55,260"
@@ -201,7 +165,7 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
   <circle cx="55"  cy="260" r="3.5" fill="rgba(196,169,125,0.6)"/>
   <circle cx="58"  cy="390" r="3.5" fill="rgba(196,169,125,0.55)"/>
 
-  <!-- ─ DENDRITE 5 — lower left ─ -->
+  <!--  DENDRITE 5  lower left  -->
   <path d="M258,368 Q205,415 158,458 Q115,494 78,528"
     stroke="rgba(255,255,255,0.34)" stroke-width="1.4" stroke-linecap="round"/>
   <path d="M158,458 Q135,480 115,500 Q95,520 78,535"
@@ -213,7 +177,7 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
   <circle cx="78"  cy="535" r="3"   fill="rgba(196,169,125,0.5)"/>
   <circle cx="195" cy="502" r="3"   fill="rgba(196,169,125,0.5)"/>
 
-  <!-- ─ DENDRITE 6 — straight down ─ -->
+  <!--  DENDRITE 6  straight down  -->
   <path d="M282,372 Q288,430 295,488 Q300,540 305,590"
     stroke="rgba(255,255,255,0.33)" stroke-width="1.4" stroke-linecap="round"/>
   <path d="M295,488 Q268,510 248,530 Q228,548 210,562"
@@ -282,13 +246,13 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
         </div>
 
 
-        <!-- ═══════════════════════════════════════════════════════════
-             NEUROLOGICAL PAGE — RESTORED CONTENT SECTIONS
+        <!-- 
+             NEUROLOGICAL PAGE  RESTORED CONTENT SECTIONS
              Rendered ONLY inside #page-neurological-medicine
              Insertion point: after service-list, before team-section
-        ═══════════════════════════════════════════════════════════ -->
+         -->
 
-        <!-- ── WHO WE TREAT ── -->
+        <!--  WHO WE TREAT  -->
         <section class="neuro-section" aria-labelledby="who-treat-heading">
           <div class="neuro-section__header reveal">
             <span class="section__label">Who We Treat</span>
@@ -325,7 +289,7 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
           </div>
         </section>
 
-        <!-- ── CONDITIONS WE TREAT ── -->
+        <!--  CONDITIONS WE TREAT  -->
         <section class="neuro-section" aria-labelledby="conditions-heading">
           <div class="neuro-section__header reveal">
             <span class="section__label">Conditions</span>
@@ -347,12 +311,12 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
               <div class="cond-popover"
                    id="cond-chronic-migraine"
                    role="tooltip"
-                   aria-label="Chronic Migraine — clinical description">
+                   aria-label="Chronic Migraine  clinical description">
                 <span class="cond-popover__label">Condition</span>
                 <p class="cond-popover__title" data-clinical-key="chronic-migraine">Chronic Migraine</p>
                 <span class="cond-popover__short">15 or more headache days per month</span>
                 <div class="cond-popover__rule" aria-hidden="true"></div>
-                <p class="cond-popover__body">Chronic migraine means living with 15 or more headache days per month — at least 8 of which have the quality of a true migraine attack. This is not simply "bad headaches." It is a recognized neurological condition that rewires pain pathways over time. Work, sleep, relationships, and daily life are all affected. Many patients who come to us have tried two, three, or four medications without finding lasting relief. That history doesn't disqualify you — it's exactly why a physician who specializes in this condition matters.</p>
+                <p class="cond-popover__body">Chronic migraine means living with 15 or more headache days per month  at least 8 of which have the quality of a true migraine attack. This is not simply "bad headaches." It is a recognized neurological condition that rewires pain pathways over time. Work, sleep, relationships, and daily life are all affected. Many patients who come to us have tried two, three, or four medications without finding lasting relief. That history doesn't disqualify you  it's exactly why a physician who specializes in this condition matters.</p>
                 <p class="cond-popover__note">Insurance-accepted for this diagnosis</p>
               </div>
             </div>
@@ -367,12 +331,12 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
               <div class="cond-popover"
                    id="cond-episodic-migraine"
                    role="tooltip"
-                   aria-label="Episodic Migraine — clinical description">
+                   aria-label="Episodic Migraine  clinical description">
                 <span class="cond-popover__label">Condition</span>
                 <p class="cond-popover__title" data-clinical-key="episodic-migraine">Episodic Migraine</p>
                 <span class="cond-popover__short">Fewer than 15 days/month, but still severely disabling</span>
                 <div class="cond-popover__rule" aria-hidden="true"></div>
-                <p class="cond-popover__body">Episodic migraine typically means fewer than 15 headache days per month — but within those attacks, the experience can be completely disabling: one-sided pain, nausea, and an extreme sensitivity to light and sound that can make any room feel impossible to be in. We also evaluate patients whose migraines are increasing in frequency. Early, precise intervention is one of the most effective ways to prevent episodic migraine from becoming chronic.</p>
+                <p class="cond-popover__body">Episodic migraine typically means fewer than 15 headache days per month  but within those attacks, the experience can be completely disabling: one-sided pain, nausea, and an extreme sensitivity to light and sound that can make any room feel impossible to be in. We also evaluate patients whose migraines are increasing in frequency. Early, precise intervention is one of the most effective ways to prevent episodic migraine from becoming chronic.</p>
                 <p class="cond-popover__note">Preventive treatment often covered by insurance</p>
               </div>
             </div>
@@ -387,12 +351,12 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
               <div class="cond-popover"
                    id="cond-cluster-headache"
                    role="tooltip"
-                   aria-label="Cluster Headache — clinical description">
+                   aria-label="Cluster Headache  clinical description">
                 <span class="cond-popover__label">Condition</span>
                 <p class="cond-popover__title" data-clinical-key="cluster-headache">Cluster Headache</p>
                 <span class="cond-popover__short">Among the most painful conditions in medicine</span>
                 <div class="cond-popover__rule" aria-hidden="true"></div>
-                <p class="cond-popover__body">Cluster headaches are one of the most severe pain conditions documented in medicine — frequently described by patients who have also experienced childbirth or kidney stones as distinctly worse than either. They strike on one side of the head, usually around or behind the eye, and may occur multiple times a day in cycles lasting weeks or months. They are often accompanied by eye redness, tearing, and nasal symptoms on the same side. We treat this condition with the urgency and precision it demands.</p>
+                <p class="cond-popover__body">Cluster headaches are one of the most severe pain conditions documented in medicine  frequently described by patients who have also experienced childbirth or kidney stones as distinctly worse than either. They strike on one side of the head, usually around or behind the eye, and may occur multiple times a day in cycles lasting weeks or months. They are often accompanied by eye redness, tearing, and nasal symptoms on the same side. We treat this condition with the urgency and precision it demands.</p>
                 <p class="cond-popover__note">Specialist evaluation is essential for this diagnosis</p>
               </div>
             </div>
@@ -407,13 +371,13 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
               <div class="cond-popover"
                    id="cond-tension-headache"
                    role="tooltip"
-                   aria-label="Tension-Type Headache — clinical description">
+                   aria-label="Tension-Type Headache  clinical description">
                 <span class="cond-popover__label">Condition</span>
                 <p class="cond-popover__title" data-clinical-key="tension-headache">Tension-Type Headache</p>
-                <span class="cond-popover__short">The most common headache type — still worth treating properly</span>
+                <span class="cond-popover__short">The most common headache type  still worth treating properly</span>
                 <div class="cond-popover__rule" aria-hidden="true"></div>
-                <p class="cond-popover__body">Tension-type headaches are the most common headache disorder — a steady, pressing pain that wraps around the head, often described as a tight band or a weight pressing down. While generally less intense than migraine, frequent or chronic tension headaches erode quality of life significantly, especially when they occur alongside or overlap with migraine. We evaluate both patterns together, because they often share root causes and respond to the same treatments.</p>
-                <p class="cond-popover__note">Often coexists with migraine — combined evaluation recommended</p>
+                <p class="cond-popover__body">Tension-type headaches are the most common headache disorder  a steady, pressing pain that wraps around the head, often described as a tight band or a weight pressing down. While generally less intense than migraine, frequent or chronic tension headaches erode quality of life significantly, especially when they occur alongside or overlap with migraine. We evaluate both patterns together, because they often share root causes and respond to the same treatments.</p>
+                <p class="cond-popover__note">Often coexists with migraine  combined evaluation recommended</p>
               </div>
             </div>
             <div class="cond-item">
@@ -427,12 +391,12 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
               <div class="cond-popover"
                    id="cond-neuralgia-facial-pain"
                    role="tooltip"
-                   aria-label="Neuralgia & Facial Pain — clinical description">
+                   aria-label="Neuralgia & Facial Pain  clinical description">
                 <span class="cond-popover__label">Condition</span>
                 <p class="cond-popover__title">Neuralgia & Facial Pain</p>
                 <span class="cond-popover__short">Shooting or burning pain along the nerves of the face or head</span>
                 <div class="cond-popover__rule" aria-hidden="true"></div>
-                <p class="cond-popover__body">Neuralgia refers to pain that originates from a specific nerve rather than from muscle tension or vascular changes. In the head and face, this includes trigeminal neuralgia (sharp, electric-shock pain along the face) and occipital neuralgia (shooting pain from the base of the skull up through the scalp). These conditions are frequently misidentified as migraine or sinus headache and undertreated as a result. Precisely placed nerve blocks — a clinical strength of this practice — can provide relief when general pain medications have failed.</p>
+                <p class="cond-popover__body">Neuralgia refers to pain that originates from a specific nerve rather than from muscle tension or vascular changes. In the head and face, this includes trigeminal neuralgia (sharp, electric-shock pain along the face) and occipital neuralgia (shooting pain from the base of the skull up through the scalp). These conditions are frequently misidentified as migraine or sinus headache and undertreated as a result. Precisely placed nerve blocks  a clinical strength of this practice  can provide relief when general pain medications have failed.</p>
                 <p class="cond-popover__note">Nerve blocks often provide rapid relief in these cases</p>
               </div>
             </div>
@@ -447,19 +411,19 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
               <div class="cond-popover"
                    id="cond-post-traumatic-headache"
                    role="tooltip"
-                   aria-label="Post-Traumatic Headache — clinical description">
+                   aria-label="Post-Traumatic Headache  clinical description">
                 <span class="cond-popover__label">Condition</span>
                 <p class="cond-popover__title" data-clinical-key="post-traumatic-headache">Post-Traumatic Headache</p>
                 <span class="cond-popover__short">Headache that begins after a head injury or concussion</span>
                 <div class="cond-popover__rule" aria-hidden="true"></div>
-                <p class="cond-popover__body">Post-traumatic headache develops in the days or weeks following a head injury, concussion, or whiplash — and can persist for months or years when not properly evaluated and treated. It often mimics migraine or tension headache but may also present as an entirely new pattern. Post-traumatic headache is real, neurological in origin, and one of the most undertreated conditions in headache medicine. We provide thorough evaluation and a personalized treatment plan designed around your specific post-injury presentation.</p>
+                <p class="cond-popover__body">Post-traumatic headache develops in the days or weeks following a head injury, concussion, or whiplash  and can persist for months or years when not properly evaluated and treated. It often mimics migraine or tension headache but may also present as an entirely new pattern. Post-traumatic headache is real, neurological in origin, and one of the most undertreated conditions in headache medicine. We provide thorough evaluation and a personalized treatment plan designed around your specific post-injury presentation.</p>
                 <p class="cond-popover__note">Often covered by auto or workers' compensation insurance</p>
               </div>
             </div>
           </div>
         </section>
 
-        <!-- ── TREATMENT APPROACH ── -->
+        <!--  TREATMENT APPROACH  -->
         <section class="neuro-section" aria-labelledby="approach-heading">
           <div class="neuro-section__header reveal">
             <span class="section__label">Our Approach</span>
@@ -508,7 +472,7 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
           </div>
         </section>
 
-        <!-- ── INTERVENTIONAL PROTOCOLS ── -->
+        <!--  INTERVENTIONAL PROTOCOLS  -->
         <section class="neuro-section" aria-labelledby="protocols-heading">
           <div class="neuro-section__header reveal">
             <span class="section__label">Treatments</span>
@@ -572,7 +536,7 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
           </a>
         </section>
 
-        <!-- ── NEUROLOGICAL CARE PROGRAMS ── -->
+        <!--  NEUROLOGICAL CARE PROGRAMS  -->
         <section class="neuro-section" aria-labelledby="programs-heading">
           <div class="neuro-section__header reveal">
             <span class="section__label">Ongoing Care</span>
@@ -582,7 +546,7 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
             </h2>
           </div>
           <div class="neuro-programs-grid">
-            <article class="neuro-program reveal" aria-label="Program I — Migraine Management">
+            <article class="neuro-program reveal" aria-label="Program I  Migraine Management">
               <h3 class="neuro-program__name">Migraine Management</h3>
               <div class="neuro-program__divider" aria-hidden="true"></div>
               <div class="neuro-program__features">
@@ -599,7 +563,7 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
               </a>
             </article>
             <article class="neuro-program reveal" style="transition-delay:.1s"
-                     aria-label="Program II — Chronic Headache Continuity">
+                     aria-label="Program II  Chronic Headache Continuity">
               <h3 class="neuro-program__name">Headache Continuity</h3>
               <div class="neuro-program__divider" aria-hidden="true"></div>
               <div class="neuro-program__features">
@@ -617,7 +581,7 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
               </a>
             </article>
             <article class="neuro-program reveal" style="transition-delay:.2s"
-                     aria-label="Program III — Neurological Infusion">
+                     aria-label="Program III  Neurological Infusion">
               <h3 class="neuro-program__name">Infusion Therapy</h3>
               <div class="neuro-program__divider" aria-hidden="true"></div>
               <div class="neuro-program__features">
@@ -636,7 +600,7 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
           </div>
         </section>
 
-        <!-- ── CLINICAL PROCESS ── -->
+        <!--  CLINICAL PROCESS  -->
         <section class="neuro-section" aria-labelledby="process-heading">
           <div class="neuro-section__header reveal">
             <span class="section__label">Our Process</span>
@@ -685,7 +649,7 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
           </div>
         </section>
 
-        <!-- ── CLINICAL STANDARDS ── -->
+        <!--  CLINICAL STANDARDS  -->
         <section class="neuro-section" aria-labelledby="standards-heading">
           <div class="neuro-section__header reveal">
             <span class="section__label">How We Practice</span>
@@ -703,7 +667,7 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
         </section>
 
 
-        <!-- ── OUR GOAL section ── -->
+        <!--  OUR GOAL section  -->
         <section class="neuro-section" aria-labelledby="our-goal-heading">
           <div class="neuro-section__header reveal">
             <span class="section__label">Our Goal</span>
@@ -736,13 +700,13 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
             </div>
             <div class="who-treat-item reveal" style="transition-delay:.28s">
               <div class="who-treat-item__dot" aria-hidden="true"></div>
-              <p class="who-treat-item__text">Neurological health that improves — and holds — over time</p>
+              <p class="who-treat-item__text">Neurological health that improves  and holds  over time</p>
             </div>
           </div>
         </section>
 
 
-        <!-- ── WHY PATIENTS CONTINUE ── -->
+        <!--  WHY PATIENTS CONTINUE  -->
         <section class="neuro-section" aria-labelledby="why-continue-heading">
           <div class="neuro-section__header reveal">
             <span class="section__label">Continuity of Care</span>
@@ -755,13 +719,13 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
             <div class="who-treat-item reveal">
               <div class="who-treat-item__dot" aria-hidden="true"></div>
               <p class="who-treat-item__text">
-                The same physician at every visit — someone who knows your full history, not just your chart
+                The same physician at every visit  someone who knows your full history, not just your chart
               </p>
             </div>
             <div class="who-treat-item reveal" style="transition-delay:.07s">
               <div class="who-treat-item__dot" aria-hidden="true"></div>
               <p class="who-treat-item__text">
-                Appointments designed around complex cases — unhurried, attentive, and genuinely thorough
+                Appointments designed around complex cases  unhurried, attentive, and genuinely thorough
               </p>
             </div>
             <div class="who-treat-item reveal" style="transition-delay:.14s">
@@ -779,13 +743,13 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
             <div class="who-treat-item reveal" style="transition-delay:.28s">
               <div class="who-treat-item__dot" aria-hidden="true"></div>
               <p class="who-treat-item__text">
-                Care that continues long after the first improvement — because lasting results take time
+                Care that continues long after the first improvement  because lasting results take time
               </p>
             </div>
           </div>
         </section>
 
-        <!-- ── BEGIN YOUR CARE CTA FOOTER ── -->
+        <!--  BEGIN YOUR CARE CTA FOOTER  -->
         <div class="neuro-cta-footer reveal" role="region" aria-label="Schedule a consultation">
           <div class="neuro-cta-footer__text">
             <span class="neuro-cta-footer__eyebrow">Access</span>
@@ -806,11 +770,11 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
           </a>
         </div>
 
-        <!-- ── OUR TEAM ─────────────────────────────────────────
+        <!--  OUR TEAM 
              Restore target: Neurological Medicine page only.
              [PHOTO-READY] Replace .team-card__photo-placeholder
              with <img class="team-card__photo" src="..." alt="Dr. Name">
-        ─────────────────────────────────────────────────────── -->
+         -->
         <section class="team-section" aria-labelledby="team-heading">
 
           <div class="team-section__header reveal">
@@ -821,19 +785,19 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
             </h2>
             <p class="team-section__lead">
               Our clinicians specialize in migraine medicine and neurological care.
-              Complex conditions deserve unhurried attention — and that is precisely
+              Complex conditions deserve unhurried attention  and that is precisely
               what every patient relationship here is built on.
             </p>
           </div>
 
 <div class="team-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; width: 100%;">
-  <!-- ── PHYSICIAN 01 ── Dr. Ryan Monti -->
+  <!--  PHYSICIAN 01  Dr. Ryan Monti -->
   <article class="team-card reveal" aria-label="Lead Physician profile">
     <div class="team-card__photo-wrap">
       <picture>
        <img class="team-card__photo"
      src="/images/dr-monti.jpg"
-     alt="Dr. Ryan Monti, MD – Monti Institute of Neuro Aesthetics"
+     alt="Dr. Ryan Monti, MD  Monti Institute of Neuro Aesthetics"
      style="width: 100%; height: 100%; aspect-ratio: 3 / 4; object-fit: contain; background-color: #fff;"
      loading="lazy" decoding="async"/>
       </picture>
@@ -868,7 +832,7 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
     </div>
   </article>
 
-  <!-- ── PROVIDER 02 ── Sean Kump -->
+  <!--  PROVIDER 02  Sean Kump -->
   <article class="team-card reveal" style="transition-delay:0.12s" aria-label="Associate Physician profile">
     <div class="team-card__photo-wrap">
       <picture>
@@ -907,7 +871,7 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
     </div>
   </article>
 
-  <!-- ── PROVIDER 03 ── Zack Ballingham -->
+  <!--  PROVIDER 03  Zack Ballingham -->
   <article class="team-card reveal" style="transition-delay:0.18s" aria-label="Zack Ballingham provider profile">
     <div class="team-card__photo-wrap">
       <picture>
@@ -947,7 +911,7 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
     </div>
   </article>
 
-  <!-- ── PROVIDER 04 ── Morgan Melton -->
+  <!--  PROVIDER 04  Morgan Melton -->
   <article class="team-card reveal" style="transition-delay:0.24s" aria-label="Morgan Melton provider profile">
     <div class="team-card__photo-wrap">
       <picture>
@@ -985,7 +949,7 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
       </button>
     </div>
   </article>
-<!-- ── CLINICAL TEAM ── Megan Phares -->
+<!--  CLINICAL TEAM  Megan Phares -->
 <article class="team-card reveal" style="transition-delay:0.3s" aria-label="Megan Phares provider profile">
     <div class="team-card__photo-wrap">
         <picture>  
@@ -1055,7 +1019,7 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
         </p>
         <div class="inner-page__rule"></div>
 
-        <!-- ── INTERVENTIONAL PROTOCOLS ── -->
+        <!--  INTERVENTIONAL PROTOCOLS  -->
         <section aria-labelledby="cs-protocols-heading">
           <div class="team-section__header reveal">
             <span class="section__label">Protocols</span>
@@ -1068,7 +1032,7 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
           <div class="protocol-detail-grid">
 
             <article class="protocol-detail-card reveal"
-                     aria-label="FDA-Approved Prevention — Botox for Chronic Migraine">
+                     aria-label="FDA-Approved Prevention  Botox for Chronic Migraine">
               <div class="protocol-detail-card__header">
                 <span class="protocol-detail-card__num">01</span>
                 <div class="protocol-detail-card__hdr-body">
@@ -1089,7 +1053,7 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
 
             <article class="protocol-detail-card reveal"
                      style="transition-delay:0.08s"
-                     aria-label="Interventional Block — Occipital Nerve Blocks">
+                     aria-label="Interventional Block  Occipital Nerve Blocks">
               <div class="protocol-detail-card__header">
                 <span class="protocol-detail-card__num">02</span>
                 <div class="protocol-detail-card__hdr-body">
@@ -1109,7 +1073,7 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
 
             <article class="protocol-detail-card reveal"
                      style="transition-delay:0.16s"
-                     aria-label="Myofascial — Trigger Point Injections">
+                     aria-label="Myofascial  Trigger Point Injections">
               <div class="protocol-detail-card__header">
                 <span class="protocol-detail-card__num">03</span>
                 <div class="protocol-detail-card__hdr-body">
@@ -1128,7 +1092,7 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
 
             <article class="protocol-detail-card reveal"
                      style="transition-delay:0.24s"
-                     aria-label="Neuromodulation — Device-based therapy">
+                     aria-label="Neuromodulation  Device-based therapy">
               <div class="protocol-detail-card__header">
                 <span class="protocol-detail-card__num">04</span>
                 <div class="protocol-detail-card__hdr-body">
@@ -1189,7 +1153,7 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
           </div><!-- /protocol-detail-grid -->
         </section>
 
-        <!-- ── CARE PROGRAMS ── -->
+        <!--  CARE PROGRAMS  -->
         <section style="margin-block-start:var(--sp-inner);padding-block-start:var(--sp-inner);
                         border-top:1px solid var(--stone)"
                  aria-labelledby="cs-programs-heading">
@@ -1201,7 +1165,7 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
             </h2>
           </div>
           <div class="neuro-programs-grid">
-            <article class="neuro-program reveal" aria-label="Program I — Migraine Management">
+            <article class="neuro-program reveal" aria-label="Program I  Migraine Management">
               <span class="neuro-program__label">Program I</span>
               <h3 class="neuro-program__name">Migraine Management Program</h3>
               <div class="neuro-program__divider" aria-hidden="true"></div>
@@ -1218,7 +1182,7 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
               </a>
             </article>
             <article class="neuro-program reveal" style="transition-delay:0.1s"
-                     aria-label="Program II — Chronic Headache Continuity">
+                     aria-label="Program II  Chronic Headache Continuity">
               <span class="neuro-program__label">Program II</span>
               <h3 class="neuro-program__name">Chronic Headache Continuity Program</h3>
               <div class="neuro-program__divider" aria-hidden="true"></div>
@@ -1235,7 +1199,7 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
               </a>
             </article>
             <article class="neuro-program reveal" style="transition-delay:0.2s"
-                     aria-label="Program III — Neurological Infusion">
+                     aria-label="Program III  Neurological Infusion">
               <span class="neuro-program__label">Program III</span>
               <h3 class="neuro-program__name">Neurological Infusion Program</h3>
               <div class="neuro-program__divider" aria-hidden="true"></div>
@@ -1254,7 +1218,7 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
           </div>
         </section>
 
-        <!-- ── INSURANCE & ACCESS ── -->
+        <!--  INSURANCE & ACCESS  -->
         <div class="insurance-section reveal">
           <span class="section__label">Insurance &amp; Access</span>
           <div class="insurance-carriers">
@@ -1274,7 +1238,7 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
           </a>
         </div>
 
-        <!-- ── FINAL CTA ── -->
+        <!--  FINAL CTA  -->
         <div class="clinical-cta-footer reveal">
           <span class="clinical-cta-footer__eyebrow">Begin Care</span>
           <h2 class="clinical-cta-footer__heading">
@@ -1300,7 +1264,7 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
       </div>
     </div>
   
-    <!-- ── CLINICAL GLOSSARY ── -->
+    <!--  CLINICAL GLOSSARY  -->
     <section class="glossary-section" aria-labelledby="glossary-heading">
       <span class="hp-trust-section__label">Clinical Lexicon</span>
       <h2 class="inner-page__col-heading" id="glossary-heading"
@@ -1440,7 +1404,7 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
               toolkit for eligible migraine patients at this practice. Candidate
               selection, dosing intervals, and combination with Botox or
               infusion protocols are determined through individualized clinical
-              evaluation — not a standard formulary approach.
+              evaluation  not a standard formulary approach.
             </div>
           </div>
         </details>
@@ -1542,9 +1506,13 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
 
   </main>
 
+  <footer style="background:transparent;color:rgba(255,255,255,0.6);font-size:0.85rem;padding:20px 40px;display:flex;justify-content:space-between;align-items:center;">
+    <p style="margin:0;">&copy; 2026 Monti Institute of Neuro Aesthetics. All Rights Reserved.</p>
+    <p style="margin:0;"><a href="privacy.html" style="color:rgba(255,255,255,0.8);text-decoration:none;">Privacy Policy</a></p>
+  </footer>
+
   <script src="script.js"></script>
 
-  <!-- ── CONDITION TOOLTIP TAP TOGGLE ── -->
   <script>
   (function initConditionTooltips() {
     var items = document.querySelectorAll('.cond-item');
@@ -1565,7 +1533,7 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
 
       /* Tap / click toggle */
       btn.addEventListener('click', function(e) {
-        /* On non-touch / desktop, hover handles it — only toggle on touch */
+        /* On non-touch / desktop, hover handles it  only toggle on touch */
         var isOpen = item.classList.contains('is-open');
         closeAll(item);
         item.classList.toggle('is-open', !isOpen);
@@ -1584,25 +1552,24 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
   })();
   </script>
 
-
   <script>
-/* ═══════════════════════════════════════════════════════════════════
-   MONTI INSTITUTE — CLINICAL INFORMATION REGISTRY
+  /* 
+   MONTI INSTITUTE  CLINICAL INFORMATION REGISTRY
    Single source of truth for all hover previews + modal content.
    Every entry: { label, category, preview, body, detail[], note }
-   ═══════════════════════════════════════════════════════════════ */
+    */
 window.MONTI_REGISTRY = {
 
-  /* ── MIGRAINE TYPES ─────────────────────────────────────── */
+  /*  MIGRAINE TYPES  */
   "chronic-migraine": {
     label: "Chronic Migraine",
     category: "Migraine Type",
-    preview: "15 or more headache days per month — a recognized neurological disease, not just frequent headaches.",
-    body: "Chronic migraine is defined as 15 or more headache days per month, with at least 8 carrying migraine-quality pain. This is not a description of someone who gets headaches often. It is a recognized neurological condition in which the brain's pain-processing pathways have become sensitized over time — often through a combination of genetics, stress, hormonal shifts, and undertreated earlier episodes.",
+    preview: "15 or more headache days per month  a recognized neurological disease, not just frequent headaches.",
+    body: "Chronic migraine is defined as 15 or more headache days per month, with at least 8 carrying migraine-quality pain. This is not a description of someone who gets headaches often. It is a recognized neurological condition in which the brain's pain-processing pathways have become sensitized over time  often through a combination of genetics, stress, hormonal shifts, and undertreated earlier episodes.",
     detail: [
       "What it feels like: throbbing or pulsing pain, usually on one side, frequently accompanied by nausea and severe sensitivity to light and sound.",
       "Why it progresses: each untreated or undertreated migraine episode can reinforce the neural pathways that trigger the next one.",
-      "Who comes to us: patients who have tried two, three, or more medications without lasting relief — and who are ready for a physician who will build a plan specifically for them."
+      "Who comes to us: patients who have tried two, three, or more medications without lasting relief  and who are ready for a physician who will build a plan specifically for them."
     ],
     note: "FDA-approved Botox for chronic migraine is covered by most commercial insurance plans."
   },
@@ -1610,12 +1577,12 @@ window.MONTI_REGISTRY = {
   "episodic-migraine": {
     label: "Episodic Migraine",
     category: "Migraine Type",
-    preview: "Fewer than 15 headache days monthly — but attacks can still be completely disabling.",
-    body: "Episodic migraine means fewer than 15 headache days per month, but that number alone does not capture the severity. A single migraine attack can last 4 to 72 hours and render a person unable to work, care for their family, or tolerate light or sound. Episodic migraine also carries a real risk of progression to chronic migraine — especially without proper treatment.",
+    preview: "Fewer than 15 headache days monthly  but attacks can still be completely disabling.",
+    body: "Episodic migraine means fewer than 15 headache days per month, but that number alone does not capture the severity. A single migraine attack can last 4 to 72 hours and render a person unable to work, care for their family, or tolerate light or sound. Episodic migraine also carries a real risk of progression to chronic migraine  especially without proper treatment.",
     detail: [
       "Typical features: moderate to severe one-sided pain, nausea or vomiting, light and sound sensitivity, sometimes aura.",
       "When to seek care: if migraines are interfering with your life more than once a month, a formal evaluation is worthwhile.",
-      "Prevention: the right preventive medication or intervention can significantly reduce frequency — and stop episodic migraine from becoming chronic."
+      "Prevention: the right preventive medication or intervention can significantly reduce frequency  and stop episodic migraine from becoming chronic."
     ],
     note: "Preventive treatment is often covered by commercial insurance."
   },
@@ -1623,12 +1590,12 @@ window.MONTI_REGISTRY = {
   "migraine-aura": {
     label: "Migraine with Aura",
     category: "Migraine Type",
-    preview: "Migraine preceded by neurological warning signs — visual disturbances, sensory changes, or speech difficulty.",
-    body: "In migraine with aura, the headache is preceded — or occasionally replaced — by a distinct neurological event called an aura. Auras are caused by a wave of electrical and chemical activity that spreads across the brain's cortex. They typically last 20 to 60 minutes and resolve before or as the headache begins.",
+    preview: "Migraine preceded by neurological warning signs  visual disturbances, sensory changes, or speech difficulty.",
+    body: "In migraine with aura, the headache is preceded  or occasionally replaced  by a distinct neurological event called an aura. Auras are caused by a wave of electrical and chemical activity that spreads across the brain's cortex. They typically last 20 to 60 minutes and resolve before or as the headache begins.",
     detail: [
       "Visual aura (most common): zigzag or crescent-shaped flickering lights, blind spots, or tunnel vision.",
       "Sensory aura: tingling or numbness that moves across one hand, arm, or face.",
-      "Speech aura: difficulty finding words or forming sentences — which can be frightening, though it resolves completely.",
+      "Speech aura: difficulty finding words or forming sentences  which can be frightening, though it resolves completely.",
       "Important: migraine with aura carries a slightly higher cardiovascular risk in certain patient groups, which is one reason formal evaluation matters."
     ],
     note: "Aura-specific treatments and risk counseling are part of your first consultation."
@@ -1637,38 +1604,38 @@ window.MONTI_REGISTRY = {
   "vestibular-migraine": {
     label: "Vestibular Migraine",
     category: "Migraine Type",
-    preview: "Migraine that causes vertigo or dizziness — often without the headache people expect.",
-    body: "Vestibular migraine is one of the most frequently missed diagnoses in headache medicine. It produces episodes of vertigo, dizziness, imbalance, or a sense of spinning — which may or may not occur alongside a headache. Many patients have lived with these symptoms for years, receiving diagnoses of inner ear problems or anxiety, before learning the cause is neurological.",
+    preview: "Migraine that causes vertigo or dizziness  often without the headache people expect.",
+    body: "Vestibular migraine is one of the most frequently missed diagnoses in headache medicine. It produces episodes of vertigo, dizziness, imbalance, or a sense of spinning  which may or may not occur alongside a headache. Many patients have lived with these symptoms for years, receiving diagnoses of inner ear problems or anxiety, before learning the cause is neurological.",
     detail: [
       "Key symptom: episodes of true vertigo (the room seems to spin) or intense unsteadiness, typically lasting minutes to hours.",
       "Headache may be absent: up to 30% of vestibular migraine episodes occur without any head pain.",
       "Triggers are often the same: stress, hormonal shifts, sleep disruption, certain foods.",
       "Treatment works: the same preventive approaches used for classic migraine are effective for vestibular migraine."
     ],
-    note: "Vestibular migraine is frequently undertreated — proper diagnosis changes outcomes."
+    note: "Vestibular migraine is frequently undertreated  proper diagnosis changes outcomes."
   },
 
   "hemiplegic-migraine": {
     label: "Hemiplegic Migraine",
     category: "Migraine Type",
-    preview: "A rare migraine variant producing temporary one-sided weakness or paralysis — alarming but recoverable.",
-    body: "Hemiplegic migraine is a rare and distinctive migraine type in which the aura includes temporary motor weakness or paralysis on one side of the body. This can involve the arm, leg, and face, and may be accompanied by speech difficulty, sensory changes, and in severe cases, altered consciousness. It can closely mimic a stroke — which makes evaluation by a physician who understands it essential.",
+    preview: "A rare migraine variant producing temporary one-sided weakness or paralysis  alarming but recoverable.",
+    body: "Hemiplegic migraine is a rare and distinctive migraine type in which the aura includes temporary motor weakness or paralysis on one side of the body. This can involve the arm, leg, and face, and may be accompanied by speech difficulty, sensory changes, and in severe cases, altered consciousness. It can closely mimic a stroke  which makes evaluation by a physician who understands it essential.",
     detail: [
       "What distinguishes it: the weakness resolves completely, typically within 24 hours, unlike a stroke.",
       "Familial and sporadic types: hemiplegic migraine can run in families (with identified genetic mutations) or occur without family history.",
-      "Emergency protocol: at first presentation, a stroke workup is appropriate — we can help coordinate this and provide ongoing management afterward.",
+      "Emergency protocol: at first presentation, a stroke workup is appropriate  we can help coordinate this and provide ongoing management afterward.",
       "Special medication considerations: standard migraine triptans are typically avoided; treatment requires specialist guidance."
     ],
-    note: "This condition requires specialist management — we provide both diagnosis and long-term care planning."
+    note: "This condition requires specialist management  we provide both diagnosis and long-term care planning."
   },
 
   "ocular-migraine": {
     label: "Ocular / Retinal Migraine",
     category: "Migraine Type",
-    preview: "Temporary vision loss in one eye — distinct from visual aura, and worth investigating carefully.",
+    preview: "Temporary vision loss in one eye  distinct from visual aura, and worth investigating carefully.",
     body: "Retinal migraine involves repeated episodes of temporary vision loss or disturbance in a single eye, rather than both eyes simultaneously (which would be visual aura). This distinction matters clinically because single-eye vision changes can also indicate a vascular problem affecting the eye's blood supply. Proper evaluation is important.",
     detail: [
-      "What it looks like: brief episodes of monocular vision loss — dimming, graying, or total temporary blindness in one eye.",
+      "What it looks like: brief episodes of monocular vision loss  dimming, graying, or total temporary blindness in one eye.",
       "Duration: typically lasting less than an hour, with full recovery.",
       "Why evaluation matters: retinal migraine is rare; other causes of monocular vision loss need to be ruled out first.",
       "Treatment: once confirmed as retinal migraine, preventive strategies are similar to other migraine types."
@@ -1679,11 +1646,11 @@ window.MONTI_REGISTRY = {
   "menstrual-migraine": {
     label: "Menstrual Migraine",
     category: "Migraine Type",
-    preview: "Migraines that predictably occur around menstruation — hormonally triggered and often more severe.",
-    body: "Menstrual migraine occurs in a predictable window around the menstrual cycle — typically 2 days before to 3 days after the onset of menstruation — triggered by the drop in estrogen that signals the cycle's beginning. These attacks are often longer, more severe, and more resistant to standard acute medications than non-menstrual migraines.",
+    preview: "Migraines that predictably occur around menstruation  hormonally triggered and often more severe.",
+    body: "Menstrual migraine occurs in a predictable window around the menstrual cycle  typically 2 days before to 3 days after the onset of menstruation  triggered by the drop in estrogen that signals the cycle's beginning. These attacks are often longer, more severe, and more resistant to standard acute medications than non-menstrual migraines.",
     detail: [
       "Why they're harder to treat: the hormonal trigger makes them less responsive to typical rescue medications.",
-      "Hormonal strategies: mini-prophylaxis — short-course preventive medications taken in the days surrounding menstruation — can dramatically reduce severity and frequency.",
+      "Hormonal strategies: mini-prophylaxis  short-course preventive medications taken in the days surrounding menstruation  can dramatically reduce severity and frequency.",
       "Tracking matters: a headache diary that captures cycle timing is one of the most useful tools we use in evaluating and treating this pattern.",
       "Birth control considerations: some hormonal contraceptive strategies can help; others can worsen migraine. We evaluate this carefully."
     ],
@@ -1693,40 +1660,40 @@ window.MONTI_REGISTRY = {
   "status-migrainosus": {
     label: "Status Migrainosus",
     category: "Migraine Type",
-    preview: "A migraine attack lasting more than 72 hours — requiring urgent medical attention.",
+    preview: "A migraine attack lasting more than 72 hours  requiring urgent medical attention.",
     body: "Status migrainosus is a debilitating migraine attack that persists for more than 72 hours despite treatment. It is a medical urgency. Prolonged attacks are associated with dehydration, severe functional impairment, and a higher risk of migraine-associated stroke in susceptible patients. They require active clinical management, not simply waiting it out.",
     detail: [
       "When it occurs: often triggered by medication overuse, hormonal shifts, abrupt withdrawal of a preventive medication, or extreme stress.",
-      "Medical intervention: IV infusion therapy — including magnesium sulfate, dihydroergotamine (DHE), and corticosteroids — can break a prolonged attack.",
+      "Medical intervention: IV infusion therapy  including magnesium sulfate, dihydroergotamine (DHE), and corticosteroids  can break a prolonged attack.",
       "Our role: we provide IV rescue therapy in-office and can help establish a protocol to prevent recurrence.",
       "Prevention: identifying what triggered a prolonged attack is the first step toward preventing the next one."
     ],
     note: "IV infusion therapy for acute migraine rescue is available at Monti Institute."
   },
 
-  /* ── CONDITIONS WE TREAT ─────────────────────────────────── */
+  /*  CONDITIONS WE TREAT  */
   "cluster-headache": {
     label: "Cluster Headache",
     category: "Headache Condition",
-    preview: "Severe, one-sided head pain centered around the eye — among the most painful conditions in medicine.",
-    body: "Cluster headaches are widely considered one of the most painful conditions in medical literature. They strike in clusters — periods of weeks or months during which attacks occur with alarming frequency, sometimes multiple times daily. Between clusters, patients can be completely pain-free for months or years. When they return, the cycle begins again.",
+    preview: "Severe, one-sided head pain centered around the eye  among the most painful conditions in medicine.",
+    body: "Cluster headaches are widely considered one of the most painful conditions in medical literature. They strike in clusters  periods of weeks or months during which attacks occur with alarming frequency, sometimes multiple times daily. Between clusters, patients can be completely pain-free for months or years. When they return, the cycle begins again.",
     detail: [
       "What an attack feels like: excruciating, penetrating pain behind or around one eye, often described as a hot poker or an eye being pushed out. Pain typically peaks within 15 minutes.",
       "Autonomic features on the same side as the pain: eye redness and tearing, drooping eyelid, nasal congestion or runny nose.",
-      "Timing: attacks often occur at night and at the same time of day — sometimes called 'alarm clock headaches.'",
-      "Treatment: acute oxygen therapy, injectable triptans, and preventive medications can all be effective — and the right specialist guidance makes a significant difference."
+      "Timing: attacks often occur at night and at the same time of day  sometimes called 'alarm clock headaches.'",
+      "Treatment: acute oxygen therapy, injectable triptans, and preventive medications can all be effective  and the right specialist guidance makes a significant difference."
     ],
-    note: "Specialist evaluation is essential — cluster headache responds to treatments that general practitioners rarely prescribe."
+    note: "Specialist evaluation is essential  cluster headache responds to treatments that general practitioners rarely prescribe."
   },
 
   "tension-headache": {
     label: "Tension-Type Headache",
     category: "Headache Condition",
-    preview: "A band-like pressure around the head — the most common headache disorder, often coexisting with migraine.",
-    body: "Tension-type headache is the most common headache disorder worldwide. The pain is typically bilateral, described as a pressing or tightening sensation — like a band squeezing the head — without the pulsating quality or severe nausea typical of migraine. While individual attacks are usually milder than migraine, chronic tension headache can profoundly reduce quality of life.",
+    preview: "A band-like pressure around the head  the most common headache disorder, often coexisting with migraine.",
+    body: "Tension-type headache is the most common headache disorder worldwide. The pain is typically bilateral, described as a pressing or tightening sensation  like a band squeezing the head  without the pulsating quality or severe nausea typical of migraine. While individual attacks are usually milder than migraine, chronic tension headache can profoundly reduce quality of life.",
     detail: [
       "Episodic vs. chronic: occurring on fewer than 15 days monthly is episodic; 15 or more days is chronic tension headache.",
-      "Overlap with migraine: many patients have both tension headache and migraine — and treating them requires understanding both patterns.",
+      "Overlap with migraine: many patients have both tension headache and migraine  and treating them requires understanding both patterns.",
       "Triggers: stress, poor sleep, prolonged screen time, neck and shoulder tension, and dehydration are common contributors.",
       "When to seek care: if headaches are occurring more than once a week or are interfering with work and daily life, evaluation is appropriate."
     ],
@@ -1736,50 +1703,50 @@ window.MONTI_REGISTRY = {
   "neuralgia-facial-pain": {
     label: "Neuralgia & Facial Pain",
     category: "Headache Condition",
-    preview: "Sharp, shooting, or burning nerve pain in the face or scalp — often misdiagnosed for years.",
-    body: "Neuralgias are pain syndromes caused by dysfunction or irritation of specific nerves — producing pain that is characteristically sharp, shooting, electric, or burning rather than the throbbing or pressure quality of headache disorders. The most common neuralgias affecting the head and face are trigeminal neuralgia and occipital neuralgia.",
+    preview: "Sharp, shooting, or burning nerve pain in the face or scalp  often misdiagnosed for years.",
+    body: "Neuralgias are pain syndromes caused by dysfunction or irritation of specific nerves  producing pain that is characteristically sharp, shooting, electric, or burning rather than the throbbing or pressure quality of headache disorders. The most common neuralgias affecting the head and face are trigeminal neuralgia and occipital neuralgia.",
     detail: [
       "Trigeminal neuralgia: brief, excruciating electric-shock pain along the face, triggered by touch, chewing, or even a gentle breeze. Often described as the most severe pain in medicine.",
-      "Occipital neuralgia: shooting or burning pain beginning at the base of the skull and radiating up through the scalp — frequently confused with migraine.",
-      "Why diagnosis matters: neuralgias respond to different treatments than migraine. Nerve blocks — a strength of this practice — often provide rapid and dramatic relief.",
+      "Occipital neuralgia: shooting or burning pain beginning at the base of the skull and radiating up through the scalp  frequently confused with migraine.",
+      "Why diagnosis matters: neuralgias respond to different treatments than migraine. Nerve blocks  a strength of this practice  often provide rapid and dramatic relief.",
       "What we do: precise diagnostic nerve blocks that both confirm the diagnosis and provide immediate therapeutic benefit."
     ],
-    note: "Targeted nerve blocks can provide relief within days — often where medication has failed."
+    note: "Targeted nerve blocks can provide relief within days  often where medication has failed."
   },
 
   "post-traumatic-headache": {
     label: "Post-Traumatic Headache",
     category: "Headache Condition",
-    preview: "Headache beginning after concussion or head injury — real, neurological, and treatable.",
-    body: "Post-traumatic headache is one of the most common and most undertreated complications of head injury. It develops within 7 days of a traumatic event — including concussion, whiplash, or direct head trauma — and can persist for months to years. It often mimics migraine but may also present as a new, distinct headache pattern unlike anything the patient experienced before their injury.",
+    preview: "Headache beginning after concussion or head injury  real, neurological, and treatable.",
+    body: "Post-traumatic headache is one of the most common and most undertreated complications of head injury. It develops within 7 days of a traumatic event  including concussion, whiplash, or direct head trauma  and can persist for months to years. It often mimics migraine but may also present as a new, distinct headache pattern unlike anything the patient experienced before their injury.",
     detail: [
-      "Why it's real: post-traumatic headache reflects genuine neurological and biochemical changes in the brain's pain systems following injury — not anxiety or exaggeration.",
+      "Why it's real: post-traumatic headache reflects genuine neurological and biochemical changes in the brain's pain systems following injury  not anxiety or exaggeration.",
       "Why it's often undertreated: patients are frequently told that concussion recovery takes time and sent home without a treatment plan.",
       "What we offer: comprehensive evaluation, treatment of underlying migraine-like features, and a documented long-term management plan.",
-      "Insurance: often covered by auto insurance, workers' compensation, or standard health insurance — we can assist with documentation."
+      "Insurance: often covered by auto insurance, workers' compensation, or standard health insurance  we can assist with documentation."
     ],
-    note: "Often covered by auto or workers' compensation — we assist with clinical documentation."
+    note: "Often covered by auto or workers' compensation  we assist with clinical documentation."
   },
 
   "moh-rebound": {
     label: "Medication Overuse Headache",
     category: "Headache Condition",
-    preview: "Headaches caused by taking pain medication too frequently — a cycle we can help break.",
-    body: "Medication overuse headache (MOH) — also called rebound headache — occurs when pain-relieving medications are taken more than 10 to 15 days per month. Rather than relieving headaches long-term, frequent use of triptans, NSAIDs, or opioids actually sensitizes the brain's pain pathways, making headaches more frequent and harder to treat. This affects many patients who are doing exactly what they were told — taking their prescribed medication when needed.",
+    preview: "Headaches caused by taking pain medication too frequently  a cycle we can help break.",
+    body: "Medication overuse headache (MOH)  also called rebound headache  occurs when pain-relieving medications are taken more than 10 to 15 days per month. Rather than relieving headaches long-term, frequent use of triptans, NSAIDs, or opioids actually sensitizes the brain's pain pathways, making headaches more frequent and harder to treat. This affects many patients who are doing exactly what they were told  taking their prescribed medication when needed.",
     detail: [
       "How it develops: the brain adapts to regular medication use, triggering withdrawal-like pain whenever medication levels drop.",
-      "Which medications cause it: almost any acute headache medication can contribute — including OTC options like ibuprofen and acetaminophen.",
-      "Breaking the cycle: requires supervised medication withdrawal paired with preventive treatment — not simply stopping medication abruptly.",
+      "Which medications cause it: almost any acute headache medication can contribute  including OTC options like ibuprofen and acetaminophen.",
+      "Breaking the cycle: requires supervised medication withdrawal paired with preventive treatment  not simply stopping medication abruptly.",
       "Our approach: we create a structured withdrawal plan with preventive support to address the underlying headache pattern."
     ],
-    note: "Breaking the rebound cycle requires clinical support — we provide a structured withdrawal plan."
+    note: "Breaking the rebound cycle requires clinical support  we provide a structured withdrawal plan."
   },
 
   "cervicogenic-headache": {
     label: "Cervicogenic Headache",
     category: "Headache Condition",
-    preview: "Head pain originating from the neck — often mistaken for migraine or tension headache.",
-    body: "Cervicogenic headache originates in the cervical spine (neck) and is referred upward into the head through shared nerve pathways. It is frequently misidentified as migraine or tension headache, particularly because it can produce one-sided head pain, nausea, and light sensitivity that mimics migraine exactly. The key distinction is that the pain originates from the neck structures — and responds to very different treatments.",
+    preview: "Head pain originating from the neck  often mistaken for migraine or tension headache.",
+    body: "Cervicogenic headache originates in the cervical spine (neck) and is referred upward into the head through shared nerve pathways. It is frequently misidentified as migraine or tension headache, particularly because it can produce one-sided head pain, nausea, and light sensitivity that mimics migraine exactly. The key distinction is that the pain originates from the neck structures  and responds to very different treatments.",
     detail: [
       "What gives it away: neck pain or stiffness that accompanies or precedes the headache; pain that worsens with certain head positions.",
       "Common causes: cervical disc disease, upper cervical joint dysfunction, whiplash injury.",
@@ -1789,45 +1756,45 @@ window.MONTI_REGISTRY = {
     note: "Diagnostic nerve blocks confirm the source and provide immediate relief."
   },
 
-  /* ── NEUROLOGICAL PROCEDURES ─────────────────────────────── */
+  /*  NEUROLOGICAL PROCEDURES  */
   "botox-migraine": {
     label: "Botox for Chronic Migraine",
     category: "Neurological Procedure",
-    preview: "FDA-approved OnabotulinumtoxinA injected across 31 sites every 12 weeks — one of migraine medicine's most validated treatments.",
-    body: "OnabotulinumtoxinA (Botox) received FDA approval for chronic migraine in 2010 and has since become one of the most rigorously studied preventive treatments available. It works by blocking the release of pain-signaling neurotransmitters from peripheral nerve endings before they can reach the trigeminal pain pathway — preventing migraine from starting rather than treating it after it begins.",
+    preview: "FDA-approved OnabotulinumtoxinA injected across 31 sites every 12 weeks  one of migraine medicine's most validated treatments.",
+    body: "OnabotulinumtoxinA (Botox) received FDA approval for chronic migraine in 2010 and has since become one of the most rigorously studied preventive treatments available. It works by blocking the release of pain-signaling neurotransmitters from peripheral nerve endings before they can reach the trigeminal pain pathway  preventing migraine from starting rather than treating it after it begins.",
     detail: [
-      "The protocol: 31 precisely mapped injection sites across the forehead, temples, back of the head, neck, and shoulders — following the FDA-approved PREEMPT paradigm.",
-      "Dosage: 155–195 units, administered every 12 weeks.",
+      "The protocol: 31 precisely mapped injection sites across the forehead, temples, back of the head, neck, and shoulders  following the FDA-approved PREEMPT paradigm.",
+      "Dosage: 155195 units, administered every 12 weeks.",
       "When it works: most patients see meaningful reduction in migraine frequency after 2 complete treatment cycles (approximately 6 months).",
       "This is medicine, not aesthetics: at Monti Institute, neurological Botox is administered by a physician, for a documented clinical indication, following ICHD-3 diagnostic criteria.",
       "Insurance: covered by most commercial insurance plans for patients meeting diagnostic criteria."
     ],
-    note: "Most commercial insurance plans cover this treatment — insurance verification available before your appointment."
+    note: "Most commercial insurance plans cover this treatment  insurance verification available before your appointment."
   },
 
   "occipital-nerve-blocks": {
     label: "Occipital Nerve Blocks",
     category: "Neurological Procedure",
-    preview: "Targeted anesthetic injections at the base of the skull — can interrupt a migraine cycle within hours.",
+    preview: "Targeted anesthetic injections at the base of the skull  can interrupt a migraine cycle within hours.",
     body: "Occipital nerve blocks are precise injections of a local anesthetic (and sometimes a small amount of corticosteroid) around the greater and lesser occipital nerves at the base of the skull. These nerves connect the upper neck to the scalp and carry pain signals implicated in migraine, cervicogenic headache, and occipital neuralgia. The procedure takes approximately 5 minutes and can provide relief lasting from weeks to months.",
     detail: [
       "What it treats: chronic migraine, cluster headache, occipital neuralgia, post-traumatic headache, and cervicogenic headache.",
       "How quickly it works: many patients experience significant relief within 24 hours of the injection.",
-      "How often it's done: in-office procedure, performed as needed — typically every 4 to 12 weeks depending on response.",
+      "How often it's done: in-office procedure, performed as needed  typically every 4 to 12 weeks depending on response.",
       "What to expect: minor stinging at the injection site, brief numbness of the scalp, and for many patients, a dramatic reduction in headache frequency.",
       "Risk profile: very low when performed by an experienced physician who understands the anatomy precisely."
     ],
-    note: "Often covered by insurance — and can provide relief where medications have not."
+    note: "Often covered by insurance  and can provide relief where medications have not."
   },
 
   "trigger-point-injections": {
     label: "Trigger Point Injections",
     category: "Neurological Procedure",
-    preview: "Myofascial injections targeting the muscle tension patterns that amplify headache — a precision complement to migraine care.",
-    body: "Trigger point injections deliver a small amount of anesthetic (or saline) directly into tight, painful muscle bands in the neck, shoulders, and base of the skull that are contributing to headache. These points — called trigger points — can both generate head pain directly and amplify underlying migraine by increasing peripheral sensitization.",
+    preview: "Myofascial injections targeting the muscle tension patterns that amplify headache  a precision complement to migraine care.",
+    body: "Trigger point injections deliver a small amount of anesthetic (or saline) directly into tight, painful muscle bands in the neck, shoulders, and base of the skull that are contributing to headache. These points  called trigger points  can both generate head pain directly and amplify underlying migraine by increasing peripheral sensitization.",
     detail: [
       "Target areas: the trapezius, sternocleidomastoid, suboccipital, and temporalis muscles are most commonly involved.",
-      "How it works: the injection causes the muscle to release — interrupting the pain signal that has been feeding into the headache cycle.",
+      "How it works: the injection causes the muscle to release  interrupting the pain signal that has been feeding into the headache cycle.",
       "Combination with Botox: when used alongside neurological Botox, trigger point injections can address the muscular component of headache that Botox's fixed injection map may not cover.",
       "Frequency: typically performed monthly or as needed, and documented in your clinical plan."
     ],
@@ -1837,29 +1804,29 @@ window.MONTI_REGISTRY = {
   "cgrp-therapy": {
     label: "CGRP Pathway Therapies",
     category: "Neurological Procedure",
-    preview: "A class of medications specifically designed for migraine — the first preventives built around migraine's own biology.",
-    body: "CGRP (Calcitonin Gene-Related Peptide) is a neuropeptide released from trigeminal nerve endings during migraine attacks. It produces vasodilation, neurogenic inflammation, and the central sensitization that characterizes a full migraine episode. Anti-CGRP therapies were the first medications designed specifically for migraine prevention — targeting the exact biological mechanism rather than repurposing drugs from other conditions.",
+    preview: "A class of medications specifically designed for migraine  the first preventives built around migraine's own biology.",
+    body: "CGRP (Calcitonin Gene-Related Peptide) is a neuropeptide released from trigeminal nerve endings during migraine attacks. It produces vasodilation, neurogenic inflammation, and the central sensitization that characterizes a full migraine episode. Anti-CGRP therapies were the first medications designed specifically for migraine prevention  targeting the exact biological mechanism rather than repurposing drugs from other conditions.",
     detail: [
       "How they work: monoclonal antibodies either block CGRP directly or block its receptor, preventing the cascade from initiating.",
-      "Available agents: erenumab (Aimovig), fremanezumab (Ajovy), galcanezumab (Emgality), and eptinezumab (Vyepti — IV infusion).",
+      "Available agents: erenumab (Aimovig), fremanezumab (Ajovy), galcanezumab (Emgality), and eptinezumab (Vyepti  IV infusion).",
       "Dosing: monthly or quarterly injection (self-administered at home or in-office) depending on the medication chosen.",
       "Response rate: approximately 50% of patients achieve at least a 50% reduction in monthly migraine days.",
       "Tolerability: well-tolerated by most patients, with a side effect profile significantly better than older preventive medications."
     ],
-    note: "Covered by most commercial insurance plans — prior authorization assistance provided."
+    note: "Covered by most commercial insurance plans  prior authorization assistance provided."
   },
 
   "iv-infusion-therapy": {
     label: "IV Infusion Therapy",
     category: "Neurological Procedure",
     preview: "Physician-supervised intravenous therapy for acute migraine rescue and neurological support.",
-    body: "IV infusion therapy delivers medication directly into the bloodstream for rapid, reliable absorption — making it one of the most effective approaches for acute migraine rescue, especially for attacks that have not responded to oral medications. At Monti Institute, infusions are physician-supervised and individualized based on your clinical presentation and documented treatment history.",
+    body: "IV infusion therapy delivers medication directly into the bloodstream for rapid, reliable absorption  making it one of the most effective approaches for acute migraine rescue, especially for attacks that have not responded to oral medications. At Monti Institute, infusions are physician-supervised and individualized based on your clinical presentation and documented treatment history.",
     detail: [
       "Magnesium sulfate: low magnesium levels are common in migraine patients and infusion can abort an acute attack and reduce future frequency.",
       "DHE (Dihydroergotamine): highly effective for breaking prolonged or refractory migraine attacks.",
       "NAD+ neurological support: provided for patients benefiting from metabolic and mitochondrial support alongside migraine management.",
       "Rescue protocol: for patients with Status Migrainosus (migraine lasting more than 72 hours), IV therapy is often the only effective intervention.",
-      "Setting: administered in-office in a quiet, low-stimulation environment — designed with photosensitive patients in mind."
+      "Setting: administered in-office in a quiet, low-stimulation environment  designed with photosensitive patients in mind."
     ],
     note: "Available for acute rescue and as part of ongoing neurological support programs."
   },
@@ -1867,177 +1834,143 @@ window.MONTI_REGISTRY = {
   "neuromodulation": {
     label: "Neuromodulation Strategies",
     category: "Neurological Procedure",
-    preview: "FDA-cleared, non-drug devices that interrupt migraine signals through the skin — no medication required.",
-    body: "Neuromodulation devices deliver precisely targeted electrical or magnetic pulses to interrupt the neural pathways involved in migraine — without medication. These FDA-cleared devices are particularly valuable for patients who cannot tolerate or prefer not to use medications, or as a complement to pharmacological treatment.",
+    preview: "FDA-cleared, non-drug devices that interrupt migraine signals through the skin  no medication required.",
+    body: "Neuromodulation devices deliver precisely targeted electrical or magnetic pulses to interrupt the neural pathways involved in migraine  without medication. These FDA-cleared devices are particularly valuable for patients who cannot tolerate or prefer not to use medications, or as a complement to pharmacological treatment.",
     detail: [
-      "Single-pulse TMS (sTMS): a handheld device that delivers a magnetic pulse to the back of the head — FDA-cleared for both acute treatment and prevention of migraine with aura.",
-      "External trigeminal nerve stimulation (eTNS): a forehead device that modulates the trigeminal nerve — FDA-cleared for migraine prevention.",
-      "Non-invasive vagus nerve stimulation (nVNS): stimulates the vagus nerve at the neck — FDA-cleared for cluster headache and migraine.",
+      "Single-pulse TMS (sTMS): a handheld device that delivers a magnetic pulse to the back of the head  FDA-cleared for both acute treatment and prevention of migraine with aura.",
+      "External trigeminal nerve stimulation (eTNS): a forehead device that modulates the trigeminal nerve  FDA-cleared for migraine prevention.",
+      "Non-invasive vagus nerve stimulation (nVNS): stimulates the vagus nerve at the neck  FDA-cleared for cluster headache and migraine.",
       "No systemic side effects: because these are external devices, they carry no systemic medication risks.",
       "Prescription: all require a physician prescription; we evaluate which device, if any, is appropriate for your specific headache type."
     ],
-    note: "Increasingly covered by insurance — we assist with device authorization and setup."
+    note: "Increasingly covered by insurance  we assist with device authorization and setup."
   },
 
-  /* ── AESTHETIC PROCEDURES ────────────────────────────────── */
+  /*  AESTHETIC PROCEDURES  */
   "neuromodulator-therapy": {
     label: "Neuromodulator Therapy",
     category: "Aesthetic Procedure",
-    preview: "Precision placement of Botox for facial aesthetics — guided by neuroanatomical expertise, not cosmetic convention.",
-    body: "Aesthetic neuromodulator therapy uses OnabotulinumtoxinA (Botox) or similar agents to soften the expression lines formed by repeated muscle movement — forehead lines, frown lines between the brows, and crow's feet. At Monti Institute, this is administered by a physician with a deep understanding of facial neuromuscular anatomy, ensuring results that are natural, expressive, and precisely calibrated.",
+    preview: "Precision placement of Botox for facial aesthetics  guided by neuroanatomical expertise, not cosmetic convention.",
+    body: "Aesthetic neuromodulator therapy uses OnabotulinumtoxinA (Botox) or similar agents to soften the expression lines formed by repeated muscle movement  forehead lines, frown lines between the brows, and crow's feet. At Monti Institute, this is administered by a physician with a deep understanding of facial neuromuscular anatomy, ensuring results that are natural, expressive, and precisely calibrated.",
     detail: [
-      "What sets our approach apart: Dr. Monti's neurological background means an intimate understanding of the facial nerve motor map — which muscles to relax, and which to preserve to maintain natural movement.",
+      "What sets our approach apart: Dr. Monti's neurological background means an intimate understanding of the facial nerve motor map  which muscles to relax, and which to preserve to maintain natural movement.",
       "Target areas: frontalis (forehead), glabellar complex (frown lines), orbicularis oculi (crow's feet), and perioral region.",
-      "Results timeline: onset at 3–5 days, full effect at 2 weeks, duration 3–4 months.",
+      "Results timeline: onset at 35 days, full effect at 2 weeks, duration 34 months.",
       "Philosophy: the goal is to soften, not to erase. Natural expression is the standard.",
       "Dual-specialty coordination: for patients also receiving neurological Botox, aesthetic dosing is carefully mapped to avoid overlap or competition with the medical injection sites."
     ],
-    note: "Aesthetic neuromodulators are private-pay — financial transparency provided at consultation."
+    note: "Aesthetic neuromodulators are private-pay  financial transparency provided at consultation."
   },
 
   "full-face-rebalancing": {
     label: "Full-Face Rebalancing",
     category: "Aesthetic Procedure",
     preview: "A comprehensive injectable restoration addressing volume loss and structural aging across all facial zones simultaneously.",
-    body: "Full-face rebalancing is indicated when the clinical evaluation reveals multi-zone involvement in facial aging that cannot be addressed through single-site treatment. Rather than treating individual features in isolation, we address the face as an integrated anatomical system — restoring the deep bony and fat compartment foundations before addressing intermediate and surface layers.",
+    body: "Full-face rebalancing is indicated when the clinical evaluation reveals multi-zone involvement in facial aging that cannot be addressed through single-site treatment. Rather than treating individual features in isolation, we address the face as an integrated anatomical system  restoring the deep bony and fat compartment foundations before addressing intermediate and surface layers.",
     detail: [
-      "Phase 1 — Deep structural restoration: periosteal volumization at the malar eminence, infraorbital rim, and temporal fossa using high-G′ filler or calcium hydroxylapatite.",
-      "Phase 2 — Mid-layer integration: intermediate fat compartment correction and tear trough treatment with precision-placed hyaluronic acid.",
-      "Phase 3 — Superficial refinement: lip rhytids, vermilion border, and perioral correction.",
-      "Phase 4 — Structural definition: mandibular border and chin projection.",
-      "The 12-month horizon: results continue to develop over months — biostimulatory agents activate collagen synthesis that improves skin quality beyond the initial volumetric correction."
+      "Phase 1  Deep structural restoration: periosteal volumization at the malar eminence, infraorbital rim, and temporal fossa using high-G filler or calcium hydroxylapatite.",
+      "Phase 2  Mid-layer integration: intermediate fat compartment correction and tear trough treatment with precision-placed hyaluronic acid.",
+      "Phase 3  Superficial refinement: lip rhytids, vermilion border, and perioral correction.",
+      "Phase 4  Structural definition: mandibular border and chin projection.",
+      "The 12-month horizon: results continue to develop over months  biostimulatory agents activate collagen synthesis that improves skin quality beyond the initial volumetric correction."
     ],
-    note: "Begins with a comprehensive anatomical assessment — no treatment without a documented clinical rationale."
+    note: "Begins with a comprehensive anatomical assessment  no treatment without a documented clinical rationale."
   },
 
   "collagen-stimulating": {
     label: "Collagen-Stimulating Therapies",
     category: "Aesthetic Procedure",
-    preview: "Biostimulatory agents that rebuild the skin's collagen scaffold from within — results develop over months, not days.",
-    body: "Collagen-stimulating therapies — primarily Poly-L-lactic acid (Sculptra) and calcium hydroxylapatite (Radiesse) — work by triggering the body's own fibroblasts to produce new collagen rather than simply adding volume through displacement. The result is a gradual, natural-looking improvement in skin thickness, firmness, and structural integrity that develops over 3 to 6 months.",
+    preview: "Biostimulatory agents that rebuild the skin's collagen scaffold from within  results develop over months, not days.",
+    body: "Collagen-stimulating therapies  primarily Poly-L-lactic acid (Sculptra) and calcium hydroxylapatite (Radiesse)  work by triggering the body's own fibroblasts to produce new collagen rather than simply adding volume through displacement. The result is a gradual, natural-looking improvement in skin thickness, firmness, and structural integrity that develops over 3 to 6 months.",
     detail: [
-      "How it works: the injected agent creates a mild inflammatory response that stimulates fibroblast activity — the cells responsible for producing collagen.",
-      "Sculptra (PLLA): typically administered in 2–3 sessions over several months; results last up to 2 years.",
+      "How it works: the injected agent creates a mild inflammatory response that stimulates fibroblast activity  the cells responsible for producing collagen.",
+      "Sculptra (PLLA): typically administered in 23 sessions over several months; results last up to 2 years.",
       "Radiesse (CaHA): can provide both immediate volumetric correction and longer-term biostimulation.",
       "Who it's for: patients with early to moderate facial volume loss, skin laxity, or those seeking a prevention-focused approach that works with the body rather than replacing it.",
-      "Patient commitment: these agents require patience — the full result is not visible at the time of treatment."
+      "Patient commitment: these agents require patience  the full result is not visible at the time of treatment."
     ],
-    note: "Staged within a 12-month horizon plan — evaluated at defined intervals."
+    note: "Staged within a 12-month horizon plan  evaluated at defined intervals."
   },
 
   "lip-refinement": {
     label: "Lip Refinement",
     category: "Aesthetic Procedure",
-    preview: "Hyaluronic acid lip treatment guided by precise anatomical proportions — natural movement preserved.",
-    body: "Lip refinement at Monti Institute is guided by the specific anatomy of your lips — the Cupid's bow architecture, philtral column definition, vermilion proportion, and the relationship between upper and lower lip volume — not by a trend or a target 'look.' The goal is to enhance your lips' natural structure while preserving the natural movement and character that make them distinctly yours.",
+    preview: "Hyaluronic acid lip treatment guided by precise anatomical proportions  natural movement preserved.",
+    body: "Lip refinement at Monti Institute is guided by the specific anatomy of your lips  the Cupid's bow architecture, philtral column definition, vermilion proportion, and the relationship between upper and lower lip volume  not by a trend or a target 'look.' The goal is to enhance your lips' natural structure while preserving the natural movement and character that make them distinctly yours.",
     detail: [
       "Anatomical assessment first: we evaluate your lip anatomy, the proportion of upper to lower lip, and the definition of your philtral columns before selecting product or volume.",
       "Product selection: low-to-medium viscosity hyaluronic acid fillers optimized for dynamic lip movement.",
       "Technique: precise microbolus and retrograde linear threading, placed to define architecture without creating an 'overfilled' appearance.",
-      "Natural movement: we prioritize maintaining the natural movement and softness of lips — the most visible giveaway of poorly done lip work.",
-      "Duration: 6–12 months depending on product selected and individual metabolism."
+      "Natural movement: we prioritize maintaining the natural movement and softness of lips  the most visible giveaway of poorly done lip work.",
+      "Duration: 612 months depending on product selected and individual metabolism."
     ],
-    note: "Guided by anatomy, not trend — our philosophy is refinement, not augmentation."
+    note: "Guided by anatomy, not trend  our philosophy is refinement, not augmentation."
   },
 
   "laser-energy-devices": {
     label: "Laser & Energy Devices",
     category: "Aesthetic Procedure",
     preview: "Fractional laser and radiofrequency treatments targeting the dermal matrix for skin quality and structural tightening.",
-    body: "Energy-based devices — including fractional laser, radiofrequency, and IPL — address skin quality, texture, tone, and structural tightening at the tissue level. Unlike injectables that add or remove volume, energy-based treatments work by stimulating the dermal matrix itself: triggering collagen remodeling, reducing pigmentation irregularity, and improving the skin's surface quality.",
+    body: "Energy-based devices  including fractional laser, radiofrequency, and IPL  address skin quality, texture, tone, and structural tightening at the tissue level. Unlike injectables that add or remove volume, energy-based treatments work by stimulating the dermal matrix itself: triggering collagen remodeling, reducing pigmentation irregularity, and improving the skin's surface quality.",
     detail: [
-      "Fractional laser resurfacing: creates controlled micro-injuries in the skin that trigger collagen production — improving texture, fine lines, and pore appearance.",
-      "Radiofrequency: heats the dermis to stimulate collagen contraction and neocollagenesis — used for skin tightening without downtime.",
-      "IPL (Intense Pulsed Light): targets melanin (pigmentation) and hemoglobin (vascular redness) — improving tone uniformity and sun damage.",
+      "Fractional laser resurfacing: creates controlled micro-injuries in the skin that trigger collagen production  improving texture, fine lines, and pore appearance.",
+      "Radiofrequency: heats the dermis to stimulate collagen contraction and neocollagenesis  used for skin tightening without downtime.",
+      "IPL (Intense Pulsed Light): targets melanin (pigmentation) and hemoglobin (vascular redness)  improving tone uniformity and sun damage.",
       "Combination approach: at Monti Institute, energy-based devices are frequently used in combination with injectables to address both structural and surface components of aging.",
-      "Downtime varies: from minimal (RF, IPL) to 5–7 days (ablative fractional laser) — discussed at consultation."
+      "Downtime varies: from minimal (RF, IPL) to 57 days (ablative fractional laser)  discussed at consultation."
     ],
-    note: "Treatment selection is guided by clinical assessment — not by device availability."
+    note: "Treatment selection is guided by clinical assessment  not by device availability."
   },
 
   "skin-tightening": {
     label: "Skin Tightening & Resurfacing",
     category: "Aesthetic Procedure",
-    preview: "Fractional and radiofrequency modalities that stimulate neocollagenesis — tighter, clearer skin over weeks.",
-    body: "Skin tightening and resurfacing treatments address the dermal matrix — the structural layer of the skin that gives it firmness, elasticity, and a smooth surface. As this layer loses collagen and elastin over time, skin becomes thinner, looser, and more textured. These treatments reverse those changes from within.",
+    preview: "Fractional and radiofrequency modalities that stimulate neocollagenesis  tighter, clearer skin over weeks.",
+    body: "Skin tightening and resurfacing treatments address the dermal matrix  the structural layer of the skin that gives it firmness, elasticity, and a smooth surface. As this layer loses collagen and elastin over time, skin becomes thinner, looser, and more textured. These treatments reverse those changes from within.",
     detail: [
-      "Neocollagenesis: the production of new collagen fibers in response to controlled thermal or mechanical stimulation — the underlying mechanism of all effective skin tightening treatments.",
+      "Neocollagenesis: the production of new collagen fibers in response to controlled thermal or mechanical stimulation  the underlying mechanism of all effective skin tightening treatments.",
       "Resurfacing component: ablative or semi-ablative fractional laser also removes the outermost damaged layers of skin, revealing healthier cells beneath.",
       "Best candidates: patients with mild to moderate skin laxity, uneven texture, acne scarring, or photodamage.",
-      "Treatment course: most skin tightening protocols involve 2–4 sessions spaced several weeks apart for optimal collagen remodeling.",
-      "Complementary role: skin tightening is particularly valuable as a companion to injectable treatments — addressing what injectables cannot."
+      "Treatment course: most skin tightening protocols involve 24 sessions spaced several weeks apart for optimal collagen remodeling.",
+      "Complementary role: skin tightening is particularly valuable as a companion to injectable treatments  addressing what injectables cannot."
     ],
-    note: "Part of comprehensive skin health programs — staged and evaluated at defined intervals."
+    note: "Part of comprehensive skin health programs  staged and evaluated at defined intervals."
   },
 
   "pigment-vascular": {
     label: "Pigment & Vascular Correction",
     category: "Aesthetic Procedure",
     preview: "IPL, Picosecond, and Nd:YAG laser treatments for precise correction of sun damage, redness, and vascular irregularity.",
-    body: "Pigment and vascular correction targets two of the most visible signs of skin aging and sun exposure: irregular pigmentation (brown spots, melasma, sun damage) and vascular irregularities (diffuse redness, visible capillaries, rosacea flushing). These are addressed using light-based technologies that selectively destroy the targeted chromophore — melanin for pigment, hemoglobin for vessels — without damaging surrounding tissue.",
+    body: "Pigment and vascular correction targets two of the most visible signs of skin aging and sun exposure: irregular pigmentation (brown spots, melasma, sun damage) and vascular irregularities (diffuse redness, visible capillaries, rosacea flushing). These are addressed using light-based technologies that selectively destroy the targeted chromophore  melanin for pigment, hemoglobin for vessels  without damaging surrounding tissue.",
     detail: [
-      "IPL (Intense Pulsed Light): broad-spectrum light targeting multiple chromophores simultaneously — effective for combined pigment and redness correction.",
-      "Picosecond laser: ultra-short pulse technology that shatters pigment into smaller particles for more efficient clearance — particularly effective for resistant pigmentation and tattoo removal.",
+      "IPL (Intense Pulsed Light): broad-spectrum light targeting multiple chromophores simultaneously  effective for combined pigment and redness correction.",
+      "Picosecond laser: ultra-short pulse technology that shatters pigment into smaller particles for more efficient clearance  particularly effective for resistant pigmentation and tattoo removal.",
       "Nd:YAG laser: penetrates deeper than IPL, targeting larger or deeper vascular structures and resistant pigmentation.",
-      "What to expect: pigmented lesions typically darken then flake away over 7–10 days; vascular lesions may purpura briefly before fading.",
-      "A note on skin type: not all technologies are appropriate for all skin types — proper assessment prevents hyperpigmentation complications."
+      "What to expect: pigmented lesions typically darken then flake away over 710 days; vascular lesions may purpura briefly before fading.",
+      "A note on skin type: not all technologies are appropriate for all skin types  proper assessment prevents hyperpigmentation complications."
     ],
-    note: "Guided by clinical skin assessment — not all technologies are appropriate for all skin types."
+    note: "Guided by clinical skin assessment  not all technologies are appropriate for all skin types."
   },
 
   "jawline-chin": {
     label: "Jawline & Chin Contouring",
     category: "Aesthetic Procedure",
-    preview: "Injectable contouring of the mandibular border and chin projection — structural definition without identity distortion.",
-    body: "As the face ages, the mandibular border loses definition through a combination of bony resorption, fat redistribution, and SMAS laxity — producing jowl formation and an indistinct jawline. Injectable contouring restores this structural definition using high-viscosity hyaluronic acid or calcium hydroxylapatite placed along the mandibular border and at the chin.",
+    preview: "Injectable contouring of the mandibular border and chin projection  structural definition without identity distortion.",
+    body: "As the face ages, the mandibular border loses definition through a combination of bony resorption, fat redistribution, and SMAS laxity  producing jowl formation and an indistinct jawline. Injectable contouring restores this structural definition using high-viscosity hyaluronic acid or calcium hydroxylapatite placed along the mandibular border and at the chin.",
     detail: [
       "Anatomical foundation: we assess the degree of bony resorption along the jaw, the presence of jowl formation, and the chin's relationship to the rest of the face before selecting product or volume.",
       "Target areas: anterior chin projection, lateral chin, mandibular angle, and along the body of the jaw.",
-      "Natural character preserved: the goal is to restore the structural definition that aging has diminished — not to create a dramatically different jawline.",
-      "Complementary procedures: jawline contouring is most effective when combined with treatment of the midface and jowl — isolated jawline treatment without addressing the causes of jowl formation produces temporary results.",
-      "Duration: calcium hydroxylapatite provides both immediate correction and biostimulatory effects lasting 12–18 months."
+      "Natural character preserved: the goal is to restore the structural definition that aging has diminished  not to create a dramatically different jawline.",
+      "Complementary procedures: jawline contouring is most effective when combined with treatment of the midface and jowl  isolated jawline treatment without addressing the causes of jowl formation produces temporary results.",
+      "Duration: calcium hydroxylapatite provides both immediate correction and biostimulatory effects lasting 1218 months."
     ],
-    note: "Begins with full facial assessment — isolated jawline treatment without midface context produces incomplete results."
+    note: "Begins with full facial assessment  isolated jawline treatment without midface context produces incomplete results."
   }
 };
-
   </script>
 
-  <!-- ── CLINICAL INFO MODAL ── -->
-  <div id="clinical-modal-overlay" role="dialog" aria-modal="true"
-       aria-labelledby="clinical-modal-title" aria-hidden="true">
-    <div id="clinical-modal">
-      <div id="clinical-modal-header">
-        <div>
-          <span id="clinical-modal-category"></span>
-          <h2  id="clinical-modal-title"></h2>
-        </div>
-        <button id="clinical-modal-close" type="button"
-                aria-label="Close clinical information panel">
-          &times;
-        </button>
-      </div>
-      <div id="clinical-modal-body">
-        <p id="clinical-modal-preview"></p>
-        <p id="clinical-modal-desc"></p>
-        <div id="clinical-modal-details"></div>
-      </div>
-      <div id="clinical-modal-footer">
-        <p id="clinical-modal-note"></p>
-        <a id="clinical-modal-cta" href="contact.html">
-          Schedule a Consultation
-          <svg viewBox="0 0 24 24" aria-hidden="true"
-               style="width:12px;height:12px;stroke:currentColor;stroke-width:1.5;fill:none;stroke-linecap:round;stroke-linejoin:round">
-            <path d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-          </svg>
-        </a>
-      </div>
-    </div>
-  </div>
-
-
   <script>
-  /* ── CLINICAL INFO SYSTEM ENGINE ── */
+  /*  CLINICAL INFO SYSTEM ENGINE  */
   (function initClinicalInfoSystem() {
     'use strict';
 
@@ -2046,7 +1979,7 @@ window.MONTI_REGISTRY = {
     var closeBtn = document.getElementById('clinical-modal-close');
     if (!overlay || !window.MONTI_REGISTRY) return;
 
-    /* ── Populate and open modal ── */
+    /*  Populate and open modal  */
     function openModal(key) {
       var entry = MONTI_REGISTRY[key];
       if (!entry) return;
@@ -2066,7 +1999,7 @@ window.MONTI_REGISTRY = {
         detailsEl.appendChild(item);
       });
 
-      /* CTA href — adjust for SPA vs multi-page */
+      /* CTA href  adjust for SPA vs multi-page */
       var cta = document.getElementById('clinical-modal-cta');
       var href = window.location.pathname.indexOf('.html') > -1
                  ? 'contact.html' : '#page-contact';
@@ -2081,7 +2014,7 @@ window.MONTI_REGISTRY = {
       setTimeout(function() { closeBtn.focus(); }, 50);
     }
 
-    /* ── Close modal ── */
+    /*  Close modal  */
     function closeModal() {
       overlay.classList.remove('is-open');
       overlay.setAttribute('aria-hidden', 'true');
@@ -2092,7 +2025,7 @@ window.MONTI_REGISTRY = {
 
     var lastTrigger = null;
 
-    /* ── Attach to all [data-clinical-key] elements ── */
+    /*  Attach to all [data-clinical-key] elements  */
     function attachHandlers() {
       document.querySelectorAll('[data-clinical-key]').forEach(function(el) {
         var key = el.dataset.clinicalKey;
@@ -2121,7 +2054,7 @@ window.MONTI_REGISTRY = {
       });
     }
 
-    /* ── Close handlers ── */
+    /*  Close handlers  */
     closeBtn.addEventListener('click', closeModal);
     overlay.addEventListener('click', function(e) {
       if (e.target === overlay) closeModal();
@@ -2130,7 +2063,7 @@ window.MONTI_REGISTRY = {
       if (e.key === 'Escape' && overlay.classList.contains('is-open')) closeModal();
     });
 
-    /* ── Focus trap inside modal ── */
+    /*  Focus trap inside modal  */
     modal.addEventListener('keydown', function(e) {
       if (e.key !== 'Tab') return;
       var focusable = modal.querySelectorAll(
@@ -2145,7 +2078,7 @@ window.MONTI_REGISTRY = {
       }
     });
 
-    /* ── Init on DOM ready + re-run on SPA navigation ── */
+    /*  Init on DOM ready + re-run on SPA navigation  */
     function init() {
       attachHandlers();
     }
@@ -2161,52 +2094,10 @@ window.MONTI_REGISTRY = {
   })();
   </script>
 
-
-  <!-- ─── PAGE: NEUROLOGICAL CLINICAL SERVICES ─────────────────── -->
-  <!-- ┌─ PAGE GUARDIAN ──────────────────────────────────────────
-       │  id         : page-neuro-clinical-services
-       │  route-key  : neurological-clinical-services
-       │  ⚠ LOCKED — must not be removed without updating ROUTE_REGISTRY
-       └───────────────────────────────────────────────────────── -->
-  <div class="page" id="page-neuro-clinical-services">
-    <div class="neuro-page-bg" aria-hidden="true">
-      <!-- Shared neural atmosphere from neurological page -->
-    </div>
-    <div class="inner-page">
-      <div class="inner-page__inner">
-
-        <!-- Breadcrumb -->
-        <nav class="clinical-breadcrumbs" aria-label="Page breadcrumb">
-          <a class="clinical-breadcrumb__link"
-                  data-route="neurological-medicine"
-                  href="neurological-medicine.html">
-            Neurological Medicine
-          </a>
-          <span class="clinical-breadcrumb__sep" aria-hidden="true">&#8250;</span>
-          <span class="clinical-breadcrumb__current">Clinical Services</span>
-
-    </nav>
-
-        <!-- ── INSURANCE & ACCESS ── -->
-        <div class="insurance-section reveal">
-          <span class="section__label">Insurance &amp; Access</span>
-          <div class="insurance-carriers">
-            <span class="insurance-carrier">Aetna</span>
-            <span class="insurance-carrier">Blue Cross Blue Shield</span>
-            <span class="insurance-carrier">Cigna</span>
-            <span class="insurance-carrier">UnitedHealthcare</span>
-            <span class="insurance-carrier">Medicare</span>
-          </div>
-          <p class="insurance-note">Coverage varies by plan and service.</p>
-          <a class="neuro-text-link" data-route="contact" href="contact.html"
-                  style="margin-block-start:1rem">
-            Verify Insurance Coverage
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-            </svg>
-          </a>
-        </div>
-
+  <script
+    id="nextivacx-code-snippet"
+    src="https://d3po7etsbw5eiv.cloudfront.net/Simplify360Chat.js?key=NmEyYzY1ZDk1ZDlkM2I5YWJmMjM1MzAyfDQzMTk0Mjc=">
+  </script>
 
 </body>
 </html>
