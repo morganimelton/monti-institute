@@ -66,23 +66,23 @@
         <li><a href="wellness-store.html" class="nav__link">Store</a></li>
         <li><a href="contact.html" class="nav__link">Contact</a></li>
       </ul>
+
+      <button class="dark-toggle nav__migraine-toggle"
+              id="dark-mode-toggle"
+              type="button"
+              aria-label="Toggle Migraine-Friendly Viewing Mode"
+              aria-pressed="false"
+              title="Migraine Mode &mdash; reduces brightness for light-sensitive viewing">
+        <svg class="dark-toggle__icon" viewBox="0 0 24 24" aria-hidden="true" width="14" height="14">
+          <ellipse cx="12" cy="12" rx="4" ry="4" fill="none" stroke="currentColor" stroke-width="1.5"/>
+          <path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"
+                fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        <span class="dark-toggle__label">Migraine Mode</span>
+        <span class="dark-toggle__switch" aria-hidden="true"></span>
+      </button>
     </div>
   </nav>
-
-  <button class="dark-toggle nav__migraine-toggle"
-          id="dark-mode-toggle"
-          type="button"
-          aria-label="Toggle Migraine-Friendly Viewing Mode"
-          aria-pressed="false"
-          title="Migraine Mode &mdash; reduces brightness for light-sensitive viewing">
-    <svg class="dark-toggle__icon" viewBox="0 0 24 24" aria-hidden="true" width="14" height="14">
-      <ellipse cx="12" cy="12" rx="4" ry="4" fill="none" stroke="currentColor" stroke-width="1.5"/>
-      <path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"
-            fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-    </svg>
-    <span class="dark-toggle__label">Migraine Mode</span>
-    <span class="dark-toggle__switch" aria-hidden="true"></span>
-  </button>
 
   <main id="js-outlet" tabindex="-1">
 <!-- Neural atmosphere [PHOTO-READY: swap SVG for <img class="neuro-page-bg"> with neural photo] -->
@@ -1508,9 +1508,12 @@
 
   </main>
 
-  <footer style="background:transparent;color:rgba(255,255,255,0.6);font-size:0.85rem;padding:20px 40px;display:flex;justify-content:space-between;align-items:center;">
-    <p style="margin:0;">&copy; 2026 Monti Institute of Neuro Aesthetics. All Rights Reserved.</p>
-    <p style="margin:0;"><a href="privacy-policy.html" style="color:rgba(255,255,255,0.8);text-decoration:none;">Privacy Policy</a></p>
+    <footer style="background:rgba(26,22,20,0.95);border-top:1px solid rgba(154,128,96,0.25);padding:32px 40px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;margin-top:4rem;">
+    <p style="margin:0;font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.55);">&copy; 2026 Monti Institute of Neuro Aesthetics. All Rights Reserved.</p>
+    <nav aria-label="Footer navigation" style="display:flex;gap:2.5rem;align-items:center;">
+      <a href="privacy-policy.html" style="font-size:0.72rem;letter-spacing:0.15em;text-transform:uppercase;color:rgba(154,128,96,0.85);text-decoration:none;" onmouseover="this.style.color='#C4A97D'" onmouseout="this.style.color='rgba(154,128,96,0.85)'">Privacy Policy</a>
+      <a href="contact.html" style="font-size:0.72rem;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.55);text-decoration:none;" onmouseover="this.style.color='rgba(154,128,96,0.85)'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Contact</a>
+    </nav>
   </footer>
 
   <script src="script.js"></script>
