@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Privacy Policy — Monti Institute of Neuro Aesthetics</title>
+  <title>Privacy Policy &mdash; Monti Institute of Neuro Aesthetics</title>
   <meta name="description" content="Privacy Policy and Data Protection Notice for the Monti Institute of Neuro Aesthetics, Reno, NV.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,68 +12,74 @@
 </head>
 <body>
 
-  <nav class="nav" id="js-nav" role="navigation" aria-label="Main navigation">
-    <div class="nav__inner">
-      <a href="/" class="nav__brand" aria-label="Monti Institute — Home">
-        <img src="images/official-logo.png" alt="Monti Institute" class="nav__logo-img site-logo">
-        <span class="nav__brand-text">Monti Institute</span>
-      </a>
-
-      <button class="dark-toggle nav__migraine-toggle"
-              id="dark-mode-toggle"
-              type="button"
-              role="switch"
-              aria-checked="false"
-              aria-label="Migraine-Friendly Viewing Mode"
-              title="Migraine Mode — reduces brightness for light-sensitive viewing">
-        <svg class="dark-toggle__icon" viewBox="0 0 24 24"
-             aria-hidden="true" focusable="false" width="14" height="14">
-          <ellipse cx="12" cy="12" rx="4" ry="4"
-                   fill="none" stroke="currentColor" stroke-width="1.5"/>
-          <path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"
-                fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-        </svg>
-        <span class="dark-toggle__label" aria-hidden="true">Migraine Mode</span>
-        <span class="dark-toggle__switch" aria-hidden="true"></span>
-      </button>
-
-      <button
-        class="nav__toggle"
-        id="js-nav-toggle"
-        aria-expanded="false"
-        aria-controls="js-nav-list"
-        aria-label="Toggle navigation"
-      >
-        <i aria-hidden="true"></i>
-        <i aria-hidden="true"></i>
-        <i aria-hidden="true"></i>
-      </button>
-
-      <ul class="nav__list" id="js-nav-list" role="list">
-       <li><a href="/" class="nav__link">Home</a></li>
-<li><a href="neurological-medicine.html" class="nav__link">Neurological Medicine</a></li>
-<li><a href="aesthetic-medicine.html" class="nav__link">Aesthetic Medicine</a></li>
-<li><a href="infusion-center.html" class="nav__link">Infusion Center</a></li>
-<li><a href="about.html" class="nav__link">About</a></li>
-<li><a href="clinical-standards.html" class="nav__link">Clinical Standards</a></li>
-<li><a href="wellness-store.html" class="nav__link">Wellness Store</a></li>
-<li><a href="financing-memberships.html" class="nav__link">Financing &amp; Memberships</a></li>
-<li><a href="contact.html" class="nav__link">Contact</a></li>
-        <li><a href="privacy-policy.html" class="nav__link">Privacy Policy</a></li>
-      </ul>
-    </div>
-  </nav>
   <div id="dark-toast" role="status" aria-live="polite" aria-atomic="true">
     <span id="dark-toast__title"></span>
     <span id="dark-toast__body"></span>
   </div>
 
-  <div id="scroll-progress" aria-hidden="true"></div>
+  <div id="scroll-progress" role="progressbar" aria-hidden="true"></div>
 
-  <button id="back-to-top" aria-label="Back to top" type="button">
-    <svg viewBox="0 0 24 24" aria-hidden="true">
-      <path d="M18 15l-6-6-6 6" stroke-linecap="round" stroke-linejoin="round"/>
+  <button id="back-to-top" type="button" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" aria-hidden="true" style="width:14px;height:14px;stroke:var(--gold);stroke-width:1.5;fill:none;stroke-linecap:round;stroke-linejoin:round">
+      <path d="M12 19V5M5 12l7-7 7 7"/>
     </svg>
+  </button>
+
+  <nav class="nav" id="js-nav" role="navigation" aria-label="Main navigation">
+    <div class="nav__inner">
+      <a href="/" class="nav__brand" aria-label="Monti Institute &mdash; Home">
+        <img src="images/official-logo.png" alt="Monti Institute" class="nav__logo-img site-logo">
+        <span class="nav__brand-text">Monti Institute</span>
+      </a>
+      <button class="nav__toggle" id="js-nav-toggle"
+              aria-expanded="false" aria-controls="js-nav-list" aria-label="Toggle navigation">
+        <i aria-hidden="true"></i>
+        <i aria-hidden="true"></i>
+        <i aria-hidden="true"></i>
+      </button>
+      <ul class="nav__list" id="js-nav-list" role="list">
+        <li><a href="/" class="nav__link">Home</a></li>
+        <li class="nav__item--dropdown">
+          <button class="nav__link nav__dropdown-toggle" aria-expanded="false" aria-haspopup="true">
+            Services
+            <svg viewBox="0 0 12 12" aria-hidden="true" class="nav__chevron"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <ul class="nav__dropdown" role="list">
+            <li><a href="neurological-medicine.html" class="nav__dropdown-link">Neurological Medicine</a></li>
+            <li><a href="aesthetic-medicine.html" class="nav__dropdown-link">Aesthetic Medicine</a></li>
+            <li><a href="infusion-center.html" class="nav__dropdown-link">Infusion Center</a></li>
+          </ul>
+        </li>
+        <li class="nav__item--dropdown">
+          <button class="nav__link nav__dropdown-toggle" aria-expanded="false" aria-haspopup="true">
+            About
+            <svg viewBox="0 0 12 12" aria-hidden="true" class="nav__chevron"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <ul class="nav__dropdown" role="list">
+            <li><a href="about.html" class="nav__dropdown-link">Our Team &amp; Philosophy</a></li>
+            <li><a href="clinical-standards.html" class="nav__dropdown-link">Clinical Standards</a></li>
+            <li><a href="financing-memberships.html" class="nav__dropdown-link">Memberships &amp; Financing</a></li>
+          </ul>
+        </li>
+        <li><a href="wellness-store.html" class="nav__link">Store</a></li>
+        <li><a href="contact.html" class="nav__link">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <button class="dark-toggle nav__migraine-toggle"
+          id="dark-mode-toggle"
+          type="button"
+          aria-label="Toggle Migraine-Friendly Viewing Mode"
+          aria-pressed="false"
+          title="Migraine Mode &mdash; reduces brightness for light-sensitive viewing">
+    <svg class="dark-toggle__icon" viewBox="0 0 24 24" aria-hidden="true" width="14" height="14">
+      <ellipse cx="12" cy="12" rx="4" ry="4" fill="none" stroke="currentColor" stroke-width="1.5"/>
+      <path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"
+            fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+    </svg>
+    <span class="dark-toggle__label">Migraine Mode</span>
+    <span class="dark-toggle__switch" aria-hidden="true"></span>
   </button>
 
   <main id="js-outlet">
@@ -113,9 +119,9 @@
             </h2>
             <p>We collect information through three primary channels to provide a highly personalized wellness experience:</p>
             <ul class="privacy-list">
-              <li><strong>Internet &amp; Website Data</strong> — When you visit our website, submit an online contact form, or use our digital concierge features, we collect personal identifiers such as your name, email address, phone number, and IP address. We also collect anonymized usage data through cookies to optimize your browsing experience.</li>
-              <li><strong>Telephone Communications</strong> — Phone calls with our practice may be recorded or monitored for quality assurance, staff training, and clinical accuracy.</li>
-              <li><strong>SMS &amp; Mobile Text Data</strong> — When you text our clinic or opt in to receive automated appointment reminders or marketing notifications, we collect your mobile phone number, carrier data, and the timestamp and content of your text exchanges.</li>
+              <li><strong>Internet &amp; Website Data</strong>  When you visit our website, submit an online contact form, or use our digital concierge features, we collect personal identifiers such as your name, email address, phone number, and IP address. We also collect anonymized usage data through cookies to optimize your browsing experience.</li>
+              <li><strong>Telephone Communications</strong>  Phone calls with our practice may be recorded or monitored for quality assurance, staff training, and clinical accuracy.</li>
+              <li><strong>SMS &amp; Mobile Text Data</strong>  When you text our clinic or opt in to receive automated appointment reminders or marketing notifications, we collect your mobile phone number, carrier data, and the timestamp and content of your text exchanges.</li>
             </ul>
           </section>
 
@@ -140,9 +146,9 @@
             </h2>
             <p>We maintain strict boundaries regarding your mobile communication data. In compliance with TCPA and CTIA wireless carrier rules:</p>
             <ul class="privacy-list">
-              <li><strong>Explicit Opt-In Consent</strong> — By providing your mobile number and checking the consent box on our intake forms, you explicitly authorize the Monti Institute to send text messages such as automated appointment reminders, prescription updates, and elective wellness offers. Consent to receive text messages is not a requirement to receive medical care at our facility.</li>
-              <li><strong>No Sharing</strong> — We do not sell, rent, lease, or share your SMS opt-in consent data, phone numbers, or mobile information with any third-party marketing agencies, affiliates, or partners for their independent commercial gain. All text communications are managed strictly internally.</li>
-              <li><strong>Opt-Out Protocol</strong> — You may opt out of receiving text messages at any time by replying &ldquo;STOP&rdquo; to any message from our clinic. Your number will be removed from our text transmission infrastructure within 24 hours.</li>
+              <li><strong>Explicit Opt-In Consent</strong>  By providing your mobile number and checking the consent box on our intake forms, you explicitly authorize the Monti Institute to send text messages such as automated appointment reminders, prescription updates, and elective wellness offers. Consent to receive text messages is not a requirement to receive medical care at our facility.</li>
+              <li><strong>No Sharing</strong>  We do not sell, rent, lease, or share your SMS opt-in consent data, phone numbers, or mobile information with any third-party marketing agencies, affiliates, or partners for their independent commercial gain. All text communications are managed strictly internally.</li>
+              <li><strong>Opt-Out Protocol</strong>  You may opt out of receiving text messages at any time by replying &ldquo;STOP&rdquo; to any message from our clinic. Your number will be removed from our text transmission infrastructure within 24 hours.</li>
             </ul>
           </section>
 
@@ -151,7 +157,7 @@
               <span class="privacy-section__num">5</span>
               Third-Party Data Disclosures
             </h2>
-            <p>We do not sell your personal data. We only share information with trusted third-party service providers who are contractually bound by strict data-security clauses to assist in running our practice — such as our encrypted EHR software, encrypted point-of-sale merchant processors, and secure telecommunications providers.</p>
+            <p>We do not sell your personal data. We only share information with trusted third-party service providers who are contractually bound by strict data-security clauses to assist in running our practice  such as our encrypted EHR software, encrypted point-of-sale merchant processors, and secure telecommunications providers.</p>
             <p>We reserve the right to disclose personal data only if explicitly required by law, subpoena, or to protect the safety and legal rights of our clinic, staff, or patients.</p>
           </section>
 
@@ -190,159 +196,22 @@
 
   </main>
 
-  <footer class="footer" role="contentinfo">
-    <div class="footer__inner">
-      <div>
-        <div class="footer__brand">
-          <div class="footer__mark">
-            <img src="images/official-logo.png" alt="Monti Institute">
-          </div>
-          <span class="footer__name">Monti Institute</span>
-        </div>
-        <p class="footer__sub">of Neuro Aesthetics &mdash; Reno, Nevada</p>
-      </div>
-      <nav class="footer__nav" aria-label="Footer navigation">
-        <a href="contact.html">Contact</a>
-        <a href="privacy.html">Privacy Policy</a>
-      </nav>
-    </div>
-    <div class="footer__bottom">
-      <p class="footer__copy">&copy; 2026 Monti Institute of Neuro Aesthetics. All rights reserved.</p>
-      <div class="footer__legal">
-        <a href="privacy.html">Privacy Policy</a>
-      </div>
-    </div>
+  <footer style="background:transparent;border-top:1px solid rgba(255,255,255,0.08);padding:24px 40px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;">
+    <p style="margin:0;font-size:0.75rem;letter-spacing:0.08em;color:rgba(255,255,255,0.4);">&copy; 2026 Monti Institute of Neuro Aesthetics. All Rights Reserved.</p>
+    <nav aria-label="Footer navigation" style="display:flex;gap:2rem;">
+      <a href="privacy.html" style="font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(154,128,96,0.9);text-decoration:none;">Privacy Policy</a>
+      <a href="contact.html" style="font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.4);text-decoration:none;" onmouseover="this.style.color='rgba(154,128,96,0.9)'" onmouseout="this.style.color='rgba(255,255,255,0.4)'">Contact</a>
+    </nav>
   </footer>
 
   <script src="script.js"></script>
+
+
 
   <script
     id="nextivacx-code-snippet"
     src="https://d3po7etsbw5eiv.cloudfront.net/Simplify360Chat.js?key=NmEyYzY1ZDk1ZDlkM2I5YWJmMjM1MzAyfDQzMTk0Mjc=">
   </script>
 
-  <style>
-  /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-     PRIVACY PAGE — scoped styles
-  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
-
-  .privacy-intro {
-    font-size: clamp(0.92rem, 1.3vw, 1.05rem);
-    font-weight: 300;
-    color: var(--muted);
-    line-height: 1.9;
-    margin-block-end: clamp(2.5rem, 4vw, 4rem);
-  }
-  .privacy-intro strong { color: var(--deep); font-weight: 400; }
-
-  .privacy-body { display: flex; flex-direction: column; gap: 0; }
-
-  .privacy-section {
-    padding-block: clamp(1.75rem, 3vw, 2.5rem);
-    border-top: 1px solid var(--stone);
-  }
-  .privacy-section:last-child { border-bottom: 1px solid var(--stone); }
-
-  .privacy-section--callout {
-    background: var(--ivory);
-    padding-inline: clamp(1.5rem, 3vw, 2.5rem);
-    margin-inline: calc(var(--sp-inline) * -0.5);
-    border-left: 2px solid var(--gold);
-    border-top-color: transparent;
-    border-bottom: none;
-  }
-
-  .privacy-section__heading {
-    font-family: var(--f-display);
-    font-size: clamp(1.1rem, 1.8vw, 1.4rem);
-    font-weight: 400;
-    color: var(--deep);
-    line-height: 1.2;
-    margin-block-end: 1rem;
-    display: flex;
-    align-items: baseline;
-    gap: 0.85rem;
-  }
-  .privacy-section__num {
-    font-size: 0.62rem;
-    font-weight: 400;
-    letter-spacing: 0.2em;
-    color: var(--gold);
-    font-family: var(--f-body);
-    flex-shrink: 0;
-  }
-
-  .privacy-section p {
-    font-size: 0.875rem;
-    font-weight: 300;
-    color: var(--muted);
-    line-height: 1.9;
-    margin-block-end: 0.85rem;
-    max-width: 70ch;
-  }
-  .privacy-section p:last-child { margin-block-end: 0; }
-
-  .privacy-list {
-    list-style: none;
-    padding: 0;
-    margin: 0.75rem 0 0;
-    display: flex;
-    flex-direction: column;
-    gap: 0.85rem;
-  }
-  .privacy-list li {
-    font-size: 0.875rem;
-    font-weight: 300;
-    color: var(--muted);
-    line-height: 1.88;
-    padding-inline-start: 1.25rem;
-    position: relative;
-    max-width: 68ch;
-  }
-  .privacy-list li::before {
-    content: '';
-    position: absolute;
-    inset-inline-start: 0;
-    top: 0.65em;
-    width: 4px;
-    height: 1px;
-    background: var(--gold);
-    opacity: 0.6;
-  }
-  .privacy-list li strong { color: var(--charcoal); font-weight: 400; }
-
-  .privacy-address {
-    font-size: 0.875rem;
-    font-weight: 300;
-    color: var(--muted);
-    line-height: 2;
-    font-style: normal;
-    margin-block-start: 0.75rem;
-  }
-  .privacy-address strong { color: var(--deep); font-weight: 400; }
-  .privacy-address a { color: var(--gold); transition: color 0.25s; }
-  .privacy-address a:hover { color: var(--charcoal); }
-
-  /* Dark mode */
-  body.dark-theme .privacy-section { border-color: rgba(255,255,255,0.07); }
-  body.dark-theme .privacy-section--callout { background: #0F1520; border-left-color: var(--gold); }
-  body.dark-theme .privacy-section__heading { color: rgba(220,215,205,0.9); }
-  body.dark-theme .privacy-section p,
-  body.dark-theme .privacy-list li { color: rgba(200,190,175,0.6); }
-  body.dark-theme .privacy-list li strong { color: rgba(220,215,205,0.85); }
-  body.dark-theme .privacy-address { color: rgba(200,190,175,0.6); }
-  body.dark-theme .privacy-address strong { color: rgba(220,215,205,0.9); }
-  body.dark-theme .privacy-intro { color: rgba(200,190,175,0.6); }
-  body.dark-theme .privacy-intro strong { color: rgba(220,215,205,0.9); }
-  </style>
-
 </body>
 </html>
-
-.footer__mark-img {
-  height: 36px;
-  width: auto;
-  object-fit: contain;
-  display: block;
-  opacity: 0.7;
-}
