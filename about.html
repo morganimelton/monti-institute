@@ -9,6 +9,53 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@200;300;400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+<style>
+  /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+     LEGACY / IN MEMORIAM CARD — about page
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+  .staff-card--legacy {
+    position: relative;
+    opacity: 0.88;
+    border: 1px solid rgba(154,128,96,0.2);
+    padding: 0.5rem;
+    background: rgba(248,245,240,0.4);
+    border-radius: 2px;
+  }
+  .staff-card__photo-wrap--legacy {
+    position: relative;
+  }
+  .staff-card__photo--legacy {
+    filter: grayscale(18%) sepia(8%);
+  }
+  .staff-card__legacy-ribbon {
+    position: absolute;
+    bottom: 0.75rem;
+    left: 0;
+    background: rgba(26,22,20,0.82);
+    backdrop-filter: blur(6px);
+    padding: 0.3rem 0.85rem;
+  }
+  .staff-card__legacy-ribbon span {
+    font-size: 0.58rem;
+    font-weight: 400;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: rgba(196,169,125,0.9);
+    font-family: var(--f-body);
+  }
+  .staff-card__role--legacy {
+    color: var(--taupe) !important;
+  }
+  .staff-card__bio--legacy {
+    font-style: italic;
+    color: var(--muted) !important;
+    line-height: 1.95;
+  }
+  body.dark-theme .staff-card--legacy {
+    background: rgba(26,22,20,0.3);
+    border-color: rgba(154,128,96,0.15);
+  }
+</style>
 </head>
 <body>
   <a href="#js-outlet" class="skip-to-main" id="skip-to-main">Skip to main content</a>
@@ -981,40 +1028,37 @@
               </div>
             </div>
             <!-- Morgan Melton -->
-            <div class="staff-card">
-              <div class="staff-card__photo-wrap">
+            <div class="staff-card staff-card--legacy" aria-label="In memoriam: [Name]">
+              <div class="staff-card__photo-wrap staff-card__photo-wrap--legacy">
                 <picture>
-                  <source type="image/jpeg" srcset="images/Morgan Melton Profile Photo.jpg">
                   <img
-                    class="staff-card__photo"
+                    class="staff-card__photo staff-card__photo--legacy"
                     src="images/Morgan Melton Profile Photo.jpg"
-                    alt="Morgan Melton, MSN, APRN — Aesthetic Clinician &amp; Lead Injector at Monti Institute"
+                    alt="[Name] — Founding Injector and Master Trainer at Monti Institute"
                     loading="lazy"
                     width="400"
                     height="500"
                   />
                 </picture>
+                <div class="staff-card__legacy-ribbon" aria-hidden="true">
+                  <span>In Memoriam</span>
+                </div>
               </div>
               <div class="staff-card__body">
-                <span class="staff-card__role">Aesthetic Clinician &amp; Lead Injector</span>
-                <h3 class="staff-card__name">Morgan Melton</h3>
+                <span class="staff-card__role staff-card__role--legacy">Founding Injector &amp; Master Trainer</span>
+                <h3 class="staff-card__name">[Name]</h3>
                 <p class="staff-card__credentials">
-                  MSN, APRN, CPNP-PC &nbsp;&middot;&nbsp; FAACM&reg;
+                  [Credentials] &nbsp;&middot;&nbsp; [Certification]
                 </p>
                 <div class="staff-card__rule" aria-hidden="true"></div>
-                <p class="staff-card__bio">
-                  Morgan Melton is a board-certified nurse practitioner with over 11 years
-                  of clinical experience and a practice philosophy grounded in structural
-                  refinement and proportional integrity. As our lead aesthetic injector, she
-                  approaches every treatment as an anatomical problem to be solved with
-                  precision &mdash; not a preference to be accommodated. Her outcomes are
-                  consistently conservative, harmonious, and lasting.
+                <p class="staff-card__bio staff-card__bio--legacy">
+                  A founding visionary of this practice, and the quiet, irreplaceable
+                  heartbeat behind everything we built. Her clinical artistry, 
+                  generosity of spirit, and unwavering commitment to excellence shaped 
+                  every corner of what Monti Institute is today. She is deeply missed 
+                  by our team, our patients, and all who were fortunate enough to 
+                  know her. Her legacy lives on in the care we give every day.
                 </p>
-                <div class="staff-card__tags">
-                  <span class="staff-card__tag">Advanced Injectables</span>
-                  <span class="staff-card__tag">Laser &amp; Energy Devices</span>
-                  <span class="staff-card__tag">Skin Rejuvenation</span>
-                </div>
               </div>
             </div>
 
@@ -1056,40 +1100,37 @@
 
             <!-- Sara Zivich  inaugural aesthetic nurse, clinical lead -->
             <!-- Morgan Melton (Aesthetic) -->
-            <div class="staff-card">
-              <div class="staff-card__photo-wrap">
+            <div class="staff-card staff-card--legacy" aria-label="In memoriam: [Name]">
+              <div class="staff-card__photo-wrap staff-card__photo-wrap--legacy">
                 <picture>
-                  <source type="image/jpeg" srcset="images/morgan-melton-navy-scrubs.jpeg">
                   <img
-                    class="staff-card__photo"
+                    class="staff-card__photo staff-card__photo--legacy"
                     src="images/morgan-melton-navy-scrubs.jpeg"
-                    alt="Morgan Melton, Aesthetic Clinician &amp; Lead Injector"
+                    alt="[Name] — Founding Injector and Master Trainer at Monti Institute"
                     loading="lazy"
                     width="400"
                     height="500"
                   />
                 </picture>
+                <div class="staff-card__legacy-ribbon" aria-hidden="true">
+                  <span>In Memoriam</span>
+                </div>
               </div>
               <div class="staff-card__body">
-                <span class="staff-card__role">Aesthetic Clinician &amp; Lead Injector</span>
-                <h3 class="staff-card__name">Morgan Melton</h3>
+                <span class="staff-card__role staff-card__role--legacy">Founding Injector &amp; Master Trainer</span>
+                <h3 class="staff-card__name">[Name]</h3>
                 <p class="staff-card__credentials">
-                  MSN, APRN, CPNP-PC &nbsp;&middot;&nbsp; FAACM&reg;
+                  [Credentials] &nbsp;&middot;&nbsp; [Certification]
                 </p>
                 <div class="staff-card__rule" aria-hidden="true"></div>
-                <p class="staff-card__bio">
-                  Morgan Melton is a board-certified nurse practitioner with over 11 years
-                  of clinical experience and a practice philosophy grounded in structural
-                  refinement and proportional integrity. As our lead aesthetic injector, she
-                  approaches every treatment as an anatomical problem to be solved with
-                  precision &mdash; not a preference to be accommodated. Her outcomes are
-                  consistently conservative, harmonious, and lasting.
+                <p class="staff-card__bio staff-card__bio--legacy">
+                  A founding visionary of this practice, and the quiet, irreplaceable
+                  heartbeat behind everything we built. Her clinical artistry, 
+                  generosity of spirit, and unwavering commitment to excellence shaped 
+                  every corner of what Monti Institute is today. She is deeply missed 
+                  by our team, our patients, and all who were fortunate enough to 
+                  know her. Her legacy lives on in the care we give every day.
                 </p>
-                <div class="staff-card__tags">
-                  <span class="staff-card__tag">Advanced Injectables</span>
-                  <span class="staff-card__tag">Laser &amp; Energy Devices</span>
-                  <span class="staff-card__tag">Skin Rejuvenation</span>
-                </div>
               </div>
             </div>
 
