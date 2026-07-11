@@ -3,610 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Clinical Standards &amp; Case Frameworks — Monti Institute of Neuro Aesthetics</title>
-  <meta name="description" content="Clinical commitments, patient fit criteria, consultation dossier, credentials, and dual-specialty case framework — Monti Institute of Neuro Aesthetics, Reno, Nevada.">
+  <title>Clinical Standards &mdash; Monti Institute of Neuro Aesthetics</title>
+  <meta name="description" content="The clinical standards, protocols, and evidence-based framework that guide care at Monti Institute of Neuro Aesthetics, Reno, Nevada.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@200;300;400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
-  
-<style>
-    /* ═══════════════════════════════════════════════════════════════
-       SCROLL & INTERACTION NUCLEAR RESET
-       Inserted FIRST so cascade order cannot override it.
-       Targets every possible source of scroll/click blocking.
-    ═══════════════════════════════════════════════════════════════ */
-    html {
-      overflow-x:           hidden !important;
-      overflow-y:           auto   !important;
-      height:               auto   !important;
-      min-height:           100%   !important;
-      max-height:           none   !important;
-      position:             static !important;
-      touch-action:         auto   !important;
-      overscroll-behavior:  auto   !important;
-      -webkit-overflow-scrolling: touch !important;
-    }
-    body {
-      overflow-x:           hidden !important;
-      overflow-y:           auto   !important;
-      height:               auto   !important;
-      min-height:           100%   !important;
-      max-height:           none   !important;
-      position:             static !important;
-      touch-action:         auto   !important;
-      overscroll-behavior:  auto   !important;
-      -webkit-overflow-scrolling: touch !important;
-    }
-    /* Main outlet must never clip its children */
-    main, #js-outlet {
-      overflow:             visible !important;
-      height:               auto    !important;
-      min-height:           0       !important;
-      max-height:           none    !important;
-    }
-    /* Active page: always static, always visible, always interactive */
-    .page.page--active {
-      display:         block  !important;
-      position:        static !important;
-      height:          auto   !important;
-      overflow:        visible !important;
-      opacity:         1      !important;
-      pointer-events:  auto   !important;
-      visibility:      visible !important;
-    }
-    /* Inactive pages: completely removed from layout */
-    .page:not(.page--active):not(:target) {
-      display:         none   !important;
-      pointer-events:  none   !important;
-      visibility:      hidden !important;
-    }
-    /* Modal overlay: never blocks when not open */
-    #clinical-modal-overlay:not(.is-open) {
-      pointer-events:  none   !important;
-      opacity:         0      !important;
-      visibility:      hidden !important;
-    }
-    /* Header wrapper: zero height, no overflow */
-    header:not(.store-hero):not(.cs-hero) {
-      height:          auto   !important;
-      overflow:        visible !important;
-    }
-
-  /* ── Clinical Standards page — local overrides ── */
-  .cs-hero {
-    padding-block-start: calc(var(--nav-h, 64px) + 2.5rem);
-    padding-block-end:   clamp(3rem, 6vw, 5rem);
-    padding-inline:      clamp(1.25rem, 6vw, 5rem);
-    background:          var(--warm-white);
-    border-bottom:       1px solid var(--stone);
-  }
-  .cs-hero__eyebrow {
-    display: block; font-size: 0.62rem; font-weight: 400;
-    letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold);
-    margin-block-end: 0.75rem;
-  }
-  .cs-hero__title {
-    font-family: var(--font-display);
-    font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 300;
-    color: var(--deep); letter-spacing: 0.01em; line-height: 1.2;
-    margin-block: 0 0.75rem;
-  }
-  .cs-hero__sub {
-    font-size: clamp(0.875rem, 1.3vw, 1rem); font-weight: 300;
-    color: var(--muted); line-height: 1.9; max-width: 64ch;
-  }
-  .cs-page-divider {
-    border: none; height: 1px;
-    background: linear-gradient(90deg, transparent, var(--stone), transparent);
-    margin: 0;
-  }
-  /* CTA section */
-  .cs-cta-section {
-    padding-block:  clamp(4rem, 8vw, 7rem);
-    padding-inline: clamp(1.25rem, 6vw, 5rem);
-    background:     var(--deep);
-    text-align:     center;
-  }
-  .cs-cta-inner { max-width: 600px; margin-inline: auto; }
-  .cs-cta__label {
-    display: block; font-size: 0.6rem; font-weight: 400;
-    letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold);
-    margin-block-end: 0.75rem;
-  }
-  .cs-cta__heading {
-    font-family: var(--font-display);
-    font-size: clamp(1.6rem, 3vw, 2.4rem); font-weight: 300;
-    color: var(--ivory); letter-spacing: 0.01em; margin-block: 0 1rem;
-  }
-  .cs-cta__body {
-    font-size: clamp(0.85rem, 1.2vw, 0.975rem); font-weight: 300;
-    color: rgba(248,245,240,0.55); line-height: 1.9; margin-block-end: 2rem;
-  }
-  .cs-cta__actions {
-    display: flex; flex-wrap: wrap; gap: 0.75rem;
-    justify-content: center;
-  }
-  /* Ensure sections from homepage display correctly without page wrapper */
-  .hp-trust-section {
-    padding-block:  clamp(3rem, 6vw, 6rem);
-    padding-inline: clamp(1.25rem, 6vw, 5rem);
-  }
-  .accreditations-section {
-    padding-block:  clamp(2rem, 4vw, 3.5rem);
-    padding-inline: clamp(1.25rem, 6vw, 5rem);
-  }
-  .dossier-section {
-    padding-block:  clamp(3rem, 6vw, 6rem);
-    padding-inline: clamp(1.25rem, 6vw, 5rem);
-  }
-  .case-study-section {
-    padding-block:  clamp(3rem, 6vw, 6rem);
-    padding-inline: clamp(1.25rem, 6vw, 5rem);
-  }
-  /* Mobile stack */
-  @media (max-width: 800px) {
-    .commitments-grid, .dossier-deliverables,
-    .dossier-inner, .case-study-grid,
-    .patient-fit-cols, .research-grid {
-      display: flex !important;
-      flex-direction: column !important;
-      width: 100%;
-    }
-    .dossier-aside, .patient-fit__aside,
-    .case-study-sidebar { position: static !important; }
-    .accreditations-bar { flex-wrap: wrap; justify-content: center; gap: 1.25rem 2rem; }
-    .accreditations-divider { display: none; }
-    .cs-cta__actions { flex-direction: column; align-items: center; }
-  }
-  @media (max-width: 480px) {
-    .cs-hero { padding-block-start: calc(var(--nav-h, 56px) + 1rem); padding-inline: 1rem; }
-    .hp-trust-section, .dossier-section, .case-study-section {
-      padding-block: 2rem; padding-inline: 1rem;
-    }
-    .accreditations-section { padding-block: 1.5rem; padding-inline: 1rem; }
-    .case-study__meta { flex-direction: column; gap: 0.5rem; }
-    .case-study__disclosure { margin-inline-start: 0; }
-  }
-
-/* ── Nav Dropdowns ── */
-.nav__item--dropdown { position: relative; list-style: none; }
-.nav__dropdown-toggle {
-  background: none;
-  border: none;
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-  padding: 0;
-  font: inherit;
-  color: inherit;
-}
-.nav__chevron {
-  width: 10px;
-  height: 10px;
-  transition: transform 0.25s ease;
-  flex-shrink: 0;
-}
-.nav__item--dropdown[data-open] .nav__chevron { transform: rotate(180deg); }
-.nav__dropdown {
-  display: none;
-  position: absolute;
-  top: calc(100% + 0.75rem);
-  left: 50%;
-  transform: translateX(-50%);
-  min-width: 220px;
-  background: var(--ivory);
-  border: 1px solid var(--stone);
-  padding: 0.5rem 0;
-  list-style: none;
-  z-index: 200;
-  box-shadow: 0 8px 32px rgba(26,22,20,0.10);
-}
-.nav__item--dropdown[data-open] .nav__dropdown { display: block; }
-.nav__dropdown-link {
-  display: block;
-  padding: 0.6rem 1.25rem;
-  font-size: 0.78rem;
-  font-weight: 300;
-  letter-spacing: 0.08em;
-  color: var(--charcoal);
-  text-decoration: none;
-  transition: color 0.2s, background 0.2s;
-  white-space: nowrap;
-}
-.nav__dropdown-link:hover { color: var(--gold); background: rgba(154,128,96,0.05); }
-
-/* Dark mode */
-body.dark-theme .nav__dropdown { background: #1A1614; border-color: rgba(255,255,255,0.08); }
-body.dark-theme .nav__dropdown-link { color: rgba(220,215,205,0.75); }
-body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
-    /* ═══════════════════════════════════════════════════════════════
-       MIGRAINE-FRIENDLY DARK THEME
-       Activated by: body.dark-theme
-       Palette: deep navy / matte charcoal backgrounds
-       Optimized for photosensitivity and active migraine episodes.
-       All transitions: 0.38s ease — never jarring.
-    ═══════════════════════════════════════════════════════════════ */
-
-    /* ── Global color transition ── */
-    *,
-    *::before,
-    *::after {
-      transition-property: background-color, border-color, color,
-                           box-shadow, opacity !important;
-      transition-duration: 0.38s !important;
-      transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1) !important;
-    }
-    /* Exempt elements where transition causes flicker */
-    .team-card__photo,
-    [data-clinical-key]::before,
-    [data-clinical-key]::after,
-    #clinical-modal,
-    #clinical-modal-overlay { transition: none !important; }
-
-    /* ── Dark theme CSS variable overrides ── */
-    body.dark-theme {
-      --ivory:      #111827;
-      --warm-white: #0F1520;
-      --stone:      rgba(255,255,255,0.08);
-      --taupe:      rgba(200,190,175,0.35);
-      --charcoal:   rgba(220,215,205,0.80);
-      --deep:       #07090F;
-      --gold:       #B89870;
-      --gold-lt:    #D4AA82;
-      --muted:      rgba(190,182,170,0.55);
-      --font-body:  var(--f-body);
-      --nav-bg:     rgba(7, 9, 15, 0.97);
-    }
-
-    /* ── Body background ── */
-    body.dark-theme {
-      background-color: #111827;
-      color: rgba(220,215,205,0.80);
-    }
-
-    /* ── Navigation ── */
-    body.dark-theme .nav {
-      background: rgba(7,9,15,0.97) !important;
-      border-bottom: 1px solid rgba(255,255,255,0.06) !important;
-    }
-    body.dark-theme .nav__list a {
-      color: rgba(200,190,175,0.65);
-    }
-    body.dark-theme .nav__list a:hover,
-    body.dark-theme .nav__list a.is-active,
-    body.dark-theme .nav__list a[aria-current] {
-      color: var(--gold);
-    }
-    body.dark-theme .nav__brand-text { color: rgba(220,215,205,0.9); }
-
-    /* ── Hero ── */
-    body.dark-theme .hero {
-      background: linear-gradient(
-        170deg,
-        #07090F 0%,
-        #0D1422 45%,
-        #111827 100%
-      ) !important;
-    }
-    body.dark-theme .hero__tagline { color: rgba(190,182,170,0.55) !important; }
-    body.dark-theme .hero__eyebrow { color: var(--gold) !important; }
-
-    /* ── Disc split panels ── */
-    body.dark-theme .disc-panel--neuro {
-      background: #070C18 !important;
-    }
-    body.dark-theme .disc-panel--aesthetic {
-      background: #0F1520 !important;
-    }
-    body.dark-theme .disc-panel--aesthetic .disc-panel__title,
-    body.dark-theme .disc-panel--aesthetic .disc-panel__body,
-    body.dark-theme .disc-panel--aesthetic .disc-panel__eyebrow {
-      color: rgba(220,215,205,0.8) !important;
-    }
-
-    /* ── Philosophy / Section dark ── */
-    body.dark-theme .section--dark {
-      background: #070C18 !important;
-      border-top: 1px solid rgba(255,255,255,0.04) !important;
-      border-bottom: 1px solid rgba(255,255,255,0.04) !important;
-    }
-
-    /* ── Cards: team, commitment, protocol, glossary, staff ── */
-    body.dark-theme .team-card,
-    body.dark-theme .commitment-item,
-    body.dark-theme .protocol-item,
-    body.dark-theme .staff-card,
-    body.dark-theme .glossary-term,
-    body.dark-theme .research-card__inner,
-    body.dark-theme .transport-card,
-    body.dark-theme .dossier-deliverable,
-    body.dark-theme .anatomy-pillar,
-    body.dark-theme .gift-card,
-    body.dark-theme .hotel-card {
-      background: #0F1520 !important;
-      border-color: rgba(255,255,255,0.07) !important;
-    }
-    body.dark-theme .commitment-item:hover,
-    body.dark-theme .protocol-item:hover,
-    body.dark-theme .staff-card:hover,
-    body.dark-theme .transport-card:hover { background: #151E30 !important; }
-
-    /* ── Inner-page backgrounds ── */
-    body.dark-theme .inner-page {
-      background: #111827 !important;
-    }
-
-    /* ── Condition pills ── */
-    body.dark-theme .condition-pill {
-      background:   #0F1520 !important;
-      border-color: rgba(255,255,255,0.1) !important;
-      color:        rgba(220,215,205,0.75) !important;
-    }
-    body.dark-theme .condition-pill:hover,
-    body.dark-theme .cond-item.is-open .condition-pill {
-      background:   #1A2540 !important;
-      border-color: var(--gold) !important;
-    }
-
-    /* ── Dark feature sections ── */
-    body.dark-theme .dossier-section,
-    body.dark-theme .timeline-viz,
-    body.dark-theme .concierge-flow,
-    body.dark-theme .accreditations-section,
-    body.dark-theme .portal-gateway,
-    body.dark-theme .cs-bridge-section,
-    body.dark-theme .cs-cta-section {
-      background: #07090F !important;
-    }
-
-    /* ── Clinical Standards / Case study ── */
-    body.dark-theme .case-study-section,
-    body.dark-theme .anatomy-module,
-    body.dark-theme .glossary-section,
-    body.dark-theme .cs-hero {
-      background: #111827 !important;
-    }
-    body.dark-theme .case-study__callout {
-      background:   #0F1520 !important;
-      border-color: rgba(255,255,255,0.07) !important;
-    }
-    body.dark-theme .case-study__timeline-item::before {
-      background: rgba(255,255,255,0.08) !important;
-    }
-
-    /* ── Input fields (contact / portal) ── */
-    body.dark-theme input,
-    body.dark-theme textarea,
-    body.dark-theme select,
-    body.dark-theme .portal-gateway__input {
-      background:   rgba(255,255,255,0.04) !important;
-      border-color: rgba(255,255,255,0.1) !important;
-      color:        rgba(220,215,205,0.85) !important;
-    }
-    body.dark-theme input::placeholder,
-    body.dark-theme .portal-gateway__input::placeholder {
-      color: rgba(200,190,175,0.3) !important;
-    }
-
-    /* ── Buttons ── */
-    body.dark-theme .btn--ghost {
-      border-color: rgba(200,190,175,0.3) !important;
-      color:        rgba(200,190,175,0.7) !important;
-    }
-    body.dark-theme .btn--ghost:hover {
-      border-color: var(--gold) !important;
-      color:        var(--gold) !important;
-    }
-
-    /* ── Rule / divider lines ── */
-    body.dark-theme .inner-page__rule {
-      background: rgba(255,255,255,0.07) !important;
-    }
-    body.dark-theme hr,
-    body.dark-theme .cs-page-divider {
-      background: rgba(255,255,255,0.05) !important;
-    }
-
-    /* ── Team photo wrap: richer dark bg ── */
-    body.dark-theme .team-card__photo-wrap {
-      background: #0A0E18 !important;
-    }
-
-    /* ── About page profile ── */
-    body.dark-theme .about-profile__credentials .about-profile__name {
-      color: rgba(220,215,205,0.9) !important;
-    }
-    body.dark-theme .dossier-wrap {
-      border-color: rgba(255,255,255,0.08) !important;
-      background:   #0F1520 !important;
-    }
-    body.dark-theme .dossier-body {
-      background: #0F1520 !important;
-    }
-
-    /* ── Timeline visualizer ── */
-    body.dark-theme .timeline-cycle {
-      background: rgba(7,9,15,0.9) !important;
-    }
-    body.dark-theme .timeline-cycle.is-active,
-    body.dark-theme .timeline-cycle:hover {
-      background: rgba(20,30,55,0.9) !important;
-    }
-
-    /* ── Accreditation badges ── */
-    body.dark-theme .accreditation-badge { opacity: 0.45; }
-    body.dark-theme .accreditation-badge:hover { opacity: 0.8; }
-
-    /* ── Scroll chrome ── */
-    body.dark-theme #back-to-top {
-      background: rgba(7,9,15,0.92) !important;
-      border-color: rgba(255,255,255,0.1) !important;
-    }
-
-    /* ═══════════════════════════════════════════════════════════════
-       NAV TOGGLE SWITCH — "Migraine Mode"
-       Sits inside .nav__inner, right of the nav list.
-    ═══════════════════════════════════════════════════════════════ */
-    .dark-toggle {
-      display:      flex;
-      align-items:  center;
-      gap:          0.55rem;
-      padding:      0.35rem 0.75rem;
-      border:       1px solid rgba(154,128,96,0.25);
-      border-radius: 20px;
-      background:   transparent;
-      cursor:       pointer;
-      transition:   border-color 0.3s, background 0.3s !important;
-      margin-inline-start: auto;
-      flex-shrink:  0;
-      white-space:  nowrap;
-    }
-    .dark-toggle:hover { border-color: var(--gold); }
-    .dark-toggle__label {
-      font-size:     0.6rem;
-      font-weight:   400;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color:         var(--muted);
-      transition:    color 0.3s !important;
-      line-height:   1;
-    }
-    .dark-toggle:hover .dark-toggle__label { color: var(--gold); }
-    /* Icon — eye with rays (photosensitivity symbol) */
-    .dark-toggle__icon {
-      width:  15px;
-      height: 15px;
-      stroke: var(--muted);
-      stroke-width: 1.4;
-      fill:   none;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-      flex-shrink: 0;
-      transition: stroke 0.3s !important;
-    }
-    .dark-toggle:hover .dark-toggle__icon,
-    body.dark-theme .dark-toggle__icon { stroke: var(--gold); }
-    /* Switch pill */
-    .dark-toggle__switch {
-      width:  36px;
-      height: 18px;
-      border-radius: 9px;
-      background: rgba(154,128,96,0.15);
-      border: 1px solid rgba(154,128,96,0.3);
-      position: relative;
-      flex-shrink: 0;
-      transition: background 0.3s, border-color 0.3s !important;
-    }
-    .dark-toggle__switch::after {
-      content:  '';
-      position: absolute;
-      top:  2px;
-      left: 2px;
-      width:  12px;
-      height: 12px;
-      border-radius: 50%;
-      background: var(--taupe);
-      transition: transform 0.32s cubic-bezier(0.22,1,0.36,1),
-                  background 0.3s !important;
-    }
-    /* Active (dark mode on) states */
-    body.dark-theme .dark-toggle { border-color: var(--gold); }
-    body.dark-theme .dark-toggle__label { color: var(--gold); }
-    body.dark-theme .dark-toggle__switch {
-      background:   rgba(154,128,96,0.35);
-      border-color: var(--gold);
-    }
-    body.dark-theme .dark-toggle__switch::after {
-      transform:  translateX(18px);
-      background: var(--gold);
-    }
-    /* Hide label on very small screens */
-    @media (max-width: 520px) {
-      .dark-toggle__label { display: none; }
-      .dark-toggle { padding: 0.35rem 0.5rem; }
-    }
-
-    /* ── Dark toast notification ── */
-    #dark-toast {
-      position:  fixed;
-      top: calc(var(--nav-h) + 0.75rem);
-      right:     1rem;
-      z-index:   299;
-      background: rgba(7,9,15,0.96);
-      border:    1px solid var(--gold);
-      border-radius: 4px;
-      padding:   0.75rem 1.1rem;
-      max-width: 240px;
-      opacity:   0;
-      pointer-events: none;
-      transform: translateY(-6px);
-      transition: opacity 0.3s, transform 0.3s !important;
-    }
-    #dark-toast.is-visible { opacity: 1; transform: translateY(0); }
-    #dark-toast__title {
-      font-size: 0.62rem; font-weight: 400; letter-spacing: 0.14em;
-      text-transform: uppercase; color: var(--gold);
-      display: block; margin-block-end: 0.25rem;
-    }
-    #dark-toast__body {
-      font-size: 0.7rem; font-weight: 300;
-      color: rgba(200,190,175,0.6); line-height: 1.6;
-    }
-
-</style>
-
 </head>
 <body>
 
-  <script>
-  /* EMERGENCY SCROLL UNLOCK — runs synchronously before DOM is ready */
-  (function emergencyUnlock(){
-    var d = document;
-    var b = d.body || d.getElementsByTagName('body')[0];
-    /* 1. Blast scroll lock off html and body immediately */
-    if(d.documentElement) {
-      d.documentElement.style.cssText +=
-        ';overflow:auto!important;height:auto!important;position:static!important;touch-action:auto!important';
-    }
-    /* 2. Runs again on DOMContentLoaded to catch body and overlays */
-    function deepUnlock(){
-      [d.documentElement, d.body].forEach(function(el){
-        if(!el) return;
-        el.style.overflow   = '';
-        el.style.overflowY  = '';
-        el.style.height     = '';
-        el.style.position   = '';
-        el.style.touchAction = '';
-      });
-      var overlay = d.getElementById('clinical-modal-overlay');
-      if(overlay) {
-        overlay.classList.remove('is-open');
-        overlay.setAttribute('aria-hidden','true');
-      }
-      var navList = d.getElementById('js-nav-list');
-      var navBtn  = d.getElementById('js-nav-toggle');
-      if(navList) navList.classList.remove('is-open');
-      if(navBtn)  navBtn.setAttribute('aria-expanded','false');
-    }
-    if(d.readyState === 'loading') {
-      d.addEventListener('DOMContentLoaded', deepUnlock);
-    } else {
-      deepUnlock();
-    }
-  })();
-  </script>
-
-
-  <!-- ── Dark Mode Toast ── -->
   <div id="dark-toast" role="status" aria-live="polite" aria-atomic="true">
-    <span id="dark-toast__title">Migraine Mode — On</span>
-    <p id="dark-toast__body">Low-glare display activated. Optimized for light-sensitive viewing.</p>
+    <span id="dark-toast__title"></span>
+    <span id="dark-toast__body"></span>
   </div>
 
-
   <div id="scroll-progress" role="progressbar" aria-hidden="true"></div>
+
   <button id="back-to-top" type="button" aria-label="Back to top">
     <svg viewBox="0 0 24 24" aria-hidden="true" style="width:14px;height:14px;stroke:var(--gold);stroke-width:1.5;fill:none;stroke-linecap:round;stroke-linejoin:round">
       <path d="M12 19V5M5 12l7-7 7 7"/>
@@ -615,56 +27,64 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
 
   <nav class="nav" id="js-nav" role="navigation" aria-label="Main navigation">
     <div class="nav__inner">
-      <a href="/" class="nav__brand" aria-label="Monti Institute — Home">
+      <a href="/" class="nav__brand" aria-label="Monti Institute &mdash; Home">
         <img src="images/official-logo.png" alt="Monti Institute" class="nav__logo-img site-logo">
         <span class="nav__brand-text">Monti Institute</span>
       </a>
-      <button
-        class="nav__toggle"
-        id="js-nav-toggle"
-        aria-expanded="false"
-        aria-controls="js-nav-list"
-        aria-label="Toggle navigation"
-      >
+      <button class="nav__toggle" id="js-nav-toggle"
+              aria-expanded="false" aria-controls="js-nav-list" aria-label="Toggle navigation">
         <i aria-hidden="true"></i>
         <i aria-hidden="true"></i>
         <i aria-hidden="true"></i>
       </button>
       <ul class="nav__list" id="js-nav-list" role="list">
-      <li><a href="/" class="nav__link">Home</a></li>
-      <li><a href="neurological-medicine" class="nav__link">Neurological Medicine</a></li>
-      <li><a href="aesthetic-medicine" class="nav__link">Aesthetic Medicine</a></li>
-      <li><a href="about" class="nav__link">About</a></li>
-      <li><a href="clinical-standards" class="nav__link is-active" aria-current="page">Clinical Standards</a></li>
-      <li><a href="wellness-store" class="nav__link">Wellness Store</a></li>
-      <li><a href="gift-credits" class="nav__link">Gift Credits</a></li>
-      <li><a href="contact" class="nav__link">Contact</a></li>
-      
-      <button class="dark-toggle nav__migraine-toggle"
-              id="dark-mode-toggle"
-              type="button"
-              aria-label="Toggle Migraine-Friendly Viewing Mode"
-              aria-pressed="false"
-              title="Migraine Mode — reduces brightness for light-sensitive viewing">
-        <svg class="dark-toggle__icon" viewBox="0 0 24 24"
-             aria-hidden="true" width="14" height="14">
-          <ellipse cx="12" cy="12" rx="4" ry="4"
-                   fill="none" stroke="currentColor" stroke-width="1.5"/>
-          <path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.93 4.93l1.41 1.41
-                   M17.66 17.66l1.41 1.41M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"
-                fill="none" stroke="currentColor"
-                stroke-width="1.5" stroke-linecap="round"/>
-        </svg>
-        <span class="dark-toggle__label">Migraine Mode</span>
-        <span class="dark-toggle__switch" aria-hidden="true"></span>
-      </button>
-</ul>
+        <li><a href="/" class="nav__link">Home</a></li>
+        <li class="nav__item--dropdown">
+          <button class="nav__link nav__dropdown-toggle" aria-expanded="false" aria-haspopup="true">
+            Services
+            <svg viewBox="0 0 12 12" aria-hidden="true" class="nav__chevron"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <ul class="nav__dropdown" role="list">
+            <li><a href="neurological-medicine.html" class="nav__dropdown-link">Neurological Medicine</a></li>
+            <li><a href="aesthetic-medicine.html" class="nav__dropdown-link">Aesthetic Medicine</a></li>
+            <li><a href="infusion-center.html" class="nav__dropdown-link">Infusion Center</a></li>
+          </ul>
+        </li>
+        <li class="nav__item--dropdown">
+          <button class="nav__link nav__dropdown-toggle" aria-expanded="false" aria-haspopup="true">
+            About
+            <svg viewBox="0 0 12 12" aria-hidden="true" class="nav__chevron"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <ul class="nav__dropdown" role="list">
+            <li><a href="about.html" class="nav__dropdown-link">Our Team &amp; Philosophy</a></li>
+            <li><a href="clinical-standards.html" class="nav__dropdown-link is-active" aria-current="page">Clinical Standards</a></li>
+            <li><a href="financing-memberships.html" class="nav__dropdown-link">Memberships &amp; Financing</a></li>
+          </ul>
+        </li>
+        <li><a href="wellness-store.html" class="nav__link">Store</a></li>
+        <li><a href="contact.html" class="nav__link">Contact</a></li>
+      </ul>
     </div>
   </nav>
 
+  <button class="dark-toggle nav__migraine-toggle"
+          id="dark-mode-toggle"
+          type="button"
+          aria-label="Toggle Migraine-Friendly Viewing Mode"
+          aria-pressed="false"
+          title="Migraine Mode &mdash; reduces brightness for light-sensitive viewing">
+    <svg class="dark-toggle__icon" viewBox="0 0 24 24" aria-hidden="true" width="14" height="14">
+      <ellipse cx="12" cy="12" rx="4" ry="4" fill="none" stroke="currentColor" stroke-width="1.5"/>
+      <path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"
+            fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+    </svg>
+    <span class="dark-toggle__label">Migraine Mode</span>
+    <span class="dark-toggle__switch" aria-hidden="true"></span>
+  </button>
+
   <main id="js-outlet">
 
-    <!-- ── PAGE HERO ── -->
+    <!--  PAGE HERO  -->
     <header class="cs-hero">
       <span class="cs-hero__eyebrow">Clinical Standards &amp; Case Frameworks</span>
       <h1 class="cs-hero__title">
@@ -1270,7 +690,7 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
           </div>
 
           <div class="case-study__callout">
-            <span class="case-study__callout-label">Total Botox — Both Divisions</span>
+            <span class="case-study__callout-label">Total Botox  Both Divisions</span>
             <p class="case-study__callout-value">185u</p>
             <p class="case-study__callout-desc">
               155u neurological (PREEMPT) + 30u aesthetic,
@@ -1312,7 +732,7 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
                   <span class="case-study__timeline-period">Month 3</span>
                   <span class="case-study__timeline-desc">
                     Neurological stability documented.
-                    Botox (155u) — PREEMPT protocol.
+                    Botox (155u)  PREEMPT protocol.
                   </span>
                 </div>
               </div>
@@ -1321,15 +741,15 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
                 <div class="case-study__timeline-text">
                   <span class="case-study__timeline-period">Month 4</span>
                   <span class="case-study__timeline-desc">
-                    Aesthetic Phase 1–2 initiated. Full-face
-                    rebalancing — deep and mid-layer.
+                    Aesthetic Phase 12 initiated. Full-face
+                    rebalancing  deep and mid-layer.
                   </span>
                 </div>
               </div>
               <div class="case-study__timeline-item">
                 <div class="case-study__timeline-dot"></div>
                 <div class="case-study__timeline-text">
-                  <span class="case-study__timeline-period">Months 4–8</span>
+                  <span class="case-study__timeline-period">Months 48</span>
                   <span class="case-study__timeline-desc">
                     Sculptra biostimulation (3 sessions).
                     Aesthetic neuromodulation at Month 6.
@@ -1356,7 +776,7 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
     <hr class="cs-page-divider">
 
     
-    <!-- ── SCHEDULE CTA ── -->
+    <!--  SCHEDULE CTA  -->
     <section class="cs-cta-section" aria-label="Schedule a consultation">
       <div class="cs-cta-inner">
         <span class="cs-cta__label">Ready to Begin</span>
@@ -1389,7 +809,55 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
 
   </main>
 
+  <footer style="background:transparent;color:rgba(255,255,255,0.6);font-size:0.85rem;padding:20px 40px;display:flex;justify-content:space-between;align-items:center;">
+    <p style="margin:0;">&copy; 2026 Monti Institute of Neuro Aesthetics. All Rights Reserved.</p>
+    <p style="margin:0;"><a href="privacy.html" style="color:rgba(255,255,255,0.8);text-decoration:none;">Privacy Policy</a></p>
+  </footer>
+
   <script src="script.js"></script>
+
+  <script>
+  /* EMERGENCY SCROLL UNLOCK  runs synchronously before DOM is ready */
+  (function emergencyUnlock(){
+    var d = document;
+    var b = d.body || d.getElementsByTagName('body')[0];
+    /* 1. Blast scroll lock off html and body immediately */
+    if(d.documentElement) {
+      d.documentElement.style.cssText +=
+        ';overflow:auto!important;height:auto!important;position:static!important;touch-action:auto!important';
+    }
+    /* 2. Runs again on DOMContentLoaded to catch body and overlays */
+    function deepUnlock(){
+      [d.documentElement, d.body].forEach(function(el){
+        if(!el) return;
+        el.style.overflow   = '';
+        el.style.overflowY  = '';
+        el.style.height     = '';
+        el.style.position   = '';
+        el.style.touchAction = '';
+      });
+      var overlay = d.getElementById('clinical-modal-overlay');
+      if(overlay) {
+        overlay.classList.remove('is-open');
+        overlay.setAttribute('aria-hidden','true');
+      }
+      var navList = d.getElementById('js-nav-list');
+      var navBtn  = d.getElementById('js-nav-toggle');
+      if(navList) navList.classList.remove('is-open');
+      if(navBtn)  navBtn.setAttribute('aria-expanded','false');
+    }
+    if(d.readyState === 'loading') {
+      d.addEventListener('DOMContentLoaded', deepUnlock);
+    } else {
+      deepUnlock();
+    }
+  })();
+  </script>
+
+  <script
+    id="nextivacx-code-snippet"
+    src="https://d3po7etsbw5eiv.cloudfront.net/Simplify360Chat.js?key=NmEyYzY1ZDk1ZDlkM2I5YWJmMjM1MzAyfDQzMTk0Mjc=">
+  </script>
 
 </body>
 </html>
