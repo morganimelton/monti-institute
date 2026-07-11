@@ -100,6 +100,8 @@
   </style>
 </head>
 <body>
+  <a href="#js-outlet" class="skip-to-main" id="skip-to-main">Skip to main content</a>
+
 
   <div id="dark-toast" role="status" aria-live="polite" aria-atomic="true">
     <span id="dark-toast__title"></span>
@@ -121,7 +123,7 @@
         <span class="nav__brand-text">Monti Institute</span>
       </a>
       <button class="nav__toggle" id="js-nav-toggle"
-              aria-expanded="false" aria-controls="js-nav-list" aria-label="Toggle navigation">
+              aria-expanded="false" aria-controls="js-nav-list" aria-label="Toggle navigation menu">
         <i aria-hidden="true"></i>
         <i aria-hidden="true"></i>
         <i aria-hidden="true"></i>
@@ -171,7 +173,7 @@
     <span class="dark-toggle__switch" aria-hidden="true"></span>
   </button>
 
-  <main id="js-outlet">
+  <main id="js-outlet" tabindex="-1">
 
     <!-- 
          INFUSION CENTER PAGE
