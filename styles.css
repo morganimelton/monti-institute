@@ -310,6 +310,16 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
       transition: border-color 0.35s ease, box-shadow 0.35s ease;
       overflow: visible;
     }
+    .nav__inner {
+      overflow: visible;
+      display: flex;
+      align-items: center;
+      width: 100%;
+    }
+    .nav__brand {
+      overflow: visible;
+      flex-shrink: 0;
+    }
     .nav.is-scrolled {
       border-color: var(--stone);
       box-shadow: 0 2px 32px rgba(26,22,20,0.05);
