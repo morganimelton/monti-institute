@@ -441,7 +441,7 @@ document.addEventListener('DOMContentLoaded', function() {
       }
 
       var submitBtn = document.getElementById('cf-submit');
-      if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = 'Sending\u2026'; }
+      if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = 'Sending…'; }
 
       setTimeout(function() {
         form.style.display = 'none';
@@ -452,6 +452,83 @@ document.addEventListener('DOMContentLoaded', function() {
           success.focus();
         }
       }, 600);
+    });
+  })();
+
+  /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+     9. BEFORE/AFTER RESULTS SLIDER (ADA)
+     - Drag (mouse/touch) or arrow keys to compare
+     - role="slider" + aria-valuenow kept in sync
+     - Shift+Arrow = large step, Home/End = 0/100
+     - No-op safely if no [data-ba-slider] on page
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+  (function initBeforeAfterSliders() {
+    var sliders = document.querySelectorAll('[data-ba-slider]');
+    if (!sliders.length) return;
+
+    sliders.forEach(function(root) {
+      var before  = root.querySelector('.ba-slider__before');
+      var divider = root.querySelector('.ba-slider__divider');
+      var handle  = root.querySelector('.ba-slider__handle');
+      if (!before || !divider || !handle) return;
+
+      var dragging = false;
+
+      function setPosition(percent) {
+        percent = Math.max(0, Math.min(100, percent));
+        before.style.clipPath = 'inset(0 ' + (100 - percent) + '% 0 0)';
+        divider.style.left = percent + '%';
+        handle.style.left = percent + '%';
+        handle.setAttribute('aria-valuenow', Math.round(percent));
+      }
+
+      function percentFromClientX(clientX) {
+        var rect = root.getBoundingClientRect();
+        return ((clientX - rect.left) / rect.width) * 100;
+      }
+
+      function onPointerDown(e) {
+        dragging = true;
+        if (root.setPointerCapture && e.pointerId != null) {
+          root.setPointerCapture(e.pointerId);
+        }
+        setPosition(percentFromClientX(e.clientX));
+      }
+
+      function onPointerMove(e) {
+        if (!dragging) return;
+        setPosition(percentFromClientX(e.clientX));
+      }
+
+      function onPointerUp() {
+        dragging = false;
+      }
+
+      root.addEventListener('pointerdown', onPointerDown);
+      root.addEventListener('pointermove', onPointerMove);
+      window.addEventListener('pointerup', onPointerUp);
+
+      // Keyboard support on the handle
+      handle.addEventListener('keydown', function(e) {
+        var current = parseFloat(handle.getAttribute('aria-valuenow')) || 50;
+        var step = e.shiftKey ? 10 : 3;
+        if (e.key === 'ArrowLeft') {
+          setPosition(current - step);
+          e.preventDefault();
+        } else if (e.key === 'ArrowRight') {
+          setPosition(current + step);
+          e.preventDefault();
+        } else if (e.key === 'Home') {
+          setPosition(0);
+          e.preventDefault();
+        } else if (e.key === 'End') {
+          setPosition(100);
+          e.preventDefault();
+        }
+      });
+
+      // Initialize at center
+      setPosition(50);
     });
   })();
 
