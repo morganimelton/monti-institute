@@ -71,7 +71,23 @@
     }
     window.addEventListener('scroll', onScroll, { passive: true });
   })();
-
+// Dropdown nav
+document.querySelectorAll('.nav__item--dropdown').forEach(item => {
+  const toggle = item.querySelector('.nav__dropdown-toggle');
+  toggle.addEventListener('click', e => {
+    e.stopPropagation();
+    const isOpen = item.hasAttribute('data-open');
+    document.querySelectorAll('.nav__item--dropdown[data-open]').forEach(el => el.removeAttribute('data-open'));
+    if (!isOpen) item.setAttribute('data-open', '');
+    toggle.setAttribute('aria-expanded', !isOpen);
+  });
+});
+document.addEventListener('click', () => {
+  document.querySelectorAll('.nav__item--dropdown[data-open]').forEach(el => {
+    el.removeAttribute('data-open');
+    el.querySelector('.nav__dropdown-toggle').setAttribute('aria-expanded', 'false');
+  });
+});
   /* ── Reveal animations (IntersectionObserver) ── */
   (function initReveal() {
     if (!window.IntersectionObserver) return;
