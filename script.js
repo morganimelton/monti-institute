@@ -1,8 +1,7 @@
-/* Monti Institute — shared multi-page script */
-(function() {
-  'use strict';
+'use strict';
 
-  /* ── Nav: scroll border ── */
+document.addEventListener('DOMContentLoaded', function() {
+  /*  Nav: scroll border  */
   var navEl = document.getElementById('js-nav');
   if (navEl) {
     window.addEventListener('scroll', function() {
@@ -10,7 +9,7 @@
     }, { passive: true });
   }
 
-  /* ── Nav: mobile toggle ── */
+  /*  Nav: mobile toggle  */
   (function initMobileNav() {
     function setup() {
       var btn  = document.getElementById('js-nav-toggle');
@@ -43,7 +42,7 @@
     } else { setup(); }
   })();
 
-  /* ── Scroll progress bar ── */
+  /*  Scroll progress bar  */
   (function initScrollProgress() {
     var prog = document.getElementById('scroll-progress');
     var btt  = document.getElementById('back-to-top');
@@ -71,24 +70,42 @@
     }
     window.addEventListener('scroll', onScroll, { passive: true });
   })();
-// Dropdown nav
-document.querySelectorAll('.nav__item--dropdown').forEach(item => {
-  const toggle = item.querySelector('.nav__dropdown-toggle');
-  toggle.addEventListener('click', e => {
-    e.stopPropagation();
-    const isOpen = item.hasAttribute('data-open');
-    document.querySelectorAll('.nav__item--dropdown[data-open]').forEach(el => el.removeAttribute('data-open'));
-    if (!isOpen) item.setAttribute('data-open', '');
-    toggle.setAttribute('aria-expanded', !isOpen);
-  });
-});
-document.addEventListener('click', () => {
-  document.querySelectorAll('.nav__item--dropdown[data-open]').forEach(el => {
-    el.removeAttribute('data-open');
-    el.querySelector('.nav__dropdown-toggle').setAttribute('aria-expanded', 'false');
-  });
-});
-  /* ── Reveal animations (IntersectionObserver) ── */
+  /*  Nav: dropdown menus  */
+  (function initDropdowns() {
+    function setup() {
+      document.querySelectorAll('.nav__item--dropdown').forEach(function(item) {
+        var toggle = item.querySelector('.nav__dropdown-toggle');
+        if (!toggle) return;
+        toggle.addEventListener('click', function(e) {
+          e.preventDefault();
+          e.stopPropagation();
+          var isOpen = item.hasAttribute('data-open');
+          document.querySelectorAll('.nav__item--dropdown[data-open]').forEach(function(el) {
+            el.removeAttribute('data-open');
+            var t = el.querySelector('.nav__dropdown-toggle');
+            if (t) t.setAttribute('aria-expanded', 'false');
+          });
+          if (!isOpen) {
+            item.setAttribute('data-open', '');
+            toggle.setAttribute('aria-expanded', 'true');
+          }
+        });
+      });
+      document.addEventListener('click', function(e) {
+        if (!e.target.closest('.nav__item--dropdown')) {
+          document.querySelectorAll('.nav__item--dropdown[data-open]').forEach(function(el) {
+            el.removeAttribute('data-open');
+            var t = el.querySelector('.nav__dropdown-toggle');
+            if (t) t.setAttribute('aria-expanded', 'false');
+          });
+        }
+      });
+    }
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', setup);
+    } else { setup(); }
+  })();
+  /*  Reveal animations (IntersectionObserver)  */
   (function initReveal() {
     if (!window.IntersectionObserver) return;
     var io = new IntersectionObserver(function(entries) {
@@ -110,7 +127,7 @@ document.addEventListener('click', () => {
     });
   })();
 
-  /* ── Disc-panel click (homepage only) ── */
+  /*  Disc-panel click (homepage only)  */
   document.querySelectorAll('.disc-panel[data-href]').forEach(function(el) {
     el.style.cursor = 'pointer';
     el.addEventListener('click', function() {
@@ -124,7 +141,7 @@ document.addEventListener('click', () => {
     });
   });
 
-  /* ── Nav: JS click routing (replaces default href follow) ──
+  /*  Nav: JS click routing (replaces default href follow) 
      Prevents "external link" browser warnings in some environments
      by handling page navigation explicitly through window.location.
      href attributes are kept intact for SEO and accessibility.     */
@@ -142,13 +159,16 @@ document.addEventListener('click', () => {
         link.addEventListener('click', function(e) {
           var href = link.getAttribute('href');
 
-          /* External-link bypass — explicit flags take priority and
+          /* External-link bypass  explicit flags take priority and
              are checked first regardless of href format. Covers
              gift-card / merchant-portal links and any link marked
              external, even if its href is a relative or unusual path. */
           if (link.hasAttribute('data-nav') && link.getAttribute('data-nav') === 'external') return;
           if (link.classList.contains('external-link')) return;
           if (link.getAttribute('target') === '_blank') return;
+
+          /* Dropdown toggles are buttons not nav links — skip so dropdowns open */
+          if (link.classList.contains('nav__dropdown-toggle')) return;
 
           /* Leave external, mailto, tel, and hash-only links alone */
           if (!href
@@ -181,10 +201,10 @@ document.addEventListener('click', () => {
     }
   })();
 
-  /* ── Migraine Mode toggle ────────────────────────────────────────
+  /*  Migraine Mode toggle 
      Toggles body.dark-theme. Persists to localStorage.
      Safe: exits gracefully if button is absent on any page.
-  ─────────────────────────────────────────────────────────────── */
+   */
   (function initMigraineMode() {
     var STORAGE_KEY = 'monti-dark-mode';
     var BODY_CLASS  = 'dark-theme';
@@ -194,9 +214,9 @@ document.addEventListener('click', () => {
       var toast = document.getElementById('dark-toast');
       var timer;
 
-      if (!btn) return; /* button absent on this page — safe exit */
+      if (!btn) return; /* button absent on this page  safe exit */
 
-      /* ── Toast notification ── */
+      /*  Toast notification  */
       function showToast(title, body) {
         if (!toast) return;
         var t = document.getElementById('dark-toast__title');
@@ -210,14 +230,14 @@ document.addEventListener('click', () => {
         }, 3200);
       }
 
-      /* ── Activate / deactivate ── */
+      /*  Activate / deactivate  */
       function activate(notify) {
         document.body.classList.add(BODY_CLASS);
-        document.documentElement.classList.add(BODY_CLASS); /* <html> too — fixes light edge in dark mode */
+        document.documentElement.classList.add(BODY_CLASS); /* <html> too  fixes light edge in dark mode */
         btn.setAttribute('aria-pressed', 'true');
         try { localStorage.setItem(STORAGE_KEY, 'on'); } catch(e){}
         if (notify) showToast(
-          'Migraine Mode — On',
+          'Migraine Mode  On',
           'Low-glare display active. Optimized for light-sensitive viewing.'
         );
       }
@@ -227,10 +247,10 @@ document.addEventListener('click', () => {
         document.documentElement.classList.remove(BODY_CLASS);
         btn.setAttribute('aria-pressed', 'false');
         try { localStorage.setItem(STORAGE_KEY, 'off'); } catch(e){}
-        if (notify) showToast('Migraine Mode — Off', 'Standard display restored.');
+        if (notify) showToast('Migraine Mode  Off', 'Standard display restored.');
       }
 
-      /* ── Restore saved preference on page load ── */
+      /*  Restore saved preference on page load  */
       try {
         var saved       = localStorage.getItem(STORAGE_KEY);
         var sysDark     = window.matchMedia &&
@@ -240,7 +260,7 @@ document.addEventListener('click', () => {
         }
       } catch(e) {}
 
-      /* ── Click handler ── */
+      /*  Click handler  */
       btn.addEventListener('click', function() {
         if (document.body.classList.contains(BODY_CLASS)) {
           deactivate(true);
@@ -249,7 +269,7 @@ document.addEventListener('click', () => {
         }
       });
 
-      /* ── Keyboard shortcut: Alt + D ── */
+      /*  Keyboard shortcut: Alt + D  */
       document.addEventListener('keydown', function(e) {
         if (e.altKey && (e.key === 'd' || e.key === 'D')) {
           e.preventDefault();
@@ -257,7 +277,7 @@ document.addEventListener('click', () => {
         }
       });
 
-      /* ── System theme change ── */
+      /*  System theme change  */
       try {
         window.matchMedia('(prefers-color-scheme: dark)')
               .addEventListener('change', function(mqe) {
@@ -278,4 +298,5 @@ document.addEventListener('click', () => {
     }
   })();
 
-})();
+})();}
+});
