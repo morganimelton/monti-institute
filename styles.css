@@ -416,8 +416,8 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
     }
     .nav__list {
       display: flex; align-items: center;
-      gap: clamp(1.25rem, 2.5vw, 2.75rem);
-      margin-inline-start: clamp(3rem, 6vw, 7rem);
+      gap: clamp(0.75rem, 1.5vw, 2rem);
+      margin-inline-start: clamp(1.5rem, 3vw, 4rem);
       flex-shrink: 1;
     }
     .nav__list a {
@@ -6570,13 +6570,20 @@ html { scroll-snap-type: none; }
       .dark-toggle { padding: 0.35rem 0.5rem; }
     }
 
-    /* Migraine toggle positioning in nav */
+    /* Migraine toggle — fixed to right edge of nav */
     .nav__migraine-toggle {
-      margin-inline-start: auto;
-      flex-shrink: 0;
+      position: fixed;
+      top: 50%;
+      right: var(--sp-inline, 2rem);
+      transform: translateY(-50%);
+      z-index: 101;
       display: flex !important;
       visibility: visible !important;
       opacity: 1 !important;
+      flex-shrink: 0;
+    }
+    @media (max-width: 680px) {
+      .nav__migraine-toggle { right: 4rem; }
     }
 
     /*  Dark toast notification  */
