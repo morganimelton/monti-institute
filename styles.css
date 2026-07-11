@@ -1,5 +1,5 @@
 /* 
-       DESIGN TOKENS  brand palette + typography (unchanged)
+       DESIGN TOKENS  brand palette + typography (unchanged)
      */
     :root {
       --ivory:      #F8F5F0;
@@ -19,9 +19,9 @@
       --sp-section:    clamp(6rem,  9vw, 10rem);
       --sp-section-xl: clamp(8rem, 12vw, 11rem);
 
-      /* Layout shell tokens  centralised so ALL layout changes are one-line edits */
+      /* Layout shell tokens  centralised so ALL layout changes are one-line edits */
       --max-w-content: 1100px;                          /* max-w-6xl equiv            */
-      --max-w-prose:   56rem;                           /* max-w-4xl  text-heavy pages */
+      --max-w-prose:   56rem;                           /* max-w-4xl  text-heavy pages */
       --sp-inline:     clamp(1.5rem, 5vw, 4.5rem);      /* horizontal page gutter     */
       --sp-page-top:   clamp(8rem, 10vw, 10rem);        /* pt-32  pt-40              */
       --sp-inner:      clamp(5rem, 7vw, 7rem);          /* py-20  py-28 (in-page)    */
@@ -86,7 +86,7 @@ body.dark-theme .nav__dropdown { background: #1A1614; border-color: rgba(255,255
 body.dark-theme .nav__dropdown-link { color: rgba(220,215,205,0.75); }
 body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
 
-    /* ── Nav dropdown toggle buttons — match anchor link appearance ── */
+    /*  Nav dropdown toggle buttons  match anchor link appearance  */
     .nav__list button.nav__link,
     .nav__list .nav__dropdown-toggle {
       font-size:       0.7rem;
@@ -134,7 +134,7 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
     body.dark-theme .nav__list .nav__dropdown-toggle:hover { color: rgba(220,215,205,0.9); }
 
     /* 
-       LOGO WATERMARK  fixed, viewport-centered background mark
+       LOGO WATERMARK  fixed, viewport-centered background mark
        
 
        Why html gets the background:
@@ -142,40 +142,40 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
          background paint. If body keeps its background colour,
          the pseudo-element is invisible. Moving the colour to
          html lets body be transparent so the watermark shows
-         through  the visual result is pixel-identical.
+         through  the visual result is pixel-identical.
 
        Safety guarantees:
-          pointer-events: none    clicks & text selection
+          pointer-events: none    clicks & text selection
                                      pass through unaffected
-          z-index: -1             strictly below every real
+          z-index: -1             strictly below every real
                                      page element
-          opacity: 0.03 / 0.05    barely perceptible, light
+          opacity: 0.03 / 0.05    barely perceptible, light
                                      and dark theme respectively
-          position: fixed         anchored to the viewport,
+          position: fixed         anchored to the viewport,
                                      so the mark stays perfectly
                                      centered at all times, even
                                      while the page scrolls
-          top/left 50% + translate(-50%,-50%)  true dead-center
+          top/left 50% + translate(-50%,-50%)  true dead-center
                                      on every screen size
-          touch-action: none      no touch interference
+          touch-action: none      no touch interference
      */
 
-    /* Step 1  Move page background from body  html.
+    /* Step 1  Move page background from body  html.
        body becomes transparent so body::before is visible.
        Zero visual change. */
     html {
       background: var(--warm-white);
     }
 
-    /* html is a PARENT of body  CSS custom properties redefined on
+    /* html is a PARENT of body  CSS custom properties redefined on
        body.dark-theme do not cascade upward, so <html> would stay
        light-cream while <body> goes dark. html.dark-theme (toggled
        alongside body.dark-theme in script.js) fixes the page-edge
        and watermark-area mismatch in Migraine Mode. */
     html.dark-theme {
-      background: #1a1a1a;  /* warm, low-glare matte  replaces near-pitch-black */
+      background: #1a1a1a;  /* warm, low-glare matte  replaces near-pitch-black */
     }
-    /* Gentle, non-jarring shift between light and dark themes 
+    /* Gentle, non-jarring shift between light and dark themes 
        no sudden flash when Migraine Mode is toggled. */
     html, body {
       transition: background-color 0.45s ease, color 0.45s ease, background 0.45s ease;
@@ -191,8 +191,8 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
       text-rendering:          optimizeLegibility;
     }
 
-    /* Step 2  Watermark pseudo-element
-       Single logo mark, fixed to the viewport center  stays
+    /* Step 2  Watermark pseudo-element
+       Single logo mark, fixed to the viewport center  stays
        perfectly centered on screen at all times, including
        while scrolling. */
     body::before {
@@ -210,7 +210,7 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
       background-size:       contain;
       background-repeat:     no-repeat;
       background-position:   center;
-      opacity:               0.03;       /* barely perceptible  light mode */
+      opacity:               0.03;       /* barely perceptible  light mode */
       transition:            opacity 0.45s ease;
     }
     /* Slightly higher opacity against the darker Migraine Mode
@@ -259,11 +259,11 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
        <footer>               footer (1 instance, always visible)
 
        Rules enforced here (checked by audit script):
-        No page div may contain <header>, <footer>, or <nav>
-        No page div may contain class="footer__*" or "nav__*"
-        All page content uses var(--sp-inline) for horizontal gutter
-        All inner pages use var(--sp-page-top) for top clearance
-        All content containers use var(--max-w-content) for max-width
+        No page div may contain <header>, <footer>, or <nav>
+        No page div may contain class="footer__*" or "nav__*"
+        All page content uses var(--sp-inline) for horizontal gutter
+        All inner pages use var(--sp-page-top) for top clearance
+        All content containers use var(--max-w-content) for max-width
      */
     #js-outlet {
       /* Outlet fills the space between fixed nav and footer */
@@ -271,7 +271,7 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
     }
 
     /* 
-       PAGE ROUTER  view switching
+       PAGE ROUTER  view switching
        .page elements are hidden by default.
        The JS router adds .page--active to the current view.
        Transition: clean fade between pages.
@@ -332,7 +332,7 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
        with default fill:black on every page.
      */
 
-    /* Brand link wrapper  left-side of nav */
+    /* Brand link wrapper  left-side of nav */
     .nav__brand {
       display:         flex;
       align-items:     center;
@@ -349,13 +349,13 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
     }
 
     /*  Official logo <img> 
-       logo.png  transparent background PNG,  760×760 px.
+       logo.png  transparent background PNG,  760×760 px.
        Constrained to nav height so it can never distort layout.
      */
-    /*  Official logo class  used in header, footer, and
+    /*  Official logo class  used in header, footer, and
        internal pages. The new artwork (gold tree/face mark +
        navy underline on transparent bg) displays in its natural
-       shape  no circular clipping or border-radius. height +
+       shape  no circular clipping or border-radius. height +
        width:auto + object-fit:contain lock proportions and the
        nav bar's vertical footprint. */
     .site-logo,
@@ -381,7 +381,7 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
       opacity: 0.82;
     }
 
-    /* Brand text  "Monti Institute" beside the mark */
+    /* Brand text  "Monti Institute" beside the mark */
     .nav__brand-text {
       font-family:    var(--f-display, 'Cormorant Garamond', serif);
       font-size:      0.8rem;
@@ -405,7 +405,7 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
     .nav__mark img { height: 100%; width: auto; object-fit: contain; }
 
     /* Dark-theme overrides */
-    /* logo.png is colour-independent  dark theme uses opacity only */
+    /* logo.png is colour-independent  dark theme uses opacity only */
     body.dark-theme .nav__brand-text { color: rgba(220,215,205,0.82); }
     body.dark-theme .nav__logo-img { opacity: 0.72; }
     body.dark-theme .nav__brand:hover .nav__logo-img { opacity: 0.9; }
@@ -417,8 +417,8 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
     .nav__list {
       display: flex; align-items: center;
       gap: clamp(1.25rem, 2.5vw, 2.75rem);
-      margin-inline-start: clamp(4rem, 8vw, 10rem);
-      flex-shrink: 0;
+      margin-inline-start: clamp(3rem, 6vw, 7rem);
+      flex-shrink: 1;
     }
     .nav__list a {
       font-size: 0.7rem; font-weight: 400;
@@ -426,7 +426,7 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
       color: var(--muted);
       position: relative; padding-bottom: 3px;
       transition: color 0.25s;
-      /* No href  routing handled by data-route + JS */
+      /* No href  routing handled by data-route + JS */
       cursor: pointer;
     }
     .nav__list a::after {
@@ -437,7 +437,7 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
     }
     .nav__list a:hover { color: var(--charcoal); }
     .nav__list a:hover::after { width: 100%; }
-    /* Active route state  set by JS router */
+    /* Active route state  set by JS router */
     .nav__list a.is-active { color: var(--charcoal); }
     .nav__list a.is-active::after { width: 100%; }
 
@@ -677,7 +677,7 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
     }
 
     /* 
-       INNER PAGE  shared layout for sub-pages
+       INNER PAGE  shared layout for sub-pages
      */
     .inner-page {
       padding-block-start: calc(var(--nav-h) + var(--sp-page-top));
@@ -687,7 +687,7 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
     }
     .inner-page__inner { max-width: var(--max-w-content); margin-inline: auto; }
 
-    /* Prose variant  text-heavy pages (About, Contact) use narrower measure */
+    /* Prose variant  text-heavy pages (About, Contact) use narrower measure */
     .inner-page--prose .inner-page__inner {
       max-width: var(--max-w-prose);
     }
@@ -913,7 +913,7 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
       }
       .nav__toggle { display: flex; }
     }
-    /* ── Mobile dropdown — stack inline when nav is open ── */
+    /*  Mobile dropdown  stack inline when nav is open  */
     @media (max-width: 680px) {
       .nav__item--dropdown { width: 100%; }
       .nav__dropdown {
@@ -948,7 +948,7 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
        
        All visual compositions are CSS-native.
        Sections marked [PHOTO-READY] accept real
-       <img> elements in production  just swap the
+       <img> elements in production  just swap the
        gradient div for an <img class="[x]__photo">.
      */
 
@@ -958,7 +958,7 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
       grid-template-columns: 1fr 1px 1fr;
       min-height: clamp(540px, 72vh, 800px);
       border-top: 1px solid var(--stone);
-      /* Remove default section padding  panels handle their own */
+      /* Remove default section padding  panels handle their own */
       padding: 0;
     }
 
@@ -973,17 +973,17 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
       padding: clamp(4rem, 7vw, 7rem) clamp(2.5rem, 5vw, 5.5rem);
     }
 
-    /* Left panel  dark, physician-science tone */
+    /* Left panel  dark, physician-science tone */
     .disc-panel--neuro {
       background: var(--deep);
     }
 
-    /* Right panel  ivory, warm aesthetic tone */
+    /* Right panel  ivory, warm aesthetic tone */
     .disc-panel--aesthetic {
       background: var(--ivory);
     }
 
-    /*  NEURAL BACKGROUND  Left panel 
+    /*  NEURAL BACKGROUND  Left panel 
        SVG neuron illustration as atmospheric texture.
        [PHOTO-READY]: replace .disc-neural div with
        <img class="disc-neural" src="neural-bg.jpg" alt="">
@@ -1015,7 +1015,7 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
       pointer-events: none;
     }
 
-    /*  PORTRAIT COMPOSITION  Right panel 
+    /*  PORTRAIT COMPOSITION  Right panel 
        Warm CSS portrait composition.
        [PHOTO-READY]: replace .disc-portrait-img div with
        <img class="disc-portrait-img" src="portrait.jpg" alt="...">
@@ -1031,7 +1031,7 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
       pointer-events: none;
     }
 
-    /* CSS portrait composition  warm organic tones */
+    /* CSS portrait composition  warm organic tones */
     .disc-portrait-img {
       position: absolute;
       inset: 0;
@@ -1052,7 +1052,7 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
           rgba(150,125,95,0.3)   100%);
     }
 
-    /* Soft oval highlight  suggests portrait lighting */
+    /* Soft oval highlight  suggests portrait lighting */
     .disc-portrait-img::before {
       content: '';
       position: absolute;
@@ -1076,7 +1076,7 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
       pointer-events: none;
     }
 
-    /* Gold oval frame element  editorial accent */
+    /* Gold oval frame element  editorial accent */
     .disc-portrait-frame {
       position: absolute;
       width: clamp(180px, 28vw, 310px);
@@ -1200,7 +1200,7 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
       flex-shrink: 0;
     }
 
-    /*  PHILOSOPHY SECTION  atmospheric pattern  */
+    /*  PHILOSOPHY SECTION  atmospheric pattern  */
     .philosophy-bg {
       position: absolute;
       inset: 0;
@@ -1231,7 +1231,7 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
     }
     .section--dark { position: relative; }
 
-    /*  CARE PROGRAMS  texture background  */
+    /*  CARE PROGRAMS  texture background  */
     .programs-texture {
       position: absolute;
       inset: 0;
@@ -1242,7 +1242,7 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
     }
     .section--tint { position: relative; }
 
-    /*  NEUROLOGICAL PAGE  neural page atmosphere  */
+    /*  NEUROLOGICAL PAGE  neural page atmosphere  */
     .neuro-page-bg {
       position: fixed; /* fixed so it stays during scroll */
       inset: 0;
@@ -1262,7 +1262,7 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
     /* Ensure content sits above */
     #page-neurological-medicine .inner-page { position: relative; z-index: 1; }
 
-    /*  AESTHETIC PAGE  warm editorial atmosphere  */
+    /*  AESTHETIC PAGE  warm editorial atmosphere  */
     .aesthetic-page-bg {
       position: fixed;
       inset: 0;
@@ -1296,7 +1296,7 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
     }
     #page-aesthetic-medicine .inner-page { position: relative; z-index: 1; }
 
-    /*  ABOUT PAGE  architectural line element  */
+    /*  ABOUT PAGE  architectural line element  */
     .about-page-bg {
       position: fixed;
       inset: 0;
@@ -1366,7 +1366,7 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
        CONTACT & SCHEDULING PAGE
      */
 
-    /* Remove prose constraint on contact  needs full width */
+    /* Remove prose constraint on contact  needs full width */
     #page-contact .inner-page { max-width: none; }
     #page-contact .inner-page__inner { max-width: var(--max-w-content); }
 
@@ -1481,7 +1481,7 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
     /*  Shared QR code asset class 
        Apply to any <img> displaying a QR code (contact page,
        business card overlay, future placements). Use
-       src="images/new-qrcode.png" to drop in a new asset 
+       src="images/new-qrcode.png" to drop in a new asset 
        sizing/cropping is controlled by the parent container. */
     .qr-code-display {
       display:          block;
@@ -1878,7 +1878,7 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
 
 
     /* 
-       MAP SECTION  Visit the Institute
+       MAP SECTION  Visit the Institute
      */
     .map-section {
       padding-block: var(--sp-section);
@@ -2006,12 +2006,12 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
       box-shadow:
         0 2px 12px rgba(26,22,20,0.05),
         0 8px 36px rgba(26,22,20,0.04);
-      /* Static SVG map  min height keeps frame proportional */
+      /* Static SVG map  min height keeps frame proportional */
       min-height: clamp(320px, 45vw, 460px);
       background: var(--ivory);
     }
 
-    /* Gold corner accent  top-left */
+    /* Gold corner accent  top-left */
     .map-frame-wrap::before {
       content: '';
       position: absolute;
@@ -2025,7 +2025,7 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
       z-index: 2;
       pointer-events: none;
     }
-    /* Gold corner accent  bottom-right */
+    /* Gold corner accent  bottom-right */
     .map-frame-wrap::after {
       content: '';
       position: absolute;
@@ -2057,7 +2057,7 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
       }
     }
 
-    /* Map canvas  warm desaturated editorial filter */
+    /* Map canvas  warm desaturated editorial filter */
 
     /* Branded marker pin */
 
@@ -2074,7 +2074,7 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
     .leaflet-popup-tip-container { display: none !important; }
     .leaflet-popup-close-button:hover { color: #9A8060 !important; }
 
-    /* Attribution strip  keep it minimal */
+    /* Attribution strip  keep it minimal */
     .leaflet-control-attribution a { color: #9A8060 !important; }
 
     /* Zoom controls */
@@ -2084,7 +2084,7 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
     }
 
 
-    /* Google Maps open button  sits over the static map */
+    /* Google Maps open button  sits over the static map */
     .map-open-gmaps {
       position: absolute;
       bottom: 1rem;
@@ -2118,7 +2118,7 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
        CONTACT PAGE LUXURY REFINEMENTS
      */
 
-    /*  CONTACT PAGE HEADER  atmospheric gold bloom  */
+    /*  CONTACT PAGE HEADER  atmospheric gold bloom  */
     .contact-header {
       position: relative;
       padding-block-end: clamp(2.5rem, 4vw, 3.5rem);
@@ -2151,13 +2151,13 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
         transparent);
     }
 
-    /*  CONTACT GRID  increased gap  */
+    /*  CONTACT GRID  increased gap  */
     .contact-grid {
       gap: clamp(2rem, 4vw, 3.5rem);
       margin-block-end: 0;  /* sections provide their own spacing */
     }
 
-    /*  CONTACT INFO  card elevation  */
+    /*  CONTACT INFO  card elevation  */
     .contact-info {
       background: var(--ivory);
       border: 1px solid var(--stone);
@@ -2175,7 +2175,7 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
         var(--gold) 0%, rgba(154,128,96,0.3) 60%, transparent 100%);
     }
 
-    /*  FORM WRAP  card elevation  */
+    /*  FORM WRAP  card elevation  */
     .contact-form-wrap {
       background: var(--ivory);
       border: 1px solid var(--stone);
@@ -2195,7 +2195,7 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
     /* Success state resets the padding context */
     .contact-form-success { margin: -0.25rem; }
 
-    /*  SUBMIT BUTTON  premium refinement  */
+    /*  SUBMIT BUTTON  premium refinement  */
     #cf-submit {
       min-width: 180px;
       justify-content: center;
@@ -2210,7 +2210,7 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
       cursor: not-allowed;
     }
 
-    /*  MAP SECTION  dark editorial band  */
+    /*  MAP SECTION  dark editorial band  */
     .map-section--dark {
       background: var(--deep);
       border-top: none;
@@ -2228,7 +2228,7 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
           rgba(154,128,96,0.05) 0%, transparent 55%);
       pointer-events: none;
     }
-    /* Map section  text colour inversions for dark bg */
+    /* Map section  text colour inversions for dark bg */
     .map-section--dark .map-info__eyebrow  { color: #C4A97D; }
     .map-section--dark .map-info__heading  { color: var(--ivory); }
     .map-section--dark .map-info__heading em { color: var(--gold); }
@@ -2247,7 +2247,7 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
     .map-section--dark .map-info__directions:hover {
       border-bottom-color: rgba(154,128,96,0.5);
     }
-    /* Map frame on dark bg  lighter border, warm glow */
+    /* Map frame on dark bg  lighter border, warm glow */
     .map-section--dark .map-frame-wrap {
       border-color: rgba(154,128,96,0.25);
       box-shadow:
@@ -2266,14 +2266,14 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
       border-color: var(--gold);
     }
 
-    /*  CONCIERGE SECTION  tinted  */
+    /*  CONCIERGE SECTION  tinted  */
     .concierge-section--tint {
       background: var(--ivory);
     }
     .concierge-section--tint .concierge-region  { background: var(--warm-white); }
     .concierge-section--tint .concierge-region:hover { background: #FAF7F2; }
 
-    /*  HIPAA SECTION  two-column compact  */
+    /*  HIPAA SECTION  two-column compact  */
     .hipaa-section {
       display: grid;
       grid-template-columns: auto 1fr 1fr;
@@ -2292,7 +2292,7 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
       margin-block-start: 0;
     }
 
-    /*  SECTION SPACING  increased vertical rhythm  */
+    /*  SECTION SPACING  increased vertical rhythm  */
     .map-section    { padding-block: var(--sp-section-xl); }
     .concierge-section { padding-block: var(--sp-section); }
     .hipaa-section  {
@@ -2300,7 +2300,7 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
       margin-block-start: 0;
     }
 
-    /*  FORM FIELDS  refined focus states  */
+    /*  FORM FIELDS  refined focus states  */
     .form-input:focus,
     .form-textarea:focus,
     .form-select:focus {
@@ -2322,7 +2322,7 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
     }
 
 
-    /*  OFFICE BUILDING PHOTO  map section banner  */
+    /*  OFFICE BUILDING PHOTO  map section banner  */
     .map-photo-banner {
       position: relative;
       width: 100%;
@@ -2394,9 +2394,9 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
 
 
     /* 
-       GLOBAL WATERMARK SYSTEM  MONTI INSTITUTE
+       GLOBAL WATERMARK SYSTEM  MONTI INSTITUTE
        
-         DESIGN SYSTEM CORE LAYER  DO NOT REMOVE
+         DESIGN SYSTEM CORE LAYER  DO NOT REMOVE
        This is a foundational brand identity element, equivalent to
        the typography or colour palette. Preserve across all refactors.
 
@@ -2412,7 +2412,7 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
          Dark sections (charcoal)  : logo naturally hidden; glow provides depth
      */
 
-    /* Shell  fixed, covers full viewport, never blocks interactions */
+    /* Shell  fixed, covers full viewport, never blocks interactions */
     #nl-wm-shell {
       position: fixed;
       inset: 0;
@@ -2434,7 +2434,7 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
       aspect-ratio: 480 / 466;       /* exact logo proportions */
       transform: translate(-50%, -50%) scale(1);
       transform-origin: center center;
-      opacity: 0.038;                /* default  subtle */
+      opacity: 0.038;                /* default  subtle */
       will-change: transform;        /* GPU-composited layer */
       transition: opacity 0.8s ease;
       /* Parallax applied via JS transform; initialised here */
@@ -2448,7 +2448,7 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
       filter: blur(0.4px) saturate(0.85);
     }
 
-    /* Radial gradient depth layer  warm gold bloom behind logo */
+    /* Radial gradient depth layer  warm gold bloom behind logo */
     #nl-wm-glow {
       position: absolute;
       top: 50%;
@@ -2465,7 +2465,7 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
       pointer-events: none;
     }
 
-    /* Concentric ring accent  ultra-thin, evokes precision/science */
+    /* Concentric ring accent  ultra-thin, evokes precision/science */
     #nl-wm-mesh-ring {
       position: absolute;
       top: 50%;
@@ -2501,7 +2501,7 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
 
 
     /* 
-       OUR TEAM SECTION  Neurological Medicine page
+       OUR TEAM SECTION  Neurological Medicine page
        Lives ONLY inside #page-neurological-medicine
      */
     .team-section {
@@ -2561,7 +2561,7 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
     }
     .team-card:hover::before { transform: scaleX(1); }
 
-    /* Photo area  [PHOTO-READY] swap .team-card__photo div
+    /* Photo area  [PHOTO-READY] swap .team-card__photo div
        for <img class="team-card__photo" src="..." alt="Dr. Name"> */
     .team-card__photo-wrap {
       width: 100%;
@@ -2571,7 +2571,7 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
       background: var(--ivory);   /* fills letterbox area below landscape photos */
       flex-shrink: 0;
     }
-    /* Monogram placeholder  remove when real photo added */
+    /* Monogram placeholder  remove when real photo added */
     .team-card__photo-placeholder {
       width: 100%;
       height: 100%;
@@ -2608,7 +2608,7 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
     img.team-card__photo {
       width: 100%;
       height: 100%;
-      object-fit: contain;          /* show full photo  no cropping */
+      object-fit: contain;          /* show full photo  no cropping */
       object-position: center top;  /* anchor face at top of frame */
       display: block;
       /* Scale fine-tune: override per member via .team-card[data-member] */
@@ -2678,7 +2678,7 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
       color: var(--charcoal);
     }
 
-        /*  Request Consultation button  luxury minimal outline 
+        /*  Request Consultation button  luxury minimal outline 
        Redesigned: slim outline style, never a giant empty square.
        The previous </a> close-tag bug caused an empty <button>
        element to render; this CSS is also hardened against that. */
@@ -2749,7 +2749,7 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
 
 
     /* 
-       NEUROLOGICAL PAGE  RESTORED CONTENT SECTIONS
+       NEUROLOGICAL PAGE  RESTORED CONTENT SECTIONS
        Lives ONLY inside #page-neurological-medicine
      */
 
@@ -2779,7 +2779,7 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
       margin-block-start: 0.75rem;
     }
 
-    /*  WHO WE TREAT  bulleted list  */
+    /*  WHO WE TREAT  bulleted list  */
     .who-treat-list {
       display: flex;
       flex-direction: column;
@@ -2810,7 +2810,7 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
       line-height: 1.75;
     }
 
-    /*  CONDITIONS WE TREAT  pill tags  */
+    /*  CONDITIONS WE TREAT  pill tags  */
     .conditions-grid {
       display: flex;
       flex-wrap: wrap;
@@ -2833,7 +2833,7 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
       color: var(--deep);
     }
 
-    /*  TREATMENT APPROACH & CLINICAL PROCESS  numbered  */
+    /*  TREATMENT APPROACH & CLINICAL PROCESS  numbered  */
     .neuro-numbered-list {
       display: flex;
       flex-direction: column;
@@ -2872,7 +2872,7 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
       line-height: 1.82;
     }
 
-    /*  INTERVENTIONAL PROTOCOLS  numbered cards  */
+    /*  INTERVENTIONAL PROTOCOLS  numbered cards  */
     .protocol-list {
       display: flex;
       flex-direction: column;
@@ -2936,7 +2936,7 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
     }
     .neuro-text-link:hover svg { transform: translateX(3px); }
 
-    /*  CARE PROGRAMS  3-col cards  */
+    /*  CARE PROGRAMS  3-col cards  */
     .neuro-programs-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -3016,7 +3016,7 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
       gap: 0.65rem;
     }
     .neuro-program__feature::before {
-      content: '\\2713';              /* checkmark */
+      content: '\\\\2713';              /* checkmark */
       display:        inline-flex;
       align-items:    center;
       justify-content: center;
@@ -3040,7 +3040,7 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
       padding-block-start: 0.5rem;
     }
 
-    /*  Program card CTA  full-width pill button 
+    /*  Program card CTA  full-width pill button 
        "Request Program Evaluation". Deep-slate primary, lightens
        on hover. Anchors and <button> elements both supported. */
     .neuro-program__cta {
@@ -3085,7 +3085,7 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
     .neuro-program__cta:hover svg { transform: translateX(3px); }
 
 
-    /*  CLINICAL STANDARDS  bulleted list  */
+    /*  CLINICAL STANDARDS  bulleted list  */
     .standards-list {
       display: flex;
       flex-direction: column;
@@ -3111,7 +3111,7 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
       opacity: 0.7;
     }
 
-    /*  BEGIN YOUR CARE  dark CTA footer  */
+    /*  BEGIN YOUR CARE  dark CTA footer  */
     .neuro-cta-footer {
       margin-block-start: var(--sp-inner);
       background: var(--charcoal);
@@ -3170,7 +3170,7 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
 
 
     /* 
-       CLINICAL SERVICES PAGE  /neurological/clinical-services
+       CLINICAL SERVICES PAGE  /neurological/clinical-services
      */
 
     /* Breadcrumb */
@@ -3216,7 +3216,7 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
       margin-block-end: 0.6rem;
     }
 
-    /* Protocol detail grid  2 col desktop */
+    /* Protocol detail grid  2 col desktop */
     .protocol-detail-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -3409,7 +3409,7 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
 
 
     /* 
-       AESTHETIC MEDICINE PAGE  RESTORED SECTIONS
+       AESTHETIC MEDICINE PAGE  RESTORED SECTIONS
      */
 
     /* Page-switch toggle (top of page) */
@@ -3438,7 +3438,7 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
       stroke: currentColor; stroke-width: 1.5; fill: none;
     }
 
-    /* Aesthetic CTA footer  warm ivory variant */
+    /* Aesthetic CTA footer  warm ivory variant */
     .ae-cta-footer {
       margin-block-start: var(--sp-inner);
       background: var(--charcoal);
@@ -3473,7 +3473,7 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
 
 
     /* 
-       DIGITAL BUSINESS CARD  Contact Page
+       DIGITAL BUSINESS CARD  Contact Page
        Matches physical card: cream/gold luxury finish
      */
 
@@ -3558,7 +3558,7 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
       position: relative;
     }
 
-    /* Gold wave accent  bottom of front */
+    /* Gold wave accent  bottom of front */
     .biz-card-front__inner::after {
       content: '';
       position: absolute;
@@ -3786,7 +3786,7 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
 
 
     /* 
-       DIGITAL BUSINESS CARD  photo-based
+       DIGITAL BUSINESS CARD  photo-based
      */
     .biz-card-section {
       padding-block: clamp(3rem,5vw,4.5rem);
@@ -3980,7 +3980,7 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
     }
 
 
-    /*  CSS :target navigation  works WITHOUT JavaScript 
+    /*  CSS :target navigation  works WITHOUT JavaScript 
        Clicking a nav href="#page-xxx" makes that element :target.
        Modern CSS :has() selector hides page-home when any other page
        is targeted. Falls back gracefully: without :has() support,
@@ -4178,7 +4178,7 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
     }
 
     /*  2. HOMEPAGE SNAP CONTAINER 
-       Only page-home gets mandatory snapping  its sections are
+       Only page-home gets mandatory snapping  its sections are
        full-height panels designed for snap-to behavior.
        Content pages (neuro, aesthetic, about) stay freely scrollable
        so long-form text remains accessible.
@@ -4337,33 +4337,33 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
       box-shadow: 0 14px 30px rgba(20,18,16,0.08), 0 2px 6px rgba(20,18,16,0.05);
     }
 
-    /*  Premium team photo  uniform portrait container 
+    /*  Premium team photo  uniform portrait container 
        width:100%; height:100%; object-fit:cover keeps every
        headshot sharp and proportioned regardless of source
        image dimensions. */
     /* 
-       PROVIDER TEAM PHOTOGRAPHY STANDARD  read before adding photos
+       PROVIDER TEAM PHOTOGRAPHY STANDARD  read before adding photos
        
        Photo brief (applies to every .staff-card__photo):
-          Subject: head, shoulders, and upper torso, facing camera
-          Attire: clinical nursing/RN staff in MATCHING NAVY BLUE
+          Subject: head, shoulders, and upper torso, facing camera
+          Attire: clinical nursing/RN staff in MATCHING NAVY BLUE
            scrubs (consistent shade across all team members)
-          Background: clean, bright, low-glare, non-distracting
-           (soft neutral wall or studio backdrop  no clutter)
-          Framing: subject's eyes/forehead positioned in the UPPER
+          Background: clean, bright, low-glare, non-distracting
+           (soft neutral wall or studio backdrop  no clutter)
+          Framing: subject's eyes/forehead positioned in the UPPER
            THIRD of the frame so object-position: center 20% below
            never crops the forehead or chin on any container size
-          Minimum source resolution: 1024×1024px (square or taller),
-           saved at high quality  see "Image Quality Defenses" below
+          Minimum source resolution: 1024×1024px (square or taller),
+           saved at high quality  see "Image Quality Defenses" below
 
        Container: every provider photo sits in an identical
        aspect-ratio 4/5 portrait frame (.staff-card__photo-wrap),
        so all headshots scale to the SAME zoom level across desktop
-       and mobile  no provider appears larger/smaller than another.
+       and mobile  no provider appears larger/smaller than another.
      */
     .staff-card__photo-wrap {
       width:          100%;
-      aspect-ratio:   4 / 5;          /* identical portrait ratio  every card */
+      aspect-ratio:   4 / 5;          /* identical portrait ratio  every card */
       overflow:       hidden;
       border-radius:  10px;
       background:     var(--stone);
@@ -4372,7 +4372,7 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
     .staff-card__photo {
       display:          block;
       width:            100%;
-      max-width:        100%;         /* image quality defense  never overflow container */
+      max-width:        100%;         /* image quality defense  never overflow container */
       height:           100%;         /* fills the locked aspect-ratio frame */
       object-fit:       cover;        /* crop to fill without stretching/distorting */
       object-position:  center 20%;   /* face-safe: keeps forehead/chin in frame */
@@ -4403,15 +4403,15 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
       opacity:        0.55;
     }
 
-    /*  Megan Phares  clear the fixed background watermark 
+    /*  Megan Phares  clear the fixed background watermark 
        The site-wide watermark (body::before) is position: fixed;
        z-index: -1, and should sit harmlessly behind every card. On
        this specific card it was bleeding over the photo, so we give
        just this card and its photo wrapper an explicit positive
-       stacking context (isolation: isolate keeps it self-contained 
+       stacking context (isolation: isolate keeps it self-contained 
        no effect on sibling cards) and an opaque background so nothing
        fixed behind the page can show through. Layout, sizing, and
-       aspect-ratio are untouched  only stacking/paint order changes. */
+       aspect-ratio are untouched  only stacking/paint order changes. */
     #staff-card--megan-phares {
       position:   relative;
       z-index:    2;
@@ -4436,7 +4436,7 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
     @media (max-width: 560px) {
       .staff-card--primary { grid-template-columns: 1fr; }
     }
-    /*  Dr. Monti  primary card photo 
+    /*  Dr. Monti  primary card photo 
        Same crisp-rendering aspect-ratio container as the rest of
        the team (.staff-card__photo-wrap), with a fixed-width
        modifier so it sits neatly in the primary card's
@@ -4517,7 +4517,7 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
 
 
     /* 
-       CLINICAL DOSSIER  interactive disclosure widget
+       CLINICAL DOSSIER  interactive disclosure widget
        Uses native <details>/<summary> for zero-JS accessibility.
        Styled to match the luxury brand aesthetic.
         */
@@ -4620,7 +4620,7 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
       white-space: nowrap;
       padding-block-start: 0.15rem;
     }
-    /* Accolades  centered, prestige layout */
+    /* Accolades  centered, prestige layout */
     .dossier-section--honors .dossier-section__items {
       flex-direction: row;
       flex-wrap: wrap;
@@ -5078,7 +5078,7 @@ html { scroll-snap-type: none; }
 
     /* 
        DIGITAL CONCIERGE FLOW
-       3-step intake funnel  Neurological / Aesthetic pathways
+       3-step intake funnel  Neurological / Aesthetic pathways
         */
     .concierge-flow {
       padding: clamp(4rem,8vw,7rem) clamp(1.5rem,6vw,5rem);
@@ -5371,7 +5371,7 @@ html { scroll-snap-type: none; }
 
 
     /* 
-       SPACING OPTIMIZATION  replaces over-generous legacy tokens
+       SPACING OPTIMIZATION  replaces over-generous legacy tokens
         */
 
     :root {
@@ -5494,8 +5494,8 @@ html { scroll-snap-type: none; }
  
 
     /* 
-       LAYOUT OPTIMIZATION  authoritative overrides (final cascade)
-       Placed LAST  these values win over all earlier declarations.
+       LAYOUT OPTIMIZATION  authoritative overrides (final cascade)
+       Placed LAST  these values win over all earlier declarations.
         */
 
     /* 1. AUTHORITATIVE TOKEN SET */
@@ -5512,10 +5512,10 @@ html { scroll-snap-type: none; }
     html, body { margin: 0; padding: 0; }
     #js-outlet  { margin-block-start: 0; padding-block-start: 0; }
 
-    /* 3. NAV  pinned at 0,0 */
+    /* 3. NAV  pinned at 0,0 */
     .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: var(--nav-h); }
 
-    /* 4. HERO  tight intentional clearance */
+    /* 4. HERO  tight intentional clearance */
     .hero {
       min-height: 100svh;
       padding-block-start: calc(var(--nav-h) + clamp(1rem, 2vw, 1.75rem));
@@ -5523,7 +5523,7 @@ html { scroll-snap-type: none; }
       padding-inline:      clamp(1.25rem, 5vw, 4.5rem);
     }
 
-    /* 5. INNER-PAGE  all content pages */
+    /* 5. INNER-PAGE  all content pages */
     .inner-page {
       padding-block-start: calc(var(--nav-h) + clamp(1.5rem, 2.5vw, 2.25rem));
       padding-block-end:   clamp(3rem, 5vw, 5rem);
@@ -5601,7 +5601,7 @@ html { scroll-snap-type: none; }
 
 
     /* 
-       DEFINITIVE LAYOUT FIX  zero dead space, guaranteed cascade
+       DEFINITIVE LAYOUT FIX  zero dead space, guaranteed cascade
        Uses !important on structural anchors only.
        Addresses: hero justify-content centering, sp-* token bloat,
        inner-page first-section padding, mobile stacking.
@@ -5640,7 +5640,7 @@ html { scroll-snap-type: none; }
       display: flex !important;
       flex-direction: column !important;
       align-items: center !important;
-      justify-content: flex-start !important;  /* was: center  that was the bug */
+      justify-content: flex-start !important;  /* was: center  that was the bug */
       text-align: center !important;
       min-height: 100svh !important;
       padding-block-start: calc(var(--nav-h) + 2rem) !important;
@@ -5710,7 +5710,7 @@ html { scroll-snap-type: none; }
         padding-inline:      1.25rem !important;
       }
 
-      /* Fluid widths  everything becomes single column */
+      /* Fluid widths  everything becomes single column */
       .commitments-grid,
       .staff-grid,
       .dossier-deliverables,
@@ -5828,7 +5828,7 @@ html { scroll-snap-type: none; }
 
   
 
-    /* ACTIVE  full layout, all properties restored */
+    /* ACTIVE  full layout, all properties restored */
     .page.page--active,
     .page:target {
       display:        block   !important;
@@ -5846,13 +5846,13 @@ html { scroll-snap-type: none; }
       animation: pageIn 0.35s cubic-bezier(0.22,1,0.36,1) both !important;
     }
 
-    /* KEYFRAME  full fromto arc so opacity always resolves to 1 */
+    /* KEYFRAME  full fromto arc so opacity always resolves to 1 */
     @keyframes pageIn {
       from { opacity: 0; transform: translateY(6px); }
       to   { opacity: 1; transform: translateY(0);   }
     }
 
-    /* LAYOUT CONTAINER  main outlet must not add height */
+    /* LAYOUT CONTAINER  main outlet must not add height */
     #js-outlet {
       display:       block   !important;
       margin:        0       !important;
@@ -5861,7 +5861,7 @@ html { scroll-snap-type: none; }
       overflow:      visible !important;
     }
 
-    /* HERO  content anchors immediately below nav, no vertical centering */
+    /* HERO  content anchors immediately below nav, no vertical centering */
     .hero {
       display:            flex          !important;
       flex-direction:     column        !important;
@@ -5874,7 +5874,7 @@ html { scroll-snap-type: none; }
       padding-inline:     clamp(1.25rem,5vw,4.5rem)  !important;
     }
 
-    /* INNER-PAGE  deterministic top clearance */
+    /* INNER-PAGE  deterministic top clearance */
     .inner-page {
       display:             block                               !important;
       padding-block-start: calc(var(--nav-h) + 1.75rem)       !important;
@@ -5936,13 +5936,13 @@ html { scroll-snap-type: none; }
 
 
     /*  Per-member photo framing overrides 
-       Adjust scale (0.01.0) and position to fine-tune each portrait.
+       Adjust scale (0.01.0) and position to fine-tune each portrait.
        1.0 = fills container width exactly.
        0.85 = 85% width  15% breathing room  appears "zoomed out".
        Data attributes on <article> allow clean, non-invasive targeting.
      */
 
-    /* Dr. Ryan Monti  lead physician (landscape 800×600 in 3/4 container) */
+    /* Dr. Ryan Monti  lead physician (landscape 800×600 in 3/4 container) */
     article[aria-label*="Lead Physician"] img.team-card__photo {
       object-fit: contain;
       object-position: center top;
@@ -5950,7 +5950,7 @@ html { scroll-snap-type: none; }
       transform-origin: center top;
     }
 
-    /* Sean Kump  associate physician (landscape 800×600 in 3/4 container) */
+    /* Sean Kump  associate physician (landscape 800×600 in 3/4 container) */
     article[aria-label*="Associate Physician"] img.team-card__photo {
       object-fit: contain;
       object-position: center top;
@@ -5958,15 +5958,15 @@ html { scroll-snap-type: none; }
       transform-origin: center top;
     }
 
-    /* Zack Ballingham  portrait native (600×800 in 3/4 container = perfect match) */
+    /* Zack Ballingham  portrait native (600×800 in 3/4 container = perfect match) */
     article[aria-label*="Zack Ballingham"] img.team-card__photo {
-      object-fit: cover;        /* portrait fills container exactly  use cover */
+      object-fit: cover;        /* portrait fills container exactly  use cover */
       object-position: center 10%;
       transform: scale(1.0);   /* no adjustment needed */
       transform-origin: center top;
     }
 
-    /* Sara Zivich  inaugural aesthetic nurse (square 1024×1024
+    /* Sara Zivich  inaugural aesthetic nurse (square 1024×1024
        headshot, cropped to fill the 3/4 portrait container) */
     article[aria-label*="Sara Zivich"] img.team-card__photo {
       object-fit: cover;
@@ -5975,7 +5975,7 @@ html { scroll-snap-type: none; }
       transform-origin: center top;
     }
 
-    /* Morgan Melton  aesthetic clinician (square 1024×1024 headshot,
+    /* Morgan Melton  aesthetic clinician (square 1024×1024 headshot,
        cropped to fill the 3/4 portrait container) */
     article[aria-label*="Morgan Melton"] img.team-card__photo {
       object-fit: cover;
@@ -5984,12 +5984,12 @@ html { scroll-snap-type: none; }
       transform-origin: center top;
     }
 
-    /* Megan Phares  director of operations (landscape 800×600 in 3/4 container)
-       FIX: switched from object-fit: contain + scale(0.90)  which shrank the
-       photo and left letterbox margins  to object-fit: cover so it fills the
+    /* Megan Phares  director of operations (landscape 800×600 in 3/4 container)
+       FIX: switched from object-fit: contain + scale(0.90)  which shrank the
+       photo and left letterbox margins  to object-fit: cover so it fills the
        shared 3/4 .team-card__photo-wrap exactly like every other card.
        object-position shifts the crop window so her face stays centered.
-       Tune the vertical percentage (e.g. 0%40%) if her face needs to move
+       Tune the vertical percentage (e.g. 0%40%) if her face needs to move
        up/down in the frame. If cover alone isn't tight enough, uncomment the
        transform lines below for an extra ~10% digital zoom centered on the
        same focal point. */
@@ -6025,7 +6025,7 @@ html { scroll-snap-type: none; }
       display:   inline-block;
     }
 
-    /*  Pill button  replaces the bare <span>  */
+    /*  Pill button  replaces the bare <span>  */
     .condition-pill {
       display:         inline-flex;
       align-items:     center;
@@ -6114,7 +6114,7 @@ html { scroll-snap-type: none; }
       margin-top:   1px;
     }
 
-    /* Show states  CSS for hover/focus, JS class for tap */
+    /* Show states  CSS for hover/focus, JS class for tap */
     .cond-item:hover .cond-popover,
     .cond-item:focus-within .cond-popover,
     .cond-item.is-open .cond-popover {
@@ -6469,7 +6469,7 @@ html { scroll-snap-type: none; }
        Activated by: body.dark-theme
        Palette: deep navy / matte charcoal backgrounds
        Optimized for photosensitivity and active migraine episodes.
-       All transitions: 0.38s ease  never jarring.
+       All transitions: 0.38s ease  never jarring.
      */
 
     /*  Global color transition  */
@@ -6490,12 +6490,8 @@ html { scroll-snap-type: none; }
 
     /*  Dark theme CSS variable overrides  */
 
-    /* 
-       MIGRAINE MODE TOGGLE  COMPLETE CSS
-     */
-       NAV TOGGLE SWITCH  "Migraine Mode"
-       Sits inside .nav__inner, right of the nav list.
-     */
+    /* NAV TOGGLE SWITCH - Migraine Mode
+       Sits inside .nav__inner, right of the nav list. */
     .dark-toggle {
       display:      flex;
       align-items:  center;
@@ -6520,7 +6516,7 @@ html { scroll-snap-type: none; }
       line-height:   1;
     }
     .dark-toggle:hover .dark-toggle__label { color: var(--gold); }
-    /* Icon  eye with rays (photosensitivity symbol) */
+    /* Icon  eye with rays (photosensitivity symbol) */
     .dark-toggle__icon {
       width:  15px;
       height: 15px;
@@ -6572,6 +6568,15 @@ html { scroll-snap-type: none; }
     @media (max-width: 520px) {
       .dark-toggle__label { display: none; }
       .dark-toggle { padding: 0.35rem 0.5rem; }
+    }
+
+    /* Migraine toggle positioning in nav */
+    .nav__migraine-toggle {
+      margin-inline-start: auto;
+      flex-shrink: 0;
+      display: flex !important;
+      visibility: visible !important;
+      opacity: 1 !important;
     }
 
     /*  Dark toast notification  */
@@ -6727,7 +6732,7 @@ html { scroll-snap-type: none; }
   object-position: center top !important; /* Ensures heads/faces don't get cut off */
 } 
 /* 
-   DISCIPLINES SPLIT  authoritative layout fix
+   DISCIPLINES SPLIT  authoritative layout fix
  */
 @media (min-width: 861px) {
   .disciplines-split {
@@ -6748,12 +6753,12 @@ html { scroll-snap-type: none; }
 }
 
 /* 
-   MIGRAINE MODE  Global text legibility fix
+   MIGRAINE MODE  Global text legibility fix
    Targets all sections where text disappears
    against dark backgrounds.
  */
 
-/*  Aesthetic panel  warm dark bg, needs light text  */
+/*  Aesthetic panel  warm dark bg, needs light text  */
 body.dark-theme .disc-panel--aesthetic {
   background: #1a1510 !important;
 }
@@ -6880,7 +6885,7 @@ body.dark-theme footer a[href*="privacy"] {
   color: rgba(154,128,96,0.85) !important;
 }
 
-/*  Global safety net  any remaining dark text on dark bg  */
+/*  Global safety net  any remaining dark text on dark bg  */
 body.dark-theme h1,
 body.dark-theme h2,
 body.dark-theme h3,
@@ -6891,9 +6896,9 @@ body.dark-theme p {
   color: rgba(230,225,218,0.72) !important;
 }}
 
-/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+/* 
    NAV DROPDOWNS
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+ */
 .nav__item--dropdown { position: relative; list-style: none; }
 .nav__dropdown-toggle {
   background: none;
@@ -6949,7 +6954,7 @@ body.dark-theme .nav__dropdown {
 body.dark-theme .nav__dropdown-link { color: rgba(220,215,205,0.75); }
 body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
 
-    /* ── Nav dropdown toggle buttons — match anchor link appearance ── */
+    /*  Nav dropdown toggle buttons  match anchor link appearance  */
     .nav__list button.nav__link,
     .nav__list .nav__dropdown-toggle {
       font-size:       0.7rem;
@@ -7012,11 +7017,11 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
   .nav__dropdown-link { font-size: 0.75rem; padding: 0.4rem 0.5rem; }
 }
 
-/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+/* 
    ADA / WCAG 2.1 AA COMPLIANCE STYLES
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+ */
 
-/* ── Skip to main content link ── */
+/*  Skip to main content link  */
 .skip-to-main {
   position:    absolute;
   top:         -100%;
@@ -7039,7 +7044,7 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
   outline-offset: 2px;
 }
 
-/* ── Global focus styles — visible on all interactive elements ── */
+/*  Global focus styles  visible on all interactive elements  */
 *:focus-visible {
   outline:        3px solid var(--gold, #9A8060);
   outline-offset: 3px;
@@ -7048,7 +7053,7 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
 /* Remove outline for mouse users only (keyboard still shows) */
 *:focus:not(:focus-visible) { outline: none; }
 
-/* ── Nav focus styles ── */
+/*  Nav focus styles  */
 .nav__link:focus-visible,
 .nav__dropdown-toggle:focus-visible,
 .nav__dropdown-link:focus-visible,
@@ -7059,14 +7064,14 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
   border-radius:  2px;
 }
 
-/* ── Button focus ── */
+/*  Button focus  */
 .btn:focus-visible,
 button:focus-visible {
   outline:        3px solid var(--gold, #9A8060);
   outline-offset: 3px;
 }
 
-/* ── Form field focus ── */
+/*  Form field focus  */
 .form-input:focus,
 .form-select:focus,
 .form-textarea:focus {
@@ -7075,7 +7080,7 @@ button:focus-visible {
   border-color:   var(--gold, #9A8060);
 }
 
-/* ── Error states — sufficient contrast ── */
+/*  Error states  sufficient contrast  */
 .form-error-msg {
   color: #C0392B; /* 4.5:1+ contrast on white */
 }
@@ -7083,7 +7088,7 @@ body.dark-theme .form-error-msg {
   color: #FF8A80; /* sufficient contrast on dark bg */
 }
 
-/* ── aria-invalid field styling ── */
+/*  aria-invalid field styling  */
 .form-input[aria-invalid="true"],
 .form-select[aria-invalid="true"],
 .form-textarea[aria-invalid="true"] {
@@ -7091,7 +7096,7 @@ body.dark-theme .form-error-msg {
   outline:        1px solid #C0392B;
 }
 
-/* ── Reduced motion: disable all animations ── */
+/*  Reduced motion: disable all animations  */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -7108,14 +7113,14 @@ body.dark-theme .form-error-msg {
   }
 }
 
-/* ── High contrast mode support ── */
+/*  High contrast mode support  */
 @media (forced-colors: active) {
   .nav__dropdown { border: 1px solid ButtonText; }
   .btn--primary  { forced-color-adjust: none; }
   .skip-to-main  { forced-color-adjust: none; }
 }
 
-/* ── Migraine Mode toggle — consistent aria-pressed state ── */
+/*  Migraine Mode toggle  consistent aria-pressed state  */
 .dark-toggle[aria-pressed="true"] .dark-toggle__switch {
   background: var(--gold, #9A8060);
 }
@@ -7123,15 +7128,31 @@ body.dark-theme .form-error-msg {
   transform: translateX(18px);
 }
 
-/* ── Dropdown: aria-expanded state ── */
+/*  Dropdown: aria-expanded state  */
 .nav__dropdown-toggle[aria-expanded="true"] .nav__chevron {
   transform: rotate(180deg);
 }
 
-/* ── Footer always visible ── */
+/*  Footer always visible  */
 footer {
   display: flex !important;
   position: relative;
   z-index: 10;
   background: rgba(26,22,20,0.95) !important;
+}}
+/* ── Footer always visible ── */
+body > footer,
+#js-outlet + footer,
+main + footer {
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  background: rgba(26,22,20,0.95) !important;
+  border-top: 1px solid rgba(154,128,96,0.25) !important;
+  padding: 32px 40px !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  flex-wrap: wrap !important;
+  gap: 1rem !important;
+  margin-top: 2rem !important;
 }
