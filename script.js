@@ -73,6 +73,17 @@ document.addEventListener('DOMContentLoaded', function() {
   /*  Nav: dropdown menus  */
   (function initDropdowns() {
     function setup() {
+      /* Ensure dropdown links always navigate on click */
+      document.querySelectorAll('.nav__dropdown-link').forEach(function(link) {
+        link.addEventListener('click', function(e) {
+          var href = link.getAttribute('href');
+          if (href && href !== '#') {
+            e.stopPropagation();
+            window.location.href = href;
+          }
+        });
+      });
+
       document.querySelectorAll('.nav__item--dropdown').forEach(function(item) {
         var toggle = item.querySelector('.nav__dropdown-toggle');
         if (!toggle) return;
@@ -93,6 +104,14 @@ document.addEventListener('DOMContentLoaded', function() {
       });
       document.addEventListener('click', function(e) {
         if (!e.target.closest('.nav__item--dropdown')) {
+          document.querySelectorAll('.nav__item--dropdown[data-open]').forEach(function(el) {
+            el.removeAttribute('data-open');
+            var t = el.querySelector('.nav__dropdown-toggle');
+            if (t) t.setAttribute('aria-expanded', 'false');
+          });
+        }
+        /* Allow dropdown-link clicks to navigate — close dropdown then follow href */
+        if (e.target.classList.contains('nav__dropdown-link')) {
           document.querySelectorAll('.nav__item--dropdown[data-open]').forEach(function(el) {
             el.removeAttribute('data-open');
             var t = el.querySelector('.nav__dropdown-toggle');
@@ -169,6 +188,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
           /* Dropdown toggles are buttons not nav links — skip so dropdowns open */
           if (link.classList.contains('nav__dropdown-toggle')) return;
+
+          /* Dropdown links should navigate normally — skip router interception */
+          if (link.classList.contains('nav__dropdown-link')) return;
 
           /* Leave external, mailto, tel, and hash-only links alone */
           if (!href
