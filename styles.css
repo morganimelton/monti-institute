@@ -315,6 +315,7 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
       display: flex;
       align-items: center;
       width: 100%;
+      gap: clamp(2rem, 4vw, 4rem);
     }
     .nav__brand {
       overflow: visible;
@@ -359,19 +360,21 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
        nav bar's vertical footprint. */
     .site-logo,
     .nav__logo-img {
-      height:      45px;    /* explicit  matches nav vertical alignment */
-      width:       auto;
-      max-height:  52px;    /* hard cap  cannot exceed nav bar */
-      object-fit:  contain;
-      display:     block;
-      flex-shrink: 0;
-      opacity:     1;       /* defensive  guarantees visibility in default theme */
-      visibility:  visible; /* defensive */
-      transition:  opacity 0.25s ease;
+      height:          48px;
+      width:           auto;
+      max-height:      48px;
+      object-fit:      contain;
+      object-position: center center;
+      display:         block;
+      flex-shrink:     0;
+      opacity:         1;
+      visibility:      visible;
+      transition:      opacity 0.25s ease;
+      overflow:        visible;
     }
     @media (max-width: 600px) {
       .site-logo,
-      .nav__logo-img { height: 38px; max-height: 38px; object-position: center bottom; }
+      .nav__logo-img { height: 36px; max-height: 36px; }
     }
 
     .nav__brand:hover .nav__logo-img {
@@ -908,6 +911,28 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
       }
       .nav__toggle { display: flex; }
     }
+    /* ── Mobile dropdown — stack inline when nav is open ── */
+    @media (max-width: 680px) {
+      .nav__item--dropdown { width: 100%; }
+      .nav__dropdown {
+        position: static;
+        transform: none;
+        box-shadow: none;
+        border: none;
+        border-left: 2px solid var(--stone);
+        padding: 0.35rem 0 0.35rem 1rem;
+        margin-block-start: 0.35rem;
+        background: transparent;
+        min-width: 0;
+        display: none;
+      }
+      .nav__item--dropdown[data-open] .nav__dropdown { display: flex; flex-direction: column; gap: 0.5rem; }
+      .nav__dropdown-link { font-size: 0.68rem; padding: 0.3rem 0; }
+      .nav__list button.nav__link,
+      .nav__list .nav__dropdown-toggle { width: 100%; justify-content: space-between; }
+      body.dark-theme .nav__dropdown { border-color: rgba(255,255,255,0.1); background: transparent; }
+    }
+
     @media (max-width: 540px) {
       .gift-grid  { grid-template-columns: 1fr; }
     }
