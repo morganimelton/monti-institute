@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact &amp; Scheduling — Monti Institute of Neuro Aesthetics</title>
+  <title>Contact &amp; Scheduling &mdash; Monti Institute of Neuro Aesthetics</title>
   <meta name="description" content="Contact the Monti Institute of Neuro Aesthetics in Reno, Nevada. Schedule consultations, reach our team, and plan your visit.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,9 +12,8 @@
 </head>
 <body>
 
-  <!-- ── Dark Mode Toast ── -->
   <div id="dark-toast" role="status" aria-live="polite" aria-atomic="true">
-    <span id="dark-toast__title">Migraine Mode — On</span>
+    <span id="dark-toast__title">Migraine Mode &mdash; On</span>
     <p id="dark-toast__body">Low-glare display activated. Optimised for light-sensitive viewing.</p>
   </div>
 
@@ -26,10 +25,9 @@
     </svg>
   </button>
 
-  <!-- ── Nav ── -->
   <nav class="nav" id="js-nav" role="navigation" aria-label="Main navigation">
     <div class="nav__inner">
-      <a href="/" class="nav__brand" aria-label="Monti Institute — Home">
+      <a href="/" class="nav__brand" aria-label="Monti Institute &mdash; Home">
         <img src="images/official-logo.png" alt="Monti Institute" class="nav__logo-img site-logo">
         <span class="nav__brand-text">Monti Institute</span>
       </a>
@@ -39,65 +37,42 @@
         <i aria-hidden="true"></i>
         <i aria-hidden="true"></i>
       </button>
-    /* ── Nav Dropdowns ── */
-.nav__item--dropdown { position: relative; list-style: none; }
-.nav__dropdown-toggle {
-  background: none;
-  border: none;
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-  padding: 0;
-  font: inherit;
-  color: inherit;
-}
-.nav__chevron {
-  width: 10px;
-  height: 10px;
-  transition: transform 0.25s ease;
-  flex-shrink: 0;
-}
-.nav__item--dropdown[data-open] .nav__chevron { transform: rotate(180deg); }
-.nav__dropdown {
-  display: none;
-  position: absolute;
-  top: calc(100% + 0.75rem);
-  left: 50%;
-  transform: translateX(-50%);
-  min-width: 220px;
-  background: var(--ivory);
-  border: 1px solid var(--stone);
-  padding: 0.5rem 0;
-  list-style: none;
-  z-index: 200;
-  box-shadow: 0 8px 32px rgba(26,22,20,0.10);
-}
-.nav__item--dropdown[data-open] .nav__dropdown { display: block; }
-.nav__dropdown-link {
-  display: block;
-  padding: 0.6rem 1.25rem;
-  font-size: 0.78rem;
-  font-weight: 300;
-  letter-spacing: 0.08em;
-  color: var(--charcoal);
-  text-decoration: none;
-  transition: color 0.2s, background 0.2s;
-  white-space: nowrap;
-}
-.nav__dropdown-link:hover { color: var(--gold); background: rgba(154,128,96,0.05); }
-
-/* Dark mode */
-body.dark-theme .nav__dropdown { background: #1A1614; border-color: rgba(255,255,255,0.08); }
-body.dark-theme .nav__dropdown-link { color: rgba(220,215,205,0.75); }
-body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
+      <ul class="nav__list" id="js-nav-list" role="list">
+        <li><a href="/" class="nav__link">Home</a></li>
+        <li class="nav__item--dropdown">
+          <button class="nav__link nav__dropdown-toggle" aria-expanded="false" aria-haspopup="true">
+            Services
+            <svg viewBox="0 0 12 12" aria-hidden="true" class="nav__chevron"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <ul class="nav__dropdown" role="list">
+            <li><a href="neurological-medicine.html" class="nav__dropdown-link">Neurological Medicine</a></li>
+            <li><a href="aesthetic-medicine.html" class="nav__dropdown-link">Aesthetic Medicine</a></li>
+            <li><a href="infusion-center.html" class="nav__dropdown-link">Infusion Center</a></li>
+          </ul>
+        </li>
+        <li class="nav__item--dropdown">
+          <button class="nav__link nav__dropdown-toggle" aria-expanded="false" aria-haspopup="true">
+            About
+            <svg viewBox="0 0 12 12" aria-hidden="true" class="nav__chevron"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <ul class="nav__dropdown" role="list">
+            <li><a href="about.html" class="nav__dropdown-link">Our Team &amp; Philosophy</a></li>
+            <li><a href="clinical-standards.html" class="nav__dropdown-link">Clinical Standards</a></li>
+            <li><a href="financing-memberships.html" class="nav__dropdown-link">Memberships &amp; Financing</a></li>
+          </ul>
+        </li>
+        <li><a href="wellness-store.html" class="nav__link">Store</a></li>
+        <li><a href="contact.html" class="nav__link is-active" aria-current="page">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
 
   <button class="dark-toggle nav__migraine-toggle"
           id="dark-mode-toggle"
           type="button"
           aria-label="Toggle Migraine-Friendly Viewing Mode"
           aria-pressed="false"
-          title="Migraine Mode — reduces brightness for light-sensitive viewing">
+          title="Migraine Mode &mdash; reduces brightness for light-sensitive viewing">
     <svg class="dark-toggle__icon" viewBox="0 0 24 24" aria-hidden="true" width="14" height="14">
       <ellipse cx="12" cy="12" rx="4" ry="4" fill="none" stroke="currentColor" stroke-width="1.5"/>
       <path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"
@@ -182,7 +157,7 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
               <div class="contact-qr__code">
                 <img
                   src="images/qr-code-navy.png"
-                  alt="Monti Institute QR Code — scan to visit monti-institute.com"
+                  alt="Monti Institute QR Code  scan to visit monti-institute.com"
                   width="400"
                   height="400"
                   loading="lazy"
@@ -338,13 +313,13 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
         </div><!-- /.contact-grid -->
 
 
-        <!-- VISIT THE INSTITUTE — Map section -->
+        <!-- VISIT THE INSTITUTE  Map section -->
         <section class="map-section map-section--dark" aria-labelledby="map-heading">
           <div class="map-photo-banner">
             <img
               class="map-photo-banner__img"
               src="images/Vassar.PNG"
-              alt="Monti Institute of Neuro Aesthetics — 2440 Vassar Street, Reno NV"
+              alt="Monti Institute of Neuro Aesthetics  2440 Vassar Street, Reno NV"
               loading="lazy"
               width="1200"
               height="374"
@@ -761,7 +736,7 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
         test: v => v.trim().length > 0,
         msg:  'Last name is required.' },
       { id: 'cf-email',     errId: 'err-cf-email',
-        test: v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()),
+        test: v => /^[^\@]+@[^\@]+\\.[^\@]+$/.test(v.trim()),
         msg:  'A valid email address is required.' },
       { id: 'cf-message',   errId: 'err-cf-message',
         test: v => v.trim().length >= 10,
@@ -825,7 +800,7 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
       }
 
       const btn = document.getElementById('cf-submit');
-      if (btn) { btn.disabled = true; btn.textContent = 'Sending\u2026'; }
+      if (btn) { btn.disabled = true; btn.textContent = 'Sending\'; }
 
       setTimeout(() => {
         form.style.display = 'none';
@@ -837,6 +812,11 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
     });
   } catch(e) { console.warn('initContactForm error:', e); }
   })();
+  </script>
+
+  <script
+    id="nextivacx-code-snippet"
+    src="https://d3po7etsbw5eiv.cloudfront.net/Simplify360Chat.js?key=NmEyYzY1ZDk1ZDlkM2I5YWJmMjM1MzAyfDQzMTk0Mjc=">
   </script>
 
 </body>
