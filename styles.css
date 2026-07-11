@@ -85,6 +85,54 @@
 body.dark-theme .nav__dropdown { background: #1A1614; border-color: rgba(255,255,255,0.08); }
 body.dark-theme .nav__dropdown-link { color: rgba(220,215,205,0.75); }
 body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
+
+    /* ── Nav dropdown toggle buttons — match anchor link appearance ── */
+    .nav__list button.nav__link,
+    .nav__list .nav__dropdown-toggle {
+      font-size:       0.7rem;
+      font-weight:     400;
+      letter-spacing:  0.15em;
+      text-transform:  uppercase;
+      color:           var(--muted);
+      background:      none;
+      border:          none;
+      padding:         0 0 3px 0;
+      margin:          0;
+      cursor:          pointer;
+      display:         inline-flex;
+      align-items:     center;
+      gap:             0.35rem;
+      font-family:     inherit;
+      position:        relative;
+      transition:      color 0.25s;
+      -webkit-appearance: none;
+      appearance:      none;
+      user-select:     none;
+      pointer-events:  auto;
+    }
+    .nav__list button.nav__link::after,
+    .nav__list .nav__dropdown-toggle::after {
+      content:           '';
+      position:          absolute;
+      inset-block-end:   0;
+      inset-inline-start:0;
+      width:             0;
+      height:            1px;
+      background:        var(--gold);
+      transition:        width 0.3s ease;
+    }
+    .nav__list button.nav__link:hover,
+    .nav__list .nav__dropdown-toggle:hover { color: var(--charcoal); }
+    .nav__list button.nav__link:hover::after,
+    .nav__list .nav__dropdown-toggle:hover::after { width: 100%; }
+    .nav__list .nav__item--dropdown[data-open] .nav__dropdown-toggle { color: var(--charcoal); }
+
+    /* Dark mode */
+    body.dark-theme .nav__list button.nav__link,
+    body.dark-theme .nav__list .nav__dropdown-toggle { color: rgba(220,215,205,0.6); }
+    body.dark-theme .nav__list button.nav__link:hover,
+    body.dark-theme .nav__list .nav__dropdown-toggle:hover { color: rgba(220,215,205,0.9); }
+
     /* 
        LOGO WATERMARK  fixed, viewport-centered background mark
        
@@ -7151,6 +7199,54 @@ body.dark-theme .nav__dropdown {
 }
 body.dark-theme .nav__dropdown-link { color: rgba(220,215,205,0.75); }
 body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
+
+    /* ── Nav dropdown toggle buttons — match anchor link appearance ── */
+    .nav__list button.nav__link,
+    .nav__list .nav__dropdown-toggle {
+      font-size:       0.7rem;
+      font-weight:     400;
+      letter-spacing:  0.15em;
+      text-transform:  uppercase;
+      color:           var(--muted);
+      background:      none;
+      border:          none;
+      padding:         0 0 3px 0;
+      margin:          0;
+      cursor:          pointer;
+      display:         inline-flex;
+      align-items:     center;
+      gap:             0.35rem;
+      font-family:     inherit;
+      position:        relative;
+      transition:      color 0.25s;
+      -webkit-appearance: none;
+      appearance:      none;
+      user-select:     none;
+      pointer-events:  auto;
+    }
+    .nav__list button.nav__link::after,
+    .nav__list .nav__dropdown-toggle::after {
+      content:           '';
+      position:          absolute;
+      inset-block-end:   0;
+      inset-inline-start:0;
+      width:             0;
+      height:            1px;
+      background:        var(--gold);
+      transition:        width 0.3s ease;
+    }
+    .nav__list button.nav__link:hover,
+    .nav__list .nav__dropdown-toggle:hover { color: var(--charcoal); }
+    .nav__list button.nav__link:hover::after,
+    .nav__list .nav__dropdown-toggle:hover::after { width: 100%; }
+    .nav__list .nav__item--dropdown[data-open] .nav__dropdown-toggle { color: var(--charcoal); }
+
+    /* Dark mode */
+    body.dark-theme .nav__list button.nav__link,
+    body.dark-theme .nav__list .nav__dropdown-toggle { color: rgba(220,215,205,0.6); }
+    body.dark-theme .nav__list button.nav__link:hover,
+    body.dark-theme .nav__list .nav__dropdown-toggle:hover { color: rgba(220,215,205,0.9); }
+
 
 /* Mobile: dropdowns stack inline */
 @media (max-width: 900px) {
