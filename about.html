@@ -1239,4 +1239,33 @@
   <script src="script.js"></script>
 
 </body>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('.nav__item--dropdown').forEach(function(item) {
+    var toggle = item.querySelector('.nav__dropdown-toggle');
+    if (!toggle) return;
+    toggle.addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopImmediatePropagation();
+      var isOpen = item.hasAttribute('data-open');
+      document.querySelectorAll('.nav__item--dropdown[data-open]').forEach(function(el) {
+        el.removeAttribute('data-open');
+        el.querySelector('.nav__dropdown-toggle').setAttribute('aria-expanded', 'false');
+      });
+      if (!isOpen) {
+        item.setAttribute('data-open', '');
+        toggle.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+  document.addEventListener('click', function(e) {
+    if (!e.target.closest('.nav__item--dropdown')) {
+      document.querySelectorAll('.nav__item--dropdown[data-open]').forEach(function(el) {
+        el.removeAttribute('data-open');
+        el.querySelector('.nav__dropdown-toggle').setAttribute('aria-expanded', 'false');
+      });
+    }
+  });
+});
+</script>
 </html>
