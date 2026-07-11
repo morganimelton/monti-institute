@@ -743,19 +743,54 @@
 
   </main>
 
-<footer style="background:rgba(26,22,20,0.95);border-top:1px solid rgba(154,128,96,0.25);padding:32px 40px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;margin-top:4rem;">
-  <p style="margin:0;font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.55);">&copy; 2026 Monti Institute of Neuro Aesthetics. All Rights Reserved.</p>
-  <nav aria-label="Footer navigation" style="display:flex;gap:2.5rem;align-items:center;">
-    <a href="privacy.html" style="font-size:0.72rem;letter-spacing:0.15em;text-transform:uppercase;color:rgba(154,128,96,0.85);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#C4A97D'" onmouseout="this.style.color='rgba(154,128,96,0.85)'">Privacy Policy</a>
-    <a href="contact.html" style="font-size:0.72rem;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.55);text-decoration:none;" onmouseover="this.style.color='rgba(154,128,96,0.85)'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Contact</a>
-  </nav>
-</footer>
-  
+  <footer style="background:transparent;color:rgba(255,255,255,0.6);font-size:0.85rem;padding:20px 40px;display:flex;justify-content:space-between;align-items:center;">
+    <p style="margin:0;">&copy; 2026 Monti Institute of Neuro Aesthetics. All Rights Reserved.</p>
+    <p style="margin:0;"><a href="privacy.html" style="color:rgba(255,255,255,0.8);text-decoration:none;">Privacy Policy</a></p>
+  </footer>
+
   <script src="script.js"></script>
 
   <script
     id="nextivacx-code-snippet"
     src="https://d3po7etsbw5eiv.cloudfront.net/Simplify360Chat.js?key=NmEyYzY1ZDk1ZDlkM2I5YWJmMjM1MzAyfDQzMTk0Mjc=">
+  </script>
+
+
+  <script>
+  (function() {
+    function initDropdowns() {
+      document.querySelectorAll('.nav__item--dropdown').forEach(function(item) {
+        var toggle = item.querySelector('.nav__dropdown-toggle');
+        if (!toggle) return;
+        toggle.addEventListener('click', function(e) {
+          e.preventDefault();
+          e.stopImmediatePropagation();
+          var isOpen = item.hasAttribute('data-open');
+          document.querySelectorAll('.nav__item--dropdown[data-open]').forEach(function(el) {
+            el.removeAttribute('data-open');
+            el.querySelector('.nav__dropdown-toggle').setAttribute('aria-expanded', 'false');
+          });
+          if (!isOpen) {
+            item.setAttribute('data-open', '');
+            toggle.setAttribute('aria-expanded', 'true');
+          }
+        });
+      });
+      document.addEventListener('click', function(e) {
+        if (!e.target.closest('.nav__item--dropdown')) {
+          document.querySelectorAll('.nav__item--dropdown[data-open]').forEach(function(el) {
+            el.removeAttribute('data-open');
+            el.querySelector('.nav__dropdown-toggle').setAttribute('aria-expanded', 'false');
+          });
+        }
+      });
+    }
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initDropdowns);
+    } else {
+      initDropdowns();
+    }
+  })();
   </script>
 
 </body>
