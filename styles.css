@@ -7388,14 +7388,9 @@ body.dark-theme .staff-card--legacy {
    2. .form-disclaimer    — contact form legal notice
    3. .page-disclaimer    — inline callout on service pages
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
-
-/* ── 1. Site-wide footer disclaimer bar ─────────────────
-   Sits between page content and the footer nav.
-   Subtle, typographically quiet — never disrupts the
-   editorial layout but is legally present on every page. */
 .site-disclaimer {
-  background: rgba(26,22,20,0.6);
-  border-top: 1px solid rgba(154,128,96,0.12);
+  background: var(--deep, #1A1614);
+  border-top: 1px solid rgba(154,128,96,0.2);
   padding: 1.25rem clamp(1.5rem, 5vw, 5rem);
   text-align: center;
 }
@@ -7404,17 +7399,25 @@ body.dark-theme .staff-card--legacy {
   font-weight: 300;
   letter-spacing: 0.08em;
   line-height: 1.8;
-  color: rgba(255,255,255,0.3);
+  color: rgba(248,245,240,0.6);
   max-width: 90ch;
   margin-inline: auto;
   font-family: var(--f-body, 'DM Sans', sans-serif);
 }
 .site-disclaimer__text a {
-  color: rgba(154,128,96,0.55);
+  color: rgba(196,169,125,0.85);
   text-decoration: none;
   transition: color 0.2s;
 }
-.site-disclaimer__text a:hover { color: rgba(196,169,125,0.85); }
+.site-disclaimer__text a:hover { color: var(--gold-lt, #C4A97D); }
+
+/* Dark mode: background is already dark-theme-appropriate since
+   it's now solid var(--deep)  no separate override needed unless
+   you want a visual distinction between light-mode and Migraine
+   Mode pages. If you do, keep your existing dark-theme block but
+   drop the old low-opacity values there too. */
+
+
 
 /* ── 2. Contact form disclaimer ─────────────────────────
    Appears above the submit button inside the contact form.
