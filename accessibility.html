@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Accessibility Statement — Monti Institute of Neuro Aesthetics</title>
+  <meta name="description" content="Accessibility Statement for Monti Institute of Neuro Aesthetics. Our commitment to WCAG 2.1 AA conformance, implemented features, and how to reach us with feedback.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@200;300;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <a href="#js-outlet" class="skip-to-main" id="skip-to-main">Skip to main content</a>
+
+  <div id="dark-toast" role="status" aria-live="polite" aria-atomic="true">
+    <span id="dark-toast__title"></span>
+    <span id="dark-toast__body"></span>
+  </div>
+  <div id="scroll-progress" role="progressbar" aria-hidden="true"></div>
+  <button id="back-to-top" type="button" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" aria-hidden="true" style="width:14px;height:14px;stroke:var(--gold);stroke-width:1.5;fill:none;stroke-linecap:round;stroke-linejoin:round">
+      <path d="M12 19V5M5 12l7-7 7 7"/>
+    </svg>
+  </button>
+
+  <nav class="nav" id="js-nav" role="navigation" aria-label="Main navigation">
+    <div class="nav__inner">
+      <a href="/" class="nav__brand" aria-label="Monti Institute — Home">
+        <img src="images/official-logo.png" alt="Monti Institute" class="nav__logo-img site-logo">
+        <span class="nav__brand-text">Monti Institute</span>
+      </a>
+      <button class="nav__toggle" id="js-nav-toggle"
+              aria-expanded="false" aria-controls="js-nav-list"
+              aria-label="Toggle navigation menu">
+        <i aria-hidden="true"></i><i aria-hidden="true"></i><i aria-hidden="true"></i>
+      </button>
+      <ul class="nav__list" id="js-nav-list" role="list">
+        <li><a href="/" class="nav__link">Home</a></li>
+        <li class="nav__item--dropdown">
+          <button class="nav__link nav__dropdown-toggle" aria-expanded="false" aria-haspopup="true">
+            Services
+            <svg viewBox="0 0 12 12" aria-hidden="true" class="nav__chevron"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <ul class="nav__dropdown" role="list">
+            <li><a href="neurological-medicine.html" class="nav__dropdown-link">Neurological Medicine</a></li>
+            <li><a href="aesthetic-medicine.html" class="nav__dropdown-link">Aesthetic Medicine</a></li>
+            <li><a href="infusion-center.html" class="nav__dropdown-link">Infusion Center</a></li>
+          </ul>
+        </li>
+        <li class="nav__item--dropdown">
+          <button class="nav__link nav__dropdown-toggle" aria-expanded="false" aria-haspopup="true">
+            About
+            <svg viewBox="0 0 12 12" aria-hidden="true" class="nav__chevron"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <ul class="nav__dropdown" role="list">
+            <li><a href="about.html" class="nav__dropdown-link">Our Team &amp; Philosophy</a></li>
+            <li><a href="clinical-standards.html" class="nav__dropdown-link">Clinical Standards</a></li>
+            <li><a href="financing-memberships.html" class="nav__dropdown-link">Memberships &amp; Financing</a></li>
+          </ul>
+        </li>
+        <li><a href="wellness-store.html" class="nav__link">Store</a></li>
+        <li><a href="contact.html" class="nav__link">Contact</a></li>
+      </ul>
+      <button class="dark-toggle nav__migraine-toggle"
+              id="dark-mode-toggle" type="button"
+              aria-pressed="false"
+              aria-label="Toggle Migraine-Friendly Viewing Mode"
+              title="Migraine Mode &mdash; reduces brightness for light-sensitive viewing">
+        <svg class="dark-toggle__icon" viewBox="0 0 24 24" aria-hidden="true" width="14" height="14">
+          <ellipse cx="12" cy="12" rx="4" ry="4" fill="none" stroke="currentColor" stroke-width="1.5"/>
+          <path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"
+                fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        <span class="dark-toggle__label">Migraine Mode</span>
+        <span class="dark-toggle__switch" aria-hidden="true"></span>
+      </button>
+    </div>
+  </nav>
+
+  <main id="js-outlet" tabindex="-1">
+    <div class="inner-page inner-page--prose">
+      <div class="inner-page__inner">
+
+        <header class="reveal">
+          <span class="inner-page__eyebrow">Legal &amp; Compliance</span>
+          <h1 class="inner-page__title">Accessibility <em>Statement</em></h1>
+          <p class="inner-page__lead">
+            Monti Institute of Neuro Aesthetics is committed to ensuring digital
+            accessibility for people of all abilities. We continually work to
+            improve the experience for everyone and apply relevant accessibility
+            standards. <strong>Effective Date: [Month Day, Year]. Last Reviewed: [Month Day, Year].</strong>
+          </p>
+          <div class="inner-page__rule"></div>
+        </header>
+
+        <div class="privacy-body reveal">
+
+          <nav class="privacy-toc" aria-label="Table of contents">
+            <span class="privacy-toc__label">On This Page</span>
+            <ol>
+              <li><a href="#ac-commitment">Our Commitment</a></li>
+              <li><a href="#ac-conformance">Conformance Status</a></li>
+              <li><a href="#ac-features">Accessibility Features</a></li>
+              <li><a href="#ac-limitations">Known Limitations</a></li>
+              <li><a href="#ac-feedback">Feedback &amp; Contact</a></li>
+              <li><a href="#ac-complaints">Formal Complaints</a></li>
+            </ol>
+          </nav>
+
+          <!-- ── SECTION 1 ── -->
+          <section class="privacy-section" aria-labelledby="ac-commitment">
+            <h2 class="privacy-section__heading" id="ac-commitment">
+              <span class="privacy-section__num">1</span>
+              Our Commitment
+            </h2>
+            <p>
+              We believe our website and the care we provide should be
+              accessible to everyone, including people with visual, auditory,
+              motor, cognitive, or light-sensitivity related conditions (such as
+              migraine). Accessibility is treated as an ongoing responsibility,
+              not a one-time project — we periodically audit this site and
+              correct issues as they're identified.
+            </p>
+          </section>
+
+          <!-- ── SECTION 2 ── -->
+          <section class="privacy-section" aria-labelledby="ac-conformance">
+            <h2 class="privacy-section__heading" id="ac-conformance">
+              <span class="privacy-section__num">2</span>
+              Conformance Status
+            </h2>
+            <p>
+              This website is designed and built to conform to the
+              <strong>Web Content Accessibility Guidelines (WCAG) 2.1, Level
+              AA</strong>, the widely accepted standard for measuring digital
+              accessibility. WCAG conformance is assessed in three levels: A,
+              AA, and AAA. We target Level AA across the site.
+            </p>
+            <p>
+              This statement describes our current conformance status as of
+              the "Last Reviewed" date above. Accessibility is an ongoing
+              effort; while we aim for full AA conformance, some areas of the
+              site — particularly third-party embedded tools — may not yet be
+              fully conformant. See Section 4 below.
+            </p>
+          </section>
+
+          <!-- ── SECTION 3 ── -->
+          <section class="privacy-section" aria-labelledby="ac-features">
+            <h2 class="privacy-section__heading" id="ac-features">
+              <span class="privacy-section__num">3</span>
+              Accessibility Features Implemented
+            </h2>
+            <p>The following features are built into this website:</p>
+            <ul class="privacy-list">
+              <li><strong>Skip-to-content link</strong> — allows keyboard and screen-reader users to bypass repeated navigation and jump directly to page content.</li>
+              <li><strong>Full keyboard navigation</strong> — all interactive elements, including the navigation menu, dropdown menus, and forms, are operable without a mouse, with visible focus indicators on every focusable element.</li>
+              <li><strong>Semantic structure &amp; ARIA landmarks</strong> — pages use proper heading hierarchy, landmark regions (<code>nav</code>, <code>main</code>, <code>footer</code>), and ARIA attributes (<code>aria-expanded</code>, <code>aria-current</code>, <code>aria-label</code>) to support screen readers.</li>
+              <li><strong>Descriptive alt text</strong> — meaningful images include descriptive alternative text; decorative images are marked so screen readers skip them.</li>
+              <li><strong>Color contrast</strong> — text and interactive elements are designed to meet WCAG AA contrast ratios (4.5:1 for normal text, 3:1 for large text and UI components).</li>
+              <li><strong>Migraine Mode</strong> — a low-glare, warm-toned dark theme intended to reduce visual strain for light-sensitive and migraine-prone visitors, available via the toggle in the navigation bar or the <strong>Alt+D</strong> keyboard shortcut, and remembered across visits.</li>
+              <li><strong>Reduced motion support</strong> — visitors with <code>prefers-reduced-motion</code> enabled at the system level will see animations and scroll effects minimized or removed automatically.</li>
+              <li><strong>Accessible form validation</strong> — form fields are linked to their error messages via <code>aria-describedby</code>, invalid fields are marked with <code>aria-invalid</code>, and focus moves automatically to the first error on submission.</li>
+              <li><strong>Responsive, zoom-friendly layout</strong> — content reflows properly up to 400% browser zoom without loss of functionality.</li>
+            </ul>
+          </section>
+
+          <!-- ── SECTION 4 ── -->
+          <section class="privacy-section" aria-labelledby="ac-limitations">
+            <h2 class="privacy-section__heading" id="ac-limitations">
+              <span class="privacy-section__num">4</span>
+              Known Limitations
+            </h2>
+            <p>
+              Despite our efforts, some content may not yet be fully
+              accessible:
+            </p>
+            <ul class="privacy-list">
+              <li><strong>Third-party embedded tools</strong> — our live chat widget and any third-party scheduling overlay are provided by outside vendors. While we choose vendors with accessibility in mind, we do not control their code directly and cannot guarantee full conformance of embedded third-party components.</li>
+              <li><strong>PDF and downloadable documents</strong> — older documents may not yet be fully tagged for screen-reader compatibility. We are working to remediate these on an ongoing basis.</li>
+              <li><strong>Legacy or archived content</strong> — pages retained for historical reference may not reflect current accessibility standards.</li>
+            </ul>
+            <p>
+              If you encounter a barrier not listed here, please let us know
+              using the contact information in Section 5 — we want to know
+              about it.
+            </p>
+          </section>
+
+          <!-- ── SECTION 5 ── -->
+          <section class="privacy-section privacy-section--callout" aria-labelledby="ac-feedback">
+            <h2 class="privacy-section__heading" id="ac-feedback">
+              <span class="privacy-section__num">5</span>
+              Feedback &amp; Contact
+            </h2>
+            <p>
+              We welcome your feedback on the accessibility of this website.
+              If you experience any difficulty accessing content, encounter a
+              barrier, or need information in an alternative format, please
+              contact us:
+            </p>
+            <address class="privacy-address">
+              <strong>Monti Institute of Neuro Aesthetics — Accessibility</strong><br>
+              2440 Vassar Street, Suite 3, Reno, NV 89502<br>
+              <a href="tel:+17750000000">(775) 000-0000</a><br>
+              <a href="mailto:admin@monti-institute.com">admin@monti-institute.com</a>
+            </address>
+            <p>
+              We aim to respond to accessibility feedback within
+              <strong>[X business days]</strong> and to provide the information,
+              item, or service you're seeking through an alternative
+              communication method in the meantime, where reasonably possible.
+            </p>
+          </section>
+
+          <!-- ── SECTION 6 ── -->
+          <section class="privacy-section" aria-labelledby="ac-complaints">
+            <h2 class="privacy-section__heading" id="ac-complaints">
+              <span class="privacy-section__num">6</span>
+              Formal Complaints
+            </h2>
+            <p>
+              If you are not satisfied with our response to an accessibility
+              concern, you have the right to file a formal complaint with the
+              U.S. Department of Justice, Civil Rights Division, or the
+              applicable state authority governing accessibility and public
+              accommodation.
+            </p>
+          </section>
+
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div class="site-disclaimer" role="note" aria-label="Medical and legal disclaimer">
+    <p class="site-disclaimer__text">
+      The content on this website is for informational purposes only and does not
+      constitute medical advice, diagnosis, or treatment, and does not establish a
+      provider-patient relationship. Always consult a qualified healthcare professional
+      regarding your individual health circumstances. In a medical emergency, call 911.
+      &nbsp;&middot;&nbsp;
+      <a href="medical-disclaimer.html">Full Medical Disclaimer</a>
+      &nbsp;&middot;&nbsp;
+      <a href="privacy-policy.html">Privacy Policy</a>
+    </p>
+  </div>
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__brand-col">
+        <div class="footer__brand">
+          <span class="footer__mark">
+            <img src="images/official-logo.png" alt="" width="36" height="36">
+          </span>
+          <div>
+            <span class="footer__name">Monti Institute</span><br>
+            <span class="footer__sub">Neuro Aesthetics</span>
+          </div>
+        </div>
+        <p class="footer__tagline">
+          Neurological medicine, aesthetic medicine, and infusion therapy under one roof in Reno, Nevada.
+        </p>
+      </div>
+      <div class="footer__col">
+        <span class="footer__col-title">Visit</span>
+        <address class="footer__address">
+          2440 Vassar Street, Suite 3<br>
+          Reno, NV 89502
+        </address>
+        <a href="tel:+17750000000" class="footer__contact-link">(775) 000-0000</a>
+        <a href="mailto:admin@monti-institute.com" class="footer__contact-link">admin@monti-institute.com</a>
+      </div>
+      <div class="footer__col">
+        <span class="footer__col-title">Explore</span>
+        <nav class="footer__nav" aria-label="Footer">
+          <a href="neurological-medicine.html">Services</a>
+          <a href="infusion-center.html">Infusion Center</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span class="footer__copy">&copy; 2026 Monti Institute of Neuro Aesthetics. All rights reserved.</span>
+      <ul class="footer__legal" aria-label="Legal">
+        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+        <li><a href="accessibility.html" aria-current="page">Accessibility Statement</a></li>
+        <li><a href="medical-disclaimer.html">Medical Disclaimer</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script id="nextivacx-code-snippet"
+    src="https://d3po7etsbw5eiv.cloudfront.net/Simplify360Chat.js?key=NmEyYzY1ZDk1ZDlkM2I5YWJmMjM1MzAyfDQzMTk0Mjc=">
+  </script>
+
+</body>
+</html>
