@@ -8402,3 +8402,25 @@ body.dark-theme .nav__book-btn:hover { background: var(--gold-lt, #C4A97D); }
 @media (max-width: 860px) {
   .nav__book-btn { margin-inline-start: 0; margin-block-start: 0.75rem; width: 100%; }
 }
+
+/* ============================================================
+   NAV  "Client Login" utility link, sits beside .nav__book-btn.
+   Quiet by design  Book Now stays the visually dominant action;
+   this is for returning patients who already know what they want.
+   ============================================================ */
+.nav__portal-link {
+  font-size: 0.66rem; font-weight: 400; letter-spacing: 0.1em;
+  text-transform: uppercase; text-decoration: none;
+  color: var(--muted);
+  margin-inline-start: 1.5rem;
+  transition: color 0.2s;
+}
+.nav__portal-link:hover { color: var(--gold); }
+.nav__portal-link:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+
+body.dark-theme .nav__portal-link { color: rgba(220,215,205,0.6); }
+body.dark-theme .nav__portal-link:hover { color: var(--gold-lt, #C4A97D); }
+
+@media (max-width: 860px) {
+  .nav__portal-link { margin-inline-start: 0; margin-block-start: 1rem; display: block; }
+}
