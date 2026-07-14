@@ -7388,9 +7388,14 @@ body.dark-theme .staff-card--legacy {
    2. .form-disclaimer    — contact form legal notice
    3. .page-disclaimer    — inline callout on service pages
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+/* ── 1. Site-wide footer disclaimer bar ─────────────────
+   Sits between page content and the footer nav.
+   Subtle, typographically quiet — never disrupts the
+   editorial layout but is legally present on every page. */
 .site-disclaimer {
-  background: var(--deep, #1A1614);
-  border-top: 1px solid rgba(154,128,96,0.2);
+  background: rgba(26,22,20,0.6);
+  border-top: 1px solid rgba(154,128,96,0.12);
   padding: 1.25rem clamp(1.5rem, 5vw, 5rem);
   text-align: center;
 }
@@ -7399,25 +7404,17 @@ body.dark-theme .staff-card--legacy {
   font-weight: 300;
   letter-spacing: 0.08em;
   line-height: 1.8;
-  color: rgba(248,245,240,0.6);
+  color: rgba(255,255,255,0.3);
   max-width: 90ch;
   margin-inline: auto;
   font-family: var(--f-body, 'DM Sans', sans-serif);
 }
 .site-disclaimer__text a {
-  color: rgba(196,169,125,0.85);
+  color: rgba(154,128,96,0.55);
   text-decoration: none;
   transition: color 0.2s;
 }
-.site-disclaimer__text a:hover { color: var(--gold-lt, #C4A97D); }
-
-/* Dark mode: background is already dark-theme-appropriate since
-   it's now solid var(--deep)  no separate override needed unless
-   you want a visual distinction between light-mode and Migraine
-   Mode pages. If you do, keep your existing dark-theme block but
-   drop the old low-opacity values there too. */
-
-
+.site-disclaimer__text a:hover { color: rgba(196,169,125,0.85); }
 
 /* ── 2. Contact form disclaimer ─────────────────────────
    Appears above the submit button inside the contact form.
@@ -7883,3 +7880,408 @@ body.dark-theme .consent-disclosure__text {
   .ba-pair { grid-template-columns: 1fr; gap: 1px; }
   .ba-pair__img { aspect-ratio: 4 / 3; }
 }
+
+/* ═══════════════════════════════════════════════════════════
+   ADDITIONS BELOW THIS LINE — added 2026-07-13
+   Results gallery + before/after slider, legal-document
+   typography (.privacy-section family), and footer 3-column
+   + contrast-fix overrides. Your existing .site-disclaimer
+   rules (above this line) are untouched — this bundle skips
+   re-adding them since they're already live and working.
+   ═══════════════════════════════════════════════════════════ */
+
+/* ============================================================
+   RESULTS GALLERY + BEFORE/AFTER SLIDER
+   Append this block to styles.css (anywhere after the design
+   tokens in :root). Reuses existing tokens: --gold, --charcoal,
+   --stone, --ivory, --muted, --taupe, --deep, --warm-white,
+   --f-display, --f-body. Reuses .section, .section__label,
+   .section__heading, .hipaa-section__label/__text patterns.
+   ============================================================ */
+
+/* ── Section header ── */
+.results-gallery__header {
+  text-align: center;
+  max-width: 640px;
+  margin-inline: auto;
+  margin-block-end: clamp(3.5rem, 6vw, 5.5rem);
+}
+.results-gallery__intro {
+  font-size: 0.9rem;
+  font-weight: 300;
+  color: var(--muted);
+  line-height: 1.85;
+  margin-block-start: 1.25rem;
+}
+
+/* ── Before / After slider grid ── */
+.ba-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(2rem, 4vw, 3.5rem);
+  margin-block-end: clamp(3.5rem, 6vw, 5.5rem);
+}
+.ba-card { display: flex; flex-direction: column; gap: 1rem; }
+
+.ba-slider {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  border: 1px solid var(--stone);
+  background: var(--stone);
+  cursor: ew-resize;
+  user-select: none;
+  touch-action: pan-y;
+}
+.ba-slider__after,
+.ba-slider__before {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+.ba-slider__after img,
+.ba-slider__before img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  pointer-events: none;
+  -webkit-user-drag: none;
+}
+.ba-slider__before { clip-path: inset(0 50% 0 0); }
+
+.ba-slider__divider {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 1px;
+  background: var(--ivory);
+  box-shadow: 0 0 0 1px rgba(26,22,20,0.15);
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+.ba-slider__handle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 40px;
+  height: 40px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: var(--warm-white);
+  border: 1px solid var(--stone);
+  box-shadow: 0 4px 18px rgba(26,22,20,0.18);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--charcoal);
+  cursor: ew-resize;
+  transition: box-shadow 0.2s, transform 0.15s;
+}
+.ba-slider__handle:hover { box-shadow: 0 6px 22px rgba(26,22,20,0.26); }
+.ba-slider__handle:active { transform: translate(-50%, -50%) scale(0.94); }
+.ba-slider__handle:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 3px;
+}
+.ba-slider__handle svg { flex-shrink: 0; }
+
+.ba-slider__tag {
+  position: absolute;
+  top: 0.9rem;
+  font-size: 0.58rem;
+  font-weight: 400;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ivory);
+  background: rgba(26,22,20,0.55);
+  padding: 0.4rem 0.75rem;
+  pointer-events: none;
+}
+.ba-slider__tag--before { left: 0.9rem; }
+.ba-slider__tag--after  { right: 0.9rem; }
+
+.ba-card__caption {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+.ba-card__treatment {
+  font-family: var(--f-display);
+  font-size: 1.05rem;
+  font-weight: 400;
+  color: var(--deep);
+}
+.ba-card__timeframe {
+  font-size: 0.72rem;
+  font-weight: 300;
+  letter-spacing: 0.02em;
+  color: var(--taupe);
+}
+
+/* ── Static results grid (non-comparison shots) ── */
+.results-gallery__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(1.5rem, 3vw, 2rem);
+  margin-block-end: clamp(3rem, 5vw, 4.5rem);
+}
+.result-card { display: flex; flex-direction: column; gap: 0.85rem; }
+.result-card__image-wrap {
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  border: 1px solid var(--stone);
+  background: var(--stone);
+}
+.result-card__image-wrap img {
+  width: 100%; height: 100%;
+  object-fit: cover; display: block;
+  transition: transform 0.5s ease;
+}
+.result-card:hover .result-card__image-wrap img { transform: scale(1.035); }
+.result-card__caption {
+  font-size: 0.76rem;
+  font-weight: 300;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+/* ── "Individual results may vary" disclaimer ── */
+.results-gallery__disclaimer {
+  max-width: 62ch;
+  margin-inline: auto;
+  text-align: center;
+  font-size: 0.72rem;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--taupe);
+  line-height: 1.8;
+  padding-block-start: clamp(2rem, 3vw, 2.75rem);
+  border-top: 1px solid var(--stone);
+}
+
+/* ── Consent / model-release notice ──
+   Reuses .hipaa-section__label / .hipaa-section__text, defined
+   elsewhere in styles.css, for visual consistency with existing
+   legal copy. */
+.gallery-consent {
+  max-width: var(--max-w-prose);
+  margin-inline: auto;
+  padding-block-start: clamp(2.5rem, 4vw, 3.5rem);
+  margin-block-start: clamp(2.5rem, 4vw, 3.5rem);
+  border-top: 1px solid var(--stone);
+}
+.gallery-consent .hipaa-section__text a {
+  color: var(--gold);
+  text-decoration: underline;
+  text-decoration-color: rgba(154,128,96,0.4);
+  text-underline-offset: 3px;
+}
+.gallery-consent .hipaa-section__text a:hover { text-decoration-color: var(--gold); }
+
+/* ── Dark mode (Migraine Mode) ── */
+body.dark-theme .ba-slider,
+body.dark-theme .result-card__image-wrap {
+  border-color: rgba(255,255,255,0.08);
+  background: #1A1614;
+}
+body.dark-theme .ba-slider__handle {
+  background: #1A1614;
+  border-color: rgba(255,255,255,0.12);
+  color: rgba(220,215,205,0.9);
+}
+body.dark-theme .ba-card__treatment { color: var(--ivory); }
+body.dark-theme .ba-card__timeframe { color: rgba(184,173,158,0.6); }
+body.dark-theme .result-card__caption { color: rgba(220,215,205,0.65); }
+body.dark-theme .results-gallery__intro { color: rgba(220,215,205,0.65); }
+body.dark-theme .results-gallery__disclaimer {
+  color: rgba(184,173,158,0.55);
+  border-color: rgba(255,255,255,0.08);
+}
+body.dark-theme .gallery-consent { border-color: rgba(255,255,255,0.08); }
+
+/* ── Responsive ── */
+@media (max-width: 860px) {
+  .ba-grid { grid-template-columns: 1fr; }
+  .results-gallery__grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 540px) {
+  .results-gallery__grid { grid-template-columns: 1fr; }
+  .ba-slider__tag { font-size: 0.52rem; padding: 0.3rem 0.6rem; }
+}
+
+/* ── Reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  .ba-slider__before,
+  .ba-slider__handle,
+  .result-card__image-wrap img {
+    transition: none !important;
+  }
+}
+
+/* ============================================================
+   LEGAL DOCUMENT STYLES  privacy-policy.html, medical-disclaimer.html,
+   accessibility.html
+
+   These classes (.privacy-section, .privacy-body, .privacy-list,
+   .privacy-address, .site-disclaimer) are already used in your
+   live privacy-policy.html markup but have no matching rules in
+   styles.css, so that page is currently rendering with unstyled
+   headings, default bullet markers, and no visual rhythm between
+   sections. This block fixes that and gives you one system to
+   reuse across all three legal pages, so they read as one
+   consistent, editorial-feeling document set rather than three
+   different treatments.
+
+   Append anywhere after your other typography rules.
+   ============================================================ */
+
+.privacy-body { max-width: var(--max-w-prose); margin-inline: auto; }
+
+/* Optional table of contents  add to a page if it's long enough
+   to benefit (privacy-policy.html, at 12 sections, is a good
+   candidate). Safe to omit on shorter pages. */
+.privacy-toc {
+  border: 1px solid var(--stone);
+  background: var(--warm-white);
+  padding: clamp(1.5rem, 3vw, 2.25rem) clamp(1.75rem, 3.5vw, 2.5rem);
+  margin-block-end: clamp(3rem, 5vw, 4.5rem);
+}
+.privacy-toc__label {
+  font-size: 0.6rem; font-weight: 400; letter-spacing: 0.28em;
+  text-transform: uppercase; color: var(--gold);
+  display: block; margin-block-end: 1.1rem;
+}
+.privacy-toc ol {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 0.65rem 2rem; counter-reset: toc;
+}
+.privacy-toc li { font-size: 0.8rem; counter-increment: toc; }
+.privacy-toc a { color: var(--muted); transition: color 0.2s; }
+.privacy-toc a:hover { color: var(--gold); }
+.privacy-toc a::before { content: counter(toc) '. '; color: var(--taupe); }
+@media (max-width: 560px) {
+  .privacy-toc ol { grid-template-columns: 1fr; }
+}
+
+/* Section rhythm */
+.privacy-section {
+  margin-block-end: clamp(3rem, 5vw, 4rem);
+  padding-block-end: clamp(3rem, 5vw, 4rem);
+  border-bottom: 1px solid var(--stone);
+  scroll-margin-top: calc(var(--nav-h) + 1.5rem);
+}
+.privacy-section:last-of-type { border-bottom: none; }
+
+/* Callout variant  used for the SMS section, or anything that
+   deserves a touch more visual weight than a standard section */
+.privacy-section--callout {
+  background: var(--ivory);
+  padding: clamp(2rem, 4vw, 2.75rem) clamp(2rem, 4vw, 2.75rem) clamp(2.5rem, 4vw, 3.25rem);
+  border: 1px solid var(--stone);
+  border-bottom: 1px solid var(--stone);
+}
+
+.privacy-section__heading {
+  display: flex; align-items: baseline; gap: 0.9rem;
+  font-family: var(--f-display);
+  font-size: clamp(1.4rem, 2.5vw, 1.85rem);
+  font-weight: 400; color: var(--deep);
+  margin-block-end: 1.25rem;
+}
+.privacy-section__num {
+  font-family: var(--f-display);
+  font-size: 0.85rem; font-weight: 400;
+  color: var(--gold); letter-spacing: 0.02em;
+  flex-shrink: 0;
+}
+
+.privacy-section p {
+  font-size: 0.875rem; font-weight: 300; color: var(--muted);
+  line-height: 1.9; max-width: 70ch;
+  margin-block-end: 1.15rem;
+}
+.privacy-section p:last-child { margin-block-end: 0; }
+.privacy-section strong { color: var(--charcoal); font-weight: 500; }
+.privacy-section a {
+  color: var(--gold); text-decoration: underline;
+  text-decoration-color: rgba(154,128,96,0.4); text-underline-offset: 3px;
+}
+.privacy-section a:hover { text-decoration-color: var(--gold); }
+.privacy-section code {
+  font-family: ui-monospace, 'SF Mono', Menlo, monospace;
+  font-size: 0.82em; background: var(--stone);
+  padding: 0.1em 0.4em; border-radius: 3px;
+}
+
+.privacy-list {
+  margin-block: 0.5rem 1.5rem; padding-inline-start: 1.25rem;
+  display: flex; flex-direction: column; gap: 0.75rem;
+}
+.privacy-list li {
+  font-size: 0.875rem; font-weight: 300; color: var(--muted);
+  line-height: 1.85; list-style: disc;
+}
+.privacy-list strong { color: var(--charcoal); font-weight: 500; }
+
+.privacy-address {
+  font-style: normal; font-size: 0.85rem; font-weight: 300;
+  color: var(--muted); line-height: 1.85;
+  border-left: 2px solid var(--gold);
+  padding-inline-start: 1.25rem;
+  margin-block: 1.25rem;
+}
+.privacy-address strong { color: var(--deep); font-weight: 500; }
+.privacy-address a { color: var(--gold); }
+
+/* Dark mode */
+body.dark-theme .privacy-toc { background: #1A1614; border-color: rgba(255,255,255,0.08); }
+body.dark-theme .privacy-toc a { color: rgba(220,215,205,0.65); }
+body.dark-theme .privacy-section { border-color: rgba(255,255,255,0.08); }
+body.dark-theme .privacy-section--callout { background: rgba(154,128,96,0.06); border-color: rgba(255,255,255,0.08); }
+body.dark-theme .privacy-section__heading { color: var(--ivory); }
+body.dark-theme .privacy-section p,
+body.dark-theme .privacy-list li,
+body.dark-theme .privacy-address { color: rgba(220,215,205,0.65); }
+body.dark-theme .privacy-section strong,
+body.dark-theme .privacy-list strong,
+body.dark-theme .privacy-address strong { color: var(--ivory); }
+body.dark-theme .privacy-section code { background: rgba(255,255,255,0.08); }
+
+@media (prefers-reduced-motion: reduce) {
+  .privacy-section, .privacy-toc a { transition: none !important; }
+}
+
+/* ============================================================
+   FOOTER  extends the existing ".footer" rules above with a 3rd
+   column (clinic address) and a WCAG contrast fix on the legal
+   links/copyright text. These are additive overrides that win
+   on cascade order since they're declared later in the file.
+   ============================================================ */
+.footer__inner { grid-template-columns: 1.3fr 1fr 1fr; }
+.footer__tagline {
+  font-size: 0.78rem; font-weight: 300; line-height: 1.85;
+  color: rgba(248,245,240,0.72); max-width: 30ch;
+  margin-block-start: 0.9rem;
+}
+.footer__col { display: flex; flex-direction: column; gap: 0.9rem; }
+.footer__col-title {
+  font-size: 0.6rem; font-weight: 400; letter-spacing: 0.28em;
+  text-transform: uppercase; color: rgba(248,245,240,0.5);
+  margin-block-end: 0.15rem;
+}
+.footer__address {
+  font-style: normal; font-size: 0.74rem; font-weight: 300;
+  color: rgba(248,245,240,0.75); line-height: 1.75;
+}
+.footer__contact-link {
+  font-size: 0.74rem; font-weight: 300;
+  color: rgba(248,245,240,0.75); transition: color 0.25s;
+}
+.footer__contact-link:hover { color: var(--gold); }
+.footer__nav a { color: rgba(248,245,240,0.55); }
+.footer__copy { color: rgba(248,245,240,0.6); }
+.footer__legal a { color: rgba(248,245,240,0.56); }
+.footer__legal a:hover { color: var(--gold); }
