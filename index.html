@@ -69,6 +69,40 @@
     .disc-panel__btn--secondary:hover svg {
       transform: translateX(3px) !important;
     }
+
+    /* Spacious Disclaimer & Legal Notice Styling */
+    .site-disclaimer {
+      padding: 2.25rem 1.5rem 2.5rem !important;
+      margin-top: 4rem !important;
+      margin-bottom: 2.5rem !important;
+      border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+      background-color: rgba(0, 0, 0, 0.15) !important;
+    }
+
+    .site-disclaimer__text {
+      max-width: 1100px !important;
+      margin: 0 auto !important;
+      font-size: 0.825rem !important;
+      line-height: 1.7 !important;
+      color: rgba(255, 255, 255, 0.55) !important;
+      text-align: center !important;
+      letter-spacing: 0.01em !important;
+    }
+
+    .site-disclaimer__text a {
+      color: rgba(255, 255, 255, 0.75) !important;
+      text-decoration: underline !important;
+      transition: color 0.2s ease !important;
+    }
+
+    .site-disclaimer__text a:hover {
+      color: #ffffff !important;
+    }
+
+    .footer {
+      padding-top: 1.5rem !important;
+    }
   </style>
 </head>
 <!-- Google tag (gtag.js) -->
@@ -686,12 +720,13 @@
 
   </main>
 
+  <!-- WELL-SPACED LEGAL DISCLAIMER PARAGRAPH -->
   <div class="site-disclaimer" role="note" aria-label="Medical and legal disclaimer">
     <p class="site-disclaimer__text">
       The content on this website is for informational purposes only and does not
       constitute medical advice, diagnosis, or treatment, and does not establish a
       provider-patient relationship. Always consult a qualified healthcare professional
-      regarding your individual health circumstances. In a medical emergency, call 911.
+      regarding your individual health circumstances. In a medical emergency, call 911 immediately.
       &nbsp;&middot;&nbsp;
       <a href="medical-disclaimer.html">Full Medical Disclaimer</a>
       &nbsp;&middot;&nbsp;
@@ -699,51 +734,51 @@
     </p>
   </div>
 
-<footer class="footer">
-  <div class="footer__inner">
-    <div class="footer__brand-col">
-      <div class="footer__brand">
-        <span class="footer__mark">
-          <img src="images/official-logo.png" alt="" width="36" height="36">
-        </span>
-        <div>
-          <span class="footer__name">Monti Institute</span><br>
-          <span class="footer__sub">Neuro Aesthetics</span>
+  <!-- MAIN FOOTER -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__brand-col">
+        <div class="footer__brand">
+          <span class="footer__mark">
+            <img src="images/official-logo.png" alt="" width="36" height="36">
+          </span>
+          <div>
+            <span class="footer__name">Monti Institute</span><br>
+            <span class="footer__sub">Neuro Aesthetics</span>
+          </div>
         </div>
+        <p class="footer__tagline">
+          Neurological medicine, aesthetic medicine, and infusion therapy under one roof in Reno, Nevada.
+        </p>
       </div>
-      <p class="footer__tagline">
-        Neurological medicine, aesthetic medicine, and infusion therapy under one roof in Reno, Nevada.
-      </p>
+      <div class="footer__col">
+        <span class="footer__col-title">Visit</span>
+        <address class="footer__address">
+          2440 Vassar Street, Suite 3<br>
+          Reno, NV 89502
+        </address>
+        <a href="tel:+13213766684" class="footer__contact-link">(321) 376-6684</a>
+        <a href="mailto:admin@monti-institute.com" class="footer__contact-link">admin@monti-institute.com</a>
+      </div>
+      <div class="footer__col">
+        <span class="footer__col-title">Explore</span>
+        <nav class="footer__nav" aria-label="Footer">
+          <a href="neurological-medicine.html">Services</a>
+          <a href="infusion-center.html">Infusion &amp; Wellness Suite</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+      </div>
     </div>
-    <div class="footer__col">
-      <span class="footer__col-title">Visit</span>
-      <address class="footer__address">
-        2440 Vassar Street, Suite 3<br>
-        Reno, NV 89502
-      </address>
-      <a href="tel:+13213766684" class="footer__contact-link">(321) 376-6684</a>
-      <a href="mailto:admin@monti-institute.com" class="footer__contact-link">admin@monti-institute.com</a>
+    <div class="footer__bottom">
+      <span class="footer__copy">&copy; 2026 Monti Institute of Neuro Aesthetics. All rights reserved.</span>
+      <ul class="footer__legal" aria-label="Legal">
+        <li><a href="privacy-policy.html" aria-current="page">Privacy Policy</a></li>
+        <li><a href="accessibility.html">Accessibility Statement</a></li>
+        <li><a href="medical-disclaimer.html">Medical Disclaimer</a></li>
+      </ul>
     </div>
-    <div class="footer__col">
-      <span class="footer__col-title">Explore</span>
-      <nav class="footer__nav" aria-label="Footer">
-        <a href="neurological-medicine.html">Services</a>
-        <a href="infusion-center.html">Infusion &amp; Wellness Suite</a>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
-      </nav>
-    </div>
-  </div>
-  <div class="footer__bottom">
-    <span class="footer__copy">&copy; 2026 Monti Institute of Neuro Aesthetics. All rights reserved.</span>
-    <ul class="footer__legal" aria-label="Legal">
-      <li><a href="privacy-policy.html" aria-current="page">Privacy Policy</a></li>
-      <li><a href="accessibility.html">Accessibility Statement</a></li>
-      <li><a href="medical-disclaimer.html">Medical Disclaimer</a></li>
-    </ul>
-  </div>
-</footer>
-
+  </footer>
 
   <script src="script.js"></script>
 
