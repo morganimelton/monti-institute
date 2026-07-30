@@ -977,7 +977,32 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
       /* Remove default section padding  panels handle their own */
       padding: 0;
     }
+/* Secondary CTA button under discipline panels */
+.disc-panel__btn--secondary {
+  margin-top: 0.75rem;
+}
 
+/* Neuro panel: dark background, so a light outline reads fine */
+.disc-panel--neuro .disc-panel__btn--secondary {
+  background: transparent;
+  border: 1.5px solid rgba(255, 255, 255, 0.55);
+  color: #ffffff;
+}
+.disc-panel--neuro .disc-panel__btn--secondary:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.8);
+}
+
+/* Aesthetic panel: photo background, needs solid contrast rather than an outline */
+.disc-panel--aesthetic .disc-panel__btn--secondary {
+  background: rgba(255, 255, 255, 0.92);
+  border: 1.5px solid rgba(255, 255, 255, 0.92);
+  color: var(--charcoal, #2b2622);
+}
+.disc-panel--aesthetic .disc-panel__btn--secondary:hover {
+  background: #ffffff;
+  border-color: #ffffff;
+}
     /* Shared panel base */
     .disc-panel {
       position: relative;
