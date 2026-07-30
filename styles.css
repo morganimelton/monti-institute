@@ -1034,3 +1034,61 @@ div[class*="scroll"],
   height: 0 !important;
   overflow: hidden !important;
 }
+
+/* ==========================================================================
+   FORCE 4-COLUMN INTAKE GRID & TEXT CONTRAST FIX
+   ========================================================================== */
+
+/* Forces the container into a 4-column layout on desktop */
+.concierge-options,
+.q-options,
+div[class*="concierge-options"],
+div[class*="q-options"] {
+  display: grid !important;
+  grid-template-columns: repeat(4, 1fr) !important; /* 4 equal columns */
+  gap: 1.25rem !important;
+  width: 100% !important;
+  max-width: 1100px !important;
+  margin: 1.5rem auto !important;
+}
+
+/* Fixes card height alignment and text legibility */
+.concierge-option,
+.q-option,
+div[class*="concierge-option"],
+div[class*="q-option"] {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-start !important;
+  height: 100% !important;
+  padding: 1.5rem 1.25rem !important;
+  box-sizing: border-box !important;
+}
+
+/* Fixes low-contrast body text inside cards */
+.concierge-option p,
+.concierge-option__desc,
+.q-option-desc,
+div[class*="concierge-option"] p {
+  color: #2c2825 !important; /* Dark charcoal for crisp readability */
+  opacity: 1 !important;
+  font-weight: 400 !important;
+}
+
+/* Responsive adjustment: 2x2 on tablets */
+@media (max-width: 1024px) {
+  .concierge-options,
+  .q-options,
+  div[class*="concierge-options"] {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+/* Responsive adjustment: 1 column on mobile */
+@media (max-width: 600px) {
+  .concierge-options,
+  .q-options,
+  div[class*="concierge-options"] {
+    grid-template-columns: 1fr !important;
+  }
+}
