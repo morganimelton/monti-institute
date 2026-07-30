@@ -9,6 +9,25 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@200;300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Equal height card layout styles for Digital Concierge */
+    .concierge-options {
+      display: grid !important;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)) !important;
+      gap: 1.5rem !important;
+      align-items: stretch !important;
+    }
+    .concierge-option {
+      display: flex !important;
+      flex-direction: column !important;
+      justify-content: flex-start !important;
+      height: 100% !important;
+      box-sizing: border-box !important;
+    }
+    .concierge-option__desc {
+      margin-top: auto !important;
+    }
+  </style>
 </head>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-M7QTXDPY24"></script>
@@ -102,7 +121,7 @@
 
   <main id="js-outlet" tabindex="-1">
 
-    <!-- 1. HERO SECTION WITH ADJUSTED BUTTON SPACING -->
+    <!-- 1. HERO SECTION -->
     <section class="hero" aria-labelledby="hero-heading" style="padding-bottom: 4rem;">
       <div class="hero__eyebrow">
         <div class="hero__eyebrow-rule" aria-hidden="true"></div>
@@ -119,7 +138,7 @@
         Specialized care for migraine, headache disorders, neurologic pain, facial aesthetics, and regenerative medicine.
       </p>
       
-      <!-- HERO DUAL CTA BUTTONS WITH SPACED ALIGNMENT -->
+      <!-- HERO DUAL CTA BUTTONS -->
       <div class="hero-cta-container" style="display: flex; gap: 1.25rem; justify-content: center; align-items: center; margin-top: 2.25rem; margin-bottom: 3.5rem; flex-wrap: wrap;">
         <a href="contact.html" class="hero-btn hero-btn-primary btn btn--primary" style="padding: 0.9rem 2rem; border-radius: 4px; text-decoration: none; font-weight: 500;">
           Schedule a Consultation
@@ -135,7 +154,7 @@
       </div>
     </section>
 
-    <!-- 2. DUAL PANEL SPLIT: NEURO MEDICINE vs. AESTHETIC MEDICINE -->
+    <!-- 2. DUAL PANEL SPLIT -->
     <section class="disciplines-split" id="care-disciplines" aria-label="Our Disciplines">
 
       <!-- LEFT PANEL: Neurological Medicine -->
@@ -151,59 +170,7 @@
             <circle cx="280" cy="340" r="20" stroke="rgba(255,255,255,0.3)"  stroke-width="1"   fill="rgba(255,255,255,0.03)"/>
             <circle cx="280" cy="340" r="10" stroke="rgba(255,255,255,0.2)"  stroke-width="0.8" fill="rgba(154,128,96,0.08)"/>
             <circle cx="280" cy="340" r="55"  stroke="rgba(255,255,255,0.09)" stroke-width="1"   fill="none"/>
-            <circle cx="280" cy="340" r="80"  stroke="rgba(255,255,255,0.055)" stroke-width="0.8" fill="none"/>
-            <circle cx="280" cy="340" r="110" stroke="rgba(255,255,255,0.035)" stroke-width="0.6" fill="none"/>
             <path d="M312,340 Q370,328 440,342 Q510,354 570,338 Q630,325 680,332" stroke="rgba(255,255,255,0.45)" stroke-width="1.8" stroke-linecap="round"/>
-            <circle cx="370" cy="333" r="3.5" fill="rgba(255,255,255,0.25)"/>
-            <circle cx="440" cy="342" r="3.5" fill="rgba(255,255,255,0.22)"/>
-            <circle cx="510" cy="336" r="3.5" fill="rgba(255,255,255,0.2)"/>
-            <circle cx="580" cy="330" r="3.5" fill="rgba(255,255,255,0.18)"/>
-            <circle cx="680" cy="332" r="5.5" fill="rgba(196,169,125,0.8)" stroke="rgba(196,169,125,0.4)" stroke-width="1"/>
-            <path d="M680,332 Q695,320 706,315" stroke="rgba(196,169,125,0.5)" stroke-width="1" stroke-linecap="round"/>
-            <path d="M680,332 Q698,340 708,348" stroke="rgba(196,169,125,0.5)" stroke-width="1" stroke-linecap="round"/>
-            <path d="M680,332 Q693,333 704,330" stroke="rgba(196,169,125,0.4)" stroke-width="0.8" stroke-linecap="round"/>
-            <circle cx="706" cy="315" r="3" fill="rgba(196,169,125,0.7)"/>
-            <circle cx="708" cy="348" r="3" fill="rgba(196,169,125,0.7)"/>
-            <path d="M262,312 Q218,258 170,205 Q132,162 90,128" stroke="rgba(255,255,255,0.38)" stroke-width="1.4" stroke-linecap="round"/>
-            <path d="M218,258 Q188,232 158,210 Q128,190 100,178" stroke="rgba(255,255,255,0.28)" stroke-width="1" stroke-linecap="round"/>
-            <path d="M170,205 Q148,182 125,165 Q100,150 72,142" stroke="rgba(255,255,255,0.22)" stroke-width="0.85" stroke-linecap="round"/>
-            <path d="M100,178 Q78,162 55,152" stroke="rgba(255,255,255,0.16)" stroke-width="0.7" stroke-linecap="round"/>
-            <circle cx="90"  cy="128" r="4.5" fill="rgba(196,169,125,0.75)" stroke="rgba(196,169,125,0.35)" stroke-width="1"/>
-            <circle cx="100" cy="178" r="3.5" fill="rgba(196,169,125,0.6)"/>
-            <circle cx="72"  cy="142" r="3"   fill="rgba(196,169,125,0.55)"/>
-            <circle cx="55"  cy="152" r="2.5" fill="rgba(196,169,125,0.45)"/>
-            <path d="M272,308 Q255,248 242,185 Q230,128 225,72" stroke="rgba(255,255,255,0.36)" stroke-width="1.4" stroke-linecap="round"/>
-            <path d="M255,248 Q230,228 208,210 Q185,194 162,185" stroke="rgba(255,255,255,0.26)" stroke-width="1" stroke-linecap="round"/>
-            <path d="M255,248 Q278,228 298,210 Q318,192 332,178" stroke="rgba(255,255,255,0.24)" stroke-width="0.9" stroke-linecap="round"/>
-            <path d="M242,185 Q220,162 200,148 Q178,136 155,128" stroke="rgba(255,255,255,0.2)" stroke-width="0.8" stroke-linecap="round"/>
-            <circle cx="225" cy="72"  r="4.5" fill="rgba(196,169,125,0.75)" stroke="rgba(196,169,125,0.35)" stroke-width="1"/>
-            <circle cx="162" cy="185" r="3.5" fill="rgba(196,169,125,0.6)"/>
-            <circle cx="332" cy="178" r="3.5" fill="rgba(196,169,125,0.6)"/>
-            <circle cx="155" cy="128" r="3"   fill="rgba(196,169,125,0.5)"/>
-            <path d="M305,315 Q355,265 405,218 Q445,180 480,148" stroke="rgba(255,255,255,0.36)" stroke-width="1.4" stroke-linecap="round"/>
-            <path d="M405,218 Q440,195 468,175 Q492,158 510,145" stroke="rgba(255,255,255,0.26)" stroke-width="1" stroke-linecap="round"/>
-            <path d="M405,218 Q418,245 435,258" stroke="rgba(255,255,255,0.2)" stroke-width="0.8" stroke-linecap="round"/>
-            <circle cx="480" cy="148" r="4.5" fill="rgba(196,169,125,0.75)" stroke="rgba(196,169,125,0.35)" stroke-width="1"/>
-            <circle cx="510" cy="145" r="3.5" fill="rgba(196,169,125,0.6)"/>
-            <circle cx="435" cy="258" r="3"   fill="rgba(196,169,125,0.5)"/>
-            <path d="M248,340 Q185,338 122,330 Q68,324 25,318" stroke="rgba(255,255,255,0.35)" stroke-width="1.4" stroke-linecap="round"/>
-            <path d="M122,330 Q108,308 90,290 Q72,272 55,260" stroke="rgba(255,255,255,0.25)" stroke-width="1" stroke-linecap="round"/>
-            <path d="M122,330 Q108,352 92,368 Q75,382 58,390" stroke="rgba(255,255,255,0.22)" stroke-width="0.9" stroke-linecap="round"/>
-            <circle cx="25"  cy="318" r="4.5" fill="rgba(196,169,125,0.75)" stroke="rgba(196,169,125,0.35)" stroke-width="1"/>
-            <circle cx="55"  cy="260" r="3.5" fill="rgba(196,169,125,0.6)"/>
-            <circle cx="58"  cy="390" r="3.5" fill="rgba(196,169,125,0.55)"/>
-            <path d="M258,368 Q205,415 158,458 Q115,494 78,528" stroke="rgba(255,255,255,0.34)" stroke-width="1.4" stroke-linecap="round"/>
-            <path d="M158,458 Q135,480 115,500 Q95,520 78,535" stroke="rgba(255,255,255,0.24)" stroke-width="1" stroke-linecap="round"/>
-            <path d="M158,458 Q180,482 195,502" stroke="rgba(255,255,255,0.2)" stroke-width="0.8" stroke-linecap="round"/>
-            <circle cx="78"  cy="528" r="4.5" fill="rgba(196,169,125,0.75)" stroke="rgba(196,169,125,0.35)" stroke-width="1"/>
-            <circle cx="78"  cy="535" r="3"   fill="rgba(196,169,125,0.5)"/>
-            <circle cx="195" cy="502" r="3"   fill="rgba(196,169,125,0.5)"/>
-            <path d="M282,372 Q288,430 295,488 Q300,540 305,590" stroke="rgba(255,255,255,0.33)" stroke-width="1.4" stroke-linecap="round"/>
-            <path d="M295,488 Q268,510 248,530 Q228,548 210,562" stroke="rgba(255,255,255,0.23)" stroke-width="1" stroke-linecap="round"/>
-            <path d="M295,488 Q322,510 340,528 Q358,545 368,562" stroke="rgba(255,255,255,0.22)" stroke-width="0.9" stroke-linecap="round"/>
-            <circle cx="305" cy="590" r="4.5" fill="rgba(196,169,125,0.75)" stroke="rgba(196,169,125,0.35)" stroke-width="1"/>
-            <circle cx="210" cy="562" r="3.5" fill="rgba(196,169,125,0.6)"/>
-            <circle cx="368" cy="562" r="3.5" fill="rgba(196,169,125,0.55)"/>
           </svg>
         </div>
 
@@ -402,7 +369,7 @@
       </div>
     </section>
 
-    <!-- DIGITAL CONCIERGE FLOW -->
+    <!-- DIGITAL CONCIERGE FLOW WITH EQUAL-HEIGHT CARDS -->
     <section class="concierge-flow" aria-label="Clinical intake concierge">
       <span class="concierge-flow__label">Digital Concierge</span>
       <h2 class="concierge-flow__heading">
