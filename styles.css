@@ -296,7 +296,77 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
   background-color: rgba(255, 255, 255, 0.1); /* Subtle hover fill */
   color: #ffffff;
 }
+/* ==========================================================================
+   1. MOBILE FOOTER & STICKY CALL BAR FIXES
+   ========================================================================== */
 
+/* Space at bottom of page so sticky bar never covers footer copyright */
+footer, .site-footer {
+  padding-bottom: 5rem !important;
+}
+
+/* Style the Sticky Bottom Mobile Action Bar */
+.sticky-bottom-bar,
+.mobile-sticky-cta {
+  position: fixed !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  background-color: #ffffff !important;
+  border-top: 1px solid #e5e5e0 !important;
+  display: flex !important;
+  justify-content: space-around !important;
+  align-items: center !important;
+  padding: 0.75rem 1rem !important;
+  z-index: 9999 !important;
+  box-shadow: 0 -2px 10px rgba(0,0,0,0.05) !important;
+}
+
+/* Clickable phone link styling in sticky bar */
+.sticky-bottom-bar a {
+  color: #0b1329 !important;
+  font-weight: 600 !important;
+  font-size: 0.85rem !important;
+  text-decoration: none !important;
+  letter-spacing: 0.05em !important;
+}
+
+
+/* ==========================================================================
+   2. MOBILE SECTION CARD SPACING & TEXT OVERFLOW FIXES
+   ========================================================================== */
+
+@media (max-width: 768px) {
+
+  /* Ensure main split containers stack cleanly with margins */
+  .split-hero-container,
+  .disc-panels-wrapper {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 2rem !important; /* Space between Neurological & Aesthetic cards */
+    padding: 1rem !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Prevent text clipping at top/bottom of dark card */
+  .disc-panel {
+    width: 100% !important;
+    padding: 2.5rem 1.5rem !important; /* Proper internal padding */
+    border-radius: 8px !important;
+    box-sizing: border-box !important;
+    overflow: visible !important;
+  }
+
+  /* Force full width on action buttons on mobile */
+  .disc-panel .btn,
+  .panel-btn-group a {
+    width: 100% !important;
+    text-align: center !important;
+    box-sizing: border-box !important;
+  }
+  
+}
 /* Responsive Handling for Mobile Devices */
 @media (max-width: 600px) {
   .hero-cta-group {
