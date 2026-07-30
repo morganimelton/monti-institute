@@ -70,6 +70,79 @@
   <!-- CHERRY WIDGET END -->
 
   <style>
+    /* GLOBAL ALIGNMENT FIXES */
+    .hero {
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      justify-content: center !important;
+      text-align: center !important;
+      max-width: 1280px !important;
+      margin: 0 auto !important;
+      padding: 5rem 1.5rem 2rem !important;
+      box-sizing: border-box !important;
+    }
+
+    .hero__title, .hero__tagline, .hero__sub, .hero__eyebrow {
+      margin-left: auto !important;
+      margin-right: auto !important;
+      text-align: center !important;
+    }
+
+    .hero__tagline {
+      max-width: 800px !important;
+    }
+
+    .hero__sub {
+      max-width: 700px !important;
+    }
+
+    .hero-cta-container {
+      display: flex !important;
+      gap: 1.25rem !important;
+      justify-content: center !important;
+      align-items: center !important;
+      margin: 2.5rem auto 3.5rem !important;
+      width: 100% !important;
+      max-width: 600px !important;
+      flex-wrap: wrap !important;
+    }
+
+    .hero__scroll {
+      margin: 1rem auto 2.5rem !important;
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+    }
+
+    /* CENTERED DISCIPLINES SPLIT PANELS */
+    .disciplines-split {
+      display: grid !important;
+      grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+      gap: 2rem !important;
+      max-width: 1280px !important;
+      margin: 0 auto 5rem !important;
+      padding: 0 1.5rem !important;
+      box-sizing: border-box !important;
+      position: relative !important;
+    }
+
+    .disc-panel {
+      width: 100% !important;
+      box-sizing: border-box !important;
+      display: flex !important;
+      flex-direction: column !important;
+      justify-content: space-between !important;
+      text-align: left !important;
+    }
+
+    @media (max-width: 992px) {
+      .disciplines-split {
+        grid-template-columns: 1fr !important;
+        gap: 2.5rem !important;
+      }
+    }
+
     /* Equal Height Card Layout Styles for Digital Concierge */
     .concierge-options {
       display: grid !important;
@@ -86,6 +159,40 @@
     }
     .concierge-option__desc {
       margin-top: auto !important;
+    }
+
+    /* HIGH VISIBILITY CONTINUE BUTTON STYLING FOR CONCIERGE FLOW */
+    .concierge-next {
+      background-color: #c4a97d !important;
+      color: #111111 !important;
+      border: 1px solid #c4a97d !important;
+      padding: 0.9rem 2.25rem !important;
+      font-size: 0.95rem !important;
+      font-weight: 600 !important;
+      letter-spacing: 0.03em !important;
+      border-radius: 4px !important;
+      cursor: pointer !important;
+      transition: all 0.25s ease !important;
+      box-shadow: 0 4px 14px rgba(196, 169, 125, 0.25) !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+    }
+
+    .concierge-next:hover:not(:disabled) {
+      background-color: #d4b98d !important;
+      color: #000000 !important;
+      transform: translateY(-2px) !important;
+      box-shadow: 0 6px 18px rgba(196, 169, 125, 0.4) !important;
+    }
+
+    .concierge-next:disabled {
+      background-color: rgba(196, 169, 125, 0.25) !important;
+      color: rgba(255, 255, 255, 0.4) !important;
+      border-color: rgba(196, 169, 125, 0.2) !important;
+      cursor: not-allowed !important;
+      box-shadow: none !important;
+      transform: none !important;
     }
 
     /* High-Visibility Secondary Button Styling for Split Panels */
@@ -212,7 +319,7 @@
       flex-grow: 1 !important;
     }
     .resource-card__btn {
-      width: 100 !important;
+      width: 100% !important;
       text-align: center !important;
       justify-content: center !important;
       padding: 0.85rem 1.25rem !important;
@@ -231,7 +338,7 @@
       border-radius: 6px;
     }
 
-    /* Spacious Disclaimer & Legal Notice Styling */
+    /* Spacious Disclaimer & Legal Notice Styling (Single Line) */
     .site-disclaimer {
       padding: 2.25rem 1.5rem 2.5rem !important;
       margin-top: 4rem !important;
@@ -242,19 +349,21 @@
     }
 
     .site-disclaimer__text {
-      max-width: 1100px !important;
+      max-width: 1250px !important;
       margin: 0 auto !important;
       font-size: 0.825rem !important;
-      line-height: 1.7 !important;
+      line-height: 1.6 !important;
       color: rgba(255, 255, 255, 0.55) !important;
       text-align: center !important;
       letter-spacing: 0.01em !important;
+      white-space: normal !important;
     }
 
     .site-disclaimer__text a {
       color: rgba(255, 255, 255, 0.75) !important;
       text-decoration: underline !important;
       transition: color 0.2s ease !important;
+      white-space: nowrap !important;
     }
 
     .site-disclaimer__text a:hover {
@@ -412,8 +521,8 @@
 
   <main id="js-outlet" tabindex="-1">
 
-    <!-- 1. HERO SECTION -->
-    <section class="hero" aria-labelledby="hero-heading" style="padding-bottom: 4rem;">
+    <!-- 1. PERFECTLY CENTERED HERO SECTION -->
+    <section class="hero" aria-labelledby="hero-heading">
       <div class="hero__eyebrow">
         <div class="hero__eyebrow-rule" aria-hidden="true"></div>
         <p class="hero__eyebrow-text">Physician-Led Institute &middot; Reno, Nevada</p>
@@ -430,7 +539,7 @@
       </p>
       
       <!-- HERO DUAL CTA BUTTONS -->
-      <div class="hero-cta-container" style="display: flex; gap: 1.25rem; justify-content: center; align-items: center; margin-top: 2.25rem; margin-bottom: 3.5rem; flex-wrap: wrap;">
+      <div class="hero-cta-container">
         <a href="contact.html" class="hero-btn hero-btn-primary btn btn--primary" data-blvd-booking="true" style="padding: 0.9rem 2rem; border-radius: 4px; text-decoration: none; font-weight: 500;">
           Schedule a Consultation
         </a>
@@ -445,7 +554,7 @@
       </div>
     </section>
 
-    <!-- 2. DUAL PANEL SPLIT -->
+    <!-- 2. PERFECTLY CENTERED DUAL PANEL SPLIT -->
     <section class="disciplines-split" id="care-disciplines" aria-label="Our Disciplines">
 
       <!-- LEFT PANEL: Neurological Medicine -->
@@ -662,7 +771,7 @@
       </div>
     </section>
 
-    <!-- DIGITAL CONCIERGE FLOW WITH EQUAL-HEIGHT CARDS -->
+    <!-- DIGITAL CONCIERGE FLOW -->
     <section class="concierge-flow" aria-label="Clinical intake concierge">
       <span class="concierge-flow__label">Digital Concierge</span>
       <h2 class="concierge-flow__heading">
@@ -986,17 +1095,10 @@
 
   </main>
 
-  <!-- WELL-SPACED LEGAL DISCLAIMER PARAGRAPH -->
+  <!-- WELL-SPACED LEGAL DISCLAIMER PARAGRAPH (SINGLE LINE LINKS) -->
   <div class="site-disclaimer" role="note" aria-label="Medical and legal disclaimer">
     <p class="site-disclaimer__text">
-      The content on this website is for informational purposes only and does not
-      constitute medical advice, diagnosis, or treatment, and does not establish a
-      provider-patient relationship. Always consult a qualified healthcare professional
-      regarding your individual health circumstances. In a medical emergency, call 911 immediately.
-      &nbsp;&middot;&nbsp;
-      <a href="medical-disclaimer.html">Full Medical Disclaimer</a>
-      &nbsp;&middot;&nbsp;
-      <a href="privacy-policy.html">Privacy Policy</a>
+      The content on this website is for informational purposes only and does not constitute medical advice, diagnosis, or treatment, and does not establish a provider-patient relationship. Always consult a qualified healthcare professional regarding your individual health circumstances. In a medical emergency, call 911 immediately. &nbsp;&middot;&nbsp; <a href="medical-disclaimer.html">Full Medical Disclaimer</a> &nbsp;&middot;&nbsp; <a href="privacy-policy.html">Privacy Policy</a>
     </p>
   </div>
 
