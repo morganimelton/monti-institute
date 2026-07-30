@@ -7,10 +7,10 @@
   <meta name="description" content="Monti Institute of Neuro Aesthetics — Physician-led neurological and aesthetic medicine in Reno, Nevada.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@200;300;400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@200;300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
-  <!-- Google tag (gtag.js) -->
+<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-M7QTXDPY24"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -22,7 +22,7 @@
 <body>
   <a href="#js-outlet" class="skip-to-main" id="skip-to-main">Skip to main content</a>
 
-
+  <!-- NAVIGATION HEADER -->
   <nav class="nav" id="js-nav" role="navigation" aria-label="Main navigation">
     <div class="nav__inner">
       <a href="/" class="nav__brand" aria-label="Monti Institute — Home">
@@ -102,7 +102,8 @@
 
   <main id="js-outlet" tabindex="-1">
 
-    <section class="hero" aria-labelledby="hero-heading">
+    <!-- 1. HERO SECTION WITH ADJUSTED BUTTON SPACING -->
+    <section class="hero" aria-labelledby="hero-heading" style="padding-bottom: 4rem;">
       <div class="hero__eyebrow">
         <div class="hero__eyebrow-rule" aria-hidden="true"></div>
         <p class="hero__eyebrow-text">Physician-Led Institute &middot; Reno, Nevada</p>
@@ -112,28 +113,30 @@
         Monti Institute of<br><em>Neuro Aesthetics</em>
       </h1>
       <p class="hero__tagline">
-     Physician-led neurological and aesthetic medicine — designed to restore comfort, confidence, and natural vitality.
+        Physician-led neurological and aesthetic medicine — designed to restore comfort, confidence, and natural vitality.
       </p>
       <p class="hero__sub">
-Specialized care for migraine, headache disorders, neurologic pain, facial aesthetics, and regenerative medicine.
+        Specialized care for migraine, headache disorders, neurologic pain, facial aesthetics, and regenerative medicine.
       </p>
+      
+      <!-- HERO DUAL CTA BUTTONS WITH SPACED ALIGNMENT -->
+      <div class="hero-cta-container" style="display: flex; gap: 1.25rem; justify-content: center; align-items: center; margin-top: 2.25rem; margin-bottom: 3.5rem; flex-wrap: wrap;">
+        <a href="contact.html" class="hero-btn hero-btn-primary btn btn--primary" style="padding: 0.9rem 2rem; border-radius: 4px; text-decoration: none; font-weight: 500;">
+          Schedule a Consultation
+        </a>
+        <a href="#care-disciplines" class="hero-btn hero-btn-secondary btn btn--secondary" style="padding: 0.9rem 2rem; border-radius: 4px; text-decoration: none; font-weight: 500;">
+          Explore Our Services
+        </a>
+      </div>
+
       <div class="hero__scroll" aria-hidden="true">
         <span class="hero__scroll-label">Scroll</span>
         <div class="hero__scroll-track"></div>
       </div>
     </section>
-    
-<!-- Hero CTA Group -->
-<div class="hero-cta-container">
-  <a href="/schedule" class="hero-btn hero-btn-primary">
-    Schedule a Consultation
-  </a>
-  <a href="#care-pathway" class="hero-btn hero-btn-secondary">
-    Explore Our Services
-  </a>
-</div>
-    <!-- === SPLIT-PANEL DISCIPLINES === -->
-    <section class="disciplines-split" aria-label="Our Disciplines">
+
+    <!-- 2. DUAL PANEL SPLIT: NEURO MEDICINE vs. AESTHETIC MEDICINE -->
+    <section class="disciplines-split" id="care-disciplines" aria-label="Our Disciplines">
 
       <!-- LEFT PANEL: Neurological Medicine -->
       <div class="disc-panel disc-panel--neuro"
@@ -672,7 +675,7 @@ Specialized care for migraine, headache disorders, neurologic pain, facial aesth
 
   </main>
 
-      <div class="site-disclaimer" role="note" aria-label="Medical and legal disclaimer">
+  <div class="site-disclaimer" role="note" aria-label="Medical and legal disclaimer">
     <p class="site-disclaimer__text">
       The content on this website is for informational purposes only and does not
       constitute medical advice, diagnosis, or treatment, and does not establish a
@@ -1004,7 +1007,6 @@ Specialized care for migraine, headache disorders, neurologic pain, facial aesth
     id="nextivacx-code-snippet"
     src="https://d3po7etsbw5eiv.cloudfront.net/Simplify360Chat.js?key=NmEyYzY1ZDk1ZDlkM2I5YWJmMjM1MzAyfDQzMTk0Mjc=">
   </script>
-
 
   <script>
   (function() {
