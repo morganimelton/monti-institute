@@ -27,6 +27,48 @@
     .concierge-option__desc {
       margin-top: auto !important;
     }
+
+    /* High Visibility Secondary Button styling for Split Panels */
+    .disc-panel__btn--secondary {
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      gap: 0.6rem !important;
+      margin-top: 1.25rem !important;
+      padding: 0.85rem 1.5rem !important;
+      background-color: #ffffff !important;
+      color: #111111 !important;
+      border: 1px solid #ffffff !important;
+      border-radius: 4px !important;
+      font-weight: 600 !important;
+      font-size: 0.95rem !important;
+      letter-spacing: 0.02em !important;
+      text-decoration: none !important;
+      cursor: pointer !important;
+      transition: all 0.25s ease !important;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
+    }
+    
+    .disc-panel__btn--secondary:hover, 
+    .disc-panel__btn--secondary:focus {
+      background-color: #f0f0f0 !important;
+      color: #000000 !important;
+      transform: translateY(-2px) !important;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25) !important;
+    }
+
+    .disc-panel__btn--secondary svg {
+      width: 16px !important;
+      height: 16px !important;
+      stroke: currentColor !important;
+      stroke-width: 2 !important;
+      fill: none !important;
+      transition: transform 0.2s ease !important;
+    }
+
+    .disc-panel__btn--secondary:hover svg {
+      transform: translateX(3px) !important;
+    }
   </style>
 </head>
 <!-- Google tag (gtag.js) -->
@@ -206,7 +248,7 @@
               <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
             </svg>
           </button>
-        </div>
+          
           <button class="disc-panel__btn disc-panel__btn--secondary" type="button"
                   onclick="window.location.href='infusion-center.html'">
             Infusion &amp; Wellness Suite
@@ -214,6 +256,7 @@
               <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
             </svg>
           </button>
+        </div>
       </div><!-- /disc-panel--neuro -->
 
       <!-- CENTER DIVIDER -->
@@ -266,7 +309,7 @@
               <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
             </svg>
           </button>
-        </div>
+          
           <button class="disc-panel__btn disc-panel__btn--secondary" type="button"
                   onclick="window.location.href='infusion-center.html'">
             Infusion &amp; Wellness Suite
@@ -274,6 +317,7 @@
               <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
             </svg>
           </button>
+        </div>
       </div><!-- /disc-panel--aesthetic -->
 
     </section><!-- /disciplines-split -->
