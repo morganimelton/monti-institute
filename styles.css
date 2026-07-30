@@ -899,3 +899,47 @@ div[id*="Simplify360"] iframe {
   border-color: #111111 !important;
   color: #ffffff !important;
 }
+/* ==========================================================================
+   MIGRAINE MODE BUTTON SPACING & ALIGNMENT FIX
+   ========================================================================== */
+
+/* Give the toggle wrapper spacing from the last nav item (CONTACT) */
+.dark-toggle,
+.nav__migraine-toggle,
+button[class*="dark-toggle"] {
+  margin-left: 2.5rem !important;  /* Creates breathing room from CONTACT link */
+  padding: 0.45rem 0.9rem !important; /* Adds internal padding so text isn't cramped */
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.5rem !important;         /* Spaces out the sun/eye icon from the text */
+  border: 1px solid rgba(154, 128, 96, 0.3) !important;
+  border-radius: 20px !important;  /* Pill shape */
+  background-color: transparent !important;
+  cursor: pointer !important;
+  white-space: nowrap !important;
+  flex-shrink: 0 !important;
+}
+
+/* Ensure the icon inside is vertically centered */
+.dark-toggle svg,
+.dark-toggle__icon {
+  width: 14px !important;
+  height: 14px !important;
+  display: block !important;
+}
+
+/* Hover state */
+.dark-toggle:hover,
+.nav__migraine-toggle:hover {
+  border-color: #9A8060 !important;
+  background-color: rgba(154, 128, 96, 0.08) !important;
+}
+
+/* On medium/laptop screens, shrink margin slightly so it doesn't wrap */
+@media (max-width: 1100px) {
+  .dark-toggle,
+  .nav__migraine-toggle {
+    margin-left: 1.25rem !important;
+    padding: 0.35rem 0.7rem !important;
+  }
+}
