@@ -34,6 +34,41 @@
   </script>
   <!-- End Boulevard Self-Booking Overlay -->
 
+  <!-- CHERRY WIDGET BEGIN -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400..900&family=Slabo+27px&family=Lato:wght@100;300;400;700;900&family=Raleway:wght@100..900&family=Montserrat:wght@100..900&family=Oswald:wght@200..700&family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@100..900&family=Source+Sans+3:wght@200..900&family=PT+Sans:wght@400;700&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet" />
+  <script>
+    (function (w, d, s, o, f, js, fjs) {
+        w[o] = w[o] || function () {
+            (w[o].q = w[o].q || []).push(arguments);
+        };
+        (js = d.createElement(s)), (fjs = d.getElementsByTagName(s)[0]);
+        js.id = o;
+        js.src = f;
+        js.async = 1;
+        fjs.parentNode.insertBefore(js, fjs);
+    })(window, document, "script", "_hw", "https://files.withcherry.com/widgets/widget.js");
+    _hw("init", {
+        debug: false,
+        variables: {
+            slug: 'monti-institute-of-neuro-aesthetics',
+            name: 'Monti Institute of Neuro Aesthetics', 
+            images: [6],
+            customLogo: '',
+            defaultPurchaseAmount: 1000,
+            customImage: '', 
+            imageCategory: 'other',
+            language: 'en',
+        },
+        styles: {
+            primaryColor: '#c4a97d',
+            secondaryColor: 'rgba(196, 169, 125, 0.1)',
+            fontFamily: 'DM Sans',
+            headerFontFamily: 'Cormorant Garamond',
+        }
+    }, ['hero','calculator','howitworks','faq']);
+  </script>
+  <!-- CHERRY WIDGET END -->
+
   <style>
     /* Equal Height Card Layout Styles for Digital Concierge */
     .concierge-options {
@@ -93,6 +128,107 @@
 
     .disc-panel__btn--secondary:hover svg {
       transform: translateX(3px) !important;
+    }
+
+    /* Patient Resources & Access Section */
+    .patient-resources-section {
+      padding: 5rem 1.5rem !important;
+      background-color: rgba(14, 32, 47, 0.25) !important;
+      border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+    }
+    .patient-resources-inner {
+      max-width: 1100px !important;
+      margin: 0 auto !important;
+    }
+    .patient-resources__header {
+      text-align: center !important;
+      margin-bottom: 3rem !important;
+    }
+    .patient-resources__eyebrow {
+      font-size: 0.8rem !important;
+      text-transform: uppercase !important;
+      letter-spacing: 0.12em !important;
+      color: #c4a97d !important;
+      display: block !important;
+      margin-bottom: 0.5rem !important;
+    }
+    .patient-resources__heading {
+      font-family: 'Cormorant Garamond', serif !important;
+      font-size: 2.25rem !important;
+      font-weight: 400 !important;
+      color: #ffffff !important;
+      margin-bottom: 0.75rem !important;
+    }
+    .patient-resources__sub {
+      font-size: 0.95rem !important;
+      color: rgba(255, 255, 255, 0.65) !important;
+      max-width: 600px !important;
+      margin: 0 auto !important;
+      line-height: 1.6 !important;
+    }
+    .patient-resources-grid {
+      display: grid !important;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)) !important;
+      gap: 2rem !important;
+      align-items: stretch !important;
+    }
+    .resource-card {
+      background: rgba(255, 255, 255, 0.03) !important;
+      border: 1px solid rgba(255, 255, 255, 0.1) !important;
+      border-radius: 6px !important;
+      padding: 2.25rem 2rem !important;
+      display: flex !important;
+      flex-direction: column !important;
+      transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease !important;
+    }
+    .resource-card:hover {
+      transform: translateY(-3px) !important;
+      border-color: rgba(196, 169, 125, 0.5) !important;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3) !important;
+    }
+    .resource-card__icon {
+      color: #c4a97d !important;
+      margin-bottom: 1rem !important;
+    }
+    .resource-card__badge {
+      font-size: 0.75rem !important;
+      text-transform: uppercase !important;
+      letter-spacing: 0.08em !important;
+      color: #c4a97d !important;
+      margin-bottom: 0.5rem !important;
+      display: block !important;
+    }
+    .resource-card__title {
+      font-family: 'Cormorant Garamond', serif !important;
+      font-size: 1.6rem !important;
+      color: #ffffff !important;
+      margin-bottom: 0.75rem !important;
+    }
+    .resource-card__desc {
+      font-size: 0.9rem !important;
+      line-height: 1.6 !important;
+      color: rgba(255, 255, 255, 0.65) !important;
+      margin-bottom: 2rem !important;
+      flex-grow: 1 !important;
+    }
+    .resource-card__btn {
+      width: 100 !important;
+      text-align: center !important;
+      justify-content: center !important;
+      padding: 0.85rem 1.25rem !important;
+      border-radius: 4px !important;
+      text-decoration: none !important;
+      font-weight: 500 !important;
+    }
+
+    /* Cherry Embedded Container Wrapper */
+    .cherry-embedded-wrapper {
+      max-width: 1100px;
+      margin: 3rem auto 0;
+      padding: 2rem;
+      background: rgba(0, 0, 0, 0.2);
+      border: 1px solid rgba(196, 169, 125, 0.2);
+      border-radius: 6px;
     }
 
     /* Spacious Disclaimer & Legal Notice Styling */
@@ -293,7 +429,7 @@
         Specialized care for migraine, headache disorders, neurologic pain, facial aesthetics, and regenerative medicine.
       </p>
       
-      <!-- HERO DUAL CTA BUTTONS (BOULEVARD INTEGRATED) -->
+      <!-- HERO DUAL CTA BUTTONS -->
       <div class="hero-cta-container" style="display: flex; gap: 1.25rem; justify-content: center; align-items: center; margin-top: 2.25rem; margin-bottom: 3.5rem; flex-wrap: wrap;">
         <a href="contact.html" class="hero-btn hero-btn-primary btn btn--primary" data-blvd-booking="true" style="padding: 0.9rem 2rem; border-radius: 4px; text-decoration: none; font-weight: 500;">
           Schedule a Consultation
@@ -771,7 +907,7 @@
         </div>
       </div>
 
-      <!-- FINAL STATE (BOULEVARD INTEGRATED) -->
+      <!-- FINAL STATE -->
       <div class="concierge-panel" id="cf-final">
         <div class="concierge-final">
           <span class="concierge-final__summary" id="cf-summary-label">
@@ -796,6 +932,57 @@
       </div>
 
     </section><!-- /concierge-flow -->
+
+    <!-- PATIENT RESOURCES & ACCESS SECTION -->
+    <section class="patient-resources-section" aria-label="Patient Portal and Care Financing">
+      <div class="patient-resources-inner">
+        <div class="patient-resources__header">
+          <span class="patient-resources__eyebrow">Patient Experience</span>
+          <h2 class="patient-resources__heading">Patient Resources &amp; Access</h2>
+          <p class="patient-resources__sub">Manage your appointments, access clinical records, or apply for zero-impact payment plans.</p>
+        </div>
+
+        <div class="patient-resources-grid">
+          <!-- CARD 1: BOULEVARD PATIENT PORTAL -->
+          <div class="resource-card">
+            <div class="resource-card__icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            </div>
+            <span class="resource-card__badge">Self-Service Portal</span>
+            <h3 class="resource-card__title">Boulevard Patient Portal</h3>
+            <p class="resource-card__desc">
+              Book or reschedule treatments, view treatment history, update clinical intake forms, and manage your schedule anytime.
+            </p>
+            <a href="https://blvd.app/@monti-institute-of-neuro-aesthetics/login" target="_blank" rel="noopener" class="disc-panel__btn resource-card__btn">
+              Access Patient Portal &rarr;
+            </a>
+          </div>
+
+          <!-- CARD 2: CHERRY FINANCING -->
+          <div class="resource-card">
+            <div class="resource-card__icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+            </div>
+            <span class="resource-card__badge">Flexible Payment Plans</span>
+            <h3 class="resource-card__title">Cherry Patient Financing</h3>
+            <p class="resource-card__desc">
+              Split treatment costs into manageable monthly payments. Fast 60-second approval with <strong>no impact on your credit score</strong> and 0% APR options available.
+            </p>
+            <a href="#hero" onclick="if(window._hw) { _hw('open'); } return false;" class="disc-panel__btn disc-panel__btn--secondary resource-card__btn">
+              Apply With Cherry &rarr;
+            </a>
+          </div>
+        </div>
+
+        <!-- EMBEDDED CHERRY WIDGET CONTAINERS -->
+        <div class="cherry-embedded-wrapper">
+          <div id="hero"></div>
+          <div id="calculator"></div>
+          <div id="howitworks"></div>
+          <div id="faq"></div>
+        </div>
+      </div>
+    </section>
 
   </main>
 
