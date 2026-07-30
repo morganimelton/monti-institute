@@ -6738,7 +6738,7 @@ html { scroll-snap-type: none; }
       .dark-toggle { padding: 0.35rem 0.5rem; }
     }
 
-    /* Migraine toggle  fixed to right edge of nav */
+    /* Migraine toggle  fixed to right edge of nav */
     .nav__migraine-toggle {
       position: fixed;
       top: 50%;
@@ -7069,7 +7069,7 @@ body.dark-theme h4 {
 }
 body.dark-theme p {
   color: rgba(230,225,218,0.72) !important;
-}}
+}
 
 /* 
    NAV DROPDOWNS
@@ -7314,7 +7314,7 @@ footer {
   position: relative;
   z-index: 10;
   background: rgba(26,22,20,0.95) !important;
-}}
+}
 /*  Footer always visible  */
 body > footer,
 #js-outlet + footer,
@@ -7330,7 +7330,6 @@ main + footer {
   flex-wrap: wrap !important;
   gap: 1rem !important;
   margin-top: 2rem !important;
-}
 }
 /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
    LEGACY DEDICATION — infusion-center.html
@@ -8049,22 +8048,8 @@ body.dark-theme .consent-disclosure__text {
   .ba-pair__img { aspect-ratio: 4 / 3; }
 }
 
-/* ═══════════════════════════════════════════════════════════
-   ADDITIONS BELOW THIS LINE — added 2026-07-13
-   Results gallery + before/after slider, legal-document
-   typography (.privacy-section family), and footer 3-column
-   + contrast-fix overrides. Your existing .site-disclaimer
-   rules (above this line) are untouched — this bundle skips
-   re-adding them since they're already live and working.
-   ═══════════════════════════════════════════════════════════ */
-
 /* ============================================================
    RESULTS GALLERY + BEFORE/AFTER SLIDER
-   Append this block to styles.css (anywhere after the design
-   tokens in :root). Reuses existing tokens: --gold, --charcoal,
-   --stone, --ivory, --muted, --taupe, --deep, --warm-white,
-   --f-display, --f-body. Reuses .section, .section__label,
-   .section__heading, .hipaa-section__label/__text patterns.
    ============================================================ */
 
 /* ── Section header ── */
@@ -8230,10 +8215,7 @@ body.dark-theme .consent-disclosure__text {
   border-top: 1px solid var(--stone);
 }
 
-/* ── Consent / model-release notice ──
-   Reuses .hipaa-section__label / .hipaa-section__text, defined
-   elsewhere in styles.css, for visual consistency with existing
-   legal copy. */
+/* ── Consent / model-release notice ── */
 .gallery-consent {
   max-width: var(--max-w-prose);
   margin-inline: auto;
@@ -8292,25 +8274,10 @@ body.dark-theme .gallery-consent { border-color: rgba(255,255,255,0.08); }
 /* ============================================================
    LEGAL DOCUMENT STYLES  privacy-policy.html, medical-disclaimer.html,
    accessibility.html
-
-   These classes (.privacy-section, .privacy-body, .privacy-list,
-   .privacy-address, .site-disclaimer) are already used in your
-   live privacy-policy.html markup but have no matching rules in
-   styles.css, so that page is currently rendering with unstyled
-   headings, default bullet markers, and no visual rhythm between
-   sections. This block fixes that and gives you one system to
-   reuse across all three legal pages, so they read as one
-   consistent, editorial-feeling document set rather than three
-   different treatments.
-
-   Append anywhere after your other typography rules.
    ============================================================ */
 
 .privacy-body { max-width: var(--max-w-prose); margin-inline: auto; }
 
-/* Optional table of contents  add to a page if it's long enough
-   to benefit (privacy-policy.html, at 12 sections, is a good
-   candidate). Safe to omit on shorter pages. */
 .privacy-toc {
   border: 1px solid var(--stone);
   background: var(--warm-white);
@@ -8334,7 +8301,6 @@ body.dark-theme .gallery-consent { border-color: rgba(255,255,255,0.08); }
   .privacy-toc ol { grid-template-columns: 1fr; }
 }
 
-/* Section rhythm */
 .privacy-section {
   margin-block-end: clamp(3rem, 5vw, 4rem);
   padding-block-end: clamp(3rem, 5vw, 4rem);
@@ -8343,8 +8309,6 @@ body.dark-theme .gallery-consent { border-color: rgba(255,255,255,0.08); }
 }
 .privacy-section:last-of-type { border-bottom: none; }
 
-/* Callout variant  used for the SMS section, or anything that
-   deserves a touch more visual weight than a standard section */
 .privacy-section--callout {
   background: var(--ivory);
   padding: clamp(2rem, 4vw, 2.75rem) clamp(2rem, 4vw, 2.75rem) clamp(2.5rem, 4vw, 3.25rem);
@@ -8425,8 +8389,7 @@ body.dark-theme .privacy-section code { background: rgba(255,255,255,0.08); }
 /* ============================================================
    FOOTER  extends the existing ".footer" rules above with a 3rd
    column (clinic address) and a WCAG contrast fix on the legal
-   links/copyright text. These are additive overrides that win
-   on cascade order since they're declared later in the file.
+   links/copyright text.
    ============================================================ */
 .footer__inner { grid-template-columns: 1.3fr 1fr 1fr; }
 .footer__tagline {
@@ -8453,20 +8416,11 @@ body.dark-theme .privacy-section code { background: rgba(255,255,255,0.08); }
 .footer__copy { color: rgba(248,245,240,0.6); }
 .footer__legal a { color: rgba(248,245,240,0.56); }
 .footer__legal a:hover { color: var(--gold); }
+
 /* ============================================================
    CLINICAL STANDARDS PAGE  cs-hero / cs-page-divider / cs-cta-*
-   None of these classes had any CSS anywhere in the stylesheet,
-   which is why clinical-standards.html looked unstyled and had
-   its hero content sliding underneath the fixed nav bar (nothing
-   was pushing content down to clear it, the way .inner-page does
-   on every other page). This block fixes both: matches the same
-   type scale/spacing as .inner-page__eyebrow/title/lead, and adds
-   the same nav-clearance padding.
-
-   Append to the end of styles.css.
    ============================================================ */
 
-/* Hero  mirrors .inner-page__eyebrow/title/lead exactly */
 .cs-hero {
   padding-block-start: calc(var(--nav-h) + var(--sp-page-top));
   padding-block-end: clamp(1.5rem, 3vw, 2.5rem);
@@ -8492,14 +8446,12 @@ body.dark-theme .privacy-section code { background: rgba(255,255,255,0.08); }
   color: var(--muted); max-width: 62ch; line-height: 1.88;
 }
 
-/* Section divider  used repeatedly between commitment blocks */
 .cs-page-divider {
   border: none; height: 1px; background: var(--stone);
   max-width: var(--max-w-content);
   margin: clamp(2.5rem, 4.5vw, 4rem) auto;
 }
 
-/* Closing CTA band */
 .cs-cta-section {
   background: var(--ivory);
   padding-block: clamp(4rem, 7vw, 6rem);
@@ -8542,12 +8494,7 @@ body.dark-theme .cs-cta-section { background: #1A1614; }
 }
 
 /* ============================================================
-   NAV  "Book Now" button, triggers the Boulevard Self-Booking
-   overlay via the #book-now URL hash. Site-wide addition: place
-   this same <a href="#book-now" class="nav__book-btn">Book Now</a>
-   in every page's nav, right after </ul> (nav__list) and before
-   the Migraine Mode toggle button, plus the Boulevard script
-   snippet before </body> on every page.
+   NAV  "Book Now" button
    ============================================================ */
 .nav__book-btn {
   display: inline-flex; align-items: center; justify-content: center;
@@ -8572,9 +8519,7 @@ body.dark-theme .nav__book-btn:hover { background: var(--gold-lt, #C4A97D); }
 }
 
 /* ============================================================
-   NAV  "Client Login" utility link, sits beside .nav__book-btn.
-   Quiet by design  Book Now stays the visually dominant action;
-   this is for returning patients who already know what they want.
+   NAV  "Client Login" utility link
    ============================================================ */
 .nav__portal-link {
   font-size: 0.66rem; font-weight: 400; letter-spacing: 0.1em;
@@ -8591,4 +8536,37 @@ body.dark-theme .nav__portal-link:hover { color: var(--gold-lt, #C4A97D); }
 
 @media (max-width: 860px) {
   .nav__portal-link { margin-inline-start: 0; margin-block-start: 1rem; display: block; }
+}
+
+/* ============================================================
+   FIX: "Infusion & Wellness Suite" secondary button contrast
+   Placed at the very end of the stylesheet on purpose — an
+   earlier-declared rule for .disc-panel--aesthetic .disc-panel__btn
+   (the PRIMARY button style) has equal specificity to the
+   secondary-button rule higher up in this file and was winning
+   the cascade by appearing later, silently overwriting the gold
+   background/dark text meant for the secondary button. Putting
+   this fix last (plus !important) guarantees it always wins.
+   ============================================================ */
+.disc-panel--neuro .disc-panel__btn--secondary {
+  background: transparent !important;
+  border: 1.5px solid rgba(255, 255, 255, 0.55) !important;
+  color: #ffffff !important;
+}
+.disc-panel--neuro .disc-panel__btn--secondary:hover {
+  background: rgba(255, 255, 255, 0.12) !important;
+  border-color: rgba(255, 255, 255, 0.8) !important;
+  color: #ffffff !important;
+}
+
+.disc-panel--aesthetic .disc-panel__btn--secondary {
+  background-color: #c5a059 !important;
+  color: #111111 !important;
+  border: 1px solid #c5a059 !important;
+  font-weight: 700 !important;
+}
+.disc-panel--aesthetic .disc-panel__btn--secondary:hover {
+  background-color: #b89250 !important;
+  border-color: #b89250 !important;
+  color: #111111 !important;
 }
