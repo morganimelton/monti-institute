@@ -7,7 +7,7 @@
   <meta name="description" content="Monti Institute of Neuro Aesthetics — Physician-led neurological and aesthetic medicine in Reno, Nevada.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@200;300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 
   <!-- Boulevard Self-Booking Overlay Script -->
@@ -53,8 +53,8 @@
             language: 'en',
         },
         styles: {
-            primaryColor: '#c4a97d',
-            secondaryColor: 'rgba(196, 169, 125, 0.1)',
+            primaryColor: '#B89768',
+            secondaryColor: 'rgba(184, 151, 104, 0.1)',
             fontFamily: 'DM Sans',
             headerFontFamily: 'Cormorant Garamond',
         }
@@ -62,10 +62,118 @@
   </script>
 
   <style>
-    /* NAVY & GOLD BRAND COLOR PALETTE OVERRIDES */
+    /* LIGHT LUXURY BRAND COLOR PALETTE OVERRIDES */
     body {
-      background-color: #050B14 !important;
-      color: #E2E8F0 !important;
+      background-color: #FBF9F5 !important;
+      color: #1A2332 !important;
+      font-family: 'DM Sans', sans-serif !important;
+    }
+
+    /* NAVIGATION LIGHT THEME */
+    .nav {
+      background-color: rgba(251, 249, 245, 0.92) !important;
+      border-bottom: 1px solid rgba(184, 151, 104, 0.25) !important;
+      backdrop-filter: blur(12px) !important;
+    }
+
+    .nav__brand-text {
+      color: #0A1628 !important;
+    }
+
+    .nav__link {
+      color: #2D3748 !important;
+    }
+
+    .nav__link:hover {
+      color: #B89768 !important;
+    }
+
+    /* HERO SECTION ALIGNMENT & LIGHT LUXURY STYLING */
+    .hero {
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      justify-content: center !important;
+      text-align: center !important;
+      max-width: 1280px !important;
+      margin: 0 auto !important;
+      padding: 6rem 1.5rem 3rem !important;
+      box-sizing: border-box !important;
+      position: relative !important;
+    }
+
+    .hero__title {
+      color: #0A1628 !important;
+      font-family: 'Cormorant Garamond', serif !important;
+      font-size: 3.5rem !important;
+      line-height: 1.1 !important;
+    }
+
+    .hero__title em {
+      color: #B89768 !important;
+    }
+
+    .hero__tagline {
+      color: #2D3748 !important;
+      max-width: 800px !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
+      font-size: 1.15rem !important;
+    }
+
+    .hero__sub {
+      color: #4A5568 !important;
+      max-width: 700px !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
+    }
+
+    .hero__eyebrow-text {
+      color: #B89768 !important;
+      letter-spacing: 0.15em !important;
+      font-weight: 600 !important;
+    }
+
+    .hero__eyebrow-rule {
+      background-color: rgba(184, 151, 104, 0.3) !important;
+    }
+
+    .hero-cta-container {
+      display: flex !important;
+      gap: 1.25rem !important;
+      justify-content: center !important;
+      align-items: center !important;
+      margin: 2.5rem auto 1rem !important;
+      width: 100% !important;
+      max-width: 600px !important;
+      flex-wrap: wrap !important;
+    }
+
+    .btn--primary {
+      background-color: #0A1628 !important;
+      color: #FBF9F5 !important;
+      border: 1px solid #0A1628 !important;
+      transition: all 0.25s ease !important;
+      box-shadow: 0 4px 12px rgba(10, 22, 40, 0.15) !important;
+    }
+
+    .btn--primary:hover {
+      background-color: #1A2B42 !important;
+      border-color: #1A2B42 !important;
+      transform: translateY(-2px) !important;
+      box-shadow: 0 6px 18px rgba(10, 22, 40, 0.25) !important;
+    }
+
+    .btn--secondary {
+      background-color: #FFFFFF !important;
+      color: #0A1628 !important;
+      border: 1px solid #B89768 !important;
+      transition: all 0.25s ease !important;
+    }
+
+    .btn--secondary:hover {
+      background-color: #F4EFE6 !important;
+      transform: translateY(-2px) !important;
     }
 
     /* PERFECTLY CENTERED SCROLL INDICATOR */
@@ -84,60 +192,179 @@
       font-size: 0.75rem !important;
       text-transform: uppercase !important;
       letter-spacing: 0.15em !important;
-      color: #C4A97D !important;
+      color: #0A1628 !important;
       font-weight: 600 !important;
-      background: rgba(10, 22, 40, 0.8) !important;
-      border: 1px solid rgba(196, 169, 125, 0.4) !important;
+      background: #FFFFFF !important;
+      border: 1px solid rgba(184, 151, 104, 0.4) !important;
       padding: 0.4rem 1.1rem !important;
       border-radius: 20px !important;
       margin-bottom: 0.5rem !important;
-      backdrop-filter: blur(8px) !important;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05) !important;
       white-space: nowrap !important;
     }
 
     .hero__scroll-track {
       width: 1px !important;
       height: 36px !important;
-      background: linear-gradient(to bottom, #C4A97D, transparent) !important;
+      background: linear-gradient(to bottom, #B89768, transparent) !important;
       margin: 0 auto !important;
     }
 
-    /* HIGH VISIBILITY ACTIVE CONTINUE BUTTON */
-    .concierge-next {
-      background-color: #C4A97D !important;
+    /* SPLIT-PANELS: DEEP ROYAL NAVY & WARM CHAMPAGNE */
+    .disciplines-split {
+      display: grid !important;
+      grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+      gap: 2rem !important;
+      max-width: 1280px !important;
+      margin: 0 auto 5rem !important;
+      padding: 0 1.5rem !important;
+      align-items: stretch !important;
+    }
+
+    .disc-panel {
+      padding: 3.5rem 2.5rem !important;
+      border-radius: 8px !important;
+      display: flex !important;
+      flex-direction: column !important;
+      justify-content: space-between !important;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06) !important;
+      transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+    }
+
+    .disc-panel:hover {
+      transform: translateY(-4px) !important;
+      box-shadow: 0 16px 40px rgba(10, 22, 40, 0.12) !important;
+    }
+
+    /* PANEL 1: ROYAL NAVY */
+    .disc-panel--neuro {
+      background: linear-gradient(145deg, #07101F 0%, #0F2038 100%) !important;
+      border: 1px solid rgba(184, 151, 104, 0.3) !important;
+      color: #FFFFFF !important;
+    }
+
+    .disc-panel--neuro .disc-panel__title {
+      color: #FFFFFF !important;
+    }
+
+    .disc-panel--neuro .disc-panel__copy {
+      color: rgba(255, 255, 255, 0.85) !important;
+    }
+
+    .disc-panel--neuro .disc-panel__list-item {
+      color: rgba(255, 255, 255, 0.9) !important;
+    }
+
+    .disc-panel--neuro .disc-panel__list-dot {
+      background-color: #B89768 !important;
+    }
+
+    .disc-panel--neuro .disc-panel__btn {
+      background-color: #B89768 !important;
       color: #07101F !important;
-      border: 1px solid #C4A97D !important;
-      padding: 0.9rem 2.25rem !important;
-      font-size: 0.95rem !important;
-      font-weight: 700 !important;
-      letter-spacing: 0.05em !important;
-      border-radius: 4px !important;
-      cursor: pointer !important;
-      transition: all 0.25s ease !important;
-      box-shadow: 0 4px 14px rgba(196, 169, 125, 0.3) !important;
-      display: inline-flex !important;
-      align-items: center !important;
-      justify-content: center !important;
-      text-transform: uppercase !important;
+      border: 1px solid #B89768 !important;
+      font-weight: 600 !important;
     }
 
-    .concierge-next:hover:not(:disabled) {
-      background-color: #D4B98D !important;
-      color: #000000 !important;
-      transform: translateY(-2px) !important;
-      box-shadow: 0 6px 18px rgba(196, 169, 125, 0.5) !important;
+    .disc-panel--neuro .disc-panel__btn:hover {
+      background-color: #C8AA7B !important;
     }
 
-    .concierge-next:disabled {
-      background-color: rgba(196, 169, 125, 0.15) !important;
-      color: rgba(255, 255, 255, 0.3) !important;
-      border-color: rgba(196, 169, 125, 0.15) !important;
-      cursor: not-allowed !important;
-      box-shadow: none !important;
-      transform: none !important;
+    .disc-panel--neuro .disc-panel__btn--secondary {
+      background-color: transparent !important;
+      color: #FFFFFF !important;
+      border: 1px solid rgba(255, 255, 255, 0.4) !important;
     }
 
-    /* DIGITAL CONCIERGE CARDS & SELECTION STYLING */
+    .disc-panel--neuro .disc-panel__btn--secondary:hover {
+      background-color: rgba(255, 255, 255, 0.1) !important;
+      border-color: #FFFFFF !important;
+    }
+
+    /* PANEL 2: WARM CHAMPAGNE */
+    .disc-panel--aesthetic {
+      background: linear-gradient(145deg, #F2EBDC 0%, #E6DEC9 100%) !important;
+      border: 1px solid rgba(184, 151, 104, 0.4) !important;
+      color: #0A1628 !important;
+    }
+
+    .disc-panel--aesthetic .disc-panel__title {
+      color: #0A1628 !important;
+    }
+
+    .disc-panel--aesthetic .disc-panel__copy {
+      color: #2D3748 !important;
+    }
+
+    .disc-panel--aesthetic .disc-panel__list-item {
+      color: #1A2332 !important;
+    }
+
+    .disc-panel--aesthetic .disc-panel__list-dot {
+      background-color: #8C6F43 !important;
+    }
+
+    .disc-panel--aesthetic .disc-panel__btn {
+      background-color: #0A1628 !important;
+      color: #FBF9F5 !important;
+      border: 1px solid #0A1628 !important;
+      font-weight: 600 !important;
+    }
+
+    .disc-panel--aesthetic .disc-panel__btn:hover {
+      background-color: #1A2B42 !important;
+    }
+
+    .disc-panel--aesthetic .disc-panel__btn--secondary {
+      background-color: #B89768 !important;
+      color: #07101F !important;
+      border: 1px solid #B89768 !important;
+      font-weight: 600 !important;
+    }
+
+    .disc-panel--aesthetic .disc-panel__btn--secondary:hover {
+      background-color: #A88758 !important;
+    }
+
+    /* PHILOSOPHY & TRUST METRICS LIGHT LUXURY SECTION */
+    .section--dark {
+      background: #0A1628 !important;
+      color: #FFFFFF !important;
+    }
+
+    .trust-metric-card {
+      background: rgba(255, 255, 255, 0.05) !important;
+      border: 1px solid rgba(184, 151, 104, 0.3) !important;
+      padding: 1.5rem !important;
+      border-radius: 6px !important;
+    }
+
+    .trust-metric__num {
+      color: #B89768 !important;
+    }
+
+    /* DIGITAL CONCIERGE LIGHT CARDS & CONTINUATION BUTTON */
+    .concierge-flow {
+      background: #FFFFFF !important;
+      border: 1px solid #EAE3D9 !important;
+      border-radius: 8px !important;
+      padding: 3.5rem 2rem !important;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04) !important;
+    }
+
+    .concierge-flow__heading {
+      color: #0A1628 !important;
+    }
+
+    .concierge-flow__sub {
+      color: #4A5568 !important;
+    }
+
+    .concierge-panel__question {
+      color: #0A1628 !important;
+      font-weight: 500 !important;
+    }
+
     .concierge-options {
       display: grid !important;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)) !important;
@@ -146,8 +373,8 @@
     }
 
     .concierge-option {
-      background: #0A1628 !important;
-      border: 1px solid rgba(196, 169, 125, 0.2) !important;
+      background: #FBF9F5 !important;
+      border: 1px solid #EAE3D9 !important;
       border-radius: 6px !important;
       padding: 1.75rem 1.5rem !important;
       text-align: left !important;
@@ -160,92 +387,115 @@
     }
 
     .concierge-option:hover {
-      border-color: #C4A97D !important;
-      background: #0D1C30 !important;
+      border-color: #B89768 !important;
+      background: #F4EFE6 !important;
       transform: translateY(-2px) !important;
     }
 
     .concierge-option.is-selected {
-      border-color: #C4A97D !important;
-      background: rgba(196, 169, 125, 0.12) !important;
-      box-shadow: 0 0 15px rgba(196, 169, 125, 0.2) !important;
+      border-color: #B89768 !important;
+      background: #F2EBDC !important;
+      box-shadow: 0 0 15px rgba(184, 151, 104, 0.2) !important;
     }
 
     .concierge-option__label {
-      color: #C4A97D !important;
+      color: #B89768 !important;
       font-size: 0.75rem !important;
       text-transform: uppercase !important;
       letter-spacing: 0.1em !important;
       margin-bottom: 0.5rem !important;
+      font-weight: 600 !important;
     }
 
     .concierge-option__title {
-      color: #FFFFFF !important;
+      color: #0A1628 !important;
       font-family: 'Cormorant Garamond', serif !important;
       font-size: 1.4rem !important;
       margin-bottom: 0.75rem !important;
     }
 
     .concierge-option__desc {
-      color: rgba(255, 255, 255, 0.7) !important;
+      color: #4A5568 !important;
       font-size: 0.875rem !important;
       line-height: 1.5 !important;
       margin-top: auto !important;
     }
 
-    /* SPLIT-PANELS: NAVY & CHAMPAGNE */
-    .disciplines-split {
-      display: grid !important;
-      grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-      gap: 2rem !important;
-      max-width: 1280px !important;
-      margin: 0 auto 5rem !important;
-      padding: 0 1.5rem !important;
-      align-items: stretch !important;
+    .concierge-next {
+      background-color: #0A1628 !important;
+      color: #FBF9F5 !important;
+      border: 1px solid #0A1628 !important;
+      padding: 0.9rem 2.25rem !important;
+      font-size: 0.95rem !important;
+      font-weight: 600 !important;
+      letter-spacing: 0.05em !important;
+      border-radius: 4px !important;
+      cursor: pointer !important;
+      transition: all 0.25s ease !important;
+      box-shadow: 0 4px 14px rgba(10, 22, 40, 0.15) !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      text-transform: uppercase !important;
     }
 
-    .disc-panel {
-      padding: 3rem 2.25rem !important;
-      border-radius: 8px !important;
-      display: flex !important;
-      flex-direction: column !important;
-      justify-content: space-between !important;
+    .concierge-next:hover:not(:disabled) {
+      background-color: #B89768 !important;
+      border-color: #B89768 !important;
+      color: #07101F !important;
+      transform: translateY(-2px) !important;
+      box-shadow: 0 6px 18px rgba(184, 151, 104, 0.3) !important;
     }
 
-    .disc-panel--neuro {
-      background: linear-gradient(145deg, #07101F 0%, #0D1C30 100%) !important;
-      border: 1px solid rgba(196, 169, 125, 0.3) !important;
-      color: #FFFFFF !important;
+    .concierge-next:disabled {
+      background-color: #E2E8F0 !important;
+      color: #A0AEC0 !important;
+      border-color: #E2E8F0 !important;
+      cursor: not-allowed !important;
+      box-shadow: none !important;
+      transform: none !important;
     }
 
-    .disc-panel--aesthetic {
-      background: linear-gradient(145deg, #F8F4EC 0%, #EFE8DD 100%) !important;
-      border: 1px solid rgba(196, 169, 125, 0.5) !important;
-      color: #1A1816 !important;
-    }
-
-    /* NAVY & GOLD PATIENT RESOURCES SECTION */
+    /* PATIENT RESOURCES SECTION */
     .patient-resources-section {
       padding: 5rem 1.5rem !important;
-      background: #07101F !important;
-      border-top: 1px solid rgba(196, 169, 125, 0.2) !important;
+      background: #F4EFE6 !important;
+      border-top: 1px solid #EAE3D9 !important;
+      border-bottom: 1px solid #EAE3D9 !important;
+    }
+
+    .patient-resources__heading {
+      color: #0A1628 !important;
+    }
+
+    .patient-resources__sub {
+      color: #4A5568 !important;
     }
 
     .resource-card {
-      background: #0A1628 !important;
-      border: 1px solid rgba(196, 169, 125, 0.2) !important;
+      background: #FFFFFF !important;
+      border: 1px solid #EAE3D9 !important;
       border-radius: 6px !important;
       padding: 2.25rem 2rem !important;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03) !important;
     }
 
-    /* WELL-SPACED NAVY/GOLD DISCLAIMER */
+    .resource-card__title {
+      color: #0A1628 !important;
+    }
+
+    .resource-card__desc {
+      color: #4A5568 !important;
+    }
+
+    /* WELL-SPACED LIGHT DISCLAIMER */
     .site-disclaimer {
       padding: 2.25rem 1.5rem 2.5rem !important;
       margin-top: 4rem !important;
       margin-bottom: 2.5rem !important;
-      border-top: 1px solid rgba(196, 169, 125, 0.2) !important;
-      border-bottom: 1px solid rgba(196, 169, 125, 0.2) !important;
-      background-color: #07101F !important;
+      border-top: 1px solid #EAE3D9 !important;
+      border-bottom: 1px solid #EAE3D9 !important;
+      background-color: #F4EFE6 !important;
     }
 
     .site-disclaimer__text {
@@ -253,13 +503,20 @@
       margin: 0 auto !important;
       font-size: 0.825rem !important;
       line-height: 1.6 !important;
-      color: rgba(255, 255, 255, 0.6) !important;
+      color: #4A5568 !important;
       text-align: center !important;
     }
 
     .site-disclaimer__text a {
-      color: #C4A97D !important;
+      color: #8C6F43 !important;
       text-decoration: underline !important;
+    }
+
+    /* FOOTER LIGHT THEME */
+    .footer {
+      background-color: #07101F !important;
+      color: #FFFFFF !important;
+      padding-top: 3.5rem !important;
     }
 
     @media (max-width: 992px) {
@@ -394,10 +651,10 @@
       </div>
     </section>
 
-    <!-- 2. SPLIT PANELS (NAVY & CHAMPAGNE) -->
+    <!-- 2. SPLIT PANELS (DEEP ROYAL NAVY & WARM CHAMPAGNE) -->
     <section class="disciplines-split" id="care-disciplines" aria-label="Our Disciplines">
 
-      <!-- LEFT PANEL: NEUROLOGICAL MEDICINE (RICH DARK NAVY) -->
+      <!-- LEFT PANEL: NEUROLOGICAL MEDICINE (DEEP ROYAL NAVY) -->
       <div class="disc-panel disc-panel--neuro"
            role="button"
            tabindex="0"
@@ -406,7 +663,7 @@
 
         <div class="disc-panel__content">
           <h2 class="disc-panel__title">Neurological<br>Medicine</h2>
-          <div class="disc-panel__rule" style="width: 40px; height: 1px; background: #C4A97D; margin: 1rem 0 1.25rem;"></div>
+          <div class="disc-panel__rule" style="width: 40px; height: 1px; background: #B89768; margin: 1rem 0 1.25rem;"></div>
           <p class="disc-panel__copy">
             Physician-led diagnosis and management of migraine, headache disorders,
             and neurologic pain through structured, evidence-based protocols.
@@ -450,7 +707,7 @@
 
         <div class="disc-panel__content">
           <h2 class="disc-panel__title">Aesthetic<br>Medicine</h2>
-          <div class="disc-panel__rule" style="width: 40px; height: 1px; background: #A38855; margin: 1rem 0 1.25rem;"></div>
+          <div class="disc-panel__rule" style="width: 40px; height: 1px; background: #8C6F43; margin: 1rem 0 1.25rem;"></div>
           <p class="disc-panel__copy">
             Advanced facial therapeutics delivered through physician-supervised
             protocols &mdash; injectables, energy-based devices, and regenerative
@@ -492,12 +749,12 @@
     <section class="section section--xl section--dark" aria-label="Institute philosophy">
       <div class="philosophy-bg" aria-hidden="true"></div>
       <div class="philosophy__inner" style="max-width: 1000px; margin: 0 auto; text-align: center;">
-        <span class="section__label reveal" style="color:#C4A97D;">Philosophy</span>
+        <span class="section__label reveal" style="color:#B89768;">Philosophy</span>
         <blockquote class="philosophy__quote reveal" style="font-family:'Cormorant Garamond', serif; font-size: 2.25rem; color:#FFF; margin:1rem 0;">
           &ldquo;Two disciplines. One physician. One standard of care.&rdquo;
         </blockquote>
-        <p class="philosophy__source reveal" style="color:#C4A97D; text-transform:uppercase; letter-spacing:0.1em; font-size:0.85rem; margin-bottom:1.5rem;">Founding Principles</p>
-        <p class="philosophy__body" style="line-height:1.7; color:rgba(255,255,255,0.8);">
+        <p class="philosophy__source reveal" style="color:#B89768; text-transform:uppercase; letter-spacing:0.1em; font-size:0.85rem; margin-bottom:1.5rem;">Founding Principles</p>
+        <p class="philosophy__body" style="line-height:1.7; color:rgba(255,255,255,0.85);">
           Monti Institute was founded on a single conviction:
           neurological care and aesthetic medicine are most effective
           when practiced together, by a physician who understands both.
@@ -507,29 +764,29 @@
 
         <!-- TRUST METRICS STRIP -->
         <div class="trust-metrics" style="display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap:1.5rem; margin-top:3rem;">
-          <div class="trust-metric-card" style="background:#0A1628; border:1px solid rgba(196,169,125,0.3); padding:1.5rem; border-radius:6px;">
-            <span class="trust-metric__num" style="font-family:'Cormorant Garamond', serif; font-size:2.2rem; color:#C4A97D;">100%</span>
-            <span class="trust-metric__title" style="font-size:0.85rem; color:rgba(255,255,255,0.8); display:block; margin-top:0.25rem;">Physician-Supervised Care</span>
+          <div class="trust-metric-card">
+            <span class="trust-metric__num" style="font-family:'Cormorant Garamond', serif; font-size:2.2rem; color:#B89768;">100%</span>
+            <span class="trust-metric__title" style="font-size:0.85rem; color:rgba(255,255,255,0.85); display:block; margin-top:0.25rem;">Physician-Supervised Care</span>
           </div>
-          <div class="trust-metric-card" style="background:#0A1628; border:1px solid rgba(196,169,125,0.3); padding:1.5rem; border-radius:6px;">
-            <span class="trust-metric__num" style="font-family:'Cormorant Garamond', serif; font-size:2.2rem; color:#C4A97D;">PREEMPT</span>
-            <span class="trust-metric__title" style="font-size:0.85rem; color:rgba(255,255,255,0.8); display:block; margin-top:0.25rem;">FDA Chronic Migraine Protocol</span>
+          <div class="trust-metric-card">
+            <span class="trust-metric__num" style="font-family:'Cormorant Garamond', serif; font-size:2.2rem; color:#B89768;">PREEMPT</span>
+            <span class="trust-metric__title" style="font-size:0.85rem; color:rgba(255,255,255,0.85); display:block; margin-top:0.25rem;">FDA Chronic Migraine Protocol</span>
           </div>
-          <div class="trust-metric-card" style="background:#0A1628; border:1px solid rgba(196,169,125,0.3); padding:1.5rem; border-radius:6px;">
-            <span class="trust-metric__num" style="font-family:'Cormorant Garamond', serif; font-size:2.2rem; color:#C4A97D;">Tier 1–3</span>
-            <span class="trust-metric__title" style="font-size:0.85rem; color:rgba(255,255,255,0.8); display:block; margin-top:0.25rem;">Acute IV Rescue Infusions</span>
+          <div class="trust-metric-card">
+            <span class="trust-metric__num" style="font-family:'Cormorant Garamond', serif; font-size:2.2rem; color:#B89768;">Tier 1–3</span>
+            <span class="trust-metric__title" style="font-size:0.85rem; color:rgba(255,255,255,0.85); display:block; margin-top:0.25rem;">Acute IV Rescue Infusions</span>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- DIGITAL CONCIERGE FLOW WITH WORKING CONTINUE BUTTON -->
-    <section class="concierge-flow" aria-label="Clinical intake concierge" style="max-width:1100px; margin: 5rem auto; padding:0 1.5rem;">
-      <span class="concierge-flow__label" style="color:#C4A97D; text-transform:uppercase; letter-spacing:0.12em; font-size:0.8rem; display:block; text-align:center;">Digital Concierge</span>
-      <h2 class="concierge-flow__heading" style="font-family:'Cormorant Garamond', serif; font-size:2.25rem; color:#FFF; text-align:center; margin:0.5rem 0;">
+    <!-- DIGITAL CONCIERGE FLOW WITH LIGHT CARDS -->
+    <section class="concierge-flow" aria-label="Clinical intake concierge" style="max-width:1100px; margin: 5rem auto; padding:3.5rem 2rem;">
+      <span class="concierge-flow__label" style="color:#B89768; text-transform:uppercase; letter-spacing:0.12em; font-size:0.8rem; display:block; text-align:center; font-weight:600;">Digital Concierge</span>
+      <h2 class="concierge-flow__heading" style="font-family:'Cormorant Garamond', serif; font-size:2.25rem; color:#0A1628; text-align:center; margin:0.5rem 0;">
         Let us guide you to the right care.
       </h2>
-      <p class="concierge-flow__sub" style="text-align:center; color:rgba(255,255,255,0.7); max-width:600px; margin:0 auto 2.5rem;">
+      <p class="concierge-flow__sub" style="text-align:center; color:#4A5568; max-width:600px; margin:0 auto 2.5rem;">
         Answer three brief questions and we will direct you to the appropriate pathway.
       </p>
 
@@ -541,7 +798,7 @@
 
       <!-- STEP 1 -->
       <div class="concierge-panel is-active" id="cf-step-1">
-        <p class="concierge-panel__question" style="font-size:1.1rem; color:#FFF; margin-bottom:1.5rem;">
+        <p class="concierge-panel__question" style="font-size:1.1rem; color:#0A1628; margin-bottom:1.5rem;">
           Which area of clinical care brings you here today?
         </p>
         <div class="concierge-options" role="group" aria-label="Select your care pathway">
@@ -583,7 +840,7 @@
 
       <!-- STEP 2: Neuro -->
       <div class="concierge-panel" id="cf-step-2-neuro" style="display:none;">
-        <p class="concierge-panel__question" style="font-size:1.1rem; color:#FFF; margin-bottom:1.5rem;">
+        <p class="concierge-panel__question" style="font-size:1.1rem; color:#0A1628; margin-bottom:1.5rem;">
           What best describes your current neurological situation?
         </p>
         <div class="concierge-options" role="group" aria-label="Select your clinical situation">
@@ -599,14 +856,14 @@
           </button>
         </div>
         <div class="concierge-nav" style="margin-top:2rem; display:flex; justify-content:space-between;">
-          <button class="concierge-back btn btn--ghost" type="button" data-back="1">&larr; Back</button>
+          <button class="concierge-back btn btn--secondary" type="button" data-back="1">&larr; Back</button>
           <button class="concierge-next" type="button" id="cf-next-2-neuro" disabled>Continue &rarr;</button>
         </div>
       </div>
 
       <!-- STEP 2: Aesthetic -->
       <div class="concierge-panel" id="cf-step-2-aesthetic" style="display:none;">
-        <p class="concierge-panel__question" style="font-size:1.1rem; color:#FFF; margin-bottom:1.5rem;">
+        <p class="concierge-panel__question" style="font-size:1.1rem; color:#0A1628; margin-bottom:1.5rem;">
           What best describes your aesthetic goals?
         </p>
         <div class="concierge-options" role="group" aria-label="Select your aesthetic goals">
@@ -622,14 +879,14 @@
           </button>
         </div>
         <div class="concierge-nav" style="margin-top:2rem; display:flex; justify-content:space-between;">
-          <button class="concierge-back btn btn--ghost" type="button" data-back="1">&larr; Back</button>
+          <button class="concierge-back btn btn--secondary" type="button" data-back="1">&larr; Back</button>
           <button class="concierge-next" type="button" id="cf-next-2-aesthetic" disabled>Continue &rarr;</button>
         </div>
       </div>
 
       <!-- STEP 2: Infusion -->
       <div class="concierge-panel" id="cf-step-2-infusion" style="display:none;">
-        <p class="concierge-panel__question" style="font-size:1.1rem; color:#FFF; margin-bottom:1.5rem;">
+        <p class="concierge-panel__question" style="font-size:1.1rem; color:#0A1628; margin-bottom:1.5rem;">
           What best describes your interest in our Infusion Suite?
         </p>
         <div class="concierge-options" role="group" aria-label="Select your infusion goals">
@@ -645,14 +902,14 @@
           </button>
         </div>
         <div class="concierge-nav" style="margin-top:2rem; display:flex; justify-content:space-between;">
-          <button class="concierge-back btn btn--ghost" type="button" data-back="1">&larr; Back</button>
+          <button class="concierge-back btn btn--secondary" type="button" data-back="1">&larr; Back</button>
           <button class="concierge-next" type="button" id="cf-next-2-infusion" disabled>Continue &rarr;</button>
         </div>
       </div>
 
       <!-- STEP 2: Both -->
       <div class="concierge-panel" id="cf-step-2-both" style="display:none;">
-        <p class="concierge-panel__question" style="font-size:1.1rem; color:#FFF; margin-bottom:1.5rem;">
+        <p class="concierge-panel__question" style="font-size:1.1rem; color:#0A1628; margin-bottom:1.5rem;">
           Which specialty would you like to explore first?
         </p>
         <div class="concierge-options" role="group" aria-label="Select your primary interest">
@@ -668,14 +925,14 @@
           </button>
         </div>
         <div class="concierge-nav" style="margin-top:2rem; display:flex; justify-content:space-between;">
-          <button class="concierge-back btn btn--ghost" type="button" data-back="1">&larr; Back</button>
+          <button class="concierge-back btn btn--secondary" type="button" data-back="1">&larr; Back</button>
           <button class="concierge-next" type="button" id="cf-next-2-both" disabled>Continue &rarr;</button>
         </div>
       </div>
 
       <!-- STEP 3 -->
       <div class="concierge-panel" id="cf-step-3" style="display:none;">
-        <p class="concierge-panel__question" style="font-size:1.1rem; color:#FFF; margin-bottom:1.5rem;">
+        <p class="concierge-panel__question" style="font-size:1.1rem; color:#0A1628; margin-bottom:1.5rem;">
           How would you like to proceed?
         </p>
         <div class="concierge-options" role="group" aria-label="Select how to proceed">
@@ -691,18 +948,18 @@
           </button>
         </div>
         <div class="concierge-nav" style="margin-top:2rem; display:flex; justify-content:space-between;">
-          <button class="concierge-back btn btn--ghost" type="button" data-back="2">&larr; Back</button>
+          <button class="concierge-back btn btn--secondary" type="button" data-back="2">&larr; Back</button>
           <button class="concierge-next" type="button" id="cf-next-3" disabled>See My Pathway &rarr;</button>
         </div>
       </div>
 
       <!-- FINAL STATE -->
       <div class="concierge-panel" id="cf-final" style="display:none; text-align:center;">
-        <div class="concierge-final" style="background:#0A1628; border:1px solid #C4A97D; padding:2.5rem; border-radius:8px;">
-          <span class="concierge-final__summary" id="cf-summary-label" style="color:#C4A97D; font-size:0.9rem; text-transform:uppercase; letter-spacing:0.1em; display:block; margin-bottom:0.75rem;">
+        <div class="concierge-final" style="background:#F2EBDC; border:1px solid #B89768; padding:2.5rem; border-radius:8px;">
+          <span class="concierge-final__summary" id="cf-summary-label" style="color:#8C6F43; font-size:0.9rem; text-transform:uppercase; letter-spacing:0.1em; display:block; margin-bottom:0.75rem; font-weight:600;">
             Your Pathway: Neurological Medicine
           </span>
-          <p class="concierge-final__msg" id="cf-final-msg" style="font-size:1.1rem; color:#FFF; max-width:600px; margin:0 auto 2rem; line-height:1.6;">
+          <p class="concierge-final__msg" id="cf-final-msg" style="font-size:1.1rem; color:#0A1628; max-width:600px; margin:0 auto 2rem; line-height:1.6;">
             We are ready when you are. Your first visit is an extended, unhurried evaluation with Dr. Monti.
           </p>
           <div class="concierge-final__actions" id="cf-final-actions" style="display:flex; justify-content:center; gap:1rem; flex-wrap:wrap;">
@@ -728,14 +985,14 @@
           <!-- CARD 1: BOULEVARD PATIENT PORTAL -->
           <div class="resource-card">
             <div class="resource-card__icon">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#B89768" stroke-width="1.5"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
             </div>
             <span class="resource-card__badge">Self-Service Portal</span>
             <h3 class="resource-card__title">Boulevard Patient Portal</h3>
             <p class="resource-card__desc">
               Book or reschedule treatments, view treatment history, update clinical intake forms, and manage your schedule anytime.
             </p>
-            <a href="https://blvd.app/@monti-institute-of-neuro-aesthetics/login" target="_blank" rel="noopener" class="disc-panel__btn resource-card__btn">
+            <a href="https://blvd.app/@monti-institute-of-neuro-aesthetics/login" target="_blank" rel="noopener" class="btn btn--primary resource-card__btn">
               Access Patient Portal &rarr;
             </a>
           </div>
@@ -743,14 +1000,14 @@
           <!-- CARD 2: CHERRY FINANCING -->
           <div class="resource-card">
             <div class="resource-card__icon">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#B89768" stroke-width="1.5"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
             </div>
             <span class="resource-card__badge">Flexible Payment Plans</span>
             <h3 class="resource-card__title">Cherry Patient Financing</h3>
             <p class="resource-card__desc">
               Split treatment costs into manageable monthly payments. Fast 60-second approval with <strong>no impact on your credit score</strong> and 0% APR options available.
             </p>
-            <a href="#" onclick="if(window._hw) { _hw('open'); } return false;" class="disc-panel__btn disc-panel__btn--secondary resource-card__btn">
+            <a href="#" onclick="if(window._hw) { _hw('open'); } return false;" class="btn btn--secondary resource-card__btn">
               Apply With Cherry &rarr;
             </a>
           </div>
@@ -777,7 +1034,7 @@
           </span>
           <div>
             <span class="footer__name" style="color:#FFF;">Monti Institute</span><br>
-            <span class="footer__sub" style="color:#C4A97D;">Neuro Aesthetics</span>
+            <span class="footer__sub" style="color:#B89768;">Neuro Aesthetics</span>
           </div>
         </div>
         <p class="footer__tagline" style="color:rgba(255,255,255,0.7); margin-top:0.75rem;">
@@ -785,12 +1042,12 @@
         </p>
       </div>
       <div class="footer__col">
-        <span class="footer__col-title" style="color:#C4A97D; font-size:0.85rem; text-transform:uppercase; letter-spacing:0.1em; display:block; margin-bottom:0.75rem;">Visit &amp; Contact</span>
+        <span class="footer__col-title" style="color:#B89768; font-size:0.85rem; text-transform:uppercase; letter-spacing:0.1em; display:block; margin-bottom:0.75rem;">Visit &amp; Contact</span>
         <address class="footer__address" style="color:rgba(255,255,255,0.8); font-style:normal; line-height:1.5;">
           2440 Vassar Street, Suite 3<br>
           Reno, NV 89502
         </address>
-        <a href="tel:+13213766684" class="footer__contact-link" style="color:#C4A97D; text-decoration:none; display:block; margin-top:0.5rem;">(321) 376-6684 / (321) DR-MONTI</a>
+        <a href="tel:+13213766684" class="footer__contact-link" style="color:#B89768; text-decoration:none; display:block; margin-top:0.5rem;">(321) 376-6684 / (321) DR-MONTI</a>
         <a href="mailto:admin@monti-institute.com" class="footer__contact-link" style="color:rgba(255,255,255,0.8); text-decoration:none; display:block;">admin@monti-institute.com</a>
       </div>
     </div>
