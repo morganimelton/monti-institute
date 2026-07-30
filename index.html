@@ -34,8 +34,7 @@
   </script>
   <!-- End Boulevard Self-Booking Overlay -->
 
-  <!-- CHERRY WIDGET BEGIN -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400..900&family=Slabo+27px&family=Lato:wght@100;300;400;700;900&family=Raleway:wght@100..900&family=Montserrat:wght@100..900&family=Oswald:wght@200..700&family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@100..900&family=Source+Sans+3:wght@200..900&family=PT+Sans:wght@400;700&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet" />
+  <!-- CHERRY MODAL TRIGGER SCRIPT -->
   <script>
     (function (w, d, s, o, f, js, fjs) {
         w[o] = w[o] || function () {
@@ -52,11 +51,6 @@
         variables: {
             slug: 'monti-institute-of-neuro-aesthetics',
             name: 'Monti Institute of Neuro Aesthetics', 
-            images: [6],
-            customLogo: '',
-            defaultPurchaseAmount: 1000,
-            customImage: '', 
-            imageCategory: 'other',
             language: 'en',
         },
         styles: {
@@ -65,9 +59,8 @@
             fontFamily: 'DM Sans',
             headerFontFamily: 'Cormorant Garamond',
         }
-    }, ['hero','calculator','howitworks','faq']);
+    });
   </script>
-  <!-- CHERRY WIDGET END -->
 
   <style>
     /* GLOBAL ALIGNMENT FIXES */
@@ -79,8 +72,9 @@
       text-align: center !important;
       max-width: 1280px !important;
       margin: 0 auto !important;
-      padding: 5rem 1.5rem 2rem !important;
+      padding: 5rem 1.5rem 3rem !important;
       box-sizing: border-box !important;
+      position: relative !important;
     }
 
     .hero__title, .hero__tagline, .hero__sub, .hero__eyebrow {
@@ -102,20 +96,45 @@
       gap: 1.25rem !important;
       justify-content: center !important;
       align-items: center !important;
-      margin: 2.5rem auto 3.5rem !important;
+      margin: 2.5rem auto 1rem !important;
       width: 100% !important;
       max-width: 600px !important;
       flex-wrap: wrap !important;
     }
 
+    /* SCROLL INDICATOR ENHANCED READABILITY & SPACING */
     .hero__scroll {
-      margin: 1rem auto 2.5rem !important;
+      margin-top: 3.5rem !important;
+      margin-bottom: 1rem !important;
       display: flex !important;
       flex-direction: column !important;
       align-items: center !important;
+      justify-content: center !important;
+      position: relative !important;
+      z-index: 5 !important;
     }
 
-    /* CENTERED DISCIPLINES SPLIT PANELS */
+    .hero__scroll-label {
+      font-size: 0.75rem !important;
+      text-transform: uppercase !important;
+      letter-spacing: 0.15em !important;
+      color: #ffffff !important;
+      font-weight: 600 !important;
+      background: rgba(196, 169, 125, 0.25) !important;
+      border: 1px solid rgba(196, 169, 125, 0.4) !important;
+      padding: 0.3rem 0.9rem !important;
+      border-radius: 20px !important;
+      margin-bottom: 0.5rem !important;
+      backdrop-filter: blur(4px) !important;
+    }
+
+    .hero__scroll-track {
+      width: 1px !important;
+      height: 36px !important;
+      background: linear-gradient(to bottom, rgba(196, 169, 125, 0.8), transparent) !important;
+    }
+
+    /* FIXED NON-COLLAPSED NEUROLOGICAL & AESTHETIC SPLIT PANELS */
     .disciplines-split {
       display: grid !important;
       grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
@@ -125,15 +144,39 @@
       padding: 0 1.5rem !important;
       box-sizing: border-box !important;
       position: relative !important;
+      align-items: stretch !important;
     }
 
     .disc-panel {
       width: 100% !important;
+      min-height: 100% !important;
       box-sizing: border-box !important;
       display: flex !important;
       flex-direction: column !important;
       justify-content: space-between !important;
       text-align: left !important;
+      padding: 2.5rem 2rem !important;
+      background: rgba(255, 255, 255, 0.02) !important;
+      border: 1px solid rgba(255, 255, 255, 0.08) !important;
+      border-radius: 6px !important;
+    }
+
+    .disc-panel__content {
+      display: flex !important;
+      flex-direction: column !important;
+      flex-grow: 1 !important;
+      justify-content: flex-start !important;
+    }
+
+    .disc-panel__copy {
+      margin-bottom: 1.5rem !important;
+      line-height: 1.6 !important;
+    }
+
+    .disc-panel__list {
+      margin-bottom: 2rem !important;
+      padding: 0 !important;
+      list-style: none !important;
     }
 
     @media (max-width: 992px) {
@@ -326,16 +369,6 @@
       border-radius: 4px !important;
       text-decoration: none !important;
       font-weight: 500 !important;
-    }
-
-    /* Cherry Embedded Container Wrapper */
-    .cherry-embedded-wrapper {
-      max-width: 1100px;
-      margin: 3rem auto 0;
-      padding: 2rem;
-      background: rgba(0, 0, 0, 0.2);
-      border: 1px solid rgba(196, 169, 125, 0.2);
-      border-radius: 6px;
     }
 
     /* Spacious Disclaimer & Legal Notice Styling (Single Line) */
@@ -548,16 +581,17 @@
         </a>
       </div>
 
+      <!-- PROMINENT HIGH-CONTRAST SCROLL INDICATOR -->
       <div class="hero__scroll" aria-hidden="true">
         <span class="hero__scroll-label">Scroll</span>
         <div class="hero__scroll-track"></div>
       </div>
     </section>
 
-    <!-- 2. PERFECTLY CENTERED DUAL PANEL SPLIT -->
+    <!-- 2. FULLY EXPANDED DUAL PANEL SPLIT -->
     <section class="disciplines-split" id="care-disciplines" aria-label="Our Disciplines">
 
-      <!-- LEFT PANEL: Neurological Medicine -->
+      <!-- LEFT PANEL: Neurological Medicine (Full Expanded Height) -->
       <div class="disc-panel disc-panel--neuro"
            role="button"
            tabindex="0"
@@ -771,7 +805,7 @@
       </div>
     </section>
 
-    <!-- DIGITAL CONCIERGE FLOW -->
+    <!-- DIGITAL CONCIERGE FLOW WITH HIGH VISIBILITY CONTINUE BUTTONS -->
     <section class="concierge-flow" aria-label="Clinical intake concierge">
       <span class="concierge-flow__label">Digital Concierge</span>
       <h2 class="concierge-flow__heading">
@@ -1042,7 +1076,7 @@
 
     </section><!-- /concierge-flow -->
 
-    <!-- PATIENT RESOURCES & ACCESS SECTION -->
+    <!-- PATIENT RESOURCES & ACCESS SECTION (CLEANED CHERRY CARD) -->
     <section class="patient-resources-section" aria-label="Patient Portal and Care Financing">
       <div class="patient-resources-inner">
         <div class="patient-resources__header">
@@ -1077,18 +1111,10 @@
             <p class="resource-card__desc">
               Split treatment costs into manageable monthly payments. Fast 60-second approval with <strong>no impact on your credit score</strong> and 0% APR options available.
             </p>
-            <a href="#hero" onclick="if(window._hw) { _hw('open'); } return false;" class="disc-panel__btn disc-panel__btn--secondary resource-card__btn">
+            <a href="#" onclick="if(window._hw) { _hw('open'); } return false;" class="disc-panel__btn disc-panel__btn--secondary resource-card__btn">
               Apply With Cherry &rarr;
             </a>
           </div>
-        </div>
-
-        <!-- EMBEDDED CHERRY WIDGET CONTAINERS -->
-        <div class="cherry-embedded-wrapper">
-          <div id="hero"></div>
-          <div id="calculator"></div>
-          <div id="howitworks"></div>
-          <div id="faq"></div>
         </div>
       </div>
     </section>
