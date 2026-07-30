@@ -675,7 +675,23 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
     .program__desc {
       font-size: 0.83rem; font-weight: 300; color: var(--muted); line-height: 1.8;
     }
+<style>
+  /* 1. Force the Nextiva iframe container to let clicks pass through */
+  iframe[src*="Simplify360Chat"],
+  div[id*="Simplify360"],
+  div[id*="simplify360"],
+  div[class*="simplify360"] {
+    pointer-events: none !important;
+  }
 
+  /* 2. Re-enable clicks ONLY on the actual visible chat button and opened chat box */
+  iframe[src*="Simplify360Chat"] #chat-button,
+  iframe[src*="Simplify360Chat"] .chat-window,
+  div[id*="Simplify360"] button,
+  div[id*="Simplify360"] iframe {
+    pointer-events: auto !important;
+  }
+</style>
     /* 
        INNER PAGE  shared layout for sub-pages
      */
