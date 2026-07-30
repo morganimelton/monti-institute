@@ -1092,3 +1092,56 @@ div[class*="concierge-option"] p {
     grid-template-columns: 1fr !important;
   }
 }
+/* ==========================================================================
+   HORIZONTAL TRUST STATS GRID FIX
+   ========================================================================== */
+
+/* Target the container around the 3 stat cards */
+.hp-trust-section .commitments-grid,
+.hp-trust-section div[class*="grid"],
+div[class*="stat-grid"],
+div[class*="stats-container"] {
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: center !important;
+  align-items: stretch !important;
+  gap: 1.5rem !important;
+  width: 100% !important;
+  max-width: 1000px !important;
+  margin: 2.5rem auto 0 auto !important;
+  border: none !important; /* Removes harsh outer grid border */
+}
+
+/* Style the individual stat cards */
+.hp-trust-section .commitment-item,
+.hp-trust-section div[class*="card"],
+div[class*="stat-card"] {
+  flex: 1 1 0px !important; /* Equal 33% width split */
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  padding: 1.75rem 1.25rem !important;
+  background: rgba(255, 255, 255, 0.08) !important; /* Subtle glassmorphic fill */
+  border: 1px solid rgba(196, 169, 125, 0.3) !important; /* Champagne gold border */
+  border-radius: 4px !important;
+  box-sizing: border-box !important;
+}
+
+/* Ensure paragraph subtext at top doesn't crowd header */
+.hp-trust-section p,
+.hp-trust-section__lead {
+  max-width: 750px !important;
+  margin: 0 auto 2rem auto !important;
+  text-align: center !important;
+}
+
+/* Responsive adjustment: Stack on small mobile screens */
+@media (max-width: 680px) {
+  .hp-trust-section .commitments-grid,
+  div[class*="stat-grid"] {
+    flex-direction: column !important;
+    gap: 1rem !important;
+  }
+}
