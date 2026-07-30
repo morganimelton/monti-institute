@@ -1,55 +1,314 @@
 /* ==========================================================================
-   1. FIXED HERO & DUAL-PANEL LAYOUT (Restores Grid & Fixes Clipping)
+   DESIGN TOKENS — Brand Palette & Typography
    ========================================================================== */
+:root {
+  --ivory:      #F8F5F0;
+  --warm-white: #FDFBF8;
+  --stone:      #E8E2D9;
+  --taupe:      #B8AD9E;
+  --charcoal:   #2C2825;
+  --deep:       #1A1614;
+  --gold:       #9A8060;
+  --gold-lt:    #C4A97D;
+  --muted:      #6B6460;
+
+  --f-display: 'Cormorant Garamond', Georgia, serif;
+  --f-body:    'DM Sans', system-ui, sans-serif;
+
+  --nav-h: 64px;
+  --sp-section:    clamp(2.5rem, 4vw, 4rem);
+  --sp-section-xl: clamp(2.5rem, 4vw, 4rem);
+  --sp-page-top:   clamp(1.5rem, 2.5vw, 2.25rem);
+  --sp-inner:      clamp(1.75rem, 3vw, 3rem);
+  --sp-inline:     clamp(1.25rem, 5vw, 4.5rem);
+
+  --max-w-content: 1100px;
+  --max-w-prose:   56rem;
+  scroll-padding-top: var(--nav-h);
+}
+
 /* ==========================================================================
-   SAFE OVERRIDE FIXES (Paste at the very end of styles.css)
+   RESET & BASE STYLES
+   ========================================================================== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; background: var(--warm-white); }
+html.dark-theme { background: #1a1a1a; }
+
+html, body {
+  transition: background-color 0.45s ease, color 0.45s ease, background 0.45s ease;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+body {
+  background: transparent;
+  position: relative;
+  color: var(--charcoal);
+  font-family: var(--f-body);
+  font-weight: 300;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+a { color: inherit; text-decoration: none; }
+ul { list-style: none; }
+
+.sr-only {
+  position: absolute; width: 1px; height: 1px;
+  padding: 0; margin: -1px; overflow: hidden;
+  clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+}
+
+/* ==========================================================================
+   GLOBAL LOGO WATERMARK SYSTEM
+   ========================================================================== */
+body::before {
+  content: '';
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: clamp(220px, 38vmin, 480px);
+  height: clamp(220px, 38vmin, 480px);
+  z-index: -1;
+  pointer-events: none;
+  touch-action: none;
+  background-image: url('images/official-logo.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.03;
+  transition: opacity 0.45s ease;
+}
+
+body.dark-theme::before {
+  opacity: 0.05;
+}
+
+/* ==========================================================================
+   NAVIGATION & HEADER
+   ========================================================================== */
+.nav {
+  position: fixed !important;
+  top: 0 !important; left: 0 !important; right: 0 !important;
+  z-index: 100 !important;
+  height: var(--nav-h) !important;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-inline: var(--sp-inline);
+  background: rgba(253,251,248,0.94);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.35s ease, box-shadow 0.35s ease;
+}
+
+.nav.is-scrolled {
+  border-color: var(--stone);
+  box-shadow: 0 2px 32px rgba(26,22,20,0.05);
+}
+
+.nav__inner {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  flex-wrap: nowrap;
+}
+
+.nav__brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-shrink: 0;
+  text-decoration: none;
+}
+
+.site-logo, .nav__logo-img {
+  height: 48px;
+  width: auto;
+  max-height: 48px;
+  object-fit: contain;
+  display: block;
+}
+
+.nav__brand-text {
+  font-family: var(--f-display);
+  font-size: 0.8rem;
+  font-weight: 400;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--deep);
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.nav__list {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.75rem, 1.5vw, 2rem);
+  margin-inline-start: clamp(1.5rem, 3vw, 4rem);
+}
+
+.nav__list a {
+  font-size: 0.7rem;
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--muted);
+  position: relative;
+  padding-bottom: 3px;
+  transition: color 0.25s;
+}
+
+.nav__list a:hover,
+.nav__list a.is-active {
+  color: var(--charcoal);
+}
+
+.nav__item--dropdown { position: relative; list-style: none; }
+.nav__dropdown {
+  display: none;
+  position: absolute;
+  top: calc(100% + 0.75rem);
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 220px;
+  background: var(--ivory);
+  border: 1px solid var(--stone);
+  padding: 0.5rem 0;
+  list-style: none;
+  z-index: 200;
+  box-shadow: 0 8px 32px rgba(26,22,20,0.10);
+}
+
+.nav__item--dropdown[data-open] .nav__dropdown { display: block; }
+.nav__dropdown-link {
+  display: block;
+  padding: 0.6rem 1.25rem;
+  font-size: 0.78rem;
+  color: var(--charcoal);
+  white-space: nowrap;
+}
+
+/* ==========================================================================
+   HERO SECTION
+   ========================================================================== */
+.hero {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  text-align: center !important;
+  min-height: 100svh !important;
+  padding-block-start: calc(var(--nav-h) + 2rem) !important;
+  padding-block-end: clamp(3rem, 5vw, 5rem) !important;
+  padding-inline: clamp(1.25rem, 5vw, 4.5rem) !important;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero__title {
+  font-family: var(--f-display);
+  font-size: clamp(2.8rem, 7vw, 6.2rem);
+  font-weight: 300;
+  line-height: 1.07;
+  color: var(--deep);
+  max-width: 860px;
+  margin-block-end: clamp(1.5rem, 2.5vw, 2.25rem);
+}
+
+.hero__title em { font-style: italic; color: var(--gold); }
+
+.hero__tagline {
+  font-size: clamp(0.88rem, 1.3vw, 1.05rem);
+  font-weight: 300;
+  color: var(--muted);
+  max-width: 46ch;
+  line-height: 1.88;
+  margin-block-end: 2rem;
+}
+
+/* ==========================================================================
+   INTERACTIVE DISCLOSURES, QUIZ & COMPONENTS
+   ========================================================================== */
+.quiz-section {
+  background: var(--ivory);
+  border-top: 1px solid var(--stone);
+  padding-block: clamp(3rem, 6vw, 5.5rem);
+  padding-inline: clamp(1.25rem, 5vw, 4rem);
+}
+
+.dossier-wrap {
+  margin-block: 2rem 0;
+  border: 1px solid var(--stone);
+}
+
+/* ==========================================================================
+   ACCESSIBILITY & WCAG COMPLIANCE
+   ========================================================================== */
+.skip-to-main {
+  position: absolute;
+  top: -100%;
+  left: 1rem;
+  z-index: 9999;
+  background: var(--deep);
+  color: var(--ivory);
+  padding: 0.75rem 1.25rem;
+  text-transform: uppercase;
+  transition: top 0.2s;
+}
+
+.skip-to-main:focus { top: 1rem; }
+
+*:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 3px;
+}
+
+/* ==========================================================================
+   DARK THEME (MIGRAINE MODE) OVERRIDES
+   ========================================================================== */
+body.dark-theme {
+  color: rgba(230,225,218,0.72) !important;
+}
+
+body.dark-theme h1,
+body.dark-theme h2,
+body.dark-theme h3,
+body.dark-theme h4 {
+  color: #e6e1da !important;
+}
+
+body.dark-theme .nav {
+  background: rgba(26,22,20,0.96);
+  border-color: rgba(255,255,255,0.08);
+}
+
+body.dark-theme .nav__dropdown {
+  background: #1A1614;
+  border-color: rgba(255,255,255,0.08);
+}
+
+/* ==========================================================================
+   FINAL OVERRIDE FIXES (Desktop Grid, Button Readability & Mobile Safe)
    ========================================================================== */
 
-/* Fix 1: Ensure Split Hero stays side-by-side on desktop */
+/* 1. Desktop Layout Fix (Side-by-Side Split Hero) */
 @media (min-width: 861px) {
   .disciplines-split,
   .split-hero-container {
     display: grid !important;
     grid-template-columns: 1fr 1fr !important;
     width: 100% !important;
+    min-height: 80vh !important;
+    margin: 0 !important;
+    padding: 0 !important;
   }
 }
 
-/* Fix 2: Aesthetic side secondary button readability */
-.disc-panel--aesthetic .disc-panel__btn--secondary,
-.disc-panel--aesthetic .disc-panel_btn--secondary,
-.disc-panel--aesthetic .disc-panel__btn--secondary * {
-  background-color: transparent !important;
-  color: #111111 !important;
-  border-color: #111111 !important;
-  opacity: 1 !important;
-}
-
-.disc-panel--aesthetic .disc-panel__btn--secondary:hover,
-.disc-panel--aesthetic .disc-panel_btn--secondary:hover {
-  background-color: #111111 !important;
-  color: #ffffff !important;
-}
-
-/* Fix 3: Mobile sticky bar spacing safety */
-@media (max-width: 768px) {
-  footer, .site-footer {
-    padding-bottom: 5.5rem !important;
-  }
-}
-/* Main Hero Grid for Split Panels */
-.disciplines-split,
-.split-hero-container {
-  display: grid !important;
-  grid-template-columns: 1fr 1fr !important;
-  width: 100% !important;
-  min-height: 80vh;
-  margin: 0 !important;
-  padding: 0 !important;
-  box-sizing: border-box !important;
-}
-
-/* Individual Side Panels */
+/* 2. Side Panel Typography & Background Base */
 .disc-panel {
   display: flex !important;
   flex-direction: column !important;
@@ -59,36 +318,23 @@
   width: 100% !important;
 }
 
-/* Left Panel: Neurological (Dark Navy) */
-.disc-panel--neuro {
-  background-color: var(--deep, #1A1614) !important;
-  color: #ffffff !important;
-}
-
 .disc-panel--neuro,
 .disc-panel--neuro h2,
 .disc-panel--neuro p,
 .disc-panel--neuro li {
+  background-color: var(--deep, #1A1614) !important;
   color: #ffffff !important;
 }
 
-/* Right Panel: Aesthetic (Light Ivory) */
-.disc-panel--aesthetic {
+.disc-panel--aesthetic,
+.disc-panel--aesthetic h2,
+.disc-panel--aesthetic p,
+.disc-panel--aesthetic li {
   background-color: var(--ivory, #F8F5F0) !important;
   color: var(--charcoal, #2C2825) !important;
 }
 
-.disc-panel--aesthetic h2,
-.disc-panel--aesthetic p,
-.disc-panel--aesthetic li {
-  color: var(--charcoal, #2C2825) !important;
-}
-
-/* ==========================================================================
-   2. BUTTON READABILITY & HIGH-CONTRAST FIXES
-   ========================================================================== */
-
-/* Hero Action Group */
+/* 3. Hero & Panel Action Buttons */
 .hero-cta-group,
 .hero-cta-container {
   display: flex !important;
@@ -99,7 +345,6 @@
   width: 100% !important;
 }
 
-/* Base CTA Buttons */
 .hero-cta-group .btn,
 .hero-btn {
   display: inline-flex !important;
@@ -115,7 +360,6 @@
   transition: all 0.25s ease !important;
 }
 
-/* Primary Hero Button (Gold Fill) */
 .hero-cta-group .btn-primary,
 .hero-btn-primary {
   background-color: #c5a059 !important;
@@ -129,7 +373,7 @@
   border-color: #b08d46 !important;
 }
 
-/* Secondary Panel Buttons - Both Underscore Standards Covered */
+/* Secondary Button Readability (Aesthetic & Neurological) */
 .disc-panel--neuro .disc-panel__btn--secondary,
 .disc-panel--neuro .disc-panel_btn--secondary {
   background-color: transparent !important;
@@ -142,7 +386,7 @@
 .disc-panel--aesthetic .disc-panel__btn--secondary *,
 .disc-panel--aesthetic .disc-panel_btn--secondary * {
   background-color: transparent !important;
-  border: 1px solid #111111 !important;
+  border-color: #111111 !important;
   color: #111111 !important;
   opacity: 1 !important;
 }
@@ -153,13 +397,8 @@
   color: #ffffff !important;
 }
 
-/* ==========================================================================
-   3. MOBILE RESPONSIVE RULES (Prevents Side Clipping & Fixes Sticky Footer)
-   ========================================================================== */
-
+/* 4. Mobile Responsive Behavior (Vertical Stack + Sticky Footer) */
 @media (max-width: 860px) {
-
-  /* Clean Vertical Stacking for Split Panels */
   .disciplines-split,
   .split-hero-container {
     display: flex !important;
@@ -183,13 +422,14 @@
   .hero-btn {
     width: 100% !important;
   }
+
+  .nav__brand-text { display: none; }
 }
 
-/* Mobile Sticky Call Bar Safeguard */
 footer,
 .site-footer,
 .footer {
-  padding-bottom: 5.5rem !important; /* Prevents sticky bottom bar from covering copyright */
+  padding-bottom: 5.5rem !important;
 }
 
 .sticky-bottom-bar,
