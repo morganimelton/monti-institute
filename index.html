@@ -62,7 +62,11 @@
   </script>
 
   <style>
-    /* LIGHT LUXURY BRAND COLOR PALETTE OVERRIDES */
+    /* GLOBAL BOX SIZING & LAYOUT RESET */
+    *, *::before, *::after {
+      box-sizing: border-box !important;
+    }
+
     html, body {
       overflow-x: hidden !important;
       width: 100% !important;
@@ -103,12 +107,11 @@
       justify-content: center !important;
       text-align: center !important;
       max-width: 1280px !important;
-      width: 100% !important;
       margin: 0 auto !important;
       padding: 6rem 1.5rem 3rem !important;
-      box-sizing: border-box !important;
       position: relative !important;
       overflow: hidden !important;
+      width: 100% !important;
     }
 
     /* BACKGROUND WATERMARK LOGO ANIMATION */
@@ -148,6 +151,8 @@
       font-family: 'Cormorant Garamond', serif !important;
       font-size: 3.5rem !important;
       line-height: 1.1 !important;
+      word-wrap: break-word !important;
+      overflow-wrap: break-word !important;
     }
 
     .hero__title em {
@@ -225,10 +230,8 @@
       justify-content: center !important;
       margin: 3.5rem auto 1rem auto !important;
       width: 100% !important;
-      max-width: 100% !important;
       position: relative !important;
       z-index: 5 !important;
-      box-sizing: border-box !important;
     }
 
     .hero__scroll-label {
@@ -254,7 +257,7 @@
       margin: 0 auto !important;
     }
 
-    /* SPLIT-PANELS: FIXED OFF-SCREEN CLIPPING & OVERFLOW */
+    /* FIXED SPLIT-PANELS LAYOUT (NO CUT OFF, NO OVERFLOW) */
     .disciplines-split {
       display: grid !important;
       grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
@@ -263,17 +266,12 @@
       width: 100% !important;
       margin: 0 auto 5rem auto !important;
       padding: 0 1.5rem !important;
-      box-sizing: border-box !important;
       position: relative !important;
       align-items: stretch !important;
-      overflow: hidden !important;
-      left: 0 !important;
-      right: 0 !important;
     }
 
     .disc-panel {
       width: 100% !important;
-      max-width: 100% !important;
       padding: 3.5rem 2.25rem !important;
       border-radius: 8px !important;
       display: flex !important;
@@ -281,16 +279,48 @@
       justify-content: space-between !important;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06) !important;
       transition: transform 0.3s ease, box-shadow 0.3s ease !important;
-      box-sizing: border-box !important;
       position: relative !important;
-      left: 0 !important;
-      right: 0 !important;
       margin: 0 !important;
+      word-wrap: break-word !important;
+      overflow-wrap: break-word !important;
     }
 
     .disc-panel:hover {
       transform: translateY(-4px) !important;
       box-shadow: 0 16px 40px rgba(10, 22, 40, 0.12) !important;
+    }
+
+    .disc-panel__title {
+      font-family: 'Cormorant Garamond', serif !important;
+      font-size: 2.25rem !important;
+      line-height: 1.15 !important;
+      margin-top: 0 !important;
+      word-wrap: break-word !important;
+      overflow-wrap: break-word !important;
+    }
+
+    .disc-panel__copy {
+      font-size: 1rem !important;
+      line-height: 1.6 !important;
+      word-wrap: break-word !important;
+      overflow-wrap: break-word !important;
+    }
+
+    .disc-panel__action-group {
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 0.75rem !important;
+      width: 100% !important;
+      margin-top: 2rem !important;
+    }
+
+    .disc-panel__btn {
+      width: 100% !important;
+      padding: 0.85rem 1.25rem !important;
+      border-radius: 4px !important;
+      text-align: center !important;
+      cursor: pointer !important;
+      transition: all 0.25s ease !important;
     }
 
     /* PANEL 1: ROYAL NAVY */
@@ -383,7 +413,7 @@
       background-color: #A88758 !important;
     }
 
-    /* PHILOSOPHY & TRUST METRICS LIGHT LUXURY SECTION */
+    /* PHILOSOPHY & TRUST METRICS SECTION */
     .section--dark {
       background: #0A1628 !important;
       color: #FFFFFF !important;
@@ -400,14 +430,14 @@
       color: #B89768 !important;
     }
 
-    /* DIGITAL CONCIERGE LIGHT CARDS & CONTINUATION BUTTON */
+    /* DIGITAL CONCIERGE LIGHT CARDS */
     .concierge-flow {
       background: #FFFFFF !important;
       border: 1px solid #EAE3D9 !important;
       border-radius: 8px !important;
       padding: 3.5rem 2rem !important;
       box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04) !important;
-      box-sizing: border-box !important;
+      width: 100% !important;
     }
 
     .concierge-flow__heading {
@@ -442,7 +472,6 @@
       height: 100% !important;
       transition: all 0.25s ease !important;
       cursor: pointer !important;
-      box-sizing: border-box !important;
     }
 
     .concierge-option:hover {
@@ -521,7 +550,6 @@
       background: #F4EFE6 !important;
       border-top: 1px solid #EAE3D9 !important;
       border-bottom: 1px solid #EAE3D9 !important;
-      box-sizing: border-box !important;
     }
 
     .patient-resources__heading {
@@ -538,7 +566,6 @@
       border-radius: 6px !important;
       padding: 2.25rem 2rem !important;
       box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03) !important;
-      box-sizing: border-box !important;
     }
 
     .resource-card__title {
@@ -549,7 +576,7 @@
       color: #4A5568 !important;
     }
 
-    /* WELL-SPACED LIGHT DISCLAIMER */
+    /* DISCLAIMER */
     .site-disclaimer {
       padding: 2.25rem 1.5rem 2.5rem !important;
       margin-top: 4rem !important;
@@ -557,7 +584,6 @@
       border-top: 1px solid #EAE3D9 !important;
       border-bottom: 1px solid #EAE3D9 !important;
       background-color: #F4EFE6 !important;
-      box-sizing: border-box !important;
     }
 
     .site-disclaimer__text {
@@ -579,15 +605,18 @@
       background-color: #07101F !important;
       color: #FFFFFF !important;
       padding-top: 3.5rem !important;
-      box-sizing: border-box !important;
     }
 
     @media (max-width: 992px) {
       .disciplines-split {
         grid-template-columns: 1fr !important;
+        padding: 0 1rem !important;
       }
       .disc-panel {
         padding: 2.5rem 1.5rem !important;
+      }
+      .hero__title {
+        font-size: 2.5rem !important;
       }
     }
   </style>
@@ -739,34 +768,35 @@
             Physician-led diagnosis and management of migraine, headache disorders,
             and neurologic pain through structured, evidence-based protocols.
           </p>
-          <ul class="disc-panel__list" aria-label="Neurological Medicine services" style="list-style:none; padding:0;">
+          <ul class="disc-panel__list" aria-label="Neurological Medicine services" style="list-style:none; padding:0; margin: 1.5rem 0;">
             <li class="disc-panel__list-item" style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.6rem;">
-              <div class="disc-panel__list-dot" style="width: 6px; height: 6px; border-radius: 50%;"></div>
-              Chronic illness evaluation
+              <div class="disc-panel__list-dot" style="width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0;"></div>
+              <span>Chronic illness evaluation</span>
             </li>
             <li class="disc-panel__list-item" style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.6rem;">
-              <div class="disc-panel__list-dot" style="width: 6px; height: 6px; border-radius: 50%;"></div>
-              Diagnostic neurology
+              <div class="disc-panel__list-dot" style="width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0;"></div>
+              <span>Diagnostic neurology</span>
             </li>
             <li class="disc-panel__list-item" style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.6rem;">
-              <div class="disc-panel__list-dot" style="width: 6px; height: 6px; border-radius: 50%;"></div>
-              Autoimmune &amp; neuroinflammatory conditions
+              <div class="disc-panel__list-dot" style="width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0;"></div>
+              <span>Autoimmune &amp; neuroinflammatory conditions</span>
             </li>
             <li class="disc-panel__list-item" style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.6rem;">
-              <div class="disc-panel__list-dot" style="width: 6px; height: 6px; border-radius: 50%;"></div>
-              Insurance-based clinical care
+              <div class="disc-panel__list-dot" style="width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0;"></div>
+              <span>Insurance-based clinical care</span>
             </li>
           </ul>
-
-          <div class="disc-panel__action-group" style="margin-top:auto;">
-            <button class="disc-panel__btn" type="button" onclick="window.location.href='neurological-medicine.html'">
-              Enter Neurological Care &rarr;
-            </button>
-            <button class="disc-panel__btn disc-panel__btn--secondary" type="button" onclick="window.location.href='infusion-center.html'">
-              Infusion &amp; Wellness Suite &rarr;
-            </button>
-          </div>
         </div>
+
+        <div class="disc-panel__action-group">
+          <button class="disc-panel__btn" type="button" onclick="window.location.href='neurological-medicine.html'">
+            Enter Neurological Care &rarr;
+          </button>
+          <button class="disc-panel__btn disc-panel__btn--secondary" type="button" onclick="window.location.href='infusion-center.html'">
+            Infusion &amp; Wellness Suite &rarr;
+          </button>
+        </div>
+
       </div>
 
       <!-- RIGHT PANEL: AESTHETIC MEDICINE (WARM LUXURY CHAMPAGNE) -->
@@ -784,34 +814,35 @@
             protocols &mdash; injectables, energy-based devices, and regenerative
             treatments for natural outcomes.
           </p>
-          <ul class="disc-panel__list" aria-label="Aesthetic Medicine services" style="list-style:none; padding:0;">
+          <ul class="disc-panel__list" aria-label="Aesthetic Medicine services" style="list-style:none; padding:0; margin: 1.5rem 0;">
             <li class="disc-panel__list-item" style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.6rem;">
-              <div class="disc-panel__list-dot" style="width: 6px; height: 6px; border-radius: 50%;"></div>
-              Regenerative aesthetics
+              <div class="disc-panel__list-dot" style="width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0;"></div>
+              <span>Regenerative aesthetics</span>
             </li>
             <li class="disc-panel__list-item" style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.6rem;">
-              <div class="disc-panel__list-dot" style="width: 6px; height: 6px; border-radius: 50%;"></div>
-              Facial aesthetics &amp; injectables
+              <div class="disc-panel__list-dot" style="width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0;"></div>
+              <span>Facial aesthetics &amp; injectables</span>
             </li>
             <li class="disc-panel__list-item" style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.6rem;">
-              <div class="disc-panel__list-dot" style="width: 6px; height: 6px; border-radius: 50%;"></div>
-              Natural, outcome-focused treatments
+              <div class="disc-panel__list-dot" style="width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0;"></div>
+              <span>Natural, outcome-focused treatments</span>
             </li>
             <li class="disc-panel__list-item" style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.6rem;">
-              <div class="disc-panel__list-dot" style="width: 6px; height: 6px; border-radius: 50%;"></div>
-              Private-pay personalized care
+              <div class="disc-panel__list-dot" style="width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0;"></div>
+              <span>Private-pay personalized care</span>
             </li>
           </ul>
-
-          <div class="disc-panel__action-group" style="margin-top:auto;">
-            <button class="disc-panel__btn" type="button" onclick="window.location.href='aesthetic-medicine.html'">
-              Enter Aesthetic Medicine &rarr;
-            </button>
-            <button class="disc-panel__btn disc-panel__btn--secondary" type="button" onclick="window.location.href='infusion-center.html'">
-              Infusion &amp; Wellness Suite &rarr;
-            </button>
-          </div>
         </div>
+
+        <div class="disc-panel__action-group">
+          <button class="disc-panel__btn" type="button" onclick="window.location.href='aesthetic-medicine.html'">
+            Enter Aesthetic Medicine &rarr;
+          </button>
+          <button class="disc-panel__btn disc-panel__btn--secondary" type="button" onclick="window.location.href='infusion-center.html'">
+            Infusion &amp; Wellness Suite &rarr;
+          </button>
+        </div>
+
       </div>
 
     </section>
@@ -819,7 +850,7 @@
     <!-- PHILOSOPHY & TRUST METRICS SECTION -->
     <section class="section section--xl section--dark" aria-label="Institute philosophy">
       <div class="philosophy-bg" aria-hidden="true"></div>
-      <div class="philosophy__inner" style="max-width: 1000px; margin: 0 auto; text-align: center;">
+      <div class="philosophy__inner" style="max-width: 1000px; margin: 0 auto; text-align: center; padding: 4rem 1.5rem;">
         <span class="section__label reveal" style="color:#B89768;">Philosophy</span>
         <blockquote class="philosophy__quote reveal" style="font-family:'Cormorant Garamond', serif; font-size: 2.25rem; color:#FFF; margin:1rem 0;">
           &ldquo;Two disciplines. One physician. One standard of care.&rdquo;
@@ -1045,40 +1076,40 @@
 
     <!-- PATIENT RESOURCES & ACCESS SECTION -->
     <section class="patient-resources-section" aria-label="Patient Portal and Care Financing">
-      <div class="patient-resources-inner">
-        <div class="patient-resources__header">
-          <span class="patient-resources__eyebrow">Patient Experience</span>
-          <h2 class="patient-resources__heading">Patient Resources &amp; Access</h2>
+      <div class="patient-resources-inner" style="max-width: 1280px; margin: 0 auto;">
+        <div class="patient-resources__header" style="text-align: center; margin-bottom: 2.5rem;">
+          <span class="patient-resources__eyebrow" style="color: #B89768; text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.8rem; font-weight: 600;">Patient Experience</span>
+          <h2 class="patient-resources__heading" style="font-family: 'Cormorant Garamond', serif; font-size: 2.25rem; margin: 0.5rem 0;">Patient Resources &amp; Access</h2>
           <p class="patient-resources__sub">Manage your appointments, access clinical records, or apply for zero-impact payment plans.</p>
         </div>
 
-        <div class="patient-resources-grid">
+        <div class="patient-resources-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
           <!-- CARD 1: BOULEVARD PATIENT PORTAL -->
           <div class="resource-card">
-            <div class="resource-card__icon">
+            <div class="resource-card__icon" style="margin-bottom: 1rem;">
               <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#B89768" stroke-width="1.5"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
             </div>
-            <span class="resource-card__badge">Self-Service Portal</span>
-            <h3 class="resource-card__title">Boulevard Patient Portal</h3>
-            <p class="resource-card__desc">
+            <span class="resource-card__badge" style="color: #8C6F43; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600;">Self-Service Portal</span>
+            <h3 class="resource-card__title" style="font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; margin: 0.5rem 0;">Boulevard Patient Portal</h3>
+            <p class="resource-card__desc" style="margin-bottom: 1.5rem; line-height: 1.5;">
               Book or reschedule treatments, view treatment history, update clinical intake forms, and manage your schedule anytime.
             </p>
-            <a href="https://blvd.app/@monti-institute-of-neuro-aesthetics/login" target="_blank" rel="noopener" class="btn btn--primary resource-card__btn">
+            <a href="https://blvd.app/@monti-institute-of-neuro-aesthetics/login" target="_blank" rel="noopener" class="btn btn--primary resource-card__btn" style="display: inline-block; padding: 0.75rem 1.5rem; text-decoration: none; border-radius: 4px;">
               Access Patient Portal &rarr;
             </a>
           </div>
 
           <!-- CARD 2: CHERRY FINANCING -->
           <div class="resource-card">
-            <div class="resource-card__icon">
+            <div class="resource-card__icon" style="margin-bottom: 1rem;">
               <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#B89768" stroke-width="1.5"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
             </div>
-            <span class="resource-card__badge">Flexible Payment Plans</span>
-            <h3 class="resource-card__title">Cherry Patient Financing</h3>
-            <p class="resource-card__desc">
+            <span class="resource-card__badge" style="color: #8C6F43; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600;">Flexible Payment Plans</span>
+            <h3 class="resource-card__title" style="font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; margin: 0.5rem 0;">Cherry Patient Financing</h3>
+            <p class="resource-card__desc" style="margin-bottom: 1.5rem; line-height: 1.5;">
               Split treatment costs into manageable monthly payments. Fast 60-second approval with <strong>no impact on your credit score</strong> and 0% APR options available.
             </p>
-            <a href="#" onclick="if(window._hw) { _hw('open'); } return false;" class="btn btn--secondary resource-card__btn">
+            <a href="#" onclick="if(window._hw) { _hw('open'); } return false;" class="btn btn--secondary resource-card__btn" style="display: inline-block; padding: 0.75rem 1.5rem; text-decoration: none; border-radius: 4px;">
               Apply With Cherry &rarr;
             </a>
           </div>
@@ -1097,18 +1128,18 @@
 
   <!-- MAIN FOOTER -->
   <footer class="footer">
-    <div class="footer__inner">
+    <div class="footer__inner" style="max-width: 1280px; margin: 0 auto; padding: 0 1.5rem; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2rem;">
       <div class="footer__brand-col">
-        <div class="footer__brand">
+        <div class="footer__brand" style="display: flex; align-items: center; gap: 0.75rem;">
           <span class="footer__mark">
             <img src="images/official-logo.png" alt="Monti Institute" width="36" height="36">
           </span>
           <div>
-            <span class="footer__name" style="color:#FFF;">Monti Institute</span><br>
-            <span class="footer__sub" style="color:#B89768;">Neuro Aesthetics</span>
+            <span class="footer__name" style="color:#FFF; font-weight:600;">Monti Institute</span><br>
+            <span class="footer__sub" style="color:#B89768; font-size:0.85rem;">Neuro Aesthetics</span>
           </div>
         </div>
-        <p class="footer__tagline" style="color:rgba(255,255,255,0.7); margin-top:0.75rem;">
+        <p class="footer__tagline" style="color:rgba(255,255,255,0.7); margin-top:0.75rem; max-width: 400px;">
           Neurological medicine, aesthetic medicine, and infusion therapy under one roof in Reno, Nevada.
         </p>
       </div>
@@ -1122,7 +1153,7 @@
         <a href="mailto:admin@monti-institute.com" class="footer__contact-link" style="color:rgba(255,255,255,0.8); text-decoration:none; display:block;">admin@monti-institute.com</a>
       </div>
     </div>
-    <div class="footer__bottom" style="text-align:center; padding:1.5rem 0; color:rgba(255,255,255,0.5); font-size:0.8rem; border-top:1px solid rgba(255,255,255,0.05);">
+    <div class="footer__bottom" style="text-align:center; padding:1.5rem 0; margin-top: 3rem; color:rgba(255,255,255,0.5); font-size:0.8rem; border-top:1px solid rgba(255,255,255,0.05);">
       <span class="footer__copy">&copy; 2026 Monti Institute of Neuro Aesthetics. All rights reserved.</span>
     </div>
   </footer>
