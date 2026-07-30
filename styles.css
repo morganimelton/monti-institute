@@ -982,3 +982,37 @@ body.dark-theme::before {
   opacity: 0.06 !important;
   mix-blend-mode: screen !important;
 }
+/* Force a clean 4-column layout for the intake quiz options */
+.concierge-options,
+[class*="concierge-options"] {
+  display: grid !important;
+  grid-template-columns: repeat(4, 1fr) !important; /* Forces 4 equal boxes */
+  gap: 1.25rem !important;
+  width: 100% !important;
+}
+
+/* Ensure equal card heights and neat internal alignment */
+.concierge-option,
+[class*="concierge-option"] {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-start !important;
+  height: 100% !important;
+  box-sizing: border-box !important;
+}
+
+/* On medium/tablet screens, switch to a neat 2x2 grid */
+@media (max-width: 1024px) {
+  .concierge-options,
+  [class*="concierge-options"] {
+    grid-template-columns: repeat(2, 1fr) !important; /* Perfect 2x2 balance */
+  }
+}
+
+/* On mobile screens, stack into 1 column */
+@media (max-width: 600px) {
+  .concierge-options,
+  [class*="concierge-options"] {
+    grid-template-columns: 1fr !important;
+  }
+}
