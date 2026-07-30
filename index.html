@@ -140,7 +140,7 @@
       grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
       gap: 2rem !important;
       max-width: 1280px !important;
-      margin: 0 auto 5rem !important;
+      margin: 0 auto 4rem !important;
       padding: 0 1.5rem !important;
       box-sizing: border-box !important;
       position: relative !important;
@@ -295,14 +295,135 @@
       transition: all 0.25s ease !important;
     }
 
-    @media (max-width: 992px) {
-      .disciplines-split {
-        grid-template-columns: 1fr !important;
-        gap: 2.5rem !important;
-      }
+    /* CONDITIONS TREATED QUICK TAGS */
+    .conditions-strip {
+      max-width: 1280px;
+      margin: 0 auto 5rem;
+      padding: 2rem 1.5rem;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(196, 169, 125, 0.2);
+      border-radius: 6px;
+      text-align: center;
     }
 
-    /* DIGITAL CONCIERGE EQUAL HEIGHTS & CONTINUATION BUTTON */
+    .conditions-strip__label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #C4A97D;
+      display: block;
+      margin-bottom: 1rem;
+    }
+
+    .conditions-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      justify-content: center;
+    }
+
+    .condition-tag {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: rgba(255, 255, 255, 0.85);
+      padding: 0.4rem 0.9rem;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .condition-tag:hover {
+      border-color: #C4A97D;
+      color: #FFFFFF;
+      background: rgba(196, 169, 125, 0.15);
+    }
+
+    /* CLINICAL TRUST METRICS STRIP */
+    .trust-metrics {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+      max-width: 1100px;
+      margin: 3rem auto 0;
+      text-align: center;
+    }
+
+    .trust-metric-card {
+      padding: 1.5rem 1rem;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 6px;
+    }
+
+    .trust-metric__num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.2rem;
+      color: #C4A97D;
+      display: block;
+      font-weight: 500;
+    }
+
+    .trust-metric__title {
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.75);
+      margin-top: 0.25rem;
+      display: block;
+    }
+
+    /* CLINICAL FAQ ACCORDION */
+    .faq-section {
+      max-width: 900px;
+      margin: 5rem auto;
+      padding: 0 1.5rem;
+    }
+
+    .faq-section__title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.25rem;
+      text-align: center;
+      color: #FFFFFF;
+      margin-bottom: 2rem;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      margin-bottom: 1rem;
+      padding-bottom: 1rem;
+    }
+
+    .faq-item summary {
+      font-size: 1.05rem;
+      font-weight: 500;
+      color: #FFFFFF;
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .faq-item summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .faq-item summary::after {
+      content: '+';
+      font-size: 1.4rem;
+      color: #C4A97D;
+    }
+
+    .faq-item[open] summary::after {
+      content: '—';
+    }
+
+    .faq-item p {
+      margin-top: 0.75rem;
+      font-size: 0.925rem;
+      line-height: 1.65;
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    /* DIGITAL CONCIERGE STYLING */
     .concierge-options {
       display: grid !important;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)) !important;
@@ -782,6 +903,22 @@
 
     </section><!-- /disciplines-split -->
 
+    <!-- CONDITIONS & SYMPTOMS QUICK-ACCESS STRIP -->
+    <section class="conditions-strip" aria-label="Conditions and Symptoms Treated">
+      <span class="conditions-strip__label">Targeted Clinical Areas</span>
+      <div class="conditions-tags">
+        <span class="condition-tag">Chronic Migraine</span>
+        <span class="condition-tag">Status Migrainosus</span>
+        <span class="condition-tag">Occipital Neuralgia</span>
+        <span class="condition-tag">Masseter &amp; TMJ Pain</span>
+        <span class="condition-tag">Facial Volume Restoration</span>
+        <span class="condition-tag">Expression Line Refinement</span>
+        <span class="condition-tag">Refractory Headache</span>
+        <span class="condition-tag">Regenerative Dermal Matrix</span>
+      </div>
+    </section>
+
+    <!-- PHILOSOPHY & TRUST METRICS SECTION -->
     <section class="section section--xl section--dark" aria-label="Institute philosophy">
       <div class="philosophy-bg" aria-hidden="true"></div>
       <div class="philosophy__inner">
@@ -797,6 +934,22 @@
           Every protocol begins with evaluation. Every outcome is measured
           against clinical evidence &mdash; not patient preference alone.
         </p>
+
+        <!-- TRUST METRICS STRIP -->
+        <div class="trust-metrics">
+          <div class="trust-metric-card">
+            <span class="trust-metric__num">100%</span>
+            <span class="trust-metric__title">Physician-Supervised Care</span>
+          </div>
+          <div class="trust-metric-card">
+            <span class="trust-metric__num">PREEMPT</span>
+            <span class="trust-metric__title">FDA Chronic Migraine Protocol</span>
+          </div>
+          <div class="trust-metric-card">
+            <span class="trust-metric__num">Tier 1–3</span>
+            <span class="trust-metric__title">Acute IV Rescue Infusions</span>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -873,7 +1026,7 @@
       </div>
     </section>
 
-    <!-- DIGITAL CONCIERGE FLOW WITH HIGH VISIBILITY CONTINUE BUTTONS -->
+    <!-- DIGITAL CONCIERGE FLOW -->
     <section class="concierge-flow" aria-label="Clinical intake concierge">
       <span class="concierge-flow__label">Digital Concierge</span>
       <h2 class="concierge-flow__heading">
@@ -1185,6 +1338,31 @@
           </div>
         </div>
       </div>
+    </section>
+
+    <!-- CLINICAL FREQUENTLY ASKED QUESTIONS -->
+    <section class="faq-section" aria-label="Frequently Asked Questions">
+      <h2 class="faq-section__title">Frequently Asked Questions</h2>
+      
+      <details class="faq-item">
+        <summary>Does Monti Institute accept health insurance for neurological care?</summary>
+        <p>Neurological evaluations, diagnostic workups, and medical migraine treatments (such as FDA-approved Botox for chronic migraine or nerve blocks) are evaluated for insurance coverage. Contact our team to verify your specific plan benefits.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary>Can I combine neurological migraine treatment with aesthetic procedures?</summary>
+        <p>Yes. As a dual-specialty institute led by Dr. Monti, eligible patients can coordinate medical headache care and facial aesthetic refinement within a single, unhurried appointment horizon.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary>Do I need a referral to visit the Infusion &amp; Wellness Suite?</summary>
+        <p>No physician referral is required for initial evaluation. Every IV infusion protocol is MD-formulated and administered following a clinical intake assessment by our medical team.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary>How does Cherry patient financing work?</summary>
+        <p>Cherry allows you to break treatment costs into flexible monthly payments. Applying takes under 60 seconds with no hard credit check or impact on your credit score.</p>
+      </details>
     </section>
 
   </main>
