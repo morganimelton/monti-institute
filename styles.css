@@ -995,14 +995,16 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
 
 /* Aesthetic panel: photo background, needs solid contrast rather than an outline */
 .disc-panel--aesthetic .disc-panel__btn--secondary {
-  background: #c5a059; /* metallic gold *
-  border: 1.5px solid #c5a059
-  color: #1a1a1a;
-       font-weight: 600;
+  background-color: #c5a059 !important;
+       color: #111111 !important;
+  border: 1px solid #c5a059 !important;
+ opacity: 1 !important;
+       font-weight: 700 !important;
 }
 .disc-panel--aesthetic .disc-panel__btn--secondary:hover {
-  background: #b38f48; /* slightly darker gold on hover */
-  border-color: #ffffff;
+  background-color: #111111; slightly darker on hover
+       color: #c5a059
+  border-color: #111111 !important;
 }
     /* Shared panel base */
     .disc-panel {
