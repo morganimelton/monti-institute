@@ -954,3 +954,31 @@ button[class*="dark-toggle"] {
 [class*="hero__scroll"] {
   display: none !important;
 }
+
+/* ==========================================================================
+   PERSISTENT SCROLLING WATERMARK FIX
+   ========================================================================== */
+
+body::before {
+  content: '' !important;
+  position: fixed !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  width: clamp(280px, 45vmin, 520px) !important;
+  height: clamp(280px, 45vmin, 520px) !important;
+  z-index: 1 !important; /* Raises watermark above background paints */
+  pointer-events: none !important; /* Ensures all clicks/taps pass right through */
+  background-image: url('images/official-logo.png') !important;
+  background-size: contain !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  opacity: 0.035 !important; /* Kept very soft so text remains 100% readable */
+  mix-blend-mode: multiply !important;
+}
+
+/* Slightly adjust opacity for dark sections or dark theme */
+body.dark-theme::before {
+  opacity: 0.06 !important;
+  mix-blend-mode: screen !important;
+}
