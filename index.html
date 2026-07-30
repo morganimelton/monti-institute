@@ -9,8 +9,33 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@200;300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+
+  <!-- Boulevard Self-Booking Overlay Script -->
+  <script>
+    (function (a) {
+      var b = {
+        businessId: '75199d75-66db-4a4a-a9e9-ba6c541a3cd3',
+      };
+      var c = a.createElement('script');
+      var d = a.querySelector('script');
+      c.src = 'https://static.joinboulevard.com/injector.min.js';
+      c.async = true;
+      c.onload = function () {
+        if (window.blvd) {
+          blvd.init(b);
+        }
+      };
+      if (d && d.parentNode) {
+        d.parentNode.insertBefore(c, d);
+      } else {
+        a.head.appendChild(c);
+      }
+    })(document);
+  </script>
+  <!-- End Boulevard Self-Booking Overlay -->
+
   <style>
-    /* Equal height card layout styles for Digital Concierge */
+    /* Equal Height Card Layout Styles for Digital Concierge */
     .concierge-options {
       display: grid !important;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)) !important;
@@ -28,7 +53,7 @@
       margin-top: auto !important;
     }
 
-    /* High Visibility Secondary Button styling for Split Panels */
+    /* High-Visibility Secondary Button Styling for Split Panels */
     .disc-panel__btn--secondary {
       display: inline-flex !important;
       align-items: center !important;
@@ -102,6 +127,60 @@
 
     .footer {
       padding-top: 1.5rem !important;
+    }
+
+    /* Mobile Floating Action Bar */
+    .mobile-sticky-bar {
+      display: none;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding-bottom: 70px !important;
+      }
+
+      .mobile-sticky-bar {
+        position: fixed !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        display: flex !important;
+        gap: 10px !important;
+        padding: 12px 16px !important;
+        background: rgba(17, 17, 17, 0.96) !important;
+        backdrop-filter: blur(10px) !important;
+        -webkit-backdrop-filter: blur(10px) !important;
+        border-top: 1px solid rgba(196, 169, 125, 0.3) !important;
+        z-index: 99999 !important;
+        box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.4) !important;
+      }
+
+      .mobile-sticky-bar__btn {
+        flex: 1 !important;
+        text-align: center !important;
+        padding: 12px 8px !important;
+        border-radius: 4px !important;
+        font-size: 0.85rem !important;
+        font-weight: 600 !important;
+        text-decoration: none !important;
+        letter-spacing: 0.03em !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 6px !important;
+      }
+
+      .mobile-sticky-bar__btn--call {
+        background: rgba(255, 255, 255, 0.08) !important;
+        color: #ffffff !important;
+        border: 1px solid rgba(255, 255, 255, 0.2) !important;
+      }
+
+      .mobile-sticky-bar__btn--book {
+        background: #c4a97d !important;
+        color: #111111 !important;
+        border: 1px solid #c4a97d !important;
+      }
     }
   </style>
 </head>
@@ -214,9 +293,9 @@
         Specialized care for migraine, headache disorders, neurologic pain, facial aesthetics, and regenerative medicine.
       </p>
       
-      <!-- HERO DUAL CTA BUTTONS -->
+      <!-- HERO DUAL CTA BUTTONS (BOULEVARD INTEGRATED) -->
       <div class="hero-cta-container" style="display: flex; gap: 1.25rem; justify-content: center; align-items: center; margin-top: 2.25rem; margin-bottom: 3.5rem; flex-wrap: wrap;">
-        <a href="contact.html" class="hero-btn hero-btn-primary btn btn--primary" style="padding: 0.9rem 2rem; border-radius: 4px; text-decoration: none; font-weight: 500;">
+        <a href="contact.html" class="hero-btn hero-btn-primary btn btn--primary" data-blvd-booking="true" style="padding: 0.9rem 2rem; border-radius: 4px; text-decoration: none; font-weight: 500;">
           Schedule a Consultation
         </a>
         <a href="#care-disciplines" class="hero-btn hero-btn-secondary btn btn--secondary" style="padding: 0.9rem 2rem; border-radius: 4px; text-decoration: none; font-weight: 500;">
@@ -692,7 +771,7 @@
         </div>
       </div>
 
-      <!-- FINAL STATE -->
+      <!-- FINAL STATE (BOULEVARD INTEGRATED) -->
       <div class="concierge-panel" id="cf-final">
         <div class="concierge-final">
           <span class="concierge-final__summary" id="cf-summary-label">
@@ -704,7 +783,7 @@
             your full clinical history, not a standard intake form.
           </p>
           <div class="concierge-final__actions" id="cf-final-actions">
-            <a href="contact.html" class="btn btn--primary"
+            <a href="contact.html" class="btn btn--primary" data-blvd-booking="true"
                style="text-decoration:none;display:inline-flex;justify-content:center">
               Schedule a Consultation &rarr;
             </a>
@@ -734,13 +813,13 @@
     </p>
   </div>
 
-  <!-- MAIN FOOTER -->
+  <!-- MAIN FOOTER WITH STANDARDIZED PHONE NUMBERS -->
   <footer class="footer">
     <div class="footer__inner">
       <div class="footer__brand-col">
         <div class="footer__brand">
           <span class="footer__mark">
-            <img src="images/official-logo.png" alt="" width="36" height="36">
+            <img src="images/official-logo.png" alt="Monti Institute" width="36" height="36">
           </span>
           <div>
             <span class="footer__name">Monti Institute</span><br>
@@ -752,17 +831,17 @@
         </p>
       </div>
       <div class="footer__col">
-        <span class="footer__col-title">Visit</span>
+        <span class="footer__col-title">Visit &amp; Contact</span>
         <address class="footer__address">
           2440 Vassar Street, Suite 3<br>
           Reno, NV 89502
         </address>
-        <a href="tel:+13213766684" class="footer__contact-link">(321) 376-6684</a>
+        <a href="tel:+13213766684" class="footer__contact-link">(321) 376-6684 / (321) DR-MONTI</a>
         <a href="mailto:admin@monti-institute.com" class="footer__contact-link">admin@monti-institute.com</a>
       </div>
       <div class="footer__col">
         <span class="footer__col-title">Explore</span>
-        <nav class="footer__nav" aria-label="Footer">
+        <nav class="footer__nav" aria-label="Footer navigation">
           <a href="neurological-medicine.html">Services</a>
           <a href="infusion-center.html">Infusion &amp; Wellness Suite</a>
           <a href="about.html">About</a>
@@ -772,13 +851,24 @@
     </div>
     <div class="footer__bottom">
       <span class="footer__copy">&copy; 2026 Monti Institute of Neuro Aesthetics. All rights reserved.</span>
-      <ul class="footer__legal" aria-label="Legal">
+      <ul class="footer__legal" aria-label="Legal navigation">
         <li><a href="privacy-policy.html" aria-current="page">Privacy Policy</a></li>
         <li><a href="accessibility.html">Accessibility Statement</a></li>
         <li><a href="medical-disclaimer.html">Medical Disclaimer</a></li>
       </ul>
     </div>
   </footer>
+
+  <!-- MOBILE FLOATING "BOOK NOW" ACTION BAR -->
+  <div class="mobile-sticky-bar" aria-label="Mobile fast action bar">
+    <a href="tel:+13213766684" class="mobile-sticky-bar__btn mobile-sticky-bar__btn--call">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.79 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      Call (321) DR-MONTI
+    </a>
+    <a href="contact.html" class="mobile-sticky-bar__btn mobile-sticky-bar__btn--book" data-blvd-booking="true">
+      Book Online
+    </a>
+  </div>
 
   <script src="script.js"></script>
 
@@ -1034,7 +1124,7 @@
       });
       wrap.appendChild(recsWrap);
       var ctaWrap=e('div',{'class':'q-result-cta-wrap'},[]);
-      var ctaBtn=e('a',{'class':'q-result-cta-btn','href':'contact.html'},[]);
+      var ctaBtn=e('a',{'class':'q-result-cta-btn','href':'contact.html','data-blvd-booking':'true'},[]);
       var ctaInner=e('div',{},[]); ctaInner.innerHTML='<div class="q-result-cta-title">'+rec.ctaLabel+'</div><div class="q-result-cta-sub">'+rec.ctaSub+'</div>';
       ctaBtn.appendChild(ctaInner); ctaBtn.appendChild(document.createTextNode(' →'));
       var restart=e('button',{'class':'q-result-restart','type':'button'},['Start over — take the assessment again']);
