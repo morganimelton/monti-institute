@@ -1,7 +1,42 @@
 /* ==========================================================================
    1. FIXED HERO & DUAL-PANEL LAYOUT (Restores Grid & Fixes Clipping)
    ========================================================================== */
+/* ==========================================================================
+   SAFE OVERRIDE FIXES (Paste at the very end of styles.css)
+   ========================================================================== */
 
+/* Fix 1: Ensure Split Hero stays side-by-side on desktop */
+@media (min-width: 861px) {
+  .disciplines-split,
+  .split-hero-container {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    width: 100% !important;
+  }
+}
+
+/* Fix 2: Aesthetic side secondary button readability */
+.disc-panel--aesthetic .disc-panel__btn--secondary,
+.disc-panel--aesthetic .disc-panel_btn--secondary,
+.disc-panel--aesthetic .disc-panel__btn--secondary * {
+  background-color: transparent !important;
+  color: #111111 !important;
+  border-color: #111111 !important;
+  opacity: 1 !important;
+}
+
+.disc-panel--aesthetic .disc-panel__btn--secondary:hover,
+.disc-panel--aesthetic .disc-panel_btn--secondary:hover {
+  background-color: #111111 !important;
+  color: #ffffff !important;
+}
+
+/* Fix 3: Mobile sticky bar spacing safety */
+@media (max-width: 768px) {
+  footer, .site-footer {
+    padding-bottom: 5.5rem !important;
+  }
+}
 /* Main Hero Grid for Split Panels */
 .disciplines-split,
 .split-hero-container {
