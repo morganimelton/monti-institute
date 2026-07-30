@@ -102,16 +102,17 @@
       flex-wrap: wrap !important;
     }
 
-    /* PROMINENT SCROLL INDICATOR */
+    /* SCROLL INDICATOR CENTERING & READABILITY */
     .hero__scroll {
-      margin-top: 3.5rem !important;
-      margin-bottom: 1rem !important;
+      margin: 3.5rem auto 1rem auto !important;
       display: flex !important;
       flex-direction: column !important;
       align-items: center !important;
       justify-content: center !important;
+      text-align: center !important;
       position: relative !important;
       z-index: 5 !important;
+      width: 100% !important;
     }
 
     .hero__scroll-label {
@@ -126,21 +127,23 @@
       border-radius: 20px !important;
       margin-bottom: 0.5rem !important;
       backdrop-filter: blur(4px) !important;
+      display: inline-block !important;
     }
 
     .hero__scroll-track {
       width: 1px !important;
       height: 36px !important;
       background: linear-gradient(to bottom, rgba(196, 169, 125, 0.8), transparent) !important;
+      margin: 0 auto !important;
     }
 
-    /* SPLIT-PANEL GRID & THEMING */
+    /* FIXED NON-COLLAPSED NEUROLOGICAL & AESTHETIC SPLIT PANELS */
     .disciplines-split {
       display: grid !important;
       grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
       gap: 2rem !important;
       max-width: 1280px !important;
-      margin: 0 auto 4rem !important;
+      margin: 0 auto 5rem !important;
       padding: 0 1.5rem !important;
       box-sizing: border-box !important;
       position: relative !important;
@@ -295,142 +298,20 @@
       transition: all 0.25s ease !important;
     }
 
-    /* CONDITIONS TREATED QUICK TAGS */
-    .conditions-strip {
-      max-width: 1280px;
-      margin: 0 auto 5rem;
-      padding: 2rem 1.5rem;
-      background: rgba(255, 255, 255, 0.02);
-      border: 1px solid rgba(196, 169, 125, 0.2);
-      border-radius: 6px;
-      text-align: center;
+    @media (max-width: 992px) {
+      .disciplines-split {
+        grid-template-columns: 1fr !important;
+        gap: 2.5rem !important;
+      }
     }
 
-    .conditions-strip__label {
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: #C4A97D;
-      display: block;
-      margin-bottom: 1rem;
-    }
-
-    .conditions-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.6rem;
-      justify-content: center;
-    }
-
-    .condition-tag {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      color: rgba(255, 255, 255, 0.85);
-      padding: 0.4rem 0.9rem;
-      border-radius: 20px;
-      font-size: 0.85rem;
-      transition: border-color 0.2s, background 0.2s;
-    }
-
-    .condition-tag:hover {
-      border-color: #C4A97D;
-      color: #FFFFFF;
-      background: rgba(196, 169, 125, 0.15);
-    }
-
-    /* CLINICAL TRUST METRICS STRIP */
-    .trust-metrics {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1.5rem;
-      max-width: 1100px;
-      margin: 3rem auto 0;
-      text-align: center;
-    }
-
-    .trust-metric-card {
-      padding: 1.5rem 1rem;
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 6px;
-    }
-
-    .trust-metric__num {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 2.2rem;
-      color: #C4A97D;
-      display: block;
-      font-weight: 500;
-    }
-
-    .trust-metric__title {
-      font-size: 0.85rem;
-      color: rgba(255, 255, 255, 0.75);
-      margin-top: 0.25rem;
-      display: block;
-    }
-
-    /* CLINICAL FAQ ACCORDION */
-    .faq-section {
-      max-width: 900px;
-      margin: 5rem auto;
-      padding: 0 1.5rem;
-    }
-
-    .faq-section__title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 2.25rem;
-      text-align: center;
-      color: #FFFFFF;
-      margin-bottom: 2rem;
-    }
-
-    .faq-item {
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-      margin-bottom: 1rem;
-      padding-bottom: 1rem;
-    }
-
-    .faq-item summary {
-      font-size: 1.05rem;
-      font-weight: 500;
-      color: #FFFFFF;
-      cursor: pointer;
-      list-style: none;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .faq-item summary::-webkit-details-marker {
-      display: none;
-    }
-
-    .faq-item summary::after {
-      content: '+';
-      font-size: 1.4rem;
-      color: #C4A97D;
-    }
-
-    .faq-item[open] summary::after {
-      content: '—';
-    }
-
-    .faq-item p {
-      margin-top: 0.75rem;
-      font-size: 0.925rem;
-      line-height: 1.65;
-      color: rgba(255, 255, 255, 0.7);
-    }
-
-    /* DIGITAL CONCIERGE STYLING */
+    /* Equal Height Card Layout Styles for Digital Concierge */
     .concierge-options {
       display: grid !important;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)) !important;
       gap: 1.5rem !important;
       align-items: stretch !important;
     }
-
     .concierge-option {
       display: flex !important;
       flex-direction: column !important;
@@ -438,11 +319,11 @@
       height: 100% !important;
       box-sizing: border-box !important;
     }
-
     .concierge-option__desc {
       margin-top: auto !important;
     }
 
+    /* HIGH VISIBILITY CONTINUE BUTTON STYLING FOR CONCIERGE FLOW */
     .concierge-next {
       background-color: #c4a97d !important;
       color: #111111 !important;
@@ -476,23 +357,20 @@
       transform: none !important;
     }
 
-    /* PATIENT RESOURCES & ACCESS SECTION */
+    /* Patient Resources & Access Section */
     .patient-resources-section {
       padding: 5rem 1.5rem !important;
       background-color: rgba(14, 32, 47, 0.25) !important;
       border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
     }
-
     .patient-resources-inner {
       max-width: 1100px !important;
       margin: 0 auto !important;
     }
-
     .patient-resources__header {
       text-align: center !important;
       margin-bottom: 3rem !important;
     }
-
     .patient-resources__eyebrow {
       font-size: 0.8rem !important;
       text-transform: uppercase !important;
@@ -501,7 +379,6 @@
       display: block !important;
       margin-bottom: 0.5rem !important;
     }
-
     .patient-resources__heading {
       font-family: 'Cormorant Garamond', serif !important;
       font-size: 2.25rem !important;
@@ -509,7 +386,6 @@
       color: #ffffff !important;
       margin-bottom: 0.75rem !important;
     }
-
     .patient-resources__sub {
       font-size: 0.95rem !important;
       color: rgba(255, 255, 255, 0.65) !important;
@@ -517,14 +393,12 @@
       margin: 0 auto !important;
       line-height: 1.6 !important;
     }
-
     .patient-resources-grid {
       display: grid !important;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)) !important;
       gap: 2rem !important;
       align-items: stretch !important;
     }
-
     .resource-card {
       background: rgba(255, 255, 255, 0.03) !important;
       border: 1px solid rgba(255, 255, 255, 0.1) !important;
@@ -534,18 +408,15 @@
       flex-direction: column !important;
       transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease !important;
     }
-
     .resource-card:hover {
       transform: translateY(-3px) !important;
       border-color: rgba(196, 169, 125, 0.5) !important;
       box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3) !important;
     }
-
     .resource-card__icon {
       color: #c4a97d !important;
       margin-bottom: 1rem !important;
     }
-
     .resource-card__badge {
       font-size: 0.75rem !important;
       text-transform: uppercase !important;
@@ -554,14 +425,12 @@
       margin-bottom: 0.5rem !important;
       display: block !important;
     }
-
     .resource-card__title {
       font-family: 'Cormorant Garamond', serif !important;
       font-size: 1.6rem !important;
       color: #ffffff !important;
       margin-bottom: 0.75rem !important;
     }
-
     .resource-card__desc {
       font-size: 0.9rem !important;
       line-height: 1.6 !important;
@@ -569,7 +438,6 @@
       margin-bottom: 2rem !important;
       flex-grow: 1 !important;
     }
-
     .resource-card__btn {
       width: 100% !important;
       text-align: center !important;
@@ -580,7 +448,7 @@
       font-weight: 500 !important;
     }
 
-    /* DISCLAIMER & FOOTER STYLING */
+    /* Spacious Disclaimer & Legal Notice Styling (Single Line) */
     .site-disclaimer {
       padding: 2.25rem 1.5rem 2.5rem !important;
       margin-top: 4rem !important;
@@ -616,7 +484,7 @@
       padding-top: 1.5rem !important;
     }
 
-    /* MOBILE STICKY BAR */
+    /* Mobile Floating Action Bar */
     .mobile-sticky-bar {
       display: none;
     }
@@ -790,7 +658,7 @@
         </a>
       </div>
 
-      <!-- PROMINENT HIGH-CONTRAST SCROLL INDICATOR -->
+      <!-- CENTERED PROMINENT SCROLL INDICATOR -->
       <div class="hero__scroll" aria-hidden="true">
         <span class="hero__scroll-label">Scroll</span>
         <div class="hero__scroll-track"></div>
@@ -902,21 +770,6 @@
       </div><!-- /disc-panel--aesthetic -->
 
     </section><!-- /disciplines-split -->
-
-    <!-- CONDITIONS & SYMPTOMS QUICK-ACCESS STRIP -->
-    <section class="conditions-strip" aria-label="Conditions and Symptoms Treated">
-      <span class="conditions-strip__label">Targeted Clinical Areas</span>
-      <div class="conditions-tags">
-        <span class="condition-tag">Chronic Migraine</span>
-        <span class="condition-tag">Status Migrainosus</span>
-        <span class="condition-tag">Occipital Neuralgia</span>
-        <span class="condition-tag">Masseter &amp; TMJ Pain</span>
-        <span class="condition-tag">Facial Volume Restoration</span>
-        <span class="condition-tag">Expression Line Refinement</span>
-        <span class="condition-tag">Refractory Headache</span>
-        <span class="condition-tag">Regenerative Dermal Matrix</span>
-      </div>
-    </section>
 
     <!-- PHILOSOPHY & TRUST METRICS SECTION -->
     <section class="section section--xl section--dark" aria-label="Institute philosophy">
