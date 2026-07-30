@@ -32,7 +32,6 @@
       }
     })(document);
   </script>
-  <!-- End Boulevard Self-Booking Overlay -->
 
   <!-- CHERRY MODAL TRIGGER SCRIPT -->
   <script>
@@ -63,81 +62,138 @@
   </script>
 
   <style>
-    /* GLOBAL HERO & PAGE ALIGNMENT */
-    .hero {
-      display: flex !important;
-      flex-direction: column !important;
-      align-items: center !important;
-      justify-content: center !important;
-      text-align: center !important;
-      max-width: 1280px !important;
-      margin: 0 auto !important;
-      padding: 5rem 1.5rem 3rem !important;
-      box-sizing: border-box !important;
-      position: relative !important;
+    /* NAVY & GOLD BRAND COLOR PALETTE OVERRIDES */
+    body {
+      background-color: #050B14 !important;
+      color: #E2E8F0 !important;
     }
 
-    .hero__title, .hero__tagline, .hero__sub, .hero__eyebrow {
-      margin-left: auto !important;
-      margin-right: auto !important;
-      text-align: center !important;
-    }
-
-    .hero__tagline {
-      max-width: 800px !important;
-    }
-
-    .hero__sub {
-      max-width: 700px !important;
-    }
-
-    .hero-cta-container {
-      display: flex !important;
-      gap: 1.25rem !important;
-      justify-content: center !important;
-      align-items: center !important;
-      margin: 2.5rem auto 1rem !important;
-      width: 100% !important;
-      max-width: 600px !important;
-      flex-wrap: wrap !important;
-    }
-
-    /* SCROLL INDICATOR CENTERING & READABILITY */
+    /* PERFECTLY CENTERED SCROLL INDICATOR */
     .hero__scroll {
-      margin: 3.5rem auto 1rem auto !important;
       display: flex !important;
       flex-direction: column !important;
       align-items: center !important;
       justify-content: center !important;
-      text-align: center !important;
+      margin: 3.5rem auto 1rem auto !important;
+      width: fit-content !important;
       position: relative !important;
       z-index: 5 !important;
-      width: 100% !important;
     }
 
     .hero__scroll-label {
       font-size: 0.75rem !important;
       text-transform: uppercase !important;
       letter-spacing: 0.15em !important;
-      color: #ffffff !important;
+      color: #C4A97D !important;
       font-weight: 600 !important;
-      background: rgba(196, 169, 125, 0.25) !important;
+      background: rgba(10, 22, 40, 0.8) !important;
       border: 1px solid rgba(196, 169, 125, 0.4) !important;
-      padding: 0.3rem 0.9rem !important;
+      padding: 0.4rem 1.1rem !important;
       border-radius: 20px !important;
       margin-bottom: 0.5rem !important;
-      backdrop-filter: blur(4px) !important;
-      display: inline-block !important;
+      backdrop-filter: blur(8px) !important;
+      white-space: nowrap !important;
     }
 
     .hero__scroll-track {
       width: 1px !important;
       height: 36px !important;
-      background: linear-gradient(to bottom, rgba(196, 169, 125, 0.8), transparent) !important;
+      background: linear-gradient(to bottom, #C4A97D, transparent) !important;
       margin: 0 auto !important;
     }
 
-    /* FIXED NON-COLLAPSED NEUROLOGICAL & AESTHETIC SPLIT PANELS */
+    /* HIGH VISIBILITY ACTIVE CONTINUE BUTTON */
+    .concierge-next {
+      background-color: #C4A97D !important;
+      color: #07101F !important;
+      border: 1px solid #C4A97D !important;
+      padding: 0.9rem 2.25rem !important;
+      font-size: 0.95rem !important;
+      font-weight: 700 !important;
+      letter-spacing: 0.05em !important;
+      border-radius: 4px !important;
+      cursor: pointer !important;
+      transition: all 0.25s ease !important;
+      box-shadow: 0 4px 14px rgba(196, 169, 125, 0.3) !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      text-transform: uppercase !important;
+    }
+
+    .concierge-next:hover:not(:disabled) {
+      background-color: #D4B98D !important;
+      color: #000000 !important;
+      transform: translateY(-2px) !important;
+      box-shadow: 0 6px 18px rgba(196, 169, 125, 0.5) !important;
+    }
+
+    .concierge-next:disabled {
+      background-color: rgba(196, 169, 125, 0.15) !important;
+      color: rgba(255, 255, 255, 0.3) !important;
+      border-color: rgba(196, 169, 125, 0.15) !important;
+      cursor: not-allowed !important;
+      box-shadow: none !important;
+      transform: none !important;
+    }
+
+    /* DIGITAL CONCIERGE CARDS & SELECTION STYLING */
+    .concierge-options {
+      display: grid !important;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)) !important;
+      gap: 1.5rem !important;
+      align-items: stretch !important;
+    }
+
+    .concierge-option {
+      background: #0A1628 !important;
+      border: 1px solid rgba(196, 169, 125, 0.2) !important;
+      border-radius: 6px !important;
+      padding: 1.75rem 1.5rem !important;
+      text-align: left !important;
+      display: flex !important;
+      flex-direction: column !important;
+      justify-content: flex-start !important;
+      height: 100% !important;
+      transition: all 0.25s ease !important;
+      cursor: pointer !important;
+    }
+
+    .concierge-option:hover {
+      border-color: #C4A97D !important;
+      background: #0D1C30 !important;
+      transform: translateY(-2px) !important;
+    }
+
+    .concierge-option.is-selected {
+      border-color: #C4A97D !important;
+      background: rgba(196, 169, 125, 0.12) !important;
+      box-shadow: 0 0 15px rgba(196, 169, 125, 0.2) !important;
+    }
+
+    .concierge-option__label {
+      color: #C4A97D !important;
+      font-size: 0.75rem !important;
+      text-transform: uppercase !important;
+      letter-spacing: 0.1em !important;
+      margin-bottom: 0.5rem !important;
+    }
+
+    .concierge-option__title {
+      color: #FFFFFF !important;
+      font-family: 'Cormorant Garamond', serif !important;
+      font-size: 1.4rem !important;
+      margin-bottom: 0.75rem !important;
+    }
+
+    .concierge-option__desc {
+      color: rgba(255, 255, 255, 0.7) !important;
+      font-size: 0.875rem !important;
+      line-height: 1.5 !important;
+      margin-top: auto !important;
+    }
+
+    /* SPLIT-PANELS: NAVY & CHAMPAGNE */
     .disciplines-split {
       display: grid !important;
       grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
@@ -145,317 +201,51 @@
       max-width: 1280px !important;
       margin: 0 auto 5rem !important;
       padding: 0 1.5rem !important;
-      box-sizing: border-box !important;
-      position: relative !important;
       align-items: stretch !important;
     }
 
     .disc-panel {
-      width: 100% !important;
-      min-height: 100% !important;
-      box-sizing: border-box !important;
+      padding: 3rem 2.25rem !important;
+      border-radius: 8px !important;
       display: flex !important;
       flex-direction: column !important;
       justify-content: space-between !important;
-      text-align: left !important;
-      padding: 3rem 2.25rem !important;
-      border-radius: 8px !important;
-      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25) !important;
-      transition: transform 0.3s ease, box-shadow 0.3s ease !important;
     }
 
-    .disc-panel:hover {
-      transform: translateY(-4px) !important;
-      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35) !important;
-    }
-
-    /* 1. NEUROLOGICAL MEDICINE: RICH DARK NAVY PANEL */
     .disc-panel--neuro {
       background: linear-gradient(145deg, #07101F 0%, #0D1C30 100%) !important;
-      border: 1px solid rgba(196, 169, 125, 0.25) !important;
+      border: 1px solid rgba(196, 169, 125, 0.3) !important;
       color: #FFFFFF !important;
     }
 
-    .disc-panel--neuro .disc-panel__title {
-      color: #FFFFFF !important;
-      font-family: 'Cormorant Garamond', serif !important;
-      font-size: 2.25rem !important;
-      line-height: 1.15 !important;
-    }
-
-    .disc-panel--neuro .disc-panel__copy {
-      color: rgba(255, 255, 255, 0.8) !important;
-      line-height: 1.65 !important;
-      margin-bottom: 1.5rem !important;
-    }
-
-    .disc-panel--neuro .disc-panel__list-item {
-      color: rgba(255, 255, 255, 0.85) !important;
-    }
-
-    .disc-panel--neuro .disc-panel__list-dot {
-      background-color: #C4A97D !important;
-    }
-
-    .disc-panel--neuro .disc-panel__btn {
-      background-color: #C4A97D !important;
-      color: #0A1628 !important;
-      border: 1px solid #C4A97D !important;
-      font-weight: 600 !important;
-    }
-
-    .disc-panel--neuro .disc-panel__btn--secondary {
-      background-color: transparent !important;
-      color: #FFFFFF !important;
-      border: 1px solid rgba(255, 255, 255, 0.4) !important;
-      font-weight: 500 !important;
-    }
-
-    .disc-panel--neuro .disc-panel__btn--secondary:hover {
-      background-color: rgba(255, 255, 255, 0.1) !important;
-      border-color: #FFFFFF !important;
-      color: #FFFFFF !important;
-    }
-
-    /* 2. AESTHETIC MEDICINE: LUXURY CHAMPAGNE PANEL */
     .disc-panel--aesthetic {
       background: linear-gradient(145deg, #F8F4EC 0%, #EFE8DD 100%) !important;
-      border: 1px solid rgba(196, 169, 125, 0.4) !important;
+      border: 1px solid rgba(196, 169, 125, 0.5) !important;
       color: #1A1816 !important;
     }
 
-    .disc-panel--aesthetic .disc-panel__title {
-      color: #1A1816 !important;
-      font-family: 'Cormorant Garamond', serif !important;
-      font-size: 2.25rem !important;
-      line-height: 1.15 !important;
-    }
-
-    .disc-panel--aesthetic .disc-panel__copy {
-      color: rgba(26, 24, 22, 0.8) !important;
-      line-height: 1.65 !important;
-      margin-bottom: 1.5rem !important;
-    }
-
-    .disc-panel--aesthetic .disc-panel__list-item {
-      color: rgba(26, 24, 22, 0.85) !important;
-    }
-
-    .disc-panel--aesthetic .disc-panel__list-dot {
-      background-color: #A38855 !important;
-    }
-
-    .disc-panel--aesthetic .disc-panel__btn {
-      background-color: #1A1816 !important;
-      color: #F8F4EC !important;
-      border: 1px solid #1A1816 !important;
-      font-weight: 600 !important;
-    }
-
-    .disc-panel--aesthetic .disc-panel__btn:hover {
-      background-color: #2D2824 !important;
-    }
-
-    .disc-panel--aesthetic .disc-panel__btn--secondary {
-      background-color: #C4A97D !important;
-      color: #0A1628 !important;
-      border: 1px solid #C4A97D !important;
-      font-weight: 600 !important;
-    }
-
-    .disc-panel--aesthetic .disc-panel__btn--secondary:hover {
-      background-color: #B3976B !important;
-      color: #0A1628 !important;
-    }
-
-    /* SHARED PANEL BUTTON ALIGNMENT */
-    .disc-panel__content {
-      display: flex !important;
-      flex-direction: column !important;
-      flex-grow: 1 !important;
-      justify-content: flex-start !important;
-    }
-
-    .disc-panel__action-group {
-      margin-top: auto !important;
-      display: flex !important;
-      flex-direction: column !important;
-      gap: 0.85rem !important;
-    }
-
-    .disc-panel__btn, .disc-panel__btn--secondary {
-      width: 100% !important;
-      box-sizing: border-box !important;
-      padding: 0.9rem 1.5rem !important;
-      font-size: 0.95rem !important;
-      border-radius: 4px !important;
-      display: inline-flex !important;
-      align-items: center !important;
-      justify-content: center !important;
-      gap: 0.6rem !important;
-      cursor: pointer !important;
-      text-decoration: none !important;
-      transition: all 0.25s ease !important;
-    }
-
-    @media (max-width: 992px) {
-      .disciplines-split {
-        grid-template-columns: 1fr !important;
-        gap: 2.5rem !important;
-      }
-    }
-
-    /* Equal Height Card Layout Styles for Digital Concierge */
-    .concierge-options {
-      display: grid !important;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)) !important;
-      gap: 1.5rem !important;
-      align-items: stretch !important;
-    }
-    .concierge-option {
-      display: flex !important;
-      flex-direction: column !important;
-      justify-content: flex-start !important;
-      height: 100% !important;
-      box-sizing: border-box !important;
-    }
-    .concierge-option__desc {
-      margin-top: auto !important;
-    }
-
-    /* HIGH VISIBILITY CONTINUE BUTTON STYLING FOR CONCIERGE FLOW */
-    .concierge-next {
-      background-color: #c4a97d !important;
-      color: #111111 !important;
-      border: 1px solid #c4a97d !important;
-      padding: 0.9rem 2.25rem !important;
-      font-size: 0.95rem !important;
-      font-weight: 600 !important;
-      letter-spacing: 0.03em !important;
-      border-radius: 4px !important;
-      cursor: pointer !important;
-      transition: all 0.25s ease !important;
-      box-shadow: 0 4px 14px rgba(196, 169, 125, 0.25) !important;
-      display: inline-flex !important;
-      align-items: center !important;
-      justify-content: center !important;
-    }
-
-    .concierge-next:hover:not(:disabled) {
-      background-color: #d4b98d !important;
-      color: #000000 !important;
-      transform: translateY(-2px) !important;
-      box-shadow: 0 6px 18px rgba(196, 169, 125, 0.4) !important;
-    }
-
-    .concierge-next:disabled {
-      background-color: rgba(196, 169, 125, 0.25) !important;
-      color: rgba(255, 255, 255, 0.4) !important;
-      border-color: rgba(196, 169, 125, 0.2) !important;
-      cursor: not-allowed !important;
-      box-shadow: none !important;
-      transform: none !important;
-    }
-
-    /* Patient Resources & Access Section */
+    /* NAVY & GOLD PATIENT RESOURCES SECTION */
     .patient-resources-section {
       padding: 5rem 1.5rem !important;
-      background-color: rgba(14, 32, 47, 0.25) !important;
-      border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
-    }
-    .patient-resources-inner {
-      max-width: 1100px !important;
-      margin: 0 auto !important;
-    }
-    .patient-resources__header {
-      text-align: center !important;
-      margin-bottom: 3rem !important;
-    }
-    .patient-resources__eyebrow {
-      font-size: 0.8rem !important;
-      text-transform: uppercase !important;
-      letter-spacing: 0.12em !important;
-      color: #c4a97d !important;
-      display: block !important;
-      margin-bottom: 0.5rem !important;
-    }
-    .patient-resources__heading {
-      font-family: 'Cormorant Garamond', serif !important;
-      font-size: 2.25rem !important;
-      font-weight: 400 !important;
-      color: #ffffff !important;
-      margin-bottom: 0.75rem !important;
-    }
-    .patient-resources__sub {
-      font-size: 0.95rem !important;
-      color: rgba(255, 255, 255, 0.65) !important;
-      max-width: 600px !important;
-      margin: 0 auto !important;
-      line-height: 1.6 !important;
-    }
-    .patient-resources-grid {
-      display: grid !important;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)) !important;
-      gap: 2rem !important;
-      align-items: stretch !important;
-    }
-    .resource-card {
-      background: rgba(255, 255, 255, 0.03) !important;
-      border: 1px solid rgba(255, 255, 255, 0.1) !important;
-      border-radius: 6px !important;
-      padding: 2.25rem 2rem !important;
-      display: flex !important;
-      flex-direction: column !important;
-      transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease !important;
-    }
-    .resource-card:hover {
-      transform: translateY(-3px) !important;
-      border-color: rgba(196, 169, 125, 0.5) !important;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3) !important;
-    }
-    .resource-card__icon {
-      color: #c4a97d !important;
-      margin-bottom: 1rem !important;
-    }
-    .resource-card__badge {
-      font-size: 0.75rem !important;
-      text-transform: uppercase !important;
-      letter-spacing: 0.08em !important;
-      color: #c4a97d !important;
-      margin-bottom: 0.5rem !important;
-      display: block !important;
-    }
-    .resource-card__title {
-      font-family: 'Cormorant Garamond', serif !important;
-      font-size: 1.6rem !important;
-      color: #ffffff !important;
-      margin-bottom: 0.75rem !important;
-    }
-    .resource-card__desc {
-      font-size: 0.9rem !important;
-      line-height: 1.6 !important;
-      color: rgba(255, 255, 255, 0.65) !important;
-      margin-bottom: 2rem !important;
-      flex-grow: 1 !important;
-    }
-    .resource-card__btn {
-      width: 100% !important;
-      text-align: center !important;
-      justify-content: center !important;
-      padding: 0.85rem 1.25rem !important;
-      border-radius: 4px !important;
-      text-decoration: none !important;
-      font-weight: 500 !important;
+      background: #07101F !important;
+      border-top: 1px solid rgba(196, 169, 125, 0.2) !important;
     }
 
-    /* Spacious Disclaimer & Legal Notice Styling (Single Line) */
+    .resource-card {
+      background: #0A1628 !important;
+      border: 1px solid rgba(196, 169, 125, 0.2) !important;
+      border-radius: 6px !important;
+      padding: 2.25rem 2rem !important;
+    }
+
+    /* WELL-SPACED NAVY/GOLD DISCLAIMER */
     .site-disclaimer {
       padding: 2.25rem 1.5rem 2.5rem !important;
       margin-top: 4rem !important;
       margin-bottom: 2.5rem !important;
-      border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
-      background-color: rgba(0, 0, 0, 0.15) !important;
+      border-top: 1px solid rgba(196, 169, 125, 0.2) !important;
+      border-bottom: 1px solid rgba(196, 169, 125, 0.2) !important;
+      background-color: #07101F !important;
     }
 
     .site-disclaimer__text {
@@ -463,83 +253,22 @@
       margin: 0 auto !important;
       font-size: 0.825rem !important;
       line-height: 1.6 !important;
-      color: rgba(255, 255, 255, 0.55) !important;
+      color: rgba(255, 255, 255, 0.6) !important;
       text-align: center !important;
-      letter-spacing: 0.01em !important;
-      white-space: normal !important;
     }
 
     .site-disclaimer__text a {
-      color: rgba(255, 255, 255, 0.75) !important;
+      color: #C4A97D !important;
       text-decoration: underline !important;
-      transition: color 0.2s ease !important;
-      white-space: nowrap !important;
     }
 
-    .site-disclaimer__text a:hover {
-      color: #ffffff !important;
-    }
-
-    .footer {
-      padding-top: 1.5rem !important;
-    }
-
-    /* Mobile Floating Action Bar */
-    .mobile-sticky-bar {
-      display: none;
-    }
-
-    @media (max-width: 768px) {
-      body {
-        padding-bottom: 70px !important;
-      }
-
-      .mobile-sticky-bar {
-        position: fixed !important;
-        bottom: 0 !important;
-        left: 0 !important;
-        right: 0 !important;
-        display: flex !important;
-        gap: 10px !important;
-        padding: 12px 16px !important;
-        background: rgba(17, 17, 17, 0.96) !important;
-        backdrop-filter: blur(10px) !important;
-        -webkit-backdrop-filter: blur(10px) !important;
-        border-top: 1px solid rgba(196, 169, 125, 0.3) !important;
-        z-index: 99999 !important;
-        box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.4) !important;
-      }
-
-      .mobile-sticky-bar__btn {
-        flex: 1 !important;
-        text-align: center !important;
-        padding: 12px 8px !important;
-        border-radius: 4px !important;
-        font-size: 0.85rem !important;
-        font-weight: 600 !important;
-        text-decoration: none !important;
-        letter-spacing: 0.03em !important;
-        display: inline-flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-        gap: 6px !important;
-      }
-
-      .mobile-sticky-bar__btn--call {
-        background: rgba(255, 255, 255, 0.08) !important;
-        color: #ffffff !important;
-        border: 1px solid rgba(255, 255, 255, 0.2) !important;
-      }
-
-      .mobile-sticky-bar__btn--book {
-        background: #c4a97d !important;
-        color: #111111 !important;
-        border: 1px solid #c4a97d !important;
+    @media (max-width: 992px) {
+      .disciplines-split {
+        grid-template-columns: 1fr !important;
       }
     }
   </style>
 </head>
-<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-M7QTXDPY24"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -631,7 +360,7 @@
 
   <main id="js-outlet" tabindex="-1">
 
-    <!-- 1. PERFECTLY CENTERED HERO SECTION -->
+    <!-- 1. HERO SECTION -->
     <section class="hero" aria-labelledby="hero-heading">
       <div class="hero__eyebrow">
         <div class="hero__eyebrow-rule" aria-hidden="true"></div>
@@ -658,14 +387,14 @@
         </a>
       </div>
 
-      <!-- CENTERED PROMINENT SCROLL INDICATOR -->
+      <!-- CENTERED SCROLL INDICATOR -->
       <div class="hero__scroll" aria-hidden="true">
         <span class="hero__scroll-label">Scroll</span>
         <div class="hero__scroll-track"></div>
       </div>
     </section>
 
-    <!-- 2. DISTINCTLY THEMED SPLIT PANELS (NAVY & CHAMPAGNE) -->
+    <!-- 2. SPLIT PANELS (NAVY & CHAMPAGNE) -->
     <section class="disciplines-split" id="care-disciplines" aria-label="Our Disciplines">
 
       <!-- LEFT PANEL: NEUROLOGICAL MEDICINE (RICH DARK NAVY) -->
@@ -682,7 +411,7 @@
             Physician-led diagnosis and management of migraine, headache disorders,
             and neurologic pain through structured, evidence-based protocols.
           </p>
-          <ul class="disc-panel__list" aria-label="Neurological Medicine services">
+          <ul class="disc-panel__list" aria-label="Neurological Medicine services" style="list-style:none; padding:0;">
             <li class="disc-panel__list-item" style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.6rem;">
               <div class="disc-panel__list-dot" style="width: 6px; height: 6px; border-radius: 50%;"></div>
               Chronic illness evaluation
@@ -701,22 +430,16 @@
             </li>
           </ul>
 
-          <div class="disc-panel__action-group">
+          <div class="disc-panel__action-group" style="margin-top:auto;">
             <button class="disc-panel__btn" type="button" onclick="window.location.href='neurological-medicine.html'">
-              Enter Neurological Care
-              <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke="currentColor" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-              </svg>
+              Enter Neurological Care &rarr;
             </button>
             <button class="disc-panel__btn disc-panel__btn--secondary" type="button" onclick="window.location.href='infusion-center.html'">
-              Infusion &amp; Wellness Suite
-              <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke="currentColor" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-              </svg>
+              Infusion &amp; Wellness Suite &rarr;
             </button>
           </div>
         </div>
-      </div><!-- /disc-panel--neuro -->
+      </div>
 
       <!-- RIGHT PANEL: AESTHETIC MEDICINE (WARM LUXURY CHAMPAGNE) -->
       <div class="disc-panel disc-panel--aesthetic"
@@ -733,7 +456,7 @@
             protocols &mdash; injectables, energy-based devices, and regenerative
             treatments for natural outcomes.
           </p>
-          <ul class="disc-panel__list" aria-label="Aesthetic Medicine services">
+          <ul class="disc-panel__list" aria-label="Aesthetic Medicine services" style="list-style:none; padding:0;">
             <li class="disc-panel__list-item" style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.6rem;">
               <div class="disc-panel__list-dot" style="width: 6px; height: 6px; border-radius: 50%;"></div>
               Regenerative aesthetics
@@ -752,35 +475,29 @@
             </li>
           </ul>
 
-          <div class="disc-panel__action-group">
+          <div class="disc-panel__action-group" style="margin-top:auto;">
             <button class="disc-panel__btn" type="button" onclick="window.location.href='aesthetic-medicine.html'">
-              Enter Aesthetic Medicine
-              <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke="currentColor" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-              </svg>
+              Enter Aesthetic Medicine &rarr;
             </button>
             <button class="disc-panel__btn disc-panel__btn--secondary" type="button" onclick="window.location.href='infusion-center.html'">
-              Infusion &amp; Wellness Suite
-              <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke="currentColor" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-              </svg>
+              Infusion &amp; Wellness Suite &rarr;
             </button>
           </div>
         </div>
-      </div><!-- /disc-panel--aesthetic -->
+      </div>
 
-    </section><!-- /disciplines-split -->
+    </section>
 
     <!-- PHILOSOPHY & TRUST METRICS SECTION -->
     <section class="section section--xl section--dark" aria-label="Institute philosophy">
       <div class="philosophy-bg" aria-hidden="true"></div>
-      <div class="philosophy__inner">
-        <span class="section__label reveal">Philosophy</span>
-        <blockquote class="philosophy__quote reveal">
+      <div class="philosophy__inner" style="max-width: 1000px; margin: 0 auto; text-align: center;">
+        <span class="section__label reveal" style="color:#C4A97D;">Philosophy</span>
+        <blockquote class="philosophy__quote reveal" style="font-family:'Cormorant Garamond', serif; font-size: 2.25rem; color:#FFF; margin:1rem 0;">
           &ldquo;Two disciplines. One physician. One standard of care.&rdquo;
         </blockquote>
-        <p class="philosophy__source reveal">Founding Principles</p>
-        <p class="philosophy__body">
+        <p class="philosophy__source reveal" style="color:#C4A97D; text-transform:uppercase; letter-spacing:0.1em; font-size:0.85rem; margin-bottom:1.5rem;">Founding Principles</p>
+        <p class="philosophy__body" style="line-height:1.7; color:rgba(255,255,255,0.8);">
           Monti Institute was founded on a single conviction:
           neurological care and aesthetic medicine are most effective
           when practiced together, by a physician who understands both.
@@ -789,109 +506,34 @@
         </p>
 
         <!-- TRUST METRICS STRIP -->
-        <div class="trust-metrics">
-          <div class="trust-metric-card">
-            <span class="trust-metric__num">100%</span>
-            <span class="trust-metric__title">Physician-Supervised Care</span>
+        <div class="trust-metrics" style="display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap:1.5rem; margin-top:3rem;">
+          <div class="trust-metric-card" style="background:#0A1628; border:1px solid rgba(196,169,125,0.3); padding:1.5rem; border-radius:6px;">
+            <span class="trust-metric__num" style="font-family:'Cormorant Garamond', serif; font-size:2.2rem; color:#C4A97D;">100%</span>
+            <span class="trust-metric__title" style="font-size:0.85rem; color:rgba(255,255,255,0.8); display:block; margin-top:0.25rem;">Physician-Supervised Care</span>
           </div>
-          <div class="trust-metric-card">
-            <span class="trust-metric__num">PREEMPT</span>
-            <span class="trust-metric__title">FDA Chronic Migraine Protocol</span>
+          <div class="trust-metric-card" style="background:#0A1628; border:1px solid rgba(196,169,125,0.3); padding:1.5rem; border-radius:6px;">
+            <span class="trust-metric__num" style="font-family:'Cormorant Garamond', serif; font-size:2.2rem; color:#C4A97D;">PREEMPT</span>
+            <span class="trust-metric__title" style="font-size:0.85rem; color:rgba(255,255,255,0.8); display:block; margin-top:0.25rem;">FDA Chronic Migraine Protocol</span>
           </div>
-          <div class="trust-metric-card">
-            <span class="trust-metric__num">Tier 1–3</span>
-            <span class="trust-metric__title">Acute IV Rescue Infusions</span>
+          <div class="trust-metric-card" style="background:#0A1628; border:1px solid rgba(196,169,125,0.3); padding:1.5rem; border-radius:6px;">
+            <span class="trust-metric__num" style="font-family:'Cormorant Garamond', serif; font-size:2.2rem; color:#C4A97D;">Tier 1–3</span>
+            <span class="trust-metric__title" style="font-size:0.85rem; color:rgba(255,255,255,0.8); display:block; margin-top:0.25rem;">Acute IV Rescue Infusions</span>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- PATIENT ASSESSMENT QUIZ -->
-    <section class="quiz-section" aria-labelledby="quiz-heading" id="patient-quiz">
-      <div class="quiz-section__header">
-        <span class="quiz-section__eyebrow">Personalized Pathway</span>
-        <h2 class="quiz-section__heading" id="quiz-heading">
-          Find Your<br><em>Care Pathway</em>
-        </h2>
-        <p class="quiz-section__sub">
-          Four questions. A personalized recommendation.
-          Understand which division of care — neurological, aesthetic, or both — is right for your situation.
-        </p>
-      </div>
-      <div id="monti-quiz-root" class="quiz-root-container"></div>
-    </section>
-
-    <section class="cs-bridge-section" aria-label="Clinical Standards reference">
-      <div class="cs-bridge-inner">
-        <span class="cs-bridge__label">For The Discerning Patient</span>
-        <h2 class="cs-bridge__heading">Clinical Standards &amp;<br>Case Frameworks</h2>
-        <p class="cs-bridge__body">Our full clinical commitments, patient fit criteria, consultation dossier structure, institutional credentials, and dual-specialty case documentation are presented on a dedicated reference page.</p>
-        <a href="clinical-standards.html" class="btn btn--primary"
-           style="text-decoration:none;display:inline-flex;align-items:center;gap:0.6rem">
-          View Clinical Standards &amp; Case Frameworks
-          <svg viewBox="0 0 24 24" aria-hidden="true"
-               style="width:14px;height:14px;stroke:currentColor;stroke-width:1.5;fill:none;stroke-linecap:round;stroke-linejoin:round">
-            <path d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-          </svg>
-        </a>
-      </div>
-    </section>
-
-    <section class="accreditations-section" aria-label="Clinical credentials and accreditations">
-      <span class="accreditations-label">
-        Clinical Credentials &amp; Institutional Affiliations
-      </span>
-      <div class="accreditations-bar">
-        <div class="accreditation-badge">
-          <span class="accreditation-badge__abbr">ABIM</span>
-          <span class="accreditation-badge__name">Board-Certified Internal Medicine</span>
-        </div>
-        <div class="accreditations-divider" aria-hidden="true"></div>
-        <div class="accreditation-badge">
-          <span class="accreditation-badge__abbr">ACP</span>
-          <span class="accreditation-badge__name">American College of Physicians</span>
-        </div>
-        <div class="accreditations-divider" aria-hidden="true"></div>
-        <div class="accreditation-badge">
-          <span class="accreditation-badge__abbr">NBPAS</span>
-          <span class="accreditation-badge__name">National Board of Physicians &amp; Surgeons</span>
-        </div>
-        <div class="accreditations-divider" aria-hidden="true"></div>
-        <div class="accreditation-badge">
-          <span class="accreditation-badge__abbr">FAACM&reg;</span>
-          <span class="accreditation-badge__name">American Academy of Cosmetic Medicine</span>
-        </div>
-        <div class="accreditations-divider" aria-hidden="true"></div>
-        <div class="accreditation-badge">
-          <span class="accreditation-badge__abbr">MCG</span>
-          <span class="accreditation-badge__name">Assoc. Prof. Medical College of Georgia</span>
-        </div>
-        <div class="accreditations-divider" aria-hidden="true"></div>
-        <div class="accreditation-badge">
-          <span class="accreditation-badge__abbr">FDA</span>
-          <span class="accreditation-badge__name">FDA-Approved Clinical Protocols</span>
-        </div>
-        <div class="accreditations-divider" aria-hidden="true"></div>
-        <div class="accreditation-badge">
-          <span class="accreditation-badge__abbr">ECFMG</span>
-          <span class="accreditation-badge__name">International Medical Graduate Certified</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- DIGITAL CONCIERGE FLOW -->
-    <section class="concierge-flow" aria-label="Clinical intake concierge">
-      <span class="concierge-flow__label">Digital Concierge</span>
-      <h2 class="concierge-flow__heading">
+    <!-- DIGITAL CONCIERGE FLOW WITH WORKING CONTINUE BUTTON -->
+    <section class="concierge-flow" aria-label="Clinical intake concierge" style="max-width:1100px; margin: 5rem auto; padding:0 1.5rem;">
+      <span class="concierge-flow__label" style="color:#C4A97D; text-transform:uppercase; letter-spacing:0.12em; font-size:0.8rem; display:block; text-align:center;">Digital Concierge</span>
+      <h2 class="concierge-flow__heading" style="font-family:'Cormorant Garamond', serif; font-size:2.25rem; color:#FFF; text-align:center; margin:0.5rem 0;">
         Let us guide you to the right care.
       </h2>
-      <p class="concierge-flow__sub">
-        Answer three brief questions and we will direct you to the
-        appropriate pathway — and ensure your first conversation
-        with our team is as productive as possible.
+      <p class="concierge-flow__sub" style="text-align:center; color:rgba(255,255,255,0.7); max-width:600px; margin:0 auto 2.5rem;">
+        Answer three brief questions and we will direct you to the appropriate pathway.
       </p>
 
-      <div class="concierge-steps" aria-label="Progress" id="cf-steps">
+      <div class="concierge-steps" aria-label="Progress" id="cf-steps" style="display:flex; justify-content:center; gap:0.5rem; margin-bottom:2rem;">
         <div class="concierge-step-dot is-active" data-step="1"></div>
         <div class="concierge-step-dot" data-step="2"></div>
         <div class="concierge-step-dot" data-step="3"></div>
@@ -899,7 +541,7 @@
 
       <!-- STEP 1 -->
       <div class="concierge-panel is-active" id="cf-step-1">
-        <p class="concierge-panel__question">
+        <p class="concierge-panel__question" style="font-size:1.1rem; color:#FFF; margin-bottom:1.5rem;">
           Which area of clinical care brings you here today?
         </p>
         <div class="concierge-options" role="group" aria-label="Select your care pathway">
@@ -907,37 +549,32 @@
             <span class="concierge-option__label">Clinical Division I</span>
             <span class="concierge-option__title">Neurological Medicine</span>
             <span class="concierge-option__desc">
-              Migraine, chronic headache, neurologic pain, longitudinal
-              neurological care, and interventional therapies.
+              Migraine, chronic headache, neurologic pain, and interventional therapies.
             </span>
           </button>
           <button class="concierge-option" data-value="aesthetic" type="button">
             <span class="concierge-option__label">Clinical Division II</span>
             <span class="concierge-option__title">Aesthetic Medicine</span>
             <span class="concierge-option__desc">
-              Physician-led facial aesthetics, injectables, regenerative
-              therapies, and conservative structural refinement.
+              Physician-led facial aesthetics, injectables, and regenerative therapies.
             </span>
           </button>
           <button class="concierge-option" data-value="infusion" type="button">
-            <span class="concierge-option__label">Infusion &amp; Wellness Suite</span>
+            <span class="concierge-option__label">Suite III</span>
             <span class="concierge-option__title">Infusion &amp; Wellness Suite</span>
             <span class="concierge-option__desc">
-              Physician-formulated IV therapies, acute migraine rescue infusions,
-              micronutrient support, and targeted wellness protocols.
+              Physician-formulated IV rescue drips and nutrient support protocols.
             </span>
           </button>
           <button class="concierge-option" data-value="both" type="button">
             <span class="concierge-option__label">Both Divisions</span>
             <span class="concierge-option__title">I am exploring both specialties</span>
             <span class="concierge-option__desc">
-              I am interested in the integrated approach that distinguishes
-              Monti Institute — and would like to understand both pathways.
+              Interested in the integrated approach that distinguishes Monti Institute.
             </span>
           </button>
         </div>
-        <div class="concierge-nav">
-          <span></span>
+        <div class="concierge-nav" style="margin-top:2rem; display:flex; justify-content:flex-end;">
           <button class="concierge-next" type="button" id="cf-next-1" disabled>
             Continue &rarr;
           </button>
@@ -945,210 +582,138 @@
       </div>
 
       <!-- STEP 2: Neuro -->
-      <div class="concierge-panel" id="cf-step-2-neuro">
-        <p class="concierge-panel__question">
+      <div class="concierge-panel" id="cf-step-2-neuro" style="display:none;">
+        <p class="concierge-panel__question" style="font-size:1.1rem; color:#FFF; margin-bottom:1.5rem;">
           What best describes your current neurological situation?
         </p>
         <div class="concierge-options" role="group" aria-label="Select your clinical situation">
           <button class="concierge-option" data-value="chronic" type="button">
             <span class="concierge-option__label">Chronic Condition</span>
-            <span class="concierge-option__title">
-              I manage chronic migraine or frequent headaches — and I want
-              a physician who will take the time to understand my full history.
-            </span>
+            <span class="concierge-option__title">Frequent or Daily Migraines</span>
+            <span class="concierge-option__desc">I manage chronic headache episodes and need specialized care.</span>
           </button>
           <button class="concierge-option" data-value="refractory" type="button">
             <span class="concierge-option__label">Treatment-Refractory</span>
-            <span class="concierge-option__title">
-              I have tried multiple treatments without achieving lasting relief,
-              and I am ready for a more individualized clinical approach.
-            </span>
-          </button>
-          <button class="concierge-option" data-value="complex" type="button">
-            <span class="concierge-option__label">Complex Presentation</span>
-            <span class="concierge-option__title">
-              I have complex or undifferentiated neurological symptoms that
-              have not received a satisfying clinical explanation.
-            </span>
-          </button>
-          <button class="concierge-option" data-value="new" type="button">
-            <span class="concierge-option__label">New to Specialist Care</span>
-            <span class="concierge-option__title">
-              I am newly managing a neurological condition and want to
-              establish care with a physician who specializes in this area.
-            </span>
+            <span class="concierge-option__title">Tried Other Medications</span>
+            <span class="concierge-option__desc">I have tried multiple therapies without achieving lasting relief.</span>
           </button>
         </div>
-        <div class="concierge-nav">
-          <button class="concierge-back" type="button" data-back="1">&larr; Back</button>
+        <div class="concierge-nav" style="margin-top:2rem; display:flex; justify-content:space-between;">
+          <button class="concierge-back btn btn--ghost" type="button" data-back="1">&larr; Back</button>
           <button class="concierge-next" type="button" id="cf-next-2-neuro" disabled>Continue &rarr;</button>
         </div>
       </div>
 
       <!-- STEP 2: Aesthetic -->
-      <div class="concierge-panel" id="cf-step-2-aesthetic">
-        <p class="concierge-panel__question">
+      <div class="concierge-panel" id="cf-step-2-aesthetic" style="display:none;">
+        <p class="concierge-panel__question" style="font-size:1.1rem; color:#FFF; margin-bottom:1.5rem;">
           What best describes your aesthetic goals?
         </p>
         <div class="concierge-options" role="group" aria-label="Select your aesthetic goals">
           <button class="concierge-option" data-value="conservative" type="button">
             <span class="concierge-option__label">Conservative Refinement</span>
-            <span class="concierge-option__title">
-              I want subtle, physician-led improvement — outcomes that are
-              undetectable and preserve the integrity of my face.
-            </span>
+            <span class="concierge-option__title">Natural &amp; Undetectable</span>
+            <span class="concierge-option__desc">I want subtle, physician-led improvement preserving my natural expression.</span>
           </button>
           <button class="concierge-option" data-value="targeted" type="button">
             <span class="concierge-option__label">Targeted Concerns</span>
-            <span class="concierge-option__title">
-              I want to address specific concerns — volume loss, facial lines,
-              skin quality, or structural imbalance — with clinical precision.
-            </span>
-          </button>
-          <button class="concierge-option" data-value="preventive" type="button">
-            <span class="concierge-option__label">Preventive Strategy</span>
-            <span class="concierge-option__title">
-              I am interested in a long-term preventive aesthetic program
-              designed around my anatomy and aging trajectory.
-            </span>
-          </button>
-          <button class="concierge-option" data-value="comprehensive" type="button">
-            <span class="concierge-option__label">Comprehensive Assessment</span>
-            <span class="concierge-option__title">
-              I want to begin with a full anatomical assessment and a
-              long-term plan before committing to any single treatment.
-            </span>
+            <span class="concierge-option__title">Volume &amp; Expression Lines</span>
+            <span class="concierge-option__desc">I want to address facial lines or structural volume loss precisely.</span>
           </button>
         </div>
-        <div class="concierge-nav">
-          <button class="concierge-back" type="button" data-back="1">&larr; Back</button>
+        <div class="concierge-nav" style="margin-top:2rem; display:flex; justify-content:space-between;">
+          <button class="concierge-back btn btn--ghost" type="button" data-back="1">&larr; Back</button>
           <button class="concierge-next" type="button" id="cf-next-2-aesthetic" disabled>Continue &rarr;</button>
         </div>
       </div>
 
       <!-- STEP 2: Infusion -->
-      <div class="concierge-panel" id="cf-step-2-infusion">
-        <p class="concierge-panel__question">
-          What best describes your interest in our Infusion &amp; Wellness Suite?
+      <div class="concierge-panel" id="cf-step-2-infusion" style="display:none;">
+        <p class="concierge-panel__question" style="font-size:1.1rem; color:#FFF; margin-bottom:1.5rem;">
+          What best describes your interest in our Infusion Suite?
         </p>
         <div class="concierge-options" role="group" aria-label="Select your infusion goals">
           <button class="concierge-option" data-value="acute" type="button">
-            <span class="concierge-option__label">Acute Migraine &amp; Relief</span>
-            <span class="concierge-option__title">
-              I am seeking targeted IV rescue therapies for acute migraine,
-              headache attacks, or severe symptoms.
-            </span>
+            <span class="concierge-option__label">Acute Relief</span>
+            <span class="concierge-option__title">Migraine Rescue Drips</span>
+            <span class="concierge-option__desc">Seeking immediate clinical IV rescue therapies for acute attacks.</span>
           </button>
           <button class="concierge-option" data-value="wellness" type="button">
-            <span class="concierge-option__label">Preventive &amp; Wellness Drips</span>
-            <span class="concierge-option__title">
-              I am interested in nutrient support, hydration, antioxidant therapy,
-              and routine preventive wellness.
-            </span>
-          </button>
-          <button class="concierge-option" data-value="custom" type="button">
-            <span class="concierge-option__label">Physician-Guided Protocol</span>
-            <span class="concierge-option__title">
-              I want a tailored infusion plan evaluated and designed around
-              my specific medical history and health goals.
-            </span>
+            <span class="concierge-option__label">Wellness</span>
+            <span class="concierge-option__title">Nutrient &amp; Hydration Support</span>
+            <span class="concierge-option__desc">Routine micronutrients and preventive hydration therapies.</span>
           </button>
         </div>
-        <div class="concierge-nav">
-          <button class="concierge-back" type="button" data-back="1">&larr; Back</button>
+        <div class="concierge-nav" style="margin-top:2rem; display:flex; justify-content:space-between;">
+          <button class="concierge-back btn btn--ghost" type="button" data-back="1">&larr; Back</button>
           <button class="concierge-next" type="button" id="cf-next-2-infusion" disabled>Continue &rarr;</button>
         </div>
       </div>
 
       <!-- STEP 2: Both -->
-      <div class="concierge-panel" id="cf-step-2-both">
-        <p class="concierge-panel__question">
+      <div class="concierge-panel" id="cf-step-2-both" style="display:none;">
+        <p class="concierge-panel__question" style="font-size:1.1rem; color:#FFF; margin-bottom:1.5rem;">
           Which specialty would you like to explore first?
         </p>
         <div class="concierge-options" role="group" aria-label="Select your primary interest">
           <button class="concierge-option" data-value="neuro-first" type="button">
-            <span class="concierge-option__label">Begin With Neurology</span>
-            <span class="concierge-option__title">
-              I want to understand the neurological side of the practice
-              first — migraine management, headache disorders, and interventional care.
-            </span>
+            <span class="concierge-option__label">Primary Focus</span>
+            <span class="concierge-option__title">Begin With Neurology</span>
+            <span class="concierge-option__desc">Focus on neurological evaluation with aesthetics integrated.</span>
           </button>
           <button class="concierge-option" data-value="aesthetic-first" type="button">
-            <span class="concierge-option__label">Begin With Aesthetics</span>
-            <span class="concierge-option__title">
-              I want to explore the aesthetic division first — injectables,
-              regenerative treatments, and physician-led facial refinement.
-            </span>
+            <span class="concierge-option__label">Primary Focus</span>
+            <span class="concierge-option__title">Begin With Aesthetics</span>
+            <span class="concierge-option__desc">Focus on facial refinement with physician guidance.</span>
           </button>
         </div>
-        <div class="concierge-nav">
-          <button class="concierge-back" type="button" data-back="1">&larr; Back</button>
+        <div class="concierge-nav" style="margin-top:2rem; display:flex; justify-content:space-between;">
+          <button class="concierge-back btn btn--ghost" type="button" data-back="1">&larr; Back</button>
           <button class="concierge-next" type="button" id="cf-next-2-both" disabled>Continue &rarr;</button>
         </div>
       </div>
 
       <!-- STEP 3 -->
-      <div class="concierge-panel" id="cf-step-3">
-        <p class="concierge-panel__question">
-          How would you like to begin your relationship with the Institute?
+      <div class="concierge-panel" id="cf-step-3" style="display:none;">
+        <p class="concierge-panel__question" style="font-size:1.1rem; color:#FFF; margin-bottom:1.5rem;">
+          How would you like to proceed?
         </p>
         <div class="concierge-options" role="group" aria-label="Select how to proceed">
           <button class="concierge-option" data-value="schedule" type="button">
-            <span class="concierge-option__label">I Am Ready</span>
-            <span class="concierge-option__title">Schedule an initial consultation</span>
-            <span class="concierge-option__desc">
-              Proceed directly to scheduling. Your first visit is an extended,
-              unhurried consultation with Dr. Monti.
-            </span>
+            <span class="concierge-option__label">Ready</span>
+            <span class="concierge-option__title">Schedule Consultation</span>
+            <span class="concierge-option__desc">Proceed directly to Boulevard self-booking.</span>
           </button>
           <button class="concierge-option" data-value="information" type="button">
-            <span class="concierge-option__label">I Have Questions First</span>
-            <span class="concierge-option__title">Request information before committing</span>
-            <span class="concierge-option__desc">
-              Send us your questions. Our team responds within one
-              business day with the information you need to decide.
-            </span>
-          </button>
-          <button class="concierge-option" data-value="specific" type="button">
-            <span class="concierge-option__label">Direct Inquiry</span>
-            <span class="concierge-option__title">I have a specific question for Dr. Monti</span>
-            <span class="concierge-option__desc">
-              Submit a clinical question. Dr. Monti reviews all incoming
-              inquiries personally before responding through our team.
-            </span>
+            <span class="concierge-option__label">Inquiry</span>
+            <span class="concierge-option__title">Request Clinical Information</span>
+            <span class="concierge-option__desc">Send questions to our team first.</span>
           </button>
         </div>
-        <div class="concierge-nav">
-          <button class="concierge-back" type="button" data-back="2">&larr; Back</button>
-          <button class="concierge-next" type="button" id="cf-next-3" disabled>See My Options &rarr;</button>
+        <div class="concierge-nav" style="margin-top:2rem; display:flex; justify-content:space-between;">
+          <button class="concierge-back btn btn--ghost" type="button" data-back="2">&larr; Back</button>
+          <button class="concierge-next" type="button" id="cf-next-3" disabled>See My Pathway &rarr;</button>
         </div>
       </div>
 
       <!-- FINAL STATE -->
-      <div class="concierge-panel" id="cf-final">
-        <div class="concierge-final">
-          <span class="concierge-final__summary" id="cf-summary-label">
-            Your Pathway: Neurological Medicine &mdash; Consultation
+      <div class="concierge-panel" id="cf-final" style="display:none; text-align:center;">
+        <div class="concierge-final" style="background:#0A1628; border:1px solid #C4A97D; padding:2.5rem; border-radius:8px;">
+          <span class="concierge-final__summary" id="cf-summary-label" style="color:#C4A97D; font-size:0.9rem; text-transform:uppercase; letter-spacing:0.1em; display:block; margin-bottom:0.75rem;">
+            Your Pathway: Neurological Medicine
           </span>
-          <p class="concierge-final__msg" id="cf-final-msg">
-            We are ready when you are. Your first visit is an extended,
-            unhurried evaluation with Dr. Monti &mdash; designed around
-            your full clinical history, not a standard intake form.
+          <p class="concierge-final__msg" id="cf-final-msg" style="font-size:1.1rem; color:#FFF; max-width:600px; margin:0 auto 2rem; line-height:1.6;">
+            We are ready when you are. Your first visit is an extended, unhurried evaluation with Dr. Monti.
           </p>
-          <div class="concierge-final__actions" id="cf-final-actions">
-            <a href="contact.html" class="btn btn--primary" data-blvd-booking="true"
-               style="text-decoration:none;display:inline-flex;justify-content:center">
-              Schedule a Consultation &rarr;
-            </a>
-            <a href="contact.html" class="btn btn--ghost"
-               style="text-decoration:none;display:inline-flex;justify-content:center">
-              Submit an Inquiry First
+          <div class="concierge-final__actions" id="cf-final-actions" style="display:flex; justify-content:center; gap:1rem; flex-wrap:wrap;">
+            <a href="contact.html" class="btn btn--primary" data-blvd-booking="true" style="padding:0.9rem 2rem; text-decoration:none;">
+              Book Your Visit &rarr;
             </a>
           </div>
         </div>
       </div>
 
-    </section><!-- /concierge-flow -->
+    </section>
 
     <!-- PATIENT RESOURCES & ACCESS SECTION -->
     <section class="patient-resources-section" aria-label="Patient Portal and Care Financing">
@@ -1193,41 +758,16 @@
       </div>
     </section>
 
-    <!-- CLINICAL FREQUENTLY ASKED QUESTIONS -->
-    <section class="faq-section" aria-label="Frequently Asked Questions">
-      <h2 class="faq-section__title">Frequently Asked Questions</h2>
-      
-      <details class="faq-item">
-        <summary>Does Monti Institute accept health insurance for neurological care?</summary>
-        <p>Neurological evaluations, diagnostic workups, and medical migraine treatments (such as FDA-approved Botox for chronic migraine or nerve blocks) are evaluated for insurance coverage. Contact our team to verify your specific plan benefits.</p>
-      </details>
-
-      <details class="faq-item">
-        <summary>Can I combine neurological migraine treatment with aesthetic procedures?</summary>
-        <p>Yes. As a dual-specialty institute led by Dr. Monti, eligible patients can coordinate medical headache care and facial aesthetic refinement within a single, unhurried appointment horizon.</p>
-      </details>
-
-      <details class="faq-item">
-        <summary>Do I need a referral to visit the Infusion &amp; Wellness Suite?</summary>
-        <p>No physician referral is required for initial evaluation. Every IV infusion protocol is MD-formulated and administered following a clinical intake assessment by our medical team.</p>
-      </details>
-
-      <details class="faq-item">
-        <summary>How does Cherry patient financing work?</summary>
-        <p>Cherry allows you to break treatment costs into flexible monthly payments. Applying takes under 60 seconds with no hard credit check or impact on your credit score.</p>
-      </details>
-    </section>
-
   </main>
 
-  <!-- WELL-SPACED LEGAL DISCLAIMER PARAGRAPH (SINGLE LINE LINKS) -->
+  <!-- LEGAL DISCLAIMER -->
   <div class="site-disclaimer" role="note" aria-label="Medical and legal disclaimer">
     <p class="site-disclaimer__text">
       The content on this website is for informational purposes only and does not constitute medical advice, diagnosis, or treatment, and does not establish a provider-patient relationship. Always consult a qualified healthcare professional regarding your individual health circumstances. In a medical emergency, call 911 immediately. &nbsp;&middot;&nbsp; <a href="medical-disclaimer.html">Full Medical Disclaimer</a> &nbsp;&middot;&nbsp; <a href="privacy-policy.html">Privacy Policy</a>
     </p>
   </div>
 
-  <!-- MAIN FOOTER WITH STANDARDIZED PHONE NUMBERS -->
+  <!-- MAIN FOOTER -->
   <footer class="footer">
     <div class="footer__inner">
       <div class="footer__brand-col">
@@ -1236,44 +776,30 @@
             <img src="images/official-logo.png" alt="Monti Institute" width="36" height="36">
           </span>
           <div>
-            <span class="footer__name">Monti Institute</span><br>
-            <span class="footer__sub">Neuro Aesthetics</span>
+            <span class="footer__name" style="color:#FFF;">Monti Institute</span><br>
+            <span class="footer__sub" style="color:#C4A97D;">Neuro Aesthetics</span>
           </div>
         </div>
-        <p class="footer__tagline">
+        <p class="footer__tagline" style="color:rgba(255,255,255,0.7); margin-top:0.75rem;">
           Neurological medicine, aesthetic medicine, and infusion therapy under one roof in Reno, Nevada.
         </p>
       </div>
       <div class="footer__col">
-        <span class="footer__col-title">Visit &amp; Contact</span>
-        <address class="footer__address">
+        <span class="footer__col-title" style="color:#C4A97D; font-size:0.85rem; text-transform:uppercase; letter-spacing:0.1em; display:block; margin-bottom:0.75rem;">Visit &amp; Contact</span>
+        <address class="footer__address" style="color:rgba(255,255,255,0.8); font-style:normal; line-height:1.5;">
           2440 Vassar Street, Suite 3<br>
           Reno, NV 89502
         </address>
-        <a href="tel:+13213766684" class="footer__contact-link">(321) 376-6684 / (321) DR-MONTI</a>
-        <a href="mailto:admin@monti-institute.com" class="footer__contact-link">admin@monti-institute.com</a>
-      </div>
-      <div class="footer__col">
-        <span class="footer__col-title">Explore</span>
-        <nav class="footer__nav" aria-label="Footer navigation">
-          <a href="neurological-medicine.html">Services</a>
-          <a href="infusion-center.html">Infusion &amp; Wellness Suite</a>
-          <a href="about.html">About</a>
-          <a href="contact.html">Contact</a>
-        </nav>
+        <a href="tel:+13213766684" class="footer__contact-link" style="color:#C4A97D; text-decoration:none; display:block; margin-top:0.5rem;">(321) 376-6684 / (321) DR-MONTI</a>
+        <a href="mailto:admin@monti-institute.com" class="footer__contact-link" style="color:rgba(255,255,255,0.8); text-decoration:none; display:block;">admin@monti-institute.com</a>
       </div>
     </div>
-    <div class="footer__bottom">
+    <div class="footer__bottom" style="text-align:center; padding:1.5rem 0; color:rgba(255,255,255,0.5); font-size:0.8rem; border-top:1px solid rgba(255,255,255,0.05);">
       <span class="footer__copy">&copy; 2026 Monti Institute of Neuro Aesthetics. All rights reserved.</span>
-      <ul class="footer__legal" aria-label="Legal navigation">
-        <li><a href="privacy-policy.html" aria-current="page">Privacy Policy</a></li>
-        <li><a href="accessibility.html">Accessibility Statement</a></li>
-        <li><a href="medical-disclaimer.html">Medical Disclaimer</a></li>
-      </ul>
     </div>
   </footer>
 
-  <!-- MOBILE FLOATING "BOOK NOW" ACTION BAR -->
+  <!-- MOBILE FLOATING ACTION BAR -->
   <div class="mobile-sticky-bar" aria-label="Mobile fast action bar">
     <a href="tel:+13213766684" class="mobile-sticky-bar__btn mobile-sticky-bar__btn--call">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.79 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
@@ -1286,23 +812,22 @@
 
   <script src="script.js"></script>
 
+  <!-- DIGITAL CONCIERGE INTERACTIVE JAVASCRIPT -->
   <script>
   (function initConciergeFlow() {
     var pathway = null, context = null, intent = null;
     function q(id)   { return document.getElementById(id); }
     function qa(sel) { return document.querySelectorAll(sel); }
+    
     function showPanel(id) {
-      qa('.concierge-panel').forEach(function(p) { p.classList.remove('is-active'); });
-      var t = q(id); if (t) t.classList.add('is-active');
+      qa('.concierge-panel').forEach(function(p) { p.style.display = 'none'; p.classList.remove('is-active'); });
+      var t = q(id); 
+      if (t) {
+        t.style.display = 'block'; 
+        t.classList.add('is-active');
+      }
     }
-    function updateDots(step) {
-      qa('.concierge-step-dot').forEach(function(d) {
-        d.classList.remove('is-active','is-done');
-        var s = parseInt(d.dataset.step);
-        if (s === step) d.classList.add('is-active');
-        else if (s < step) d.classList.add('is-done');
-      });
-    }
+
     function watchOptions(panelId, nextBtnId) {
       var panel = q(panelId), nextBtn = q(nextBtnId);
       if (!panel || !nextBtn) return;
@@ -1314,17 +839,18 @@
         });
       });
     }
+
     watchOptions('cf-step-1','cf-next-1');
     var n1 = q('cf-next-1');
     if (n1) n1.addEventListener('click', function() {
       var sel = q('cf-step-1').querySelector('.is-selected');
       pathway = sel ? sel.dataset.value : 'neuro';
-      updateDots(2);
       if (pathway === 'both') showPanel('cf-step-2-both');
       else if (pathway === 'aesthetic') showPanel('cf-step-2-aesthetic');
       else if (pathway === 'infusion') showPanel('cf-step-2-infusion');
       else showPanel('cf-step-2-neuro');
     });
+
     ['neuro','aesthetic','both','infusion'].forEach(function(p) {
       var panelId = 'cf-step-2-'+p, nextId = 'cf-next-2-'+p;
       watchOptions(panelId, nextId);
@@ -1332,28 +858,26 @@
       if (nb) nb.addEventListener('click', function() {
         var sel = q(panelId).querySelector('.is-selected');
         context = sel ? sel.dataset.value : '';
-        updateDots(3); showPanel('cf-step-3');
+        showPanel('cf-step-3');
       });
     });
+
     watchOptions('cf-step-3','cf-next-3');
     var n3 = q('cf-next-3');
     if (n3) n3.addEventListener('click', function() {
       var sel = q('cf-step-3').querySelector('.is-selected');
       intent = sel ? sel.dataset.value : 'schedule';
-      var labels   = { neuro:'Neurological Medicine', aesthetic:'Aesthetic Medicine', infusion:'Infusion & Wellness Suite', both:'Both Specialties', 'neuro-first':'Neurological Medicine', 'aesthetic-first':'Aesthetic Medicine' };
-      var intents  = { schedule:'Schedule a Consultation', information:'Information Request', specific:'Direct Inquiry to Dr. Monti' };
-      var msgs     = { schedule:'We are ready when you are. Your first visit is an extended, unhurried evaluation with Dr. Monti &mdash; designed around your full clinical history.', information:'Our team will respond within one business day with the information you need. There is no obligation beyond that conversation.', specific:'Dr. Monti reviews all incoming patient inquiries personally. Your question will be given the attention it deserves.' };
-      var summaryEl = q('cf-summary-label'), msgEl = q('cf-final-msg');
-      if (summaryEl) summaryEl.innerHTML = 'Your Pathway: '+(labels[pathway]||pathway)+' &mdash; '+(intents[intent]||intent);
-      if (msgEl) msgEl.innerHTML = msgs[intent]||msgs.schedule;
-      updateDots(4); showPanel('cf-final');
+      var labels   = { neuro:'Neurological Medicine', aesthetic:'Aesthetic Medicine', infusion:'Infusion & Wellness Suite', both:'Integrated Specialties' };
+      var summaryEl = q('cf-summary-label');
+      if (summaryEl) summaryEl.innerHTML = 'Your Pathway: ' + (labels[pathway] || pathway);
+      showPanel('cf-final');
     });
+
     qa('[data-back]').forEach(function(btn) {
       btn.addEventListener('click', function() {
         var t = btn.dataset.back;
-        if (t === '1') { updateDots(1); showPanel('cf-step-1'); }
+        if (t === '1') showPanel('cf-step-1');
         else if (t === '2') {
-          updateDots(2);
           if (!pathway||pathway==='neuro') showPanel('cf-step-2-neuro');
           else if (pathway==='aesthetic')  showPanel('cf-step-2-aesthetic');
           else if (pathway==='infusion')   showPanel('cf-step-2-infusion');
@@ -1363,237 +887,5 @@
     });
   })();
   </script>
-
-  <script>
-  (function MontiQuiz() {
-    var root = document.getElementById('monti-quiz-root');
-    if (!root) return;
-    var QUESTIONS = [
-      { id:'q1', step:1, title:'What brings you to Monti Institute?', subtitle:'Select the option that best reflects your primary reason for visiting.', type:'single',
-        options:[
-          { val:'neuro',     label:'Migraine or headache care', desc:'Frequent headaches, light sensitivity, or neurological symptoms affecting my daily life.' },
-          { val:'aesthetic', label:'Aesthetic medicine', desc:'Facial refinement, injectables, or skin health — with a physician-led approach.' },
-          { val:'both',      label:'Both — I\'m interested in the integrated approach', desc:'I want to explore both neurological care and aesthetic treatments.' }
-        ]
-      },
-      { id:'q2', step:2, type:'branch', branches:{
-          neuro:{ title:'How often do you experience headache episodes?', subtitle:'Your frequency helps us understand which clinical pathway is most appropriate.', type:'single',
-            options:[
-              { val:'low',     label:'1–4 days per month', desc:'Occasional attacks that can still be disabling when they occur.' },
-              { val:'mid',     label:'5–14 days per month', desc:'High-frequency episodes significantly impacting my week.' },
-              { val:'chronic', label:'15 or more days per month', desc:'Nearly daily — this is chronic migraine territory.' },
-              { val:'unsure',  label:'Not sure — it varies a lot', desc:'My pattern is inconsistent and I\'ve never formally tracked it.' }
-            ]
-          },
-          aesthetic:{ title:'What are your primary aesthetic concerns?', subtitle:'Help us understand where to focus your evaluation.', type:'single',
-            options:[
-              { val:'volume', label:'Volume loss and facial aging', desc:'Hollowing under the eyes, flattening of the cheeks, or loss of jawline definition.' },
-              { val:'lines',  label:'Expression lines and skin quality', desc:'Forehead lines, frown lines, or changes in skin texture and tone.' },
-              { val:'skin',   label:'Skin health and rejuvenation', desc:'Pigmentation, laxity, scarring, or overall skin quality concerns.' },
-              { val:'assess', label:'I\'d like a full assessment', desc:'I\'m not sure where to start — I\'d prefer a physician\'s evaluation.' }
-            ]
-          },
-          both:{ title:'Which would you like to prioritize first?', subtitle:'We can address both — this helps us structure your first visit.', type:'single',
-            options:[
-              { val:'neuro-first',     label:'Neurological care first', desc:'Start with migraine or headache evaluation, explore aesthetics afterward.' },
-              { val:'aesthetic-first', label:'Aesthetic care first', desc:'Start with a facial assessment, explore neurological options afterward.' },
-              { val:'equal',           label:'Explore both equally', desc:'I want a consultation that covers both disciplines together.' }
-            ]
-          }
-        }
-      },
-      { id:'q3', step:3, type:'branch', branches:{
-          neuro:{ title:'Which symptoms do you experience during attacks?', subtitle:'Select all that apply — this helps us identify your migraine type.', type:'multi',
-            options:[
-              { val:'light',    label:'Severe light sensitivity', desc:'Bright light makes attacks significantly worse.' },
-              { val:'nausea',   label:'Nausea or vomiting', desc:'Stomach symptoms alongside the headache.' },
-              { val:'aura',     label:'Visual disturbances or aura', desc:'Flickering lights, blind spots, or neurological warning signs.' },
-              { val:'onesided', label:'One-sided head pain', desc:'Pain localized to one side of the head or face.' },
-              { val:'failed',   label:'Prior treatments haven\'t worked', desc:'Medications or therapies have provided insufficient relief.' }
-            ]
-          },
-          aesthetic:{ title:'What outcomes matter most to you?', subtitle:'Select all that apply.', type:'multi',
-            options:[
-              { val:'natural',       label:'Natural, undetectable results', desc:'I don\'t want anyone to know I\'ve had treatment.' },
-              { val:'physician',     label:'Physician-led evaluation', desc:'I want a doctor making clinical decisions, not just an injector.' },
-              { val:'conservative', label:'Conservative approach', desc:'Subtle improvement over time, not dramatic change.' },
-              { val:'longterm',      label:'Long-term planning', desc:'I want a 12-month roadmap, not a single appointment.' }
-            ]
-          },
-          both:{ title:'Which symptoms or concerns apply to you?', subtitle:'Select all that apply across both areas.', type:'multi',
-            options:[
-              { val:'freq-migraine', label:'Frequent or disabling migraines', desc:'15+ headache days per month, or attacks that stop my day.' },
-              { val:'failed-tx',     label:'Previous treatments haven\'t held', desc:'Medications or injections without lasting relief.' },
-              { val:'volume',        label:'Facial volume loss or aging', desc:'Midface hollowing, jowls, or loss of structural definition.' },
-              { val:'natural',       label:'Natural aesthetic outcomes only', desc:'I value a conservative, physician-guided approach to aesthetics.' }
-            ]
-          }
-        }
-      },
-      { id:'q4', step:4, title:'What best describes your treatment history?', subtitle:'This helps us understand where you are in your care journey.', type:'single',
-        options:[
-          { val:'new',         label:'I haven\'t sought specialized treatment yet', desc:'This would be my first consultation with a specialist.' },
-          { val:'failed',      label:'I\'ve tried treatments that haven\'t helped', desc:'Medications or therapies provided insufficient or short-lived relief.' },
-          { val:'unsatisfied', label:'I\'ve seen other providers without satisfying results', desc:'I\'ve had care before but am looking for a higher standard.' },
-          { val:'managing',    label:'Managing, but seeking better long-term outcomes', desc:'Current approach is partially working — I want to do better.' }
-        ]
-      }
-    ];
-    var state = { step:1, answers:{}, selections:[] };
-    function getQ2Branch(ans) { return ans.q1==='both'?'both':ans.q1==='aesthetic'?'aesthetic':'neuro'; }
-    function getQ3Branch(ans) { return ans.q1==='both'?'both':ans.q1==='aesthetic'?'aesthetic':'neuro'; }
-    function getActiveQ(step, answers) {
-      if (step===1) return QUESTIONS[0];
-      if (step===2) { var b=getQ2Branch(answers); return Object.assign({},QUESTIONS[1].branches[b],{step:2,id:'q2'}); }
-      if (step===3) { var b=getQ3Branch(answers); return Object.assign({},QUESTIONS[2].branches[b],{step:3,id:'q3'}); }
-      return QUESTIONS[3];
-    }
-    function buildRec(answers) {
-      var path=answers.q1, freq=answers.q2, symptoms=answers.q3||[], history=answers.q4;
-      var recs=[], title='', intro='';
-      if (path==='neuro'||path==='both') {
-        var isChronic=freq==='chronic'||symptoms.indexOf('freq-migraine')>-1;
-        var hasFailed=history==='failed'||history==='unsatisfied'||symptoms.indexOf('failed')>-1||symptoms.indexOf('failed-tx')>-1;
-        var hasAura=symptoms.indexOf('aura')>-1;
-        if (isChronic&&hasFailed) recs.push({type:'neuro',head:'Botox + CGRP combined protocol evaluation',body:'You likely qualify for FDA-approved Botox for chronic migraine (155u, 31-site PREEMPT protocol) alongside a CGRP pathway agent. Dr. Monti will evaluate candidacy at your first visit and coordinate both therapies under a single clinical plan.'});
-        else if (isChronic) recs.push({type:'neuro',head:'Comprehensive chronic migraine evaluation',body:'With 15 or more headache days per month, a formal ICHD-3 diagnostic workup and individualized preventive plan is the appropriate starting point.'});
-        else if (freq==='mid') recs.push({type:'neuro',head:'High-frequency migraine — preventive consultation',body:'At 5 to 14 days per month, preventive treatment is clinically indicated. We will review all evidence-based options and select the approach best matched to your specific pattern and history.'});
-        else recs.push({type:'neuro',head:'Neurological evaluation and prevention planning',body:'Even episodic migraine benefits from early specialist care — particularly to interrupt any progression toward higher frequency and to establish a clear diagnostic baseline.'});
-        if (hasAura) recs.push({type:'neuro',head:'Migraine with aura — specialized assessment',body:'Aura changes the clinical approach to treatment selection and carries implications for certain risk factors. Dr. Monti will address this directly during your evaluation.'});
-      }
-      if (path==='aesthetic'||path==='both') {
-        var concerns=typeof answers.q2==='string'?answers.q2:'';
-        if (concerns==='volume'||symptoms.indexOf('volume')>-1) recs.push({type:'aesthetic',head:'Full-face anatomical assessment',body:'Volume loss and structural aging require an evaluation of bony architecture, adipose compartment distribution, and SMAS integrity before any treatment recommendation is made.'});
-        else if (concerns==='lines') recs.push({type:'aesthetic',head:'Neuromodulator evaluation',body:'Expression line treatment at Monti Institute is guided by facial neuromuscular anatomy — with precision that reflects Dr. Monti\'s neurological background.'});
-        else if (concerns==='skin') recs.push({type:'aesthetic',head:'Dermal matrix and skin health program',body:'Skin quality improvement is addressed through a combination of energy-based devices and biostimulatory agents staged over a 12-month treatment horizon.'});
-        else recs.push({type:'aesthetic',head:'Comprehensive aesthetic consultation',body:'A full-face anatomical evaluation by Dr. Monti — assessing structure, skin quality, and aging trajectory — forms the foundation of every aesthetic treatment plan.'});
-      }
-      if (path==='both') recs.unshift({type:'both',head:'Dual-specialty integrated consultation',body:'You are a candidate for the dual-specialty care model that defines this practice. Dr. Monti will evaluate both your neurological and aesthetic needs in a single, unhurried consultation.'});
-      title = path==='neuro'?'Your neurological care pathway':path==='aesthetic'?'Your aesthetic care pathway':'Your integrated care pathway';
-      intro = path==='neuro'?'Based on your responses, you are a strong candidate for a specialized neurological consultation with Dr. Monti. The following areas will be addressed at your first visit.':path==='aesthetic'?'Based on your responses, a physician-led aesthetic evaluation with Dr. Monti is the appropriate next step. Every consultation begins with a comprehensive anatomical assessment before any treatment is discussed.':'You have expressed interest in both neurological and aesthetic care — the dual-specialty model that distinguishes this practice. Your first consultation will address both disciplines under a single physician.';
-      var ctaLabel=path==='neuro'?'Schedule a Neurological Consultation':path==='aesthetic'?'Schedule an Aesthetic Consultation':'Schedule a Dual-Specialty Consultation';
-      var ctaSub=history==='new'?'First visit is an extended, unhurried evaluation with Dr. Monti.':history==='failed'||history==='unsatisfied'?'We review your full treatment history — and build from there.':'We meet you where you are and design a plan for what comes next.';
-      return { title:title, intro:intro, recs:recs, ctaLabel:ctaLabel, ctaSub:ctaSub };
-    }
-    function e(tag, props, children) {
-      var el=document.createElement(tag);
-      Object.keys(props||{}).forEach(function(k){ if(k==='class') el.className=props[k]; else el.setAttribute(k,props[k]); });
-      (children||[]).forEach(function(c){ el.appendChild(typeof c==='string'?documentcreateTextNode(c):c); });
-      return el;
-    }
-    function render() {
-      root.innerHTML='';
-      if (state.step===5) { renderResult(); return; }
-      var q=getActiveQ(state.step,state.answers);
-      var pct=((state.step-1)/4)*100;
-      var wrap=document.createElement('div'); wrap.className='quiz-wrap';
-      wrap.appendChild(e('div',{'class':'q-progress-bar'},[e('div',{'class':'q-progress-fill','style':'width:'+pct+'%'},[])]));
-      wrap.appendChild(e('div',{'class':'q-step-label'},['Step '+state.step+' of 4']));
-      wrap.appendChild(e('div',{'class':'q-title'},[q.title]));
-      wrap.appendChild(e('div',{'class':'q-subtitle'},[q.subtitle||'']));
-      if (q.type==='multi') wrap.appendChild(e('div',{'class':'q-multi-hint'},['Select all that apply']));
-      var optsWrap=e('div',{'class':'q-options'},[]);
-      q.options.forEach(function(opt) {
-        var isSelected=state.selections.indexOf(opt.val)>-1;
-        var iconDiv=e('span',{'class':'q-option-icon'},[opt.val.charAt(0).toUpperCase()]);
-        var labelEl=e('span',{'class':'q-option-label'},[opt.label]);
-        var descEl=e('span',{'class':'q-option-desc'},[opt.desc]);
-        var textWrap=e('span',{},[]);
-        textWrap.appendChild(labelEl); textWrap.appendChild(document.createElement('br')); textWrap.appendChild(descEl);
-        var btn=e('button',{'class':'q-option'+(isSelected?' selected':''),'type':'button'},[iconDiv,textWrap]);
-        btn.addEventListener('click',function(){
-          if (q.type==='multi') { var idx=state.selections.indexOf(opt.val); if(idx>-1) state.selections.splice(idx,1); else state.selections.push(opt.val); }
-          else { state.selections=[opt.val]; }
-          render();
-        });
-        optsWrap.appendChild(btn);
-      });
-      wrap.appendChild(optsWrap);
-      var actionsDiv=e('div',{'class':'q-actions'},[]);
-      if (state.step>1) {
-        var backBtn=e('button',{'class':'q-btn-back','type':'button'},['← Back']);
-        backBtn.addEventListener('click',function(){ state.step--; var prev=state.answers['q'+state.step]; state.selections=Array.isArray(prev)?prev.slice():(prev?[prev]:[]); render(); });
-        actionsDiv.appendChild(backBtn);
-      } else { actionsDiv.appendChild(e('span',{},[])); }
-      var nextBtn=e('button',{'class':'q-btn-next','type':'button'},[state.step===4?'See my recommendations →':'Continue →']);
-      if (!state.selections.length) nextBtn.setAttribute('disabled','true');
-      nextBtn.addEventListener('click',function(){ state.answers['q'+state.step]=(q.type==='multi'?state.selections.slice():state.selections[0]); state.step++; state.selections=[]; render(); });
-      actionsDiv.appendChild(nextBtn);
-      wrap.appendChild(actionsDiv);
-      root.appendChild(wrap);
-    }
-    function renderResult() {
-      var rec=buildRec(state.answers);
-      var wrap=document.createElement('div'); wrap.className='quiz-wrap';
-      wrap.appendChild(e('div',{'class':'q-result-badge'},['✓ Your personalized pathway']));
-      wrap.appendChild(e('div',{'class':'q-result-title'},[rec.title]));
-      wrap.appendChild(e('div',{'class':'q-result-intro'},[rec.intro]));
-      var recsWrap=e('div',{'class':'q-result-recs'},[]);
-      rec.recs.forEach(function(r){
-        var iconEl=e('span',{'class':'q-result-rec-icon '+r.type},['']);
-        var headEl=e('div',{'class':'q-result-rec-head'},[r.head]);
-        var bodyEl=e('div',{'class':'q-result-rec-body'},[r.body]);
-        var textWrap=e('div',{},[]); textWrap.appendChild(headEl); textWrap.appendChild(bodyEl);
-        recsWrap.appendChild(e('div',{'class':'q-result-rec'},[iconEl,textWrap]));
-      });
-      wrap.appendChild(recsWrap);
-      var ctaWrap=e('div',{'class':'q-result-cta-wrap'},[]);
-      var ctaBtn=e('a',{'class':'q-result-cta-btn','href':'contact.html','data-blvd-booking':'true'},[]);
-      var ctaInner=e('div',{},[]); ctaInner.innerHTML='<div class="q-result-cta-title">'+rec.ctaLabel+'</div><div class="q-result-cta-sub">'+rec.ctaSub+'</div>';
-      ctaBtn.appendChild(ctaInner); ctaBtn.appendChild(document.createTextNode(' →'));
-      var restart=e('button',{'class':'q-result-restart','type':'button'},['Start over — take the assessment again']);
-      restart.addEventListener('click',function(){ state={step:1,answers:{},selections:[]}; render(); });
-      ctaWrap.appendChild(e('div',{'class':'q-result-cta-label'},['Your next step']));
-      ctaWrap.appendChild(ctaBtn); ctaWrap.appendChild(restart);
-      wrap.appendChild(ctaWrap);
-      root.appendChild(wrap);
-    }
-    render();
-  })();
-  </script>
-
-  <!-- NextivaCX Widget -->
-  <script
-    id="nextivacx-code-snippet"
-    src="https://d3po7etsbw5eiv.cloudfront.net/Simplify360Chat.js?key=NmEyYzY1ZDk1ZDlkM2I5YWJmMjM1MzAyfDQzMTk0Mjc=">
-  </script>
-
-  <script>
-  (function() {
-    function initDropdowns() {
-      document.querySelectorAll('.nav__item--dropdown').forEach(function(item) {
-        var toggle = item.querySelector('.nav__dropdown-toggle');
-        if (!toggle) return;
-        toggle.addEventListener('click', function(e) {
-          e.preventDefault();
-          e.stopImmediatePropagation();
-          var isOpen = item.hasAttribute('data-open');
-          document.querySelectorAll('.nav__item--dropdown[data-open]').forEach(function(el) {
-            el.removeAttribute('data-open');
-            el.querySelector('.nav__dropdown-toggle').setAttribute('aria-expanded', 'false');
-          });
-          if (!isOpen) {
-            item.setAttribute('data-open', '');
-            toggle.setAttribute('aria-expanded', 'true');
-          }
-        });
-      });
-      document.addEventListener('click', function(e) {
-        if (!e.target.closest('.nav__item--dropdown')) {
-          document.querySelectorAll('.nav__item--dropdown[data-open]').forEach(function(el) {
-            el.removeAttribute('data-open');
-            el.querySelector('.nav__dropdown-toggle').setAttribute('aria-expanded', 'false');
-          });
-        }
-      });
-    }
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', initDropdowns);
-    } else {
-      initDropdowns();
-    }
-  })();
-  </script>
-
 </body>
 </html>
