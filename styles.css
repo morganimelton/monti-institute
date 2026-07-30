@@ -949,18 +949,8 @@ button[class*="dark-toggle"] {
   padding-bottom: 5rem !important; /* Space for scroll indicator */
 }
 
-/* Position Scroll Indicator at the very bottom edge of Hero */
+/* Hide the scroll indicator completely */
 .hero__scroll,
 [class*="hero__scroll"] {
-  position: absolute !important;
-  left: 50% !important;
-  bottom: 0.75rem !important;
-  top: auto !important; /* Clears top positioning */
-  transform: translateX(-50%) !important;
-  right: auto !important;
-  margin: 0 auto !important;
-  z-index: 10 !important;
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: center !important;
+  display: none !important;
 }
