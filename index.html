@@ -123,11 +123,6 @@ Specialized care for migraine, headache disorders, neurologic pain, facial aesth
       </div>
     </section>
     
-<!-- CTA Button Container -->
-<div class="hero-cta-group">
-  <a href="/schedule" class="btn btn-primary">SCHEDULE A CONSULTATION</a>
-  <a href="/services" class="btn btn-secondary">EXPLORE OUR SERVICES</a>
-</div>
 <!-- Hero CTA Group -->
 <div class="hero-cta-container">
   <a href="/schedule" class="hero-btn hero-btn-primary">
@@ -781,7 +776,7 @@ Specialized care for migraine, headache disorders, neurologic pain, facial aesth
         options:[
           { val:'neuro',     label:'Migraine or headache care', desc:'Frequent headaches, light sensitivity, or neurological symptoms affecting my daily life.' },
           { val:'aesthetic', label:'Aesthetic medicine', desc:'Facial refinement, injectables, or skin health — with a physician-led approach.' },
-          { val:'both',      label:'Both — I\\'m interested in the integrated approach', desc:'I want to explore both neurological care and aesthetic treatments.' }
+          { val:'both',      label:'Both — I\'m interested in the integrated approach', desc:'I want to explore both neurological care and aesthetic treatments.' }
         ]
       },
       { id:'q2', step:2, type:'branch', branches:{
@@ -790,7 +785,7 @@ Specialized care for migraine, headache disorders, neurologic pain, facial aesth
               { val:'low',     label:'1–4 days per month', desc:'Occasional attacks that can still be disabling when they occur.' },
               { val:'mid',     label:'5–14 days per month', desc:'High-frequency episodes significantly impacting my week.' },
               { val:'chronic', label:'15 or more days per month', desc:'Nearly daily — this is chronic migraine territory.' },
-              { val:'unsure',  label:'Not sure — it varies a lot', desc:'My pattern is inconsistent and I\\'ve never formally tracked it.' }
+              { val:'unsure',  label:'Not sure — it varies a lot', desc:'My pattern is inconsistent and I\'ve never formally tracked it.' }
             ]
           },
           aesthetic:{ title:'What are your primary aesthetic concerns?', subtitle:'Help us understand where to focus your evaluation.', type:'single',
@@ -798,7 +793,7 @@ Specialized care for migraine, headache disorders, neurologic pain, facial aesth
               { val:'volume', label:'Volume loss and facial aging', desc:'Hollowing under the eyes, flattening of the cheeks, or loss of jawline definition.' },
               { val:'lines',  label:'Expression lines and skin quality', desc:'Forehead lines, frown lines, or changes in skin texture and tone.' },
               { val:'skin',   label:'Skin health and rejuvenation', desc:'Pigmentation, laxity, scarring, or overall skin quality concerns.' },
-              { val:'assess', label:'I\\'d like a full assessment', desc:'I\\'m not sure where to start — I\\'d prefer a physician\\'s evaluation.' }
+              { val:'assess', label:'I\'d like a full assessment', desc:'I\'m not sure where to start — I\'d prefer a physician\'s evaluation.' }
             ]
           },
           both:{ title:'Which would you like to prioritize first?', subtitle:'We can address both — this helps us structure your first visit.', type:'single',
@@ -817,21 +812,21 @@ Specialized care for migraine, headache disorders, neurologic pain, facial aesth
               { val:'nausea',   label:'Nausea or vomiting', desc:'Stomach symptoms alongside the headache.' },
               { val:'aura',     label:'Visual disturbances or aura', desc:'Flickering lights, blind spots, or neurological warning signs.' },
               { val:'onesided', label:'One-sided head pain', desc:'Pain localized to one side of the head or face.' },
-              { val:'failed',   label:'Prior treatments haven\\'t worked', desc:'Medications or therapies have provided insufficient relief.' }
+              { val:'failed',   label:'Prior treatments haven\'t worked', desc:'Medications or therapies have provided insufficient relief.' }
             ]
           },
           aesthetic:{ title:'What outcomes matter most to you?', subtitle:'Select all that apply.', type:'multi',
             options:[
-              { val:'natural',       label:'Natural, undetectable results', desc:'I don\\'t want anyone to know I\\'ve had treatment.' },
+              { val:'natural',       label:'Natural, undetectable results', desc:'I don\'t want anyone to know I\'ve had treatment.' },
               { val:'physician',     label:'Physician-led evaluation', desc:'I want a doctor making clinical decisions, not just an injector.' },
-              { val:'conservative',  label:'Conservative approach', desc:'Subtle improvement over time, not dramatic change.' },
+              { val:'conservative', label:'Conservative approach', desc:'Subtle improvement over time, not dramatic change.' },
               { val:'longterm',      label:'Long-term planning', desc:'I want a 12-month roadmap, not a single appointment.' }
             ]
           },
           both:{ title:'Which symptoms or concerns apply to you?', subtitle:'Select all that apply across both areas.', type:'multi',
             options:[
               { val:'freq-migraine', label:'Frequent or disabling migraines', desc:'15+ headache days per month, or attacks that stop my day.' },
-              { val:'failed-tx',     label:'Previous treatments haven\\'t held', desc:'Medications or injections without lasting relief.' },
+              { val:'failed-tx',     label:'Previous treatments haven\'t held', desc:'Medications or injections without lasting relief.' },
               { val:'volume',        label:'Facial volume loss or aging', desc:'Midface hollowing, jowls, or loss of structural definition.' },
               { val:'natural',       label:'Natural aesthetic outcomes only', desc:'I value a conservative, physician-guided approach to aesthetics.' }
             ]
@@ -840,9 +835,9 @@ Specialized care for migraine, headache disorders, neurologic pain, facial aesth
       },
       { id:'q4', step:4, title:'What best describes your treatment history?', subtitle:'This helps us understand where you are in your care journey.', type:'single',
         options:[
-          { val:'new',         label:'I haven\\'t sought specialized treatment yet', desc:'This would be my first consultation with a specialist.' },
-          { val:'failed',      label:'I\\'ve tried treatments that haven\\'t helped', desc:'Medications or therapies provided insufficient or short-lived relief.' },
-          { val:'unsatisfied', label:'I\\'ve seen other providers without satisfying results', desc:'I\\'ve had care before but am looking for a higher standard.' },
+          { val:'new',         label:'I haven\'t sought specialized treatment yet', desc:'This would be my first consultation with a specialist.' },
+          { val:'failed',      label:'I\'ve tried treatments that haven\'t helped', desc:'Medications or therapies provided insufficient or short-lived relief.' },
+          { val:'unsatisfied', label:'I\'ve seen other providers without satisfying results', desc:'I\'ve had care before but am looking for a higher standard.' },
           { val:'managing',    label:'Managing, but seeking better long-term outcomes', desc:'Current approach is partially working — I want to do better.' }
         ]
       }
@@ -872,7 +867,7 @@ Specialized care for migraine, headache disorders, neurologic pain, facial aesth
       if (path==='aesthetic'||path==='both') {
         var concerns=typeof answers.q2==='string'?answers.q2:'';
         if (concerns==='volume'||symptoms.indexOf('volume')>-1) recs.push({type:'aesthetic',head:'Full-face anatomical assessment',body:'Volume loss and structural aging require an evaluation of bony architecture, adipose compartment distribution, and SMAS integrity before any treatment recommendation is made.'});
-        else if (concerns==='lines') recs.push({type:'aesthetic',head:'Neuromodulator evaluation',body:'Expression line treatment at Monti Institute is guided by facial neuromuscular anatomy — with precision that reflects Dr. Monti\\'s neurological background.'});
+        else if (concerns==='lines') recs.push({type:'aesthetic',head:'Neuromodulator evaluation',body:'Expression line treatment at Monti Institute is guided by facial neuromuscular anatomy — with precision that reflects Dr. Monti\'s neurological background.'});
         else if (concerns==='skin') recs.push({type:'aesthetic',head:'Dermal matrix and skin health program',body:'Skin quality improvement is addressed through a combination of energy-based devices and biostimulatory agents staged over a 12-month treatment horizon.'});
         else recs.push({type:'aesthetic',head:'Comprehensive aesthetic consultation',body:'A full-face anatomical evaluation by Dr. Monti — assessing structure, skin quality, and aging trajectory — forms the foundation of every aesthetic treatment plan.'});
       }
