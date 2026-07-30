@@ -63,7 +63,7 @@
   </script>
 
   <style>
-    /* GLOBAL ALIGNMENT FIXES */
+    /* GLOBAL HERO & PAGE ALIGNMENT */
     .hero {
       display: flex !important;
       flex-direction: column !important;
@@ -102,7 +102,7 @@
       flex-wrap: wrap !important;
     }
 
-    /* SCROLL INDICATOR ENHANCED READABILITY & SPACING */
+    /* PROMINENT SCROLL INDICATOR */
     .hero__scroll {
       margin-top: 3.5rem !important;
       margin-bottom: 1rem !important;
@@ -134,7 +134,7 @@
       background: linear-gradient(to bottom, rgba(196, 169, 125, 0.8), transparent) !important;
     }
 
-    /* FIXED NON-COLLAPSED NEUROLOGICAL & AESTHETIC SPLIT PANELS */
+    /* SPLIT-PANEL GRID & THEMING */
     .disciplines-split {
       display: grid !important;
       grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
@@ -155,12 +155,117 @@
       flex-direction: column !important;
       justify-content: space-between !important;
       text-align: left !important;
-      padding: 2.5rem 2rem !important;
-      background: rgba(255, 255, 255, 0.02) !important;
-      border: 1px solid rgba(255, 255, 255, 0.08) !important;
-      border-radius: 6px !important;
+      padding: 3rem 2.25rem !important;
+      border-radius: 8px !important;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25) !important;
+      transition: transform 0.3s ease, box-shadow 0.3s ease !important;
     }
 
+    .disc-panel:hover {
+      transform: translateY(-4px) !important;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35) !important;
+    }
+
+    /* 1. NEUROLOGICAL MEDICINE: RICH DARK NAVY PANEL */
+    .disc-panel--neuro {
+      background: linear-gradient(145deg, #07101F 0%, #0D1C30 100%) !important;
+      border: 1px solid rgba(196, 169, 125, 0.25) !important;
+      color: #FFFFFF !important;
+    }
+
+    .disc-panel--neuro .disc-panel__title {
+      color: #FFFFFF !important;
+      font-family: 'Cormorant Garamond', serif !important;
+      font-size: 2.25rem !important;
+      line-height: 1.15 !important;
+    }
+
+    .disc-panel--neuro .disc-panel__copy {
+      color: rgba(255, 255, 255, 0.8) !important;
+      line-height: 1.65 !important;
+      margin-bottom: 1.5rem !important;
+    }
+
+    .disc-panel--neuro .disc-panel__list-item {
+      color: rgba(255, 255, 255, 0.85) !important;
+    }
+
+    .disc-panel--neuro .disc-panel__list-dot {
+      background-color: #C4A97D !important;
+    }
+
+    .disc-panel--neuro .disc-panel__btn {
+      background-color: #C4A97D !important;
+      color: #0A1628 !important;
+      border: 1px solid #C4A97D !important;
+      font-weight: 600 !important;
+    }
+
+    .disc-panel--neuro .disc-panel__btn--secondary {
+      background-color: transparent !important;
+      color: #FFFFFF !important;
+      border: 1px solid rgba(255, 255, 255, 0.4) !important;
+      font-weight: 500 !important;
+    }
+
+    .disc-panel--neuro .disc-panel__btn--secondary:hover {
+      background-color: rgba(255, 255, 255, 0.1) !important;
+      border-color: #FFFFFF !important;
+      color: #FFFFFF !important;
+    }
+
+    /* 2. AESTHETIC MEDICINE: LUXURY CHAMPAGNE PANEL */
+    .disc-panel--aesthetic {
+      background: linear-gradient(145deg, #F8F4EC 0%, #EFE8DD 100%) !important;
+      border: 1px solid rgba(196, 169, 125, 0.4) !important;
+      color: #1A1816 !important;
+    }
+
+    .disc-panel--aesthetic .disc-panel__title {
+      color: #1A1816 !important;
+      font-family: 'Cormorant Garamond', serif !important;
+      font-size: 2.25rem !important;
+      line-height: 1.15 !important;
+    }
+
+    .disc-panel--aesthetic .disc-panel__copy {
+      color: rgba(26, 24, 22, 0.8) !important;
+      line-height: 1.65 !important;
+      margin-bottom: 1.5rem !important;
+    }
+
+    .disc-panel--aesthetic .disc-panel__list-item {
+      color: rgba(26, 24, 22, 0.85) !important;
+    }
+
+    .disc-panel--aesthetic .disc-panel__list-dot {
+      background-color: #A38855 !important;
+    }
+
+    .disc-panel--aesthetic .disc-panel__btn {
+      background-color: #1A1816 !important;
+      color: #F8F4EC !important;
+      border: 1px solid #1A1816 !important;
+      font-weight: 600 !important;
+    }
+
+    .disc-panel--aesthetic .disc-panel__btn:hover {
+      background-color: #2D2824 !important;
+    }
+
+    .disc-panel--aesthetic .disc-panel__btn--secondary {
+      background-color: #C4A97D !important;
+      color: #0A1628 !important;
+      border: 1px solid #C4A97D !important;
+      font-weight: 600 !important;
+    }
+
+    .disc-panel--aesthetic .disc-panel__btn--secondary:hover {
+      background-color: #B3976B !important;
+      color: #0A1628 !important;
+    }
+
+    /* SHARED PANEL BUTTON ALIGNMENT */
     .disc-panel__content {
       display: flex !important;
       flex-direction: column !important;
@@ -168,15 +273,26 @@
       justify-content: flex-start !important;
     }
 
-    .disc-panel__copy {
-      margin-bottom: 1.5rem !important;
-      line-height: 1.6 !important;
+    .disc-panel__action-group {
+      margin-top: auto !important;
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 0.85rem !important;
     }
 
-    .disc-panel__list {
-      margin-bottom: 2rem !important;
-      padding: 0 !important;
-      list-style: none !important;
+    .disc-panel__btn, .disc-panel__btn--secondary {
+      width: 100% !important;
+      box-sizing: border-box !important;
+      padding: 0.9rem 1.5rem !important;
+      font-size: 0.95rem !important;
+      border-radius: 4px !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      gap: 0.6rem !important;
+      cursor: pointer !important;
+      text-decoration: none !important;
+      transition: all 0.25s ease !important;
     }
 
     @media (max-width: 992px) {
@@ -186,13 +302,14 @@
       }
     }
 
-    /* Equal Height Card Layout Styles for Digital Concierge */
+    /* DIGITAL CONCIERGE EQUAL HEIGHTS & CONTINUATION BUTTON */
     .concierge-options {
       display: grid !important;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)) !important;
       gap: 1.5rem !important;
       align-items: stretch !important;
     }
+
     .concierge-option {
       display: flex !important;
       flex-direction: column !important;
@@ -200,11 +317,11 @@
       height: 100% !important;
       box-sizing: border-box !important;
     }
+
     .concierge-option__desc {
       margin-top: auto !important;
     }
 
-    /* HIGH VISIBILITY CONTINUE BUTTON STYLING FOR CONCIERGE FLOW */
     .concierge-next {
       background-color: #c4a97d !important;
       color: #111111 !important;
@@ -238,62 +355,23 @@
       transform: none !important;
     }
 
-    /* High-Visibility Secondary Button Styling for Split Panels */
-    .disc-panel__btn--secondary {
-      display: inline-flex !important;
-      align-items: center !important;
-      justify-content: center !important;
-      gap: 0.6rem !important;
-      margin-top: 1.25rem !important;
-      padding: 0.85rem 1.5rem !important;
-      background-color: #ffffff !important;
-      color: #111111 !important;
-      border: 1px solid #ffffff !important;
-      border-radius: 4px !important;
-      font-weight: 600 !important;
-      font-size: 0.95rem !important;
-      letter-spacing: 0.02em !important;
-      text-decoration: none !important;
-      cursor: pointer !important;
-      transition: all 0.25s ease !important;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
-    }
-    
-    .disc-panel__btn--secondary:hover, 
-    .disc-panel__btn--secondary:focus {
-      background-color: #f0f0f0 !important;
-      color: #000000 !important;
-      transform: translateY(-2px) !important;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25) !important;
-    }
-
-    .disc-panel__btn--secondary svg {
-      width: 16px !important;
-      height: 16px !important;
-      stroke: currentColor !important;
-      stroke-width: 2 !important;
-      fill: none !important;
-      transition: transform 0.2s ease !important;
-    }
-
-    .disc-panel__btn--secondary:hover svg {
-      transform: translateX(3px) !important;
-    }
-
-    /* Patient Resources & Access Section */
+    /* PATIENT RESOURCES & ACCESS SECTION */
     .patient-resources-section {
       padding: 5rem 1.5rem !important;
       background-color: rgba(14, 32, 47, 0.25) !important;
       border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
     }
+
     .patient-resources-inner {
       max-width: 1100px !important;
       margin: 0 auto !important;
     }
+
     .patient-resources__header {
       text-align: center !important;
       margin-bottom: 3rem !important;
     }
+
     .patient-resources__eyebrow {
       font-size: 0.8rem !important;
       text-transform: uppercase !important;
@@ -302,6 +380,7 @@
       display: block !important;
       margin-bottom: 0.5rem !important;
     }
+
     .patient-resources__heading {
       font-family: 'Cormorant Garamond', serif !important;
       font-size: 2.25rem !important;
@@ -309,6 +388,7 @@
       color: #ffffff !important;
       margin-bottom: 0.75rem !important;
     }
+
     .patient-resources__sub {
       font-size: 0.95rem !important;
       color: rgba(255, 255, 255, 0.65) !important;
@@ -316,12 +396,14 @@
       margin: 0 auto !important;
       line-height: 1.6 !important;
     }
+
     .patient-resources-grid {
       display: grid !important;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)) !important;
       gap: 2rem !important;
       align-items: stretch !important;
     }
+
     .resource-card {
       background: rgba(255, 255, 255, 0.03) !important;
       border: 1px solid rgba(255, 255, 255, 0.1) !important;
@@ -331,15 +413,18 @@
       flex-direction: column !important;
       transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease !important;
     }
+
     .resource-card:hover {
       transform: translateY(-3px) !important;
       border-color: rgba(196, 169, 125, 0.5) !important;
       box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3) !important;
     }
+
     .resource-card__icon {
       color: #c4a97d !important;
       margin-bottom: 1rem !important;
     }
+
     .resource-card__badge {
       font-size: 0.75rem !important;
       text-transform: uppercase !important;
@@ -348,12 +433,14 @@
       margin-bottom: 0.5rem !important;
       display: block !important;
     }
+
     .resource-card__title {
       font-family: 'Cormorant Garamond', serif !important;
       font-size: 1.6rem !important;
       color: #ffffff !important;
       margin-bottom: 0.75rem !important;
     }
+
     .resource-card__desc {
       font-size: 0.9rem !important;
       line-height: 1.6 !important;
@@ -361,6 +448,7 @@
       margin-bottom: 2rem !important;
       flex-grow: 1 !important;
     }
+
     .resource-card__btn {
       width: 100% !important;
       text-align: center !important;
@@ -371,7 +459,7 @@
       font-weight: 500 !important;
     }
 
-    /* Spacious Disclaimer & Legal Notice Styling (Single Line) */
+    /* DISCLAIMER & FOOTER STYLING */
     .site-disclaimer {
       padding: 2.25rem 1.5rem 2.5rem !important;
       margin-top: 4rem !important;
@@ -407,7 +495,7 @@
       padding-top: 1.5rem !important;
     }
 
-    /* Mobile Floating Action Bar */
+    /* MOBILE STICKY BAR */
     .mobile-sticky-bar {
       display: none;
     }
@@ -588,127 +676,107 @@
       </div>
     </section>
 
-    <!-- 2. FULLY EXPANDED DUAL PANEL SPLIT -->
+    <!-- 2. DISTINCTLY THEMED SPLIT PANELS (NAVY & CHAMPAGNE) -->
     <section class="disciplines-split" id="care-disciplines" aria-label="Our Disciplines">
 
-      <!-- LEFT PANEL: Neurological Medicine (Full Expanded Height) -->
+      <!-- LEFT PANEL: NEUROLOGICAL MEDICINE (RICH DARK NAVY) -->
       <div class="disc-panel disc-panel--neuro"
            role="button"
            tabindex="0"
            data-href="neurological-medicine.html"
            aria-label="Neurological Medicine — click to explore">
 
-        <div class="disc-neural" aria-hidden="true">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 680" fill="none" aria-hidden="true">
-            <circle cx="280" cy="340" r="32" stroke="rgba(255,255,255,0.55)" stroke-width="1.5" fill="rgba(255,255,255,0.06)"/>
-            <circle cx="280" cy="340" r="20" stroke="rgba(255,255,255,0.3)"  stroke-width="1"   fill="rgba(255,255,255,0.03)"/>
-            <circle cx="280" cy="340" r="10" stroke="rgba(255,255,255,0.2)"  stroke-width="0.8" fill="rgba(154,128,96,0.08)"/>
-            <circle cx="280" cy="340" r="55"  stroke="rgba(255,255,255,0.09)" stroke-width="1"   fill="none"/>
-            <path d="M312,340 Q370,328 440,342 Q510,354 570,338 Q630,325 680,332" stroke="rgba(255,255,255,0.45)" stroke-width="1.8" stroke-linecap="round"/>
-          </svg>
-        </div>
-
-        <div class="disc-panel__content reveal in-view">
+        <div class="disc-panel__content">
           <h2 class="disc-panel__title">Neurological<br>Medicine</h2>
-          <div class="disc-panel__rule"></div>
+          <div class="disc-panel__rule" style="width: 40px; height: 1px; background: #C4A97D; margin: 1rem 0 1.25rem;"></div>
           <p class="disc-panel__copy">
             Physician-led diagnosis and management of migraine, headache disorders,
             and neurologic pain through structured, evidence-based protocols.
           </p>
           <ul class="disc-panel__list" aria-label="Neurological Medicine services">
-            <li class="disc-panel__list-item">
-              <div class="disc-panel__list-dot" aria-hidden="true"></div>
+            <li class="disc-panel__list-item" style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.6rem;">
+              <div class="disc-panel__list-dot" style="width: 6px; height: 6px; border-radius: 50%;"></div>
               Chronic illness evaluation
             </li>
-            <li class="disc-panel__list-item">
-              <div class="disc-panel__list-dot" aria-hidden="true"></div>
+            <li class="disc-panel__list-item" style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.6rem;">
+              <div class="disc-panel__list-dot" style="width: 6px; height: 6px; border-radius: 50%;"></div>
               Diagnostic neurology
             </li>
-            <li class="disc-panel__list-item">
-              <div class="disc-panel__list-dot" aria-hidden="true"></div>
+            <li class="disc-panel__list-item" style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.6rem;">
+              <div class="disc-panel__list-dot" style="width: 6px; height: 6px; border-radius: 50%;"></div>
               Autoimmune &amp; neuroinflammatory conditions
             </li>
-            <li class="disc-panel__list-item">
-              <div class="disc-panel__list-dot" aria-hidden="true"></div>
+            <li class="disc-panel__list-item" style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.6rem;">
+              <div class="disc-panel__list-dot" style="width: 6px; height: 6px; border-radius: 50%;"></div>
               Insurance-based clinical care
             </li>
           </ul>
-          <button class="disc-panel__btn" type="button"
-                  onclick="window.location.href='neurological-medicine.html'">
-            Enter Neurological Care
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-            </svg>
-          </button>
-          
-          <button class="disc-panel__btn disc-panel__btn--secondary" type="button"
-                  onclick="window.location.href='infusion-center.html'">
-            Infusion &amp; Wellness Suite
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-            </svg>
-          </button>
+
+          <div class="disc-panel__action-group">
+            <button class="disc-panel__btn" type="button" onclick="window.location.href='neurological-medicine.html'">
+              Enter Neurological Care
+              <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke="currentColor" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+              </svg>
+            </button>
+            <button class="disc-panel__btn disc-panel__btn--secondary" type="button" onclick="window.location.href='infusion-center.html'">
+              Infusion &amp; Wellness Suite
+              <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke="currentColor" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+              </svg>
+            </button>
+          </div>
         </div>
       </div><!-- /disc-panel--neuro -->
 
-      <!-- CENTER DIVIDER -->
-      <div class="disc-divider" aria-hidden="true">
-        <div class="disc-divider__dot"></div>
-      </div>
-
-      <!-- RIGHT PANEL: Aesthetic Medicine -->
+      <!-- RIGHT PANEL: AESTHETIC MEDICINE (WARM LUXURY CHAMPAGNE) -->
       <div class="disc-panel disc-panel--aesthetic"
            role="button"
            tabindex="0"
            data-href="aesthetic-medicine.html"
            aria-label="Aesthetic Medicine — click to explore">
 
-        <div class="disc-portrait-wrap" aria-hidden="true">
-          <div class="disc-portrait-img"></div>
-          <div class="disc-portrait-frame"></div>
-        </div>
-
-        <div class="disc-panel__content reveal in-view" style="transition-delay:0.15s">
+        <div class="disc-panel__content">
           <h2 class="disc-panel__title">Aesthetic<br>Medicine</h2>
-          <div class="disc-panel__rule"></div>
+          <div class="disc-panel__rule" style="width: 40px; height: 1px; background: #A38855; margin: 1rem 0 1.25rem;"></div>
           <p class="disc-panel__copy">
             Advanced facial therapeutics delivered through physician-supervised
             protocols &mdash; injectables, energy-based devices, and regenerative
             treatments for natural outcomes.
           </p>
           <ul class="disc-panel__list" aria-label="Aesthetic Medicine services">
-            <li class="disc-panel__list-item">
-              <div class="disc-panel__list-dot" aria-hidden="true"></div>
+            <li class="disc-panel__list-item" style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.6rem;">
+              <div class="disc-panel__list-dot" style="width: 6px; height: 6px; border-radius: 50%;"></div>
               Regenerative aesthetics
             </li>
-            <li class="disc-panel__list-item">
-              <div class="disc-panel__list-dot" aria-hidden="true"></div>
+            <li class="disc-panel__list-item" style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.6rem;">
+              <div class="disc-panel__list-dot" style="width: 6px; height: 6px; border-radius: 50%;"></div>
               Facial aesthetics &amp; injectables
             </li>
-            <li class="disc-panel__list-item">
-              <div class="disc-panel__list-dot" aria-hidden="true"></div>
+            <li class="disc-panel__list-item" style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.6rem;">
+              <div class="disc-panel__list-dot" style="width: 6px; height: 6px; border-radius: 50%;"></div>
               Natural, outcome-focused treatments
             </li>
-            <li class="disc-panel__list-item">
-              <div class="disc-panel__list-dot" aria-hidden="true"></div>
+            <li class="disc-panel__list-item" style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.6rem;">
+              <div class="disc-panel__list-dot" style="width: 6px; height: 6px; border-radius: 50%;"></div>
               Private-pay personalized care
             </li>
           </ul>
-          <button class="disc-panel__btn" type="button"
-                  onclick="window.location.href='aesthetic-medicine.html'">
-            Enter Aesthetic Medicine
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-            </svg>
-          </button>
-          
-          <button class="disc-panel__btn disc-panel__btn--secondary" type="button"
-                  onclick="window.location.href='infusion-center.html'">
-            Infusion &amp; Wellness Suite
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-            </svg>
-          </button>
+
+          <div class="disc-panel__action-group">
+            <button class="disc-panel__btn" type="button" onclick="window.location.href='aesthetic-medicine.html'">
+              Enter Aesthetic Medicine
+              <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke="currentColor" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+              </svg>
+            </button>
+            <button class="disc-panel__btn disc-panel__btn--secondary" type="button" onclick="window.location.href='infusion-center.html'">
+              Infusion &amp; Wellness Suite
+              <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke="currentColor" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+              </svg>
+            </button>
+          </div>
         </div>
       </div><!-- /disc-panel--aesthetic -->
 
@@ -1076,7 +1144,7 @@
 
     </section><!-- /concierge-flow -->
 
-    <!-- PATIENT RESOURCES & ACCESS SECTION (CLEANED CHERRY CARD) -->
+    <!-- PATIENT RESOURCES & ACCESS SECTION -->
     <section class="patient-resources-section" aria-label="Patient Portal and Care Financing">
       <div class="patient-resources-inner">
         <div class="patient-resources__header">
