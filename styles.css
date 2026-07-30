@@ -1133,7 +1133,72 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
       overflow: hidden;
       pointer-events: none;
     }
+/* Container for CTAs */
+.hero-cta-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  margin-top: 2.5rem;
+  width: 100%;
+}
 
+/* Base style for both hero buttons */
+.hero-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.95rem 2.25rem;
+  font-family: inherit; /* Inherits your site's luxury body/heading font */
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+/* Primary CTA: Solid Gold Fill */
+.hero-btn-primary {
+  background-color: #c5a059; /* Monti Gold */
+  color: #0b1329;            /* Dark Navy text for maximum contrast */
+  border: 1px solid #c5a059;
+}
+
+.hero-btn-primary:hover {
+  background-color: #b08d46; /* Slightly deeper gold on hover */
+  border-color: #b08d46;
+  transform: translateY(-1px);
+}
+
+/* Secondary CTA: Dark Outline (for Ivory/Light Hero Background) */
+.hero-btn-secondary {
+  background-color: transparent;
+  color: #111111;            /* Dark Charcoal text */
+  border: 1px solid #111111; /* Solid dark border */
+}
+
+.hero-btn-secondary:hover {
+  background-color: #111111;
+  color: #ffffff;            /* Inverts to dark fill on hover */
+  transform: translateY(-1px);
+}
+
+/* Responsive Handling: Stacks buttons neatly on mobile screens */
+@media (max-width: 640px) {
+  .hero-cta-container {
+    flex-direction: column;
+    gap: 0.85rem;
+    padding: 0 1rem;
+  }
+
+  .hero-btn {
+    width: 100%; /* Full width buttons for easy mobile tapping */
+  }
+}
     /* CSS portrait composition  warm organic tones */
     .disc-portrait-img {
       position: absolute;
