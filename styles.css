@@ -246,7 +246,68 @@ body.dark-theme .nav__dropdown-link:hover { color: var(--gold); }
       outline: 2px solid var(--gold);
       outline-offset: 2px;
     }
+/* Container for side-by-side alignment */
+.hero-cta-group {
+  display: flex;
+  gap: 1.25rem;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+  flex-wrap: wrap; /* Stacks buttons on small screens */
+}
 
+/* Base style for both buttons */
+.hero-cta-group .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.9rem 2rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+/* Primary Button: Solid Gold Accent */
+.hero-cta-group .btn-primary {
+  background-color: #e2b747; /* Gold fill */
+  color: #0b1329;            /* Dark Navy text for readability */
+  border: 1px solid #e2b747;
+}
+
+.hero-cta-group .btn-primary:hover {
+  background-color: #c5a059; /* Slightly darker gold on hover */
+  border-color: #c5a059;
+}
+
+/* Secondary Button: Clean Outlined */
+.hero-cta-group .btn-secondary {
+  background-color: transparent;
+  color: #ffffff;            /* White text for dark hero background */
+  border: 1px solid #ffffff; /* White outline */
+}
+
+.hero-cta-group .btn-secondary:hover {
+  background-color: rgba(255, 255, 255, 0.1); /* Subtle hover fill */
+  color: #ffffff;
+}
+
+/* Responsive Handling for Mobile Devices */
+@media (max-width: 600px) {
+  .hero-cta-group {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .hero-cta-group .btn {
+    width: 100%; /* Full-width buttons on mobile */
+  }
+}
     /* 
        LAYOUT SHELL CONTRACT
        
