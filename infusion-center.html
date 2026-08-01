@@ -13,7 +13,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Monti Institute Infusion Suite &mdash; Monti Institute of Neuro Aesthetics</title>
-  <meta name="description" content="Precision cellular medicine and provider-directed infusion therapies at Monti Institute Infusion Suite — acute migraine rescue, NAD+, longevity, and tailored IV nutrients. Reno, Nevada.">
+  <meta name="description" content="Precision cellular medicine and provider-directed infusion therapies at Monti Institute Infusion Suite — acute migraine rescue, neuro-aesthetics, Myers' Cocktail, custom compounding, and NAD+. Reno, Nevada.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@200;300;400&display=swap" rel="stylesheet">
@@ -60,8 +60,8 @@
   .infusion-subcard__title { font-family:var(--f-display);font-size:1.15rem;font-weight:400;color:var(--deep);margin-block-end:0.4rem; }
   .infusion-subcard__text { font-size:0.825rem;font-weight:300;color:var(--muted);line-height:1.7;margin:0; }
 
-  /* Migraine Focus Box */
-  .migraine-rescue-box { border:1px solid var(--gold);padding:1.75rem;background:rgba(154,128,96,0.04);margin-block:1.5rem; }
+  /* Custom Box / Migraine Focus Box */
+  .custom-compounding-box, .migraine-rescue-box { border:1px solid var(--gold);padding:1.75rem;background:rgba(154,128,96,0.04);margin-block:1.5rem; }
   .migraine-rescue-box__badge { display:inline-block;font-size:0.6rem;font-weight:400;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);border:1px solid var(--gold);padding:0.2rem 0.6rem;margin-block-end:0.75rem; }
   .migraine-rescue-box__title { font-family:var(--f-display);font-size:1.4rem;font-weight:400;color:var(--deep);margin-block-end:0.5rem; }
   .migraine-rescue-box__note { font-size:0.825rem;font-weight:300;font-style:italic;color:var(--taupe);margin-block-end:1rem;line-height:1.6; }
@@ -133,7 +133,7 @@
   body.dark-theme .infusion-item__tags li { border-color:rgba(255,255,255,0.1);color:rgba(200,190,175,0.55); }
   body.dark-theme .infusion-subcard { background:rgba(255,255,255,0.02);border-color:rgba(255,255,255,0.07); }
   body.dark-theme .infusion-subcard__title { color:rgba(220,215,205,0.9); }
-  body.dark-theme .migraine-rescue-box { background:rgba(154,128,96,0.08);border-color:rgba(154,128,96,0.5); }
+  body.dark-theme .custom-compounding-box, body.dark-theme .migraine-rescue-box { background:rgba(154,128,96,0.08);border-color:rgba(154,128,96,0.5); }
   body.dark-theme .migraine-rescue-box__title { color:rgba(220,215,205,0.95); }
   body.dark-theme .addons-section { border-color:rgba(255,255,255,0.07); }
   body.dark-theme .addon-group__heading { color:rgba(220,215,205,0.9); }
@@ -587,7 +587,7 @@
           <span class="section__label">Clinical Care Menu</span>
           <h2 class="section__heading" id="services-heading">Levels of Care</h2>
           <p class="infusion-services__sub">
-            All therapies are administered under medical supervision. Formulations and treatment plans are customized following a comprehensive clinical evaluation.
+            All therapies are administered under medical supervision in Normal Saline carrier solutions. Formulations and treatment plans are customized following a comprehensive clinical evaluation.
           </p>
         </div>
 
@@ -606,12 +606,16 @@
             </div>
             <div class="infusion-item__body">
               <h3 class="infusion-item__name">Optimize</h3>
-              <span class="infusion-item__subtitle">Wellness &amp; Performance</span>
+              <span class="infusion-item__subtitle">Wellness, Aesthetics &amp; Performance</span>
               <p class="infusion-item__desc">
-                Targeted nutrient therapies designed to enhance daily vitality, metabolism, immune resilience, and aesthetic radiance.
+                Targeted nutrient therapies designed to enhance daily vitality, metabolism, immune resilience, and neuro-aesthetic skin radiance.
               </p>
               
               <div class="infusion-subgrid">
+                <div class="infusion-subcard">
+                  <h4 class="infusion-subcard__title">Clinical Myers' Cocktail</h4>
+                  <p class="infusion-subcard__text">The classic gold-standard micronutrient protocol—high-dose Vitamin C (2.5g), Magnesium Chloride, B-Complex, B6, B12, and Calcium Gluconate for cellular repletion.</p>
+                </div>
                 <div class="infusion-subcard">
                   <h4 class="infusion-subcard__title">Foundation IV</h4>
                   <p class="infusion-subcard__text">Core hydration, essential vitamins, and minerals for foundational cellular wellness.</p>
@@ -620,9 +624,9 @@
                   <h4 class="infusion-subcard__title">Immune Support IV</h4>
                   <p class="infusion-subcard__text">High-dose vitamins, antioxidants, and trace elements to fortify immune defense.</p>
                 </div>
-                <div class="infusion-subcard">
+                <div class="infusion-subcard" style="border-color:var(--gold);background:rgba(154,128,96,0.04);">
                   <h4 class="infusion-subcard__title">Radiance &amp; Glow IV</h4>
-                  <p class="infusion-subcard__text">Powerful antioxidants and collagen-building nutrients for skin brightness and cellular hydration.</p>
+                  <p class="infusion-subcard__text"><strong>Neuro-Aesthetic Cell Renewal:</strong> High-dose Biotin (10mg), Vitamin C (2.5g), Zinc, and B-Complex to drive collagen synthesis, finished with a high-potency Glutathione IV push (1200mg–2000mg) for systemic radiance.</p>
                 </div>
                 <div class="infusion-subcard">
                   <h4 class="infusion-subcard__title">Metabolic Reset IV</h4>
@@ -631,10 +635,11 @@
               </div>
 
               <ul class="infusion-item__tags" aria-label="Optimize modalities">
+                <li>Myers' Classic</li>
                 <li>Wellness</li>
                 <li>Energy</li>
                 <li>Immunity</li>
-                <li>Beauty &amp; Radiance</li>
+                <li>Neuro-Aesthetics</li>
               </ul>
             </div>
           </article>
@@ -662,26 +667,29 @@
                 <span class="migraine-rescue-box__badge">Provider-Directed Clinical Program</span>
                 <h4 class="migraine-rescue-box__title">Acute Migraine Rescue Infusion</h4>
                 <p class="migraine-rescue-box__note">
-                  A targeted protocol designed to break acute migraine cycles, reduce neuro-inflammation, and alleviate associated nausea in a controlled, supportive environment. Available for established patients who meet clinical criteria.
+                  A multi-agent, targeted protocol designed to break severe acute migraine cycles, block neuro-inflammation, and manage nausea in a low-stimulus environment.
                 </p>
-                <p class="infusion-subcard__text" style="margin-block-end:0.5rem;font-weight:400;color:var(--deep);">Therapeutic Protocol May Include:</p>
-                <ul class="migraine-rescue-box__list">
-                  <li>IV Fluids &amp; Electrolytes</li>
-                  <li>Magnesium Sulfate</li>
-                  <li>Antiemetic Medications</li>
-                  <li>Anti-inflammatory Medications</li>
-                  <li>Corticosteroid Therapies</li>
-                  <li>Gastrointestinal Support</li>
+                <p class="infusion-subcard__text" style="margin-block-end:0.5rem;font-weight:400;color:var(--deep);">Standard Base Protocol Includes (in 500mL/1000mL Normal Saline):</p>
+                <ul class="migraine-rescue-box__list" style="margin-block-end:1rem;">
+                  <li><strong>Magnesium Sulfate:</strong> 2.0g IV Infusion</li>
+                  <li><strong>Vitamin C (Ascorbic Acid):</strong> 1.0g IV Infusion</li>
+                  <li><strong>Toradol (Ketorolac):</strong> 30mg NSAID IV Push</li>
+                  <li><strong>Dexamethasone:</strong> 10mg Corticosteroid IV Push (Rebound Prevention)</li>
+                  <li><strong>Famotidine (Pepcid):</strong> 20mg GI Protectant IV Push</li>
+                  <li><strong>Primary Antiemetic (Provider Selected):</strong> Compazine (10mg), Reglan (10mg), or Zofran (4mg)</li>
                 </ul>
+                <p class="infusion-subcard__text" style="margin-block-end:0.4rem;font-weight:400;color:var(--deep);">High-Acuity Prescription Add-Ons:</p>
+                <p class="migraine-rescue-box__note" style="margin-block-end:0.5rem;">Droperidol, Diphenhydramine (Benadryl), or Valproate Sodium (Depacon) available following provider assessment.</p>
+                <p class="infusion-subcard__text" style="font-size:0.75rem;color:var(--gold);font-style:italic;">*Safety Warning: Patients receiving sedating add-ons (including Droperidol or Diphenhydramine) MUST have a designated driver present to transport them home.</p>
               </div>
 
               <div class="infusion-subcard" style="margin-block-end:1.25rem;">
                 <h4 class="infusion-subcard__title">Rehydration &amp; Metabolic Recovery IV</h4>
-                <p class="infusion-subcard__text">Rapid fluid and electrolyte replenishment for severe post-exertion, travel exhaustion, or illness recovery.</p>
+                <p class="infusion-subcard__text">Rapid fluid and electrolyte replenishment in 1000mL Normal Saline for severe post-exertion, travel exhaustion, or illness recovery.</p>
               </div>
 
               <ul class="infusion-item__tags" aria-label="Recover modalities">
-                <li>Acute Migraine</li>
+                <li>Acute Migraine Rescue</li>
                 <li>Dehydration</li>
                 <li>Post-Exertion</li>
                 <li>Symptom Relief</li>
@@ -727,15 +735,32 @@
                 </div>
                 <div class="infusion-subcard">
                   <h4 class="infusion-subcard__title">Alpha Lipoic Acid (ALA)</h4>
-                  <p class="infusion-subcard__text">Potent universal antioxidant therapy for neuroprotection and metabolic balance.</p>
+                  <p class="infusion-subcard__text">Potent universal antioxidant therapy for neuroprotection, anti-glycation, and metabolic balance.</p>
                 </div>
+              </div>
+
+              <!-- Custom Compounded Highlight Box -->
+              <div class="custom-compounding-box">
+                <span class="migraine-rescue-box__badge">Specialized Compounding Service</span>
+                <h4 class="migraine-rescue-box__title">Custom &amp; Pre-Ordered Compounded Formulations</h4>
+                <p class="migraine-rescue-box__note">
+                  Customized IV solutions formulated through an accredited sterile compounding pharmacy tailored directly to your comprehensive lab panels and clinical history.
+                </p>
+                <p class="infusion-subcard__text" style="margin-block-end:0.5rem;font-weight:400;color:var(--deep);">Available Custom Options Include:</p>
+                <ul class="migraine-rescue-box__list" style="margin-block-end:1rem;">
+                  <li><strong>Alpha-GPC &amp; Acetyl-L-Carnitine:</strong> Neuro-cognitive &amp; cholinergic brain support</li>
+                  <li><strong>Curcumin IV:</strong> High-potency systemic anti-inflammatory protocol</li>
+                  <li><strong>Poly-MVA / Advanced Minerals:</strong> Cellular membrane resuscitation</li>
+                  <li><strong>Targeted Amino Acid Matrices:</strong> Specialized athletic or neurological recovery blends</li>
+                </ul>
+                <p class="infusion-subcard__text" style="font-size:0.75rem;color:var(--gold);font-style:italic;">*Scheduling Notice: Custom compounded infusions must be ordered in advance and require 3 to 5 business days for pharmacy preparation prior to your scheduled appointment.</p>
               </div>
 
               <ul class="infusion-item__tags" aria-label="Restore modalities">
                 <li>NAD+ Protocols</li>
+                <li>Custom Compounded</li>
                 <li>Longevity</li>
                 <li>Neurology</li>
-                <li>Mitochondrial Support</li>
               </ul>
             </div>
           </article>
@@ -750,26 +775,27 @@
           <div class="addons-grid">
             <div class="addon-group">
               <h4 class="addon-group__heading">Nutrient Boosters</h4>
-              <p class="addon-group__sub">Targeted micronutrients integrated directly into your IV drip.</p>
+              <p class="addon-group__sub">Targeted micronutrients integrated directly into your IV drip or IV push.</p>
               <ul class="addon-list">
-                <li><strong>Glutathione:</strong> Master antioxidant &amp; hepatic detox support</li>
+                <li><strong>Glutathione:</strong> Master antioxidant &amp; hepatic detox support (1200mg–2000mg IV push)</li>
+                <li><strong>Biotin:</strong> High-dose hair, skin, and keratin infrastructure booster (10mg)</li>
                 <li><strong>Taurine:</strong> Neuro-calming &amp; cardiovascular support</li>
                 <li><strong>L-Carnitine:</strong> Fatty acid metabolism &amp; cellular energy</li>
-                <li><strong>MICC:</strong> Lipotropic fat-burning complex</li>
+                <li><strong>MICC:</strong> Lipotropic fat-burning complex (IM only)</li>
                 <li><strong>Methylcobalamin (B12):</strong> Nerve health &amp; sustained energy</li>
-                <li><strong>Biotin:</strong> Hair, skin, and cellular infrastructure</li>
-                <li><strong>Zinc:</strong> Immune modulation &amp; tissue repair</li>
+                <li><strong>Zinc Sulfate:</strong> Immune modulation &amp; tissue repair</li>
                 <li><strong>Vitamin C:</strong> Cellular protection booster</li>
               </ul>
             </div>
 
             <div class="addon-group">
               <h4 class="addon-group__heading">Provider-Directed Prescription Add-Ons</h4>
-              <p class="addon-group__sub">Available exclusively following provider assessment and when medically appropriate.</p>
+              <p class="addon-group__sub">Available exclusively following provider assessment and when clinically indicated.</p>
               <ul class="addon-list">
-                <li><strong>Pain &amp; Inflammation Support:</strong> Target NSAID / Anti-inflammatory agents for severe symptom relief.</li>
-                <li><strong>Nausea &amp; GI Support:</strong> Targeted antiemetic &amp; stomach lining protectant administration.</li>
-                <li><strong>Targeted Corticosteroid Therapy:</strong> Controlled anti-inflammatory flare management.</li>
+                <li><strong>Droperidol:</strong> Central dopamine antagonist for refractory acute migraine abortive care. <em>(Driver required)</em></li>
+                <li><strong>Diphenhydramine (Benadryl):</strong> H1 blocker &amp; sedating agent. <em>(Driver required)</em></li>
+                <li><strong>Valproate Sodium (Depacon):</strong> Antiepileptic agent for severe acute migraine relief.</li>
+                <li><strong>Targeted Corticosteroid Therapy:</strong> Dexamethasone flare control.</li>
               </ul>
             </div>
           </div>
