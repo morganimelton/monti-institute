@@ -726,3 +726,15 @@ footer a:hover,
 .footer a:hover {
   color: #C4A97D !important;
 }
+
+/* ==========================================================================
+   ARROW ICON FIX
+   Buttons like "Schedule Consultation" and "Request Program Evaluation" use
+   inline SVG arrows with no fill/stroke attribute set, so they render solid
+   black by default instead of inheriting the button's text color.
+   ========================================================================== */
+svg path[stroke-linecap="round"][stroke-linejoin="round"] {
+  fill: none !important;
+  stroke: currentColor !important;
+  stroke-width: 1.5 !important;
+}
