@@ -586,9 +586,6 @@ footer,
   margin-block-start: 0 !important;
 }
 
-/* If the decorative neuron SVG background is in normal document flow
-   (not absolutely positioned), this pulls it out of flow so it can't
-   push content down */
 .neuro-page-bg {
   position: absolute !important;
   top: 0 !important;
@@ -596,4 +593,136 @@ footer,
   width: 100% !important;
   z-index: 0 !important;
   pointer-events: none !important;
+}
+
+/* ==========================================================================
+   SITE-WIDE THEME — NAVY & CHAMPAGNE
+   Pulled from the homepage's inline <style> block so every page (not just
+   index.html) uses the same nav, footer, button, and background treatment
+   without needing a duplicate <style> block pasted into each file.
+   Placed last so it wins the cascade over the warm-brown tokens above.
+   ========================================================================== */
+
+html, body {
+  overflow-x: hidden !important;
+  width: 100% !important;
+}
+
+body {
+  background-color: #FBF9F5 !important;
+  color: #1A2332 !important;
+  font-family: 'DM Sans', sans-serif !important;
+}
+
+/* NAVIGATION LIGHT THEME */
+.nav {
+  background-color: rgba(251, 249, 245, 0.92) !important;
+  border-bottom: 1px solid rgba(184, 151, 104, 0.25) !important;
+  backdrop-filter: blur(12px) !important;
+}
+
+.nav__brand-text {
+  color: #0A1628 !important;
+}
+
+.nav__link {
+  color: #2D3748 !important;
+}
+
+.nav__link:hover {
+  color: #B89768 !important;
+}
+
+.nav__dropdown-toggle {
+  color: #2D3748 !important;
+}
+
+.nav__dropdown {
+  background: #FFFFFF !important;
+  border-color: rgba(184, 151, 104, 0.3) !important;
+}
+
+.nav__dropdown-link {
+  color: #1A2332 !important;
+}
+
+.nav__dropdown-link:hover {
+  color: #B89768 !important;
+}
+
+.dark-toggle,
+.nav__migraine-toggle {
+  border: 1px solid rgba(184, 151, 104, 0.3) !important;
+}
+
+/* PRIMARY / SECONDARY BUTTONS */
+.btn--primary {
+  background-color: #0A1628 !important;
+  color: #FBF9F5 !important;
+  border: 1px solid #0A1628 !important;
+  transition: all 0.25s ease !important;
+  box-shadow: 0 4px 12px rgba(10, 22, 40, 0.15) !important;
+}
+
+.btn--primary:hover {
+  background-color: #1A2B42 !important;
+  border-color: #1A2B42 !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 18px rgba(10, 22, 40, 0.25) !important;
+}
+
+.btn--secondary,
+.btn--ghost {
+  background-color: #FFFFFF !important;
+  color: #0A1628 !important;
+  border: 1px solid #B89768 !important;
+  transition: all 0.25s ease !important;
+}
+
+.btn--secondary:hover,
+.btn--ghost:hover {
+  background-color: #F4EFE6 !important;
+  transform: translateY(-2px) !important;
+}
+
+/* DISCLAIMER */
+.site-disclaimer {
+  padding: 2.25rem 1.5rem 2.5rem !important;
+  margin-top: 4rem !important;
+  margin-bottom: 2.5rem !important;
+  border-top: 1px solid #EAE3D9 !important;
+  border-bottom: 1px solid #EAE3D9 !important;
+  background-color: #F4EFE6 !important;
+}
+
+.site-disclaimer__text {
+  max-width: 1250px !important;
+  margin: 0 auto !important;
+  font-size: 0.825rem !important;
+  line-height: 1.6 !important;
+  color: #4A5568 !important;
+  text-align: center !important;
+}
+
+.site-disclaimer__text a {
+  color: #8C6F43 !important;
+  text-decoration: underline !important;
+}
+
+/* FOOTER LIGHT-ON-NAVY THEME */
+footer,
+.footer {
+  background-color: #07101F !important;
+  color: #FFFFFF !important;
+  padding-top: 3.5rem !important;
+}
+
+footer a,
+.footer a {
+  color: rgba(184, 151, 104, 0.85) !important;
+}
+
+footer a:hover,
+.footer a:hover {
+  color: #C4A97D !important;
 }
