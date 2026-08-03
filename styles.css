@@ -759,3 +759,656 @@ svg path[stroke-linecap="round"][stroke-linejoin="round"] {
   stroke: currentColor !important;
   stroke-width: 1.5 !important;
 }
+/* ==========================================================================
+   NEUROLOGICAL MEDICINE PAGE REDESIGN
+   Self-contained "np-" (neuro page) component system matching the homepage's
+   navy/champagne brand identity: Cormorant Garamond display + DM Sans body,
+   card-based layout, subtle shadows, generous whitespace, badge tags.
+   Every class below is fully defined here — no dependency on other rules
+   elsewhere in styles.css.
+   ========================================================================== */
+
+.np-wrap {
+  max-width: 1150px;
+  margin-inline: auto;
+  padding-inline: clamp(1.25rem, 4vw, 2rem);
+}
+
+/* ---------- HERO ---------- */
+.np-hero {
+  padding-block: calc(var(--nav-h, 64px) + clamp(3rem, 6vw, 5rem)) clamp(3rem, 5vw, 4rem);
+  text-align: center;
+  max-width: 780px;
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+  position: relative;
+  z-index: 2;
+}
+
+.np-hero__eyebrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.85rem;
+  margin-bottom: 1.5rem;
+}
+
+.np-hero__eyebrow-rule {
+  width: 32px;
+  height: 1px;
+  background: rgba(184, 151, 104, 0.5);
+}
+
+.np-hero__eyebrow-text {
+  color: #B89768;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 0.75rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.np-hero__title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(2.5rem, 5.5vw, 4rem);
+  line-height: 1.1;
+  color: #0A1628;
+  margin: 0 0 1.25rem;
+}
+
+.np-hero__title em {
+  font-style: italic;
+  color: #B89768;
+}
+
+.np-hero__lead {
+  color: #4A5568;
+  font-size: clamp(1rem, 1.4vw, 1.15rem);
+  line-height: 1.75;
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+.np-hero__ctas {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 2.5rem;
+  flex-wrap: wrap;
+}
+
+.np-hero__ctas .btn {
+  padding: 0.9rem 2rem;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* ---------- SECTION SHELL ---------- */
+.np-section {
+  padding-block: clamp(3.5rem, 6vw, 5.5rem);
+  border-top: 1px solid #EAE3D9;
+}
+
+.np-section__header {
+  max-width: 640px;
+  margin-bottom: clamp(2rem, 4vw, 3rem);
+}
+
+.np-section__header--center {
+  margin-inline: auto;
+  text-align: center;
+}
+
+.np-section__label {
+  display: block;
+  color: #B89768;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.np-section__heading {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(1.75rem, 3.2vw, 2.5rem);
+  color: #0A1628;
+  margin: 0.4rem 0 0;
+  line-height: 1.2;
+}
+
+.np-section__intro {
+  color: #4A5568;
+  line-height: 1.75;
+  margin-top: 0.85rem;
+  font-size: 0.98rem;
+}
+
+/* ---------- DARK SECTION VARIANT ---------- */
+.np-section--dark {
+  background: #0A1628;
+  border-top: none;
+  padding-inline: 0;
+}
+
+.np-section--dark .np-wrap {
+  padding-block: clamp(3.5rem, 6vw, 5.5rem);
+}
+
+.np-section--dark .np-section__label { color: #B89768; }
+.np-section--dark .np-section__heading { color: #FFFFFF; }
+.np-section--dark .np-section__intro { color: rgba(255, 255, 255, 0.72); }
+
+/* ---------- CARD GRID ---------- */
+.np-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+.np-grid--2col {
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+}
+
+.np-grid--3col {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+@media (max-width: 900px) {
+  .np-grid--3col { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+}
+
+/* ---------- CARD ---------- */
+.np-card {
+  background: #FFFFFF;
+  border: 1px solid #EAE3D9;
+  border-radius: 8px;
+  padding: 2rem 1.75rem;
+  box-shadow: 0 4px 16px rgba(10, 22, 40, 0.03);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.np-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(10, 22, 40, 0.08);
+}
+
+.np-card__num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: #F4EFE6;
+  color: #8C6F43;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-bottom: 1.1rem;
+}
+
+.np-card__title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-weight: 500;
+  font-size: 1.3rem;
+  color: #0A1628;
+  margin: 0 0 0.6rem;
+  line-height: 1.3;
+}
+
+.np-card__desc {
+  color: #4A5568;
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+
+.np-section--dark .np-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(184, 151, 104, 0.28);
+}
+
+.np-section--dark .np-card__title { color: #FFFFFF; }
+.np-section--dark .np-card__desc { color: rgba(255, 255, 255, 0.75); }
+.np-section--dark .np-card__num { background: rgba(184, 151, 104, 0.15); color: #C9AC7E; }
+
+/* ---------- CHECKLIST CARD (Who We Treat / Why Continue) ---------- */
+.np-check-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.np-check-item {
+  display: flex;
+  gap: 0.9rem;
+  align-items: flex-start;
+  padding: 1.1rem 1.25rem;
+  background: #FFFFFF;
+  border: 1px solid #EAE3D9;
+  border-radius: 8px;
+}
+
+.np-check-item__dot {
+  flex-shrink: 0;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #B89768;
+  margin-top: 0.5rem;
+}
+
+.np-check-item__text {
+  color: #2D3748;
+  font-size: 0.92rem;
+  line-height: 1.65;
+}
+
+.np-section--dark .np-check-item {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(184, 151, 104, 0.25);
+}
+
+.np-section--dark .np-check-item__text { color: rgba(255, 255, 255, 0.85); }
+
+/* ---------- BADGES ---------- */
+.np-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.32rem 0.85rem;
+  border-radius: 20px;
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.np-badge--gold {
+  background: #F4EFE6;
+  color: #8C6F43;
+  border: 1px solid rgba(184, 151, 104, 0.4);
+}
+
+.np-badge--navy {
+  background: #0A1628;
+  color: #FBF9F5;
+}
+
+.np-badge--outline {
+  background: transparent;
+  border: 1px solid #B89768;
+  color: #8C6F43;
+}
+
+/* ---------- CONDITION CARDS ---------- */
+.np-condition-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.np-condition-card__badges {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.np-condition-card__title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.35rem;
+  color: #0A1628;
+  margin: 0 0 0.6rem;
+}
+
+.np-condition-card__desc {
+  color: #4A5568;
+  font-size: 0.9rem;
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+
+.np-condition-card__note {
+  font-size: 0.78rem;
+  color: #8C6F43;
+  font-weight: 600;
+  margin-top: auto;
+  padding-top: 0.75rem;
+  border-top: 1px solid #F0EAE0;
+}
+
+/* ---------- PROTOCOL CARDS ---------- */
+.np-protocol-card__category {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #8C6F43;
+  font-weight: 600;
+}
+
+.np-protocol-card__title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.4rem;
+  color: #0A1628;
+  margin: 0.4rem 0 0.75rem;
+  line-height: 1.25;
+}
+
+.np-protocol-card__drug {
+  color: #6B6460;
+  font-size: 0.82rem;
+  font-style: italic;
+  margin-bottom: 1rem;
+}
+
+.np-protocol-card__desc {
+  color: #4A5568;
+  font-size: 0.9rem;
+  line-height: 1.7;
+  margin-bottom: 1.1rem;
+}
+
+.np-chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.np-chip {
+  font-size: 0.72rem;
+  background: #FBF9F5;
+  border: 1px solid #EAE3D9;
+  border-radius: 4px;
+  padding: 0.32rem 0.65rem;
+  color: #2D3748;
+}
+
+/* ---------- NUMBERED PROCESS ---------- */
+.np-process-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 2rem;
+}
+
+.np-process-item__num {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 2.1rem;
+  font-weight: 400;
+  color: #B89768;
+  line-height: 1;
+  display: block;
+  margin-bottom: 0.85rem;
+}
+
+.np-process-item__title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.2rem;
+  color: #0A1628;
+  margin: 0 0 0.5rem;
+}
+
+.np-process-item__desc {
+  color: #4A5568;
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+
+/* ---------- PROGRAM CARDS ---------- */
+.np-program-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.np-program-card__label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #8C6F43;
+  font-weight: 600;
+}
+
+.np-program-card__name {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.35rem;
+  color: #0A1628;
+  margin: 0.4rem 0 1rem;
+}
+
+.np-program-card__features {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  margin-bottom: 1.25rem;
+}
+
+.np-program-card__feature {
+  color: #2D3748;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  padding-left: 1rem;
+  position: relative;
+}
+
+.np-program-card__feature::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.5em;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #B89768;
+}
+
+.np-program-card__cycle {
+  font-size: 0.75rem;
+  color: #8C6F43;
+  font-weight: 600;
+  margin-bottom: 1.25rem;
+}
+
+/* ---------- CTA BAND ---------- */
+.np-cta-band {
+  background: linear-gradient(145deg, #0A1628 0%, #132038 100%);
+  border: 1px solid rgba(184, 151, 104, 0.3);
+  border-radius: 12px;
+  padding: clamp(2.25rem, 5vw, 3.5rem);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  align-items: center;
+  justify-content: space-between;
+  margin-block: clamp(1rem, 3vw, 2rem);
+}
+
+.np-cta-band__text { flex: 1 1 340px; }
+
+.np-cta-band__eyebrow {
+  color: #B89768;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  font-weight: 600;
+}
+
+.np-cta-band__heading {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  color: #FFFFFF;
+  margin: 0.5rem 0 0.75rem;
+  line-height: 1.25;
+}
+
+.np-cta-band__note {
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 0.9rem;
+  line-height: 1.65;
+  max-width: 520px;
+}
+
+.np-cta-band__btns {
+  display: flex;
+  gap: 0.9rem;
+  flex-wrap: wrap;
+}
+
+/* ---------- TEAM CARDS ---------- */
+.np-team-card {
+  background: #FFFFFF;
+  border: 1px solid #EAE3D9;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(10, 22, 40, 0.03);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.np-team-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(10, 22, 40, 0.08);
+}
+
+.np-team-card__photo-wrap {
+  aspect-ratio: 3 / 4;
+  background: #F4EFE6;
+  overflow: hidden;
+}
+
+.np-team-card__photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.np-team-card__body { padding: 1.5rem 1.5rem 1.75rem; }
+
+.np-team-card__role {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #8C6F43;
+  font-weight: 600;
+}
+
+.np-team-card__name {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.4rem;
+  color: #0A1628;
+  margin: 0.4rem 0 0.15rem;
+}
+
+.np-team-card__credentials {
+  font-size: 0.78rem;
+  color: #6B6460;
+  margin-bottom: 1rem;
+}
+
+.np-team-card__bio {
+  color: #4A5568;
+  font-size: 0.86rem;
+  line-height: 1.7;
+  margin-bottom: 1.1rem;
+}
+
+.np-team-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+/* ---------- GLOSSARY ---------- */
+.np-glossary-item {
+  background: #FFFFFF;
+  border: 1px solid #EAE3D9;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.np-glossary-item + .np-glossary-item { margin-top: 0.85rem; }
+
+.np-glossary-item__trigger {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.35rem 1.6rem;
+}
+
+.np-glossary-item__trigger::-webkit-details-marker { display: none; }
+
+.np-glossary-item__discipline {
+  display: block;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #8C6F43;
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+}
+
+.np-glossary-item__word {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.25rem;
+  color: #0A1628;
+}
+
+.np-glossary-item__chevron {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  stroke: #B89768;
+  fill: none;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: transform 0.25s ease;
+}
+
+.np-glossary-item[open] .np-glossary-item__chevron { transform: rotate(180deg); }
+
+.np-glossary-item__body {
+  padding: 0 1.6rem 1.6rem;
+  color: #4A5568;
+  font-size: 0.9rem;
+  line-height: 1.75;
+}
+
+.np-glossary-item__body p + p { margin-top: 0.85rem; }
+
+.np-glossary-item__note {
+  margin-top: 1.1rem;
+  padding: 0.9rem 1.1rem;
+  background: #F4EFE6;
+  border-radius: 6px;
+  font-size: 0.82rem;
+  color: #8C6F43;
+}
+
+.np-glossary-item__note strong {
+  display: block;
+  color: #0A1628;
+  margin-bottom: 0.25rem;
+  font-weight: 600;
+}
+
+/* ---------- INSURANCE STRIP ---------- */
+.np-insurance-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 640px) {
+  .np-hero__ctas { flex-direction: column; align-items: stretch; }
+  .np-cta-band { flex-direction: column; align-items: flex-start; }
+  .np-cta-band__btns { width: 100%; }
+  .np-cta-band__btns .btn { flex: 1 1 auto; text-align: center; justify-content: center; }
+}
