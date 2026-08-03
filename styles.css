@@ -738,3 +738,24 @@ svg path[stroke-linecap="round"][stroke-linejoin="round"] {
   stroke: currentColor !important;
   stroke-width: 1.5 !important;
 }
+
+/* Belt-and-braces: scoped directly to the known button/link classes in case
+   something elsewhere has higher specificity than the attribute selector above */
+.btn svg,
+.btn svg path,
+.neuro-cta-footer svg,
+.neuro-cta-footer svg path,
+.clinical-cta-footer__btns svg,
+.clinical-cta-footer__btns svg path,
+.neuro-program__cta svg,
+.neuro-program__cta svg path,
+.neuro-text-link svg,
+.neuro-text-link svg path,
+.team-card__contact svg,
+.team-card__contact svg path,
+.protocol-detail-card svg,
+.protocol-detail-card svg path {
+  fill: none !important;
+  stroke: currentColor !important;
+  stroke-width: 1.5 !important;
+}
