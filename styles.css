@@ -1412,3 +1412,1013 @@ svg path[stroke-linecap="round"][stroke-linejoin="round"] {
   .np-cta-band__btns { width: 100%; }
   .np-cta-band__btns .btn { flex: 1 1 auto; text-align: center; justify-content: center; }
 }
+
+
+/* ==========================================================================
+   COMPONENT STYLES FOR ACTUAL PAGE MARKUP
+   Append this entire block to the end of styles.css.
+   Covers every class used in the Aesthetic Medicine / Care Programs page
+   markup that had no matching rules (.inner-page, .neuro-section,
+   .team-card, .glossary-term, .ba-*, .anatomy-*, .reveal, etc.)
+   Palette matches the navy/champagne theme already set further up:
+   navy #0A1628 · gold #B89768 · ink #4A5568 · card border #EAE3D9
+   ========================================================================== */
+
+/* ---------- REVEAL-ON-SCROLL ANIMATION ---------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal.in-view {
+  opacity: 1;
+  transform: none;
+}
+
+/* ---------- DECORATIVE PAGE BACKGROUND ---------- */
+.aesthetic-page-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* ---------- INNER PAGE SHELL ---------- */
+.inner-page {
+  position: relative;
+  z-index: 1;
+  max-width: 1150px;
+  margin-inline: auto;
+  padding-inline: clamp(1.25rem, 4vw, 2rem);
+  padding-block-end: clamp(2.5rem, 5vw, 4rem);
+}
+
+.inner-page__inner {
+  position: relative;
+}
+
+.inner-page__eyebrow {
+  display: block;
+  color: #B89768;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.inner-page__title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(2.25rem, 5vw, 3.5rem);
+  line-height: 1.1;
+  color: #0A1628;
+  margin: 0 0 1.25rem;
+}
+
+.inner-page__title em {
+  font-style: italic;
+  color: #B89768;
+}
+
+.inner-page__lead {
+  color: #4A5568;
+  font-size: clamp(1rem, 1.3vw, 1.1rem);
+  line-height: 1.75;
+  max-width: 62ch;
+}
+
+.inner-page__rule {
+  height: 1px;
+  background: #EAE3D9;
+  margin-block: clamp(2rem, 4vw, 3rem);
+}
+
+.inner-page__col-heading {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-weight: 400;
+  color: #0A1628;
+  line-height: 1.25;
+}
+
+.inner-page__col-body {
+  color: #4A5568;
+  line-height: 1.75;
+  font-size: 0.95rem;
+}
+
+/* ---------- PAGE-SWITCH TOGGLE & HERO CTAs ---------- */
+.page-switch-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: transparent;
+  border: 1px solid #B89768;
+  color: #8C6F43;
+  border-radius: 20px;
+  padding: 0.45rem 1rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  margin-bottom: 1.5rem;
+  transition: background 0.2s ease;
+}
+.page-switch-toggle:hover { background: #F4EFE6; }
+.page-switch-toggle svg {
+  width: 14px; height: 14px;
+  fill: none; stroke: currentColor; stroke-width: 1.5;
+}
+
+.neuro-ctas {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+}
+
+/* ---------- SERVICE LIST (hero summary cards) ---------- */
+.service-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+  margin-top: clamp(2rem, 4vw, 3rem);
+}
+
+.service-item {
+  display: flex;
+  gap: 1rem;
+  padding: 1.5rem;
+  background: #FFFFFF;
+  border: 1px solid #EAE3D9;
+  border-radius: 8px;
+}
+
+.service-item__num {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.4rem;
+  color: #B89768;
+  flex-shrink: 0;
+}
+
+.service-item__name {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.15rem;
+  color: #0A1628;
+  margin: 0 0 0.4rem;
+  line-height: 1.3;
+}
+
+.service-item__desc {
+  color: #4A5568;
+  font-size: 0.86rem;
+  line-height: 1.65;
+}
+
+/* ---------- SECTION SHELL (.neuro-section reused across pages) ---------- */
+.neuro-section {
+  padding-block: clamp(3rem, 5vw, 4.5rem);
+  border-top: 1px solid #EAE3D9;
+}
+
+.neuro-section__header {
+  max-width: 640px;
+  margin-bottom: clamp(1.75rem, 3vw, 2.5rem);
+}
+
+.section__label,
+.hp-trust-section__label {
+  display: block;
+  color: #B89768;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+/* ---------- WHO-TREAT LIST ---------- */
+.who-treat-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.who-treat-item {
+  display: flex;
+  gap: 0.9rem;
+  align-items: flex-start;
+  padding: 1.1rem 1.25rem;
+  background: #FFFFFF;
+  border: 1px solid #EAE3D9;
+  border-radius: 8px;
+}
+
+.who-treat-item__dot {
+  flex-shrink: 0;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #B89768;
+  margin-top: 0.5rem;
+}
+
+.who-treat-item__text {
+  color: #2D3748;
+  font-size: 0.92rem;
+  line-height: 1.65;
+}
+
+/* ---------- CONDITION PILLS ---------- */
+.conditions-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.condition-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem 1.1rem;
+  border-radius: 20px;
+  background: #F4EFE6;
+  color: #8C6F43;
+  border: 1px solid rgba(184, 151, 104, 0.4);
+  font-size: 0.82rem;
+  font-weight: 500;
+}
+
+/* ---------- NUMBERED LISTS (approach / process) ---------- */
+.neuro-numbered-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 2rem;
+}
+
+.neuro-numbered-item {
+  display: flex;
+  gap: 1rem;
+}
+
+.neuro-numbered-item__num {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.8rem;
+  color: #B89768;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.neuro-numbered-item__title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.15rem;
+  color: #0A1628;
+  margin: 0 0 0.5rem;
+}
+
+.neuro-numbered-item__desc {
+  color: #4A5568;
+  font-size: 0.88rem;
+  line-height: 1.7;
+}
+
+/* ---------- PROTOCOL LIST ---------- */
+.protocol-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.protocol-item {
+  display: flex;
+  gap: 1rem;
+  padding: 1.5rem;
+  background: #FFFFFF;
+  border: 1px solid #EAE3D9;
+  border-radius: 8px;
+}
+
+.protocol-item__num {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.3rem;
+  color: #B89768;
+  flex-shrink: 0;
+}
+
+.protocol-item__title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.15rem;
+  color: #0A1628;
+  margin: 0 0 0.5rem;
+  cursor: pointer;
+}
+.protocol-item__title:hover { color: #8C6F43; }
+
+.protocol-item__desc {
+  color: #4A5568;
+  font-size: 0.86rem;
+  line-height: 1.65;
+}
+
+.neuro-text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1.75rem;
+  background: transparent;
+  border: none;
+  color: #8C6F43;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+.neuro-text-link svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.5; }
+.neuro-text-link:hover { color: #0A1628; }
+
+/* ---------- PROGRAM CARDS (aesthetic care programs) ---------- */
+.neuro-programs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+.neuro-program {
+  padding: 1.75rem;
+  background: #FFFFFF;
+  border: 1px solid #EAE3D9;
+  border-radius: 8px;
+}
+
+.neuro-program__name {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.3rem;
+  color: #0A1628;
+  margin: 0 0 0.85rem;
+}
+
+.neuro-program__divider {
+  height: 1px;
+  background: #EAE3D9;
+  margin-bottom: 0.85rem;
+}
+
+.neuro-program__feature {
+  color: #4A5568;
+  font-size: 0.86rem;
+  line-height: 1.65;
+}
+
+.neuro-program__cycle {
+  display: inline-block;
+  margin-top: 1rem;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #8C6F43;
+  font-weight: 600;
+}
+
+/* ---------- STANDARDS LIST ---------- */
+.standards-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+}
+
+.standards-item {
+  padding: 1.25rem 1.5rem;
+  background: #F4EFE6;
+  border-radius: 8px;
+  color: #2D3748;
+  font-size: 0.88rem;
+  line-height: 1.6;
+}
+
+/* ---------- BOTTOM CTA BAND ---------- */
+.ae-cta-footer {
+  background: linear-gradient(145deg, #0A1628 0%, #132038 100%);
+  border: 1px solid rgba(184, 151, 104, 0.3);
+  border-radius: 12px;
+  padding: clamp(2.25rem, 5vw, 3.5rem);
+  text-align: center;
+  margin-block: clamp(2.5rem, 5vw, 4rem);
+}
+
+.ae-cta-footer__eyebrow {
+  display: block;
+  color: #B89768;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  font-weight: 600;
+}
+
+.ae-cta-footer__heading {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(1.5rem, 3vw, 2.1rem);
+  color: #FFFFFF;
+  margin: 0.6rem 0 0.9rem;
+}
+
+.ae-cta-footer__note {
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 0.9rem;
+  line-height: 1.65;
+  max-width: 520px;
+  margin: 0 auto 1.75rem;
+}
+
+/* ---------- TEAM SECTION ---------- */
+.team-section {
+  padding-block: clamp(3rem, 5vw, 4.5rem);
+  border-top: 1px solid #EAE3D9;
+}
+
+.team-section__header {
+  max-width: 640px;
+  margin-bottom: clamp(1.75rem, 3vw, 2.5rem);
+}
+
+.team-section__lead {
+  color: #4A5568;
+  line-height: 1.75;
+  margin-top: 0.85rem;
+  font-size: 0.95rem;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+
+.team-card {
+  background: #FFFFFF;
+  border: 1px solid #EAE3D9;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(10, 22, 40, 0.03);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.team-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(10, 22, 40, 0.08);
+}
+
+.team-card__photo-wrap {
+  aspect-ratio: 3 / 4;
+  background: #F4EFE6;
+  overflow: hidden;
+}
+
+.team-card__photo,
+.team-member-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.team-card__body,
+.team-card__info {
+  padding: 1.5rem 1.5rem 1.75rem;
+}
+
+.team-card__role {
+  display: block;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #8C6F43;
+  font-weight: 600;
+}
+
+.team-card__name {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.4rem;
+  color: #0A1628;
+  margin: 0.4rem 0 0.2rem;
+}
+
+.team-card__credentials {
+  font-size: 0.78rem;
+  color: #6B6460;
+  margin-bottom: 1rem;
+}
+
+.team-card__divider {
+  height: 1px;
+  background: #EAE3D9;
+  margin-bottom: 1rem;
+}
+
+.team-card__bio {
+  color: #4A5568;
+  font-size: 0.86rem;
+  line-height: 1.7;
+  margin-bottom: 1.1rem;
+}
+
+.team-card__specialties {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+  list-style: none;
+  padding: 0;
+}
+
+.team-card__tag {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background: #F4EFE6;
+  color: #8C6F43;
+  border: 1px solid rgba(184, 151, 104, 0.35);
+  border-radius: 20px;
+  padding: 0.3rem 0.75rem;
+}
+
+.team-card__contact {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #0A1628;
+  color: #FBF9F5;
+  border: none;
+  border-radius: 4px;
+  padding: 0.65rem 1.1rem;
+  font-size: 0.78rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+.team-card__contact:hover { background: #1A2B42; }
+.team-card__contact svg { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 1.5; }
+
+/* ---------- BREADCRUMB ---------- */
+.clinical-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+  font-size: 0.8rem;
+}
+
+.clinical-breadcrumb__link {
+  background: none;
+  border: none;
+  color: #8C6F43;
+  cursor: pointer;
+  padding: 0;
+  font-size: inherit;
+}
+.clinical-breadcrumb__link:hover { text-decoration: underline; }
+
+.clinical-breadcrumb__sep { color: #B8AD9E; }
+.clinical-breadcrumb__current { color: #4A5568; }
+
+/* ---------- CARE PROGRAMS OVERVIEW GRID ---------- */
+.programs__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+
+.program {
+  padding: 1.5rem;
+  background: #FFFFFF;
+  border: 1px solid #EAE3D9;
+  border-radius: 8px;
+}
+
+.program__name {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.15rem;
+  color: #0A1628;
+  margin: 0 0 0.5rem;
+}
+
+.program__desc {
+  color: #4A5568;
+  font-size: 0.86rem;
+  line-height: 1.65;
+}
+
+/* ==========================================================================
+   BEFORE / AFTER SLIDER MODULE
+   ========================================================================== */
+.ba-section {
+  max-width: 1150px;
+  margin-inline: auto;
+  padding: clamp(3rem, 5vw, 4.5rem) clamp(1.25rem, 4vw, 2rem);
+  text-align: center;
+}
+
+.ba-section__eyebrow {
+  display: block;
+  color: #B89768;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.ba-section__heading {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(1.75rem, 3.2vw, 2.5rem);
+  color: #0A1628;
+  margin: 0.5rem 0 0.75rem;
+}
+
+.ba-section__sub {
+  color: #4A5568;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  max-width: 60ch;
+  margin: 0 auto 2rem;
+}
+
+.ba-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.6rem;
+  margin-bottom: 1.5rem;
+}
+
+.ba-tab-b {
+  padding: 0.5rem 1.1rem;
+  border-radius: 20px;
+  border: 1px solid #EAE3D9;
+  background: #FFFFFF;
+  color: #4A5568;
+  font-size: 0.78rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.ba-tab-b.is-on,
+.ba-tab-b:hover {
+  background: #0A1628;
+  border-color: #0A1628;
+  color: #FBF9F5;
+}
+
+.ba-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  margin-bottom: 1rem;
+}
+
+.ba-tname {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.15rem;
+  color: #0A1628;
+}
+
+.ba-tdesc {
+  font-size: 0.8rem;
+  color: #6B6460;
+}
+
+/* This is the rule that fixes the full-viewport "face blob" bug:
+   .ba-stage is now a positioned container, so the JS-inserted
+   position:absolute canvases size themselves to it instead of the
+   whole browser window. */
+.ba-stage {
+  position: relative;
+  width: 100%;
+  max-width: 720px;
+  aspect-ratio: 4 / 3;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 10px;
+  background: #0E1117;
+  box-shadow: 0 12px 40px rgba(10, 22, 40, 0.12);
+}
+
+.ba-canvas-el {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.ba-after { z-index: 2; }
+
+.ba-line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+  background: #FFFFFF;
+  box-shadow: 0 0 8px rgba(0,0,0,0.4);
+  transform: translateX(-1px);
+  z-index: 3;
+  pointer-events: none;
+}
+
+.ba-knob {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 40px;
+  height: 40px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: ew-resize;
+  z-index: 4;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+.ba-knob svg { width: 18px; height: 18px; stroke: #0A1628; stroke-width: 1.5; fill: none; }
+.ba-knob.is-drag { box-shadow: 0 0 0 6px rgba(255,255,255,0.2); }
+
+.ba-pill {
+  position: absolute;
+  top: 1rem;
+  padding: 0.3rem 0.85rem;
+  border-radius: 20px;
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+  background: rgba(0,0,0,0.55);
+  color: #FFFFFF;
+  z-index: 3;
+  transition: opacity 0.2s ease;
+}
+.ba-pill-b { left: 1rem; }
+.ba-pill-a { right: 1rem; }
+
+.ba-drag-hint {
+  margin-top: 1rem;
+  font-size: 0.78rem;
+  color: #8C6F43;
+  transition: opacity 0.4s ease;
+}
+
+.ba-disclaimer {
+  margin-top: 1.75rem;
+  font-size: 0.72rem;
+  color: #6B6460;
+  line-height: 1.6;
+  max-width: 70ch;
+  margin-inline: auto;
+}
+
+/* ==========================================================================
+   ANATOMY OF A PROCEDURE MODULE
+   ========================================================================== */
+.anatomy-module {
+  max-width: 1150px;
+  margin-inline: auto;
+  padding: clamp(3rem, 5vw, 4.5rem) clamp(1.25rem, 4vw, 2rem);
+  border-top: 1px solid #EAE3D9;
+}
+
+.anatomy-module__procedure-label {
+  display: inline-block;
+  color: #B89768;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.anatomy-module__procedure-name {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(1.75rem, 3.2vw, 2.5rem);
+  color: #0A1628;
+  margin: 0.5rem 0 0.75rem;
+}
+
+.anatomy-module__procedure-sub {
+  color: #4A5568;
+  font-size: 0.95rem;
+  line-height: 1.75;
+  max-width: 70ch;
+  margin-bottom: clamp(2rem, 4vw, 3rem);
+}
+
+.anatomy-pillars {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.anatomy-pillar {
+  padding: clamp(1.5rem, 3vw, 2.25rem);
+  background: #FFFFFF;
+  border: 1px solid #EAE3D9;
+  border-radius: 10px;
+}
+
+.anatomy-pillar__num {
+  display: block;
+  color: #B89768;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.72rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.anatomy-pillar__heading {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.5rem;
+  color: #0A1628;
+  margin: 0 0 1rem;
+}
+
+.anatomy-pillar__body {
+  color: #4A5568;
+  font-size: 0.92rem;
+  line-height: 1.75;
+}
+
+.anatomy-pillar__body p + p { margin-top: 0.85rem; }
+
+.anatomy-pillar__list {
+  margin-top: 0.75rem;
+  padding-left: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+.anatomy-pillar__list li { list-style: disc; }
+
+.anatomy-horizon {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.25rem;
+  margin-top: 1.25rem;
+}
+
+.anatomy-horizon__item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding: 1rem;
+  background: #F4EFE6;
+  border-radius: 8px;
+}
+
+.anatomy-horizon__period {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #8C6F43;
+}
+
+.anatomy-horizon__desc {
+  font-size: 0.84rem;
+  color: #4A5568;
+  line-height: 1.6;
+}
+
+/* ==========================================================================
+   CLINICAL GLOSSARY
+   ========================================================================== */
+.glossary-section {
+  max-width: 1150px;
+  margin-inline: auto;
+  padding: clamp(3rem, 5vw, 4.5rem) clamp(1.25rem, 4vw, 2rem);
+  border-top: 1px solid #EAE3D9;
+}
+
+.glossary-grid {
+  display: flex;
+  flex-direction: column;
+  margin-top: clamp(1.75rem, 3vw, 2.5rem);
+}
+
+.glossary-term {
+  background: #FFFFFF;
+  border: 1px solid #EAE3D9;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.glossary-term + .glossary-term { margin-top: 0.85rem; }
+
+.glossary-term__trigger {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.35rem 1.6rem;
+}
+.glossary-term__trigger::-webkit-details-marker { display: none; }
+
+.glossary-term__trigger-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.glossary-term__discipline {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #8C6F43;
+  font-weight: 600;
+}
+
+.glossary-term__word {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.25rem;
+  color: #0A1628;
+}
+
+.glossary-term__chevron {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  stroke: #B89768;
+  fill: none;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: transform 0.25s ease;
+}
+.glossary-term[open] .glossary-term__chevron { transform: rotate(180deg); }
+
+.glossary-term__body {
+  padding: 0 1.6rem 1.6rem;
+  color: #4A5568;
+  font-size: 0.9rem;
+  line-height: 1.75;
+}
+
+.glossary-term__definition p + p { margin-top: 0.85rem; }
+
+.glossary-term__clinical-note {
+  margin-top: 1.1rem;
+  padding: 0.9rem 1.1rem;
+  background: #F4EFE6;
+  border-radius: 6px;
+  font-size: 0.82rem;
+  color: #8C6F43;
+}
+.glossary-term__clinical-note strong {
+  display: block;
+  color: #0A1628;
+  margin-bottom: 0.25rem;
+  font-weight: 600;
+}
+
+/* ---------- CLINICAL INFO MODAL (opened by data-clinical-key elements) ---------- */
+[data-clinical-key] {
+  cursor: pointer;
+}
+
+#clinical-modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 22, 40, 0.55);
+  z-index: 500;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+#clinical-modal-overlay.is-open { display: flex; }
+
+#clinical-modal {
+  background: #FFFFFF;
+  border-radius: 10px;
+  max-width: 560px;
+  width: 100%;
+  max-height: 85vh;
+  overflow-y: auto;
+  padding: clamp(1.75rem, 4vw, 2.5rem);
+  position: relative;
+}
+
+#clinical-modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.25rem;
+  color: #6B6460;
+  line-height: 1;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 640px) {
+  .neuro-ctas { flex-direction: column; align-items: stretch; }
+  .anatomy-horizon { grid-template-columns: 1fr; }
+}
