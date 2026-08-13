@@ -9,6 +9,31 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@200;300;400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Secondary Outlined Button Styling */
+    .btn--secondary-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.5rem;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--gold, #C4A97D);
+      background: transparent;
+      border: 1px solid rgba(196, 169, 125, 0.4);
+      border-radius: 4px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    .btn--secondary-outline:hover {
+      background: rgba(196, 169, 125, 0.1);
+      border-color: var(--gold, #C4A97D);
+      color: #FFFFFF;
+      transform: translateY(-1px);
+    }
+  </style>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-M7QTXDPY24"></script>
   <script>
@@ -115,21 +140,21 @@
         <!-- ===== HERO CALL TO ACTION BANNER ===== -->
         <section class="ae-hero-cta reveal" aria-label="Schedule Aesthetic Consultation" style="margin-block: 2rem 3rem; padding: 2.5rem; background: rgba(26, 22, 20, 0.6); border: 1px solid rgba(154, 128, 96, 0.3); border-radius: 4px; backdrop-filter: blur(8px);">
           <div style="max-width: 68ch;">
-            <span class="section__label" style="color: var(--gold); text-transform: uppercase; letter-spacing: 0.15em; font-size: 0.75rem;">Physician-Led Evaluation</span>
+            <span class="section__label" style="color: var(--gold, #C4A97D); text-transform: uppercase; letter-spacing: 0.15em; font-size: 0.75rem;">Physician-Led Evaluation</span>
             <h2 style="font-family: 'Cormorant Garamond', serif; font-size: clamp(1.6rem, 3vw, 2.2rem); color: var(--paper, #F9F8F6); margin-block: 0.5rem 1rem; font-weight: 300;">
               Begin Your Customized Aesthetic Protocol
             </h2>
             <p style="color: rgba(255, 255, 255, 0.8); font-size: 0.95rem; line-height: 1.6; margin-bottom: 1.5rem;">
               Every treatment begins with a comprehensive anatomical analysis of facial structure, muscle dynamics, and dermal integrity to deliver conservative, balanced refinement.
             </p>
-            <div class="neuro-ctas" style="margin-top: 1rem;">
+            <div class="neuro-ctas" style="margin-top: 1rem; display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;">
               <a href="contact.html" class="btn btn--primary" style="text-decoration:none">
                 Schedule a Consultation
-                <svg viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                <svg viewBox="0 0 24 24" aria-hidden="true" style="width:14px;height:14px;stroke:currentColor;stroke-width:1.5;fill:none;stroke-linecap:round;stroke-linejoin:round"><path d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
               </a>
-              <a class="btn btn--ghost" href="#ae-services" style="text-decoration:none">
+              <a href="#ae-services" class="btn btn--secondary-outline">
                 Explore Treatment Options
-                <svg viewBox="0 0 24 24" aria-hidden="true" style="width:13px;height:13px;stroke:currentColor;stroke-width:1.5;fill:none"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+                <svg viewBox="0 0 24 24" aria-hidden="true" style="width:14px;height:14px;stroke:currentColor;stroke-width:1.5;fill:none;stroke-linecap:round;stroke-linejoin:round"><path d="M19 9l-7 7-7-7"/></svg>
               </a>
             </div>
           </div>
@@ -166,8 +191,6 @@
             </div>
           </div>
         </div>
-
-        <!-- ===== AESTHETIC MEDICINE — RESTORED CONTENT SECTIONS ===== -->
 
         <!-- WHO THIS IS FOR -->
         <section class="neuro-section" aria-labelledby="ae-who-heading">
@@ -265,8 +288,21 @@
               <span class="neuro-program__cycle">Monthly/quarterly staging</span>
             </article>
           </div>
-          <div style="margin-block-start:2rem">
-            <a href="contact.html" class="btn btn--primary" style="text-decoration:none">Begin Aesthetic Consultation<svg viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></a>
+
+          <!-- REFINED PROGRAM CTA CALLOUT BANNER -->
+          <div class="ae-program-cta reveal" style="margin-block-start: 2.5rem; padding: 2rem 2.5rem; background: rgba(26, 22, 20, 0.5); border: 1px solid rgba(154, 128, 96, 0.25); border-radius: 4px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem; backdrop-filter: blur(6px);">
+            <div style="max-width: 52ch;">
+              <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; color: var(--paper, #F9F8F6); margin: 0 0 0.35rem 0; font-weight: 400;">
+                Ready to Begin Your Care Pathway?
+              </h3>
+              <p style="font-size: 0.88rem; color: rgba(255, 255, 255, 0.7); margin: 0; line-height: 1.5;">
+                Schedule an initial evaluation to review treatment horizons and build a tailored 12-month aesthetic plan designed for your individual facial architecture.
+              </p>
+            </div>
+            <a href="contact.html" class="btn btn--primary" style="text-decoration: none; white-space: nowrap;">
+              Begin Consultation
+              <svg viewBox="0 0 24 24" aria-hidden="true" style="width:14px;height:14px;stroke:currentColor;stroke-width:1.5;fill:none;stroke-linecap:round;stroke-linejoin:round"><path d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </a>
           </div>
         </section>
 
