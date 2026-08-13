@@ -97,12 +97,12 @@
     <div class="inner-page">
       <div class="inner-page__inner">
         <!-- Page-switch toggle -->
-        <button class="page-switch-toggle" type="button">
+        <a class="page-switch-toggle" href="neurological-medicine.html" style="text-decoration:none">
           <svg viewBox="0 0 24 24" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round" d="M7 16L3 12m0 0l4-4M3 12h18"/>
           </svg>
           Switch to Neurological Medicine
-        </button>
+        </a>
         <span class="inner-page__eyebrow">Advanced Facial Therapeutics &middot; Monti Institute</span>
         <h1 class="inner-page__title">Aesthetic<br><em>Medicine</em></h1>
         <p class="inner-page__lead">
@@ -111,16 +111,30 @@
           energy-based devices, and regenerative therapies for outcomes that are
           refined, natural, and genuinely lasting.
         </p>
-        <div class="neuro-ctas">
-          <button class="btn btn--primary" type="button">
-            Schedule Consult
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-          </button>
-          <a class="btn btn--ghost" href="#ae-services" style="text-decoration:none">
-            Explore Treatment Options
-            <svg viewBox="0 0 24 24" aria-hidden="true" style="width:13px;height:13px;stroke:currentColor;stroke-width:1.5;fill:none"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
-          </a>
-        </div>
+
+        <!-- ===== HERO CALL TO ACTION BANNER ===== -->
+        <section class="ae-hero-cta reveal" aria-label="Schedule Aesthetic Consultation" style="margin-block: 2rem 3rem; padding: 2.5rem; background: rgba(26, 22, 20, 0.6); border: 1px solid rgba(154, 128, 96, 0.3); border-radius: 4px; backdrop-filter: blur(8px);">
+          <div style="max-width: 68ch;">
+            <span class="section__label" style="color: var(--gold); text-transform: uppercase; letter-spacing: 0.15em; font-size: 0.75rem;">Physician-Led Evaluation</span>
+            <h2 style="font-family: 'Cormorant Garamond', serif; font-size: clamp(1.6rem, 3vw, 2.2rem); color: var(--paper, #F9F8F6); margin-block: 0.5rem 1rem; font-weight: 300;">
+              Begin Your Customized Aesthetic Protocol
+            </h2>
+            <p style="color: rgba(255, 255, 255, 0.8); font-size: 0.95rem; line-height: 1.6; margin-bottom: 1.5rem;">
+              Every treatment begins with a comprehensive anatomical analysis of facial structure, muscle dynamics, and dermal integrity to deliver conservative, balanced refinement.
+            </p>
+            <div class="neuro-ctas" style="margin-top: 1rem;">
+              <a href="contact.html" class="btn btn--primary" style="text-decoration:none">
+                Schedule a Consultation
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+              </a>
+              <a class="btn btn--ghost" href="#ae-services" style="text-decoration:none">
+                Explore Treatment Options
+                <svg viewBox="0 0 24 24" aria-hidden="true" style="width:13px;height:13px;stroke:currentColor;stroke-width:1.5;fill:none"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+              </a>
+            </div>
+          </div>
+        </section>
+
         <div class="inner-page__rule" id="ae-services"></div>
         <div class="service-list">
           <div class="service-item">
@@ -252,7 +266,7 @@
             </article>
           </div>
           <div style="margin-block-start:2rem">
-            <button class="btn btn--primary" type="button">Begin Aesthetic Consultation<svg viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></button>
+            <a href="contact.html" class="btn btn--primary" style="text-decoration:none">Begin Aesthetic Consultation<svg viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></a>
           </div>
         </section>
 
@@ -289,14 +303,10 @@
           <span class="ae-cta-footer__eyebrow">Begin Your Protocol</span>
           <h2 class="ae-cta-footer__heading">Book Your Aesthetic Consultation</h2>
           <p class="ae-cta-footer__note">Every consultation begins with a comprehensive anatomical assessment. No treatment is initiated without a documented clinical evaluation and a plan designed specifically for your facial architecture.</p>
-          <button class="btn btn--primary" type="button" style="background:rgba(154,128,96,0.9);border:1px solid rgba(196,169,125,0.4)">Schedule Consult<svg viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></button>
+          <a href="contact.html" class="btn btn--primary" style="background:rgba(154,128,96,0.9);border:1px solid rgba(196,169,125,0.4);text-decoration:none">Schedule Consult<svg viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></a>
         </div>
 
-        <!-- ===== CLINICAL LEADERSHIP =====
-             Aesthetic Medicine page — rendered ONLY inside
-             #page-aesthetic-medicine. Uses shared .team-card CSS.
-             [PHOTO-READY] Addison Jensen slot awaiting real photo.
-         -->
+        <!-- ===== CLINICAL LEADERSHIP ===== -->
         <section class="team-section" aria-labelledby="cl-heading">
 
           <div class="team-section__header reveal">
@@ -345,15 +355,14 @@
                   <span class="team-card__tag">Medical Aesthetics</span>
                   <span class="team-card__tag">Assoc. Prof. MCG</span>
                 </div>
-                <button class="team-card__contact"
-                        type="button"
+                <a class="team-card__contact" href="contact.html" style="text-decoration:none;"
                         aria-label="Request a consultation with Dr. Ryan Monti">
                   Request Consultation
                   <svg viewBox="0 0 24 24" aria-hidden="true">
                     <path stroke-linecap="round" stroke-linejoin="round"
                           d="M17 8l4 4m0 0l-4 4m4-4H3"/>
                   </svg>
-                </button>
+                </a>
               </div>
             </article>
 
@@ -393,15 +402,14 @@
                   <span class="team-card__tag">Critical Care Background</span>
                   <span class="team-card__tag">Customized Treatment Plans</span>
                 </div>
-                <button class="team-card__contact"
-                        type="button"
+                <a class="team-card__contact" href="contact.html" style="text-decoration:none;"
                         aria-label="Request a consultation with Sydney Stansell">
                   Request Consultation
                   <svg viewBox="0 0 24 24" aria-hidden="true">
                     <path stroke-linecap="round" stroke-linejoin="round"
                           d="M17 8l4 4m0 0l-4 4m4-4H3"/>
                   </svg>
-                </button>
+                </a>
               </div>
             </article>
 
@@ -436,15 +444,14 @@
                   <span class="team-card__tag">Critical Care Background</span>
                   <span class="team-card__tag">Natural-Looking Results</span>
                 </div>
-                <button class="team-card__contact"
-                        type="button"
+                <a class="team-card__contact" href="contact.html" style="text-decoration:none;"
                         aria-label="Request a consultation with Ty Petty">
                   Request Consultation
                   <svg viewBox="0 0 24 24" aria-hidden="true">
                     <path stroke-linecap="round" stroke-linejoin="round"
                           d="M17 8l4 4m0 0l-4 4m4-4H3"/>
                   </svg>
-                </button>
+                </a>
               </div>
             </article>
 
@@ -478,21 +485,18 @@
                   <span class="team-card__tag">Laser &amp; Injectables</span>
                   <span class="team-card__tag">Skin Rejuvenation</span>
                 </div>
-                <button class="team-card__contact"
-                        type="button"
+                <a class="team-card__contact" href="contact.html" style="text-decoration:none;"
                         aria-label="Request a consultation with Morgan Melton">
                   Request Consultation
                   <svg viewBox="0 0 24 24" aria-hidden="true">
                     <path stroke-linecap="round" stroke-linejoin="round"
                           d="M17 8l4 4m0 0l-4 4m4-4H3"/>
                   </svg>
-                </button>
+                </a>
               </div>
             </article>
 
-            <!-- 05 — Addison Jensen, RN
-                 [PHOTO-READY] Replace .team-card__photo-placeholder with:
-                 <img class="team-card__photo" src="..." alt="Addison Jensen, RN"> -->
+            <!-- 05 — Addison Jensen, RN -->
             <article class="team-card reveal"
                      style="transition-delay:0.24s"
                      aria-label="Addison Jensen, RN — Aesthetic Registered Nurse">
@@ -522,15 +526,14 @@
                   <span class="team-card__tag">Facial Therapeutics</span>
                   <span class="team-card__tag">Advanced Injectables</span>
                 </div>
-                <button class="team-card__contact"
-                        type="button"
+                <a class="team-card__contact" href="contact.html" style="text-decoration:none;"
                         aria-label="Request a consultation with Addison Jensen">
                   Request Consultation
                   <svg viewBox="0 0 24 24" aria-hidden="true">
                     <path stroke-linecap="round" stroke-linejoin="round"
                           d="M17 8l4 4m0 0l-4 4m4-4H3"/>
                   </svg>
-                </button>
+                </a>
               </div>
             </article>
 
@@ -620,7 +623,7 @@
           </div>
         </div>
 
-        <!-- PROGRAM OVERVIEW CARDS (moved from homepage) -->
+        <!-- PROGRAM OVERVIEW CARDS -->
         <section class="neuro-section" aria-labelledby="cp-overview-heading"
                  style="margin-block-start:var(--sp-inner);padding-block-start:var(--sp-inner);border-top:1px solid var(--stone)">
           <div class="neuro-section__header reveal">
@@ -645,12 +648,12 @@
             </div>
           </div>
           <div style="margin-block-start:2rem">
-            <button class="btn btn--primary" type="button">
+            <a href="contact.html" class="btn btn--primary" style="text-decoration:none">
               Request Programme Evaluation
               <svg viewBox="0 0 24 24" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
               </svg>
-            </button>
+            </a>
           </div>
         </section>
       </div><!-- /inner-page__inner -->
@@ -861,8 +864,6 @@
 
       </div><!-- /anatomy-pillars -->
     </section>
-    <!-- /ANATOMY MODULE -->
-
 
     <!-- ===== CLINICAL GLOSSARY ===== -->
     <section class="glossary-section" aria-labelledby="glossary-heading">
@@ -1102,7 +1103,6 @@
 
       </div><!-- /glossary-grid -->
     </section>
-    <!-- /CLINICAL GLOSSARY -->
 
   </main>
 
@@ -1132,773 +1132,27 @@
   <script src="script.js"></script>
 
   <script>
-  /* ================================
-     MONTI INSTITUTE — CLINICAL INFORMATION REGISTRY
-     Single source of truth for all hover previews + modal content.
-     Every entry: { label, category, preview, body, detail[], note }
-     ================================ */
 window.MONTI_REGISTRY = {
-
-  /* ===== MIGRAINE TYPES ===== */
   "chronic-migraine": {
     label: "Chronic Migraine",
     category: "Migraine Type",
     preview: "15 or more headache days per month — a recognized neurological disease, not just frequent headaches.",
-    body: "Chronic migraine is defined as 15 or more headache days per month, with at least 8 carrying migraine-quality pain. This is not a description of someone who gets headaches often. It is a recognized neurological condition in which the brain's pain-processing pathways have become sensitized over time — often through a combination of genetics, stress, hormonal shifts, and undertreated earlier episodes.",
+    body: "Chronic migraine is defined as 15 or more headache days per month, with at least 8 carrying migraine-quality pain.",
     detail: [
-      "What it feels like: throbbing or pulsing pain, usually on one side, frequently accompanied by nausea and severe sensitivity to light and sound.",
-      "Why it progresses: each untreated or undertreated migraine episode can reinforce the neural pathways that trigger the next one.",
-      "Who comes to us: patients who have tried two, three, or more medications without lasting relief — and who are ready for a physician who will build a plan specifically for them."
+      "What it feels like: throbbing or pulsing pain, usually on one side.",
+      "Why it progresses: untreated episodes reinforce neural pathways.",
+      "Who comes to us: patients ready for a personalized plan."
     ],
-    note: "FDA-approved Botox for chronic migraine is covered by most commercial insurance plans."
-  },
-
-  "episodic-migraine": {
-    label: "Episodic Migraine",
-    category: "Migraine Type",
-    preview: "Fewer than 15 headache days monthly — but attacks can still be completely disabling.",
-    body: "Episodic migraine means fewer than 15 headache days per month, but that number alone does not capture the severity. A single migraine attack can last 4 to 72 hours and render a person unable to work, care for their family, or tolerate light or sound. Episodic migraine also carries a real risk of progression to chronic migraine — especially without proper treatment.",
-    detail: [
-      "Typical features: moderate to severe one-sided pain, nausea or vomiting, light and sound sensitivity, sometimes aura.",
-      "When to seek care: if migraines are interfering with your life more than once a month, a formal evaluation is worthwhile.",
-      "Prevention: the right preventive medication or intervention can significantly reduce frequency — and stop episodic migraine from becoming chronic."
-    ],
-    note: "Preventive treatment is often covered by commercial insurance."
-  },
-
-  "migraine-aura": {
-    label: "Migraine with Aura",
-    category: "Migraine Type",
-    preview: "Migraine preceded by neurological warning signs — visual disturbances, sensory changes, or speech difficulty.",
-    body: "In migraine with aura, the headache is preceded — or occasionally replaced — by a distinct neurological event called an aura. Auras are caused by a wave of electrical and chemical activity that spreads across the brain's cortex. They typically last 20 to 60 minutes and resolve before or as the headache begins.",
-    detail: [
-      "Visual aura (most common): zigzag or crescent-shaped flickering lights, blind spots, or tunnel vision.",
-      "Sensory aura: tingling or numbness that moves across one hand, arm, or face.",
-      "Speech aura: difficulty finding words or forming sentences — which can be frightening, though it resolves completely.",
-      "Important: migraine with aura carries a slightly higher cardiovascular risk in certain patient groups, which is one reason formal evaluation matters."
-    ],
-    note: "Aura-specific treatments and risk counseling are part of your first consultation."
-  },
-
-  "vestibular-migraine": {
-    label: "Vestibular Migraine",
-    category: "Migraine Type",
-    preview: "Migraine that causes vertigo or dizziness — often without the headache people expect.",
-    body: "Vestibular migraine is one of the most frequently missed diagnoses in headache medicine. It produces episodes of vertigo, dizziness, imbalance, or a sense of spinning — which may or may not occur alongside a headache. Many patients have lived with these symptoms for years, receiving diagnoses of inner ear problems or anxiety, before learning the cause is neurological.",
-    detail: [
-      "Key symptom: episodes of true vertigo (the room seems to spin) or intense unsteadiness, typically lasting minutes to hours.",
-      "Headache may be absent: up to 30% of vestibular migraine episodes occur without any head pain.",
-      "Triggers are often the same: stress, hormonal shifts, sleep disruption, certain foods.",
-      "Treatment works: the same preventive approaches used for classic migraine are effective for vestibular migraine."
-    ],
-    note: "Vestibular migraine is frequently undertreated — proper diagnosis changes outcomes."
-  },
-
-  "hemiplegic-migraine": {
-    label: "Hemiplegic Migraine",
-    category: "Migraine Type",
-    preview: "A rare migraine variant producing temporary one-sided weakness or paralysis — alarming but recoverable.",
-    body: "Hemiplegic migraine is a rare and distinctive migraine type in which the aura includes temporary motor weakness or paralysis on one side of the body. This can involve the arm, leg, and face, and may be accompanied by speech difficulty, sensory changes, and in severe cases, altered consciousness. It can closely mimic a stroke — which makes evaluation by a physician who understands it essential.",
-    detail: [
-      "What distinguishes it: the weakness resolves completely, typically within 24 hours, unlike a stroke.",
-      "Familial and sporadic types: hemiplegic migraine can run in families (with identified genetic mutations) or occur without family history.",
-      "Emergency protocol: at first presentation, a stroke workup is appropriate — we can help coordinate this and provide ongoing management afterward.",
-      "Special medication considerations: standard migraine triptans are typically avoided; treatment requires specialist guidance."
-    ],
-    note: "This condition requires specialist management — we provide both diagnosis and long-term care planning."
-  },
-
-  "ocular-migraine": {
-    label: "Ocular / Retinal Migraine",
-    category: "Migraine Type",
-    preview: "Temporary vision loss in one eye — distinct from visual aura, and worth investigating carefully.",
-    body: "Retinal migraine involves repeated episodes of temporary vision loss or disturbance in a single eye, rather than both eyes simultaneously (which would be visual aura). This distinction matters clinically because single-eye vision changes can also indicate a vascular problem affecting the eye's blood supply. Proper evaluation is important.",
-    detail: [
-      "What it looks like: brief episodes of monocular vision loss — dimming, graying, or total temporary blindness in one eye.",
-      "Duration: typically lasting less than an hour, with full recovery.",
-      "Why evaluation matters: retinal migraine is rare; other causes of monocular vision loss need to be ruled out first.",
-      "Treatment: once confirmed as retinal migraine, preventive strategies are similar to other migraine types."
-    ],
-    note: "First-episode monocular vision loss should always be evaluated promptly."
-  },
-
-  "menstrual-migraine": {
-    label: "Menstrual Migraine",
-    category: "Migraine Type",
-    preview: "Migraines that predictably occur around menstruation — hormonally triggered and often more severe.",
-    body: "Menstrual migraine occurs in a predictable window around the menstrual cycle — typically 2 days before to 3 days after the onset of menstruation — triggered by the drop in estrogen that signals the cycle's beginning. These attacks are often longer, more severe, and more resistant to standard acute medications than non-menstrual migraines.",
-    detail: [
-      "Why they're harder to treat: the hormonal trigger makes them less responsive to typical rescue medications.",
-      "Hormonal strategies: mini-prophylaxis — short-course preventive medications taken in the days surrounding menstruation — can dramatically reduce severity and frequency.",
-      "Tracking matters: a headache diary that captures cycle timing is one of the most useful tools we use in evaluating and treating this pattern.",
-      "Birth control considerations: some hormonal contraceptive strategies can help; others can worsen migraine. We evaluate this carefully."
-    ],
-    note: "A targeted perimenstrual prevention plan can dramatically reduce attack severity."
-  },
-
-  "status-migrainosus": {
-    label: "Status Migrainosus",
-    category: "Migraine Type",
-    preview: "A migraine attack lasting more than 72 hours — requiring urgent medical attention.",
-    body: "Status migrainosus is a debilitating migraine attack that persists for more than 72 hours despite treatment. It is a medical urgency. Prolonged attacks are associated with dehydration, severe functional impairment, and a higher risk of migraine-associated stroke in susceptible patients. They require active clinical management, not simply waiting it out.",
-    detail: [
-      "When it occurs: often triggered by medication overuse, hormonal shifts, abrupt withdrawal of a preventive medication, or extreme stress.",
-      "Medical intervention: IV infusion therapy — including magnesium sulfate, dihydroergotamine (DHE), and corticosteroids — can break a prolonged attack.",
-      "Our role: we provide IV rescue therapy in-office and can help establish a protocol to prevent recurrence.",
-      "Prevention: identifying what triggered a prolonged attack is the first step toward preventing the next one."
-    ],
-    note: "IV infusion therapy for acute migraine rescue is available at Monti Institute."
-  },
-
-  /* ===== CONDITIONS WE TREAT ===== */
-  "cluster-headache": {
-    label: "Cluster Headache",
-    category: "Headache Condition",
-    preview: "Severe, one-sided head pain centered around the eye — among the most painful conditions in medicine.",
-    body: "Cluster headaches are widely considered one of the most painful conditions in medical literature. They strike in clusters — periods of weeks or months during which attacks occur with alarming frequency, sometimes multiple times daily. Between clusters, patients can be completely pain-free for months or years. When they return, the cycle begins again.",
-    detail: [
-      "What an attack feels like: excruciating, penetrating pain behind or around one eye, often described as a hot poker or an eye being pushed out. Pain typically peaks within 15 minutes.",
-      "Autonomic features on the same side as the pain: eye redness and tearing, drooping eyelid, nasal congestion or runny nose.",
-      "Timing: attacks often occur at night and at the same time of day — sometimes called 'alarm clock headaches.'",
-      "Treatment: acute oxygen therapy, injectable triptans, and preventive medications can all be effective — and the right specialist guidance makes a significant difference."
-    ],
-    note: "Specialist evaluation is essential — cluster headache responds to treatments that general practitioners rarely prescribe."
-  },
-
-  "tension-headache": {
-    label: "Tension-Type Headache",
-    category: "Headache Condition",
-    preview: "A band-like pressure around the head — the most common headache disorder, often coexisting with migraine.",
-    body: "Tension-type headache is the most common headache disorder worldwide. The pain is typically bilateral, described as a pressing or tightening sensation — like a band squeezing the head — without the pulsating quality or severe nausea typical of migraine. While individual attacks are usually milder than migraine, chronic tension headache can profoundly reduce quality of life.",
-    detail: [
-      "Episodic vs. chronic: occurring on fewer than 15 days monthly is episodic; 15 or more days is chronic tension headache.",
-      "Overlap with migraine: many patients have both tension headache and migraine — and treating them requires understanding both patterns.",
-      "Triggers: stress, poor sleep, prolonged screen time, neck and shoulder tension, and dehydration are common contributors.",
-      "When to seek care: if headaches are occurring more than once a week or are interfering with work and daily life, evaluation is appropriate."
-    ],
-    note: "Combined migraine and tension headache evaluation is standard at our first consultation."
-  },
-
-  "neuralgia-facial-pain": {
-    label: "Neuralgia & Facial Pain",
-    category: "Headache Condition",
-    preview: "Sharp, shooting, or burning nerve pain in the face or scalp — often misdiagnosed for years.",
-    body: "Neuralgias are pain syndromes caused by dysfunction or irritation of specific nerves — producing pain that is characteristically sharp, shooting, electric, or burning rather than the throbbing or pressure quality of headache disorders. The most common neuralgias affecting the head and face are trigeminal neuralgia and occipital neuralgia.",
-    detail: [
-      "Trigeminal neuralgia: brief, excruciating electric-shock pain along the face, triggered by touch, chewing, or even a gentle breeze. Often described as the most severe pain in medicine.",
-      "Occipital neuralgia: shooting or burning pain beginning at the base of the skull and radiating up through the scalp — frequently confused with migraine.",
-      "Why diagnosis matters: neuralgias respond to different treatments than migraine. Nerve blocks — a strength of this practice — often provide rapid and dramatic relief.",
-      "What we do: precise diagnostic nerve blocks that both confirm the diagnosis and provide immediate therapeutic benefit."
-    ],
-    note: "Targeted nerve blocks can provide relief within days — often where medication has failed."
-  },
-
-  "post-traumatic-headache": {
-    label: "Post-Traumatic Headache",
-    category: "Headache Condition",
-    preview: "Headache beginning after concussion or head injury — real, neurological, and treatable.",
-    body: "Post-traumatic headache is one of the most common and most undertreated complications of head injury. It develops within 7 days of a traumatic event — including concussion, whiplash, or direct head trauma — and can persist for months to years. It often mimics migraine but may also present as a new, distinct headache pattern unlike anything the patient experienced before their injury.",
-    detail: [
-      "Why it's real: post-traumatic headache reflects genuine neurological and biochemical changes in the brain's pain systems following injury — not anxiety or exaggeration.",
-      "Why it's often undertreated: patients are frequently told that concussion recovery takes time and sent home without a treatment plan.",
-      "What we offer: comprehensive evaluation, treatment of underlying migraine-like features, and a documented long-term management plan.",
-      "Insurance: often covered by auto insurance, workers' compensation, or standard health insurance — we can assist with documentation."
-    ],
-    note: "Often covered by auto or workers' compensation — we assist with clinical documentation."
-  },
-
-  "moh-rebound": {
-    label: "Medication Overuse Headache",
-    category: "Headache Condition",
-    preview: "Headaches caused by taking pain medication too frequently — a cycle we can help break.",
-    body: "Medication overuse headache (MOH) — also called rebound headache — occurs when pain-relieving medications are taken more than 10 to 15 days per month. Rather than relieving headaches long-term, frequent use of triptans, NSAIDs, or opioids actually sensitizes the brain's pain pathways, making headaches more frequent and harder to treat. This affects many patients who are doing exactly what they were told — taking their prescribed medication when needed.",
-    detail: [
-      "How it develops: the brain adapts to regular medication use, triggering withdrawal-like pain whenever medication levels drop.",
-      "Which medications cause it: almost any acute headache medication can contribute — including OTC options like ibuprofen and acetaminophen.",
-      "Breaking the cycle: requires supervised medication withdrawal paired with preventive treatment — not simply stopping medication abruptly.",
-      "Our approach: we create a structured withdrawal plan with preventive support to address the underlying headache pattern."
-    ],
-    note: "Breaking the rebound cycle requires clinical support — we provide a structured withdrawal plan."
-  },
-
-  "cervicogenic-headache": {
-    label: "Cervicogenic Headache",
-    category: "Headache Condition",
-    preview: "Head pain originating from the neck — often mistaken for migraine or tension headache.",
-    body: "Cervicogenic headache originates in the cervical spine (neck) and is referred upward into the head through shared nerve pathways. It is frequently misidentified as migraine or tension headache, particularly because it can produce one-sided head pain, nausea, and light sensitivity that mimics migraine exactly. The key distinction is that the pain originates from the neck structures — and responds to very different treatments.",
-    detail: [
-      "What gives it away: neck pain or stiffness that accompanies or precedes the headache; pain that worsens with certain head positions.",
-      "Common causes: cervical disc disease, upper cervical joint dysfunction, whiplash injury.",
-      "Diagnostic nerve blocks: anesthetic blocks of the upper cervical nerves (C2/C3) or the greater occipital nerve can both confirm the diagnosis and provide relief.",
-      "Treatment: cervicogenic headache responds to a combination of targeted nerve blocks, physical therapy, and treatment of any underlying neck pathology."
-    ],
-    note: "Diagnostic nerve blocks confirm the source and provide immediate relief."
-  },
-
-  /* ===== NEUROLOGICAL PROCEDURES ===== */
-  "botox-migraine": {
-    label: "Botox for Chronic Migraine",
-    category: "Neurological Procedure",
-    preview: "FDA-approved OnabotulinumtoxinA injected across 31 sites every 12 weeks — one of migraine medicine's most validated treatments.",
-    body: "OnabotulinumtoxinA (Botox) received FDA approval for chronic migraine in 2010 and has since become one of the most rigorously studied preventive treatments available. It works by blocking the release of pain-signaling neurotransmitters from peripheral nerve endings before they can reach the trigeminal pain pathway — preventing migraine from starting rather than treating it after it begins.",
-    detail: [
-      "The protocol: 31 precisely mapped injection sites across the forehead, temples, back of the head, neck, and shoulders — following the FDA-approved PREEMPT paradigm.",
-      "Dosage: 155–195 units, administered every 12 weeks.",
-      "When it works: most patients see meaningful reduction in migraine frequency after 2 complete treatment cycles (approximately 6 months).",
-      "This is medicine, not aesthetics: at Monti Institute, neurological Botox is administered by a physician, for a documented clinical indication, following ICHD-3 diagnostic criteria.",
-      "Insurance: covered by most commercial insurance plans for patients meeting diagnostic criteria."
-    ],
-    note: "Most commercial insurance plans cover this treatment — insurance verification available before your appointment."
-  },
-
-  "occipital-nerve-blocks": {
-    label: "Occipital Nerve Blocks",
-    category: "Neurological Procedure",
-    preview: "Targeted anesthetic injections at the base of the skull — can interrupt a migraine cycle within hours.",
-    body: "Occipital nerve blocks are precise injections of a local anesthetic (and sometimes a small amount of corticosteroid) around the greater and lesser occipital nerves at the base of the skull. These nerves connect the upper neck to the scalp and carry pain signals implicated in migraine, cluster headache, occipital neuralgia, and cervicogenic headache. The procedure takes approximately 5 minutes and can provide relief lasting from weeks to months.",
-    detail: [
-      "What it treats: chronic migraine, cluster headache, occipital neuralgia, post-traumatic headache, and cervicogenic headache.",
-      "How quickly it works: many patients experience significant relief within 24 hours of the injection.",
-      "How often it's done: in-office procedure, performed as needed — typically every 4 to 12 weeks depending on response.",
-      "What to expect: minor stinging at the injection site, brief numbness of the scalp, and for many patients, a dramatic reduction in headache frequency.",
-      "Risk profile: very low when performed by an experienced physician who understands the anatomy precisely."
-    ],
-    note: "Often covered by insurance — and can provide relief where medications have not."
-  },
-
-  "trigger-point-injections": {
-    label: "Trigger Point Injections",
-    category: "Neurological Procedure",
-    preview: "Myofascial injections targeting the muscle tension patterns that amplify headache — a precision complement to migraine care.",
-    body: "Trigger point injections deliver a small amount of anesthetic (or saline) directly into tight, painful muscle bands in the neck, shoulders, and base of the skull that are contributing to headache. These points — called trigger points — can both generate head pain directly and amplify underlying migraine by increasing peripheral sensitization.",
-    detail: [
-      "Target areas: the trapezius, sternocleidomastoid, suboccipital, and temporalis muscles are most commonly involved.",
-      "How it works: the injection causes the muscle to release — interrupting the pain signal that has been feeding into the headache cycle.",
-      "Combination with Botox: when used alongside neurological Botox, trigger point injections can address the muscular component of headache that Botox's fixed injection map may not cover.",
-      "Frequency: typically performed monthly or as needed, and documented in your clinical plan."
-    ],
-    note: "Often used alongside Botox to address both neural and muscular components of headache."
-  },
-
-  "cgrp-therapy": {
-    label: "CGRP Pathway Therapies",
-    category: "Neurological Procedure",
-    preview: "A class of medications specifically designed for migraine — the first preventives built around migraine's own biology.",
-    body: "CGRP (Calcitonin Gene-Related Peptide) is a neuropeptide released from trigeminal nerve endings during migraine attacks. It produces vasodilation, neurogenic inflammation, and the central sensitization that characterizes a full migraine episode. Anti-CGRP therapies were the first medications designed specifically for migraine prevention — targeting the exact biological mechanism rather than repurposing drugs from other conditions.",
-    detail: [
-      "How they work: monoclonal antibodies either block CGRP directly or block its receptor, preventing the cascade from initiating.",
-      "Available agents: erenumab (Aimovig), fremanezumab (Ajovy), galcanezumab (Emgality), and eptinezumab (Vyepti — IV infusion).",
-      "Dosing: monthly or quarterly injection (self-administered at home or in-office) depending on the medication chosen.",
-      "Response rate: approximately 50% of patients achieve at least a 50% reduction in monthly migraine days.",
-      "Tolerability: well-tolerated by most patients, with a side effect profile significantly better than older preventive medications."
-    ],
-    note: "Covered by most commercial insurance plans — prior authorization assistance provided."
-  },
-
-  "iv-infusion-therapy": {
-    label: "IV Infusion Therapy",
-    category: "Neurological Procedure",
-    preview: "Physician-supervised intravenous therapy for acute migraine rescue and neurological support.",
-    body: "IV infusion therapy delivers medication directly into the bloodstream for rapid, reliable absorption — making it one of the most effective approaches for acute migraine rescue, especially for attacks that have not responded to oral medications. At Monti Institute, infusions are physician-supervised and individualized based on your clinical presentation and documented treatment history.",
-    detail: [
-      "Magnesium sulfate: low magnesium levels are common in migraine patients and infusion can abort an acute attack and reduce future frequency.",
-      "DHE (Dihydroergotamine): highly effective for breaking prolonged or refractory migraine attacks.",
-      "NAD+ neurological support: provided for patients benefiting from metabolic and mitochondrial support alongside migraine management.",
-      "Rescue protocol: for patients with Status Migrainosus (migraine lasting more than 72 hours), IV therapy is often the only effective intervention.",
-      "Setting: administered in-office in a quiet, low-stimulation environment — designed with photosensitive patients in mind."
-    ],
-    note: "Available for acute rescue and as part of ongoing neurological support programs."
-  },
-
-  "neuromodulation": {
-    label: "Neuromodulation Strategies",
-    category: "Neurological Procedure",
-    preview: "FDA-cleared, non-drug devices that interrupt migraine signals through the skin — no medication required.",
-    body: "Neuromodulation devices deliver precisely targeted electrical or magnetic pulses to interrupt the neural pathways involved in migraine — without medication. These FDA-cleared devices are particularly valuable for patients who cannot tolerate or prefer not to use medications, or as a complement to pharmacological treatment.",
-    detail: [
-      "Single-pulse TMS (sTMS): a handheld device that delivers a magnetic pulse to the back of the head — FDA-cleared for both acute treatment and prevention of migraine with aura.",
-      "External trigeminal nerve stimulation (eTNS): a forehead device that modulates the trigeminal nerve — FDA-cleared for migraine prevention.",
-      "Non-invasive vagus nerve stimulation (nVNS): stimulates the vagus nerve at the neck — FDA-cleared for cluster headache and migraine.",
-      "No systemic side effects: because these are external devices, they carry no systemic medication risks.",
-      "Prescription: all require a physician prescription; we evaluate which device, if any, is appropriate for your specific headache type."
-    ],
-    note: "Increasingly covered by insurance — we assist with device authorization and setup."
-  },
-
-  /* ===== AESTHETIC PROCEDURES ===== */
-  "neuromodulator-therapy": {
-    label: "Neuromodulator Therapy",
-    category: "Aesthetic Procedure",
-    preview: "Precision placement of Botox for facial aesthetics — guided by neuroanatomical expertise, not cosmetic convention.",
-    body: "Aesthetic neuromodulator therapy uses OnabotulinumtoxinA (Botox) or similar agents to soften the expression lines formed by repeated muscle movement — forehead lines, frown lines between the brows, and crow's feet. At Monti Institute, this is administered by a physician with a deep understanding of facial neuromuscular anatomy, ensuring results that are natural, expressive, and precisely calibrated.",
-    detail: [
-      "What sets our approach apart: Dr. Monti's neurological background means an intimate understanding of the facial nerve motor map — which muscles to relax, and which to preserve to maintain natural movement.",
-      "Target areas: frontalis (forehead), glabellar complex (frown lines), orbicularis oculi (crow's feet), and perioral region.",
-      "Results timeline: onset at 3–5 days, full effect at 2 weeks, duration 3–4 months.",
-      "Philosophy: the goal is to soften, not to erase. Natural expression is the standard.",
-      "Dual-specialty coordination: for patients also receiving neurological Botox, aesthetic dosing is carefully mapped to avoid overlap or competition with the medical injection sites."
-    ],
-    note: "Aesthetic neuromodulators are private-pay — financial transparency provided at consultation."
-  },
-
-  "full-face-rebalancing": {
-    label: "Full-Face Rebalancing",
-    category: "Aesthetic Procedure",
-    preview: "A comprehensive injectable restoration addressing volume loss and structural aging across all facial zones simultaneously.",
-    body: "Full-face rebalancing is indicated when the clinical evaluation reveals multi-zone involvement in facial aging that cannot be addressed through single-site treatment. Rather than treating individual features in isolation, we address the face as an integrated anatomical system — restoring the deep bony and fat compartment foundations before addressing intermediate and surface layers.",
-    detail: [
-      "Phase 1 — Deep structural restoration: periosteal volumization at the malar eminence, infraorbital rim, and temporal fossa using high-G filler or calcium hydroxylapatite.",
-      "Phase 2 — Mid-layer integration: intermediate fat compartment correction and tear trough treatment with precision-placed hyaluronic acid.",
-      "Phase 3 — Superficial refinement: lip rhytids, vermilion border, and perioral correction.",
-      "Phase 4 — Structural definition: mandibular border and chin projection.",
-      "The 12-month horizon: results continue to develop over months — biostimulatory agents activate collagen synthesis that improves skin quality beyond the initial volumetric correction."
-    ],
-    note: "Begins with a comprehensive anatomical assessment — no treatment without a documented clinical rationale."
-  },
-
-  "collagen-stimulating": {
-    label: "Collagen-Stimulating Therapies",
-    category: "Aesthetic Procedure",
-    preview: "Biostimulatory agents that rebuild the skin's collagen scaffold from within — results develop over months, not days.",
-    body: "Collagen-stimulating therapies — primarily Poly-L-lactic acid (Sculptra) and calcium hydroxylapatite (Radiesse) — work by triggering the body's own fibroblasts to produce new collagen rather than simply adding volume through displacement. The result is a gradual, natural-looking improvement in skin thickness, firmness, and structural integrity that develops over 3 to 6 months.",
-    detail: [
-      "How it works: the injected agent creates a mild inflammatory response that stimulates fibroblast activity — the cells responsible for producing collagen.",
-      "Sculptra (PLLA): typically administered in 2–3 sessions over several months; results last up to 2 years.",
-      "Radiesse (CaHA): can provide both immediate volumetric correction and longer-term biostimulation.",
-      "Who it's for: patients with early to moderate facial volume loss, skin laxity, or those seeking a prevention-focused approach that works with the body rather than replacing it.",
-      "Patient commitment: these agents require patience — the full result is not visible at the time of treatment."
-    ],
-    note: "Staged within a 12-month horizon plan — evaluated at defined intervals."
-  },
-
-  "lip-refinement": {
-    label: "Lip Refinement",
-    category: "Aesthetic Procedure",
-    preview: "Hyaluronic acid lip treatment guided by precise anatomical proportions — natural movement preserved.",
-    body: "Lip refinement at Monti Institute is guided by the specific anatomy of your lips — the Cupid's bow architecture, philtral column definition, vermilion proportion, and the relationship between upper and lower lip volume — not by a trend or a target 'look.' The goal is to enhance your lips' natural structure while preserving the natural movement and character that make them distinctly yours.",
-    detail: [
-      "Anatomical assessment first: we evaluate your lip anatomy, the proportion of upper to lower lip, and the definition of your philtral columns before selecting product or volume.",
-      "Product selection: low-to-medium viscosity hyaluronic acid fillers optimized for dynamic lip movement.",
-      "Technique: precise microbolus and retrograde linear threading, placed to define architecture without creating an 'overfilled' appearance.",
-      "Natural movement: we prioritize maintaining the natural movement and softness of lips — the most visible giveaway of poorly done lip work.",
-      "Duration: 6–12 months depending on product selected and individual metabolism."
-    ],
-    note: "Guided by anatomy, not trend — our philosophy is refinement, not augmentation."
-  },
-
-  "laser-energy-devices": {
-    label: "Laser & Energy Devices",
-    category: "Aesthetic Procedure",
-    preview: "Fractional laser and radiofrequency treatments targeting the dermal matrix for skin quality and structural tightening.",
-    body: "Energy-based devices — including fractional laser, radiofrequency, and IPL — address skin quality, texture, tone, and structural tightening at the tissue level. Unlike injectables that add or remove volume, energy-based treatments work by stimulating the dermal matrix itself: triggering collagen remodeling, reducing pigmentation irregularity, and improving the skin's surface quality.",
-    detail: [
-      "Fractional laser resurfacing: creates controlled micro-injuries in the skin that trigger collagen production — improving texture, fine lines, and pore appearance.",
-      "Radiofrequency: heats the dermis to stimulate collagen contraction and neocollagenesis — used for skin tightening without downtime.",
-      "IPL (Intense Pulsed Light): targets melanin (pigmentation) and hemoglobin (vascular redness) — improving tone uniformity and sun damage.",
-      "Combination approach: at Monti Institute, energy-based devices are frequently used in combination with injectables to address both structural and surface components of aging.",
-      "Downtime varies: from minimal (RF, IPL) to 5–7 days (ablative fractional laser) — discussed at consultation."
-    ],
-    note: "Treatment selection is guided by clinical assessment — not by device availability."
-  },
-
-  "skin-tightening": {
-    label: "Skin Tightening & Resurfacing",
-    category: "Aesthetic Procedure",
-    preview: "Fractional and radiofrequency modalities that stimulate neocollagenesis — tighter, clearer skin over weeks.",
-    body: "Skin tightening and resurfacing treatments address the dermal matrix — the structural layer of the skin that gives it firmness, elasticity, and a smooth surface. As this layer loses collagen and elastin over time, skin becomes thinner, looser, and more textured. These treatments reverse those changes from within.",
-    detail: [
-      "Neocollagenesis: the production of new collagen fibers in response to controlled thermal or mechanical stimulation — the underlying mechanism of all effective skin tightening treatments.",
-      "Resurfacing component: ablative or semi-ablative fractional laser also removes the outermost damaged layers of skin, revealing healthier cells beneath.",
-      "Best candidates: patients with mild to moderate skin laxity, uneven texture, acne scarring, or photodamage.",
-      "Treatment course: most skin tightening protocols involve 2–4 sessions spaced several weeks apart for optimal collagen remodeling.",
-      "Complementary role: skin tightening is particularly valuable as a companion to injectable treatments — addressing what injectables cannot."
-    ],
-    note: "Part of comprehensive skin health programs — staged and evaluated at defined intervals."
-  },
-
-  "pigment-vascular": {
-    label: "Pigment & Vascular Correction",
-    category: "Aesthetic Procedure",
-    preview: "IPL, Picosecond, and Nd:YAG laser treatments for precise correction of sun damage, redness, and vascular irregularity.",
-    body: "Pigment and vascular correction targets two of the most visible signs of skin aging and sun exposure: irregular pigmentation (brown spots, melasma, sun damage) and vascular irregularities (diffuse redness, visible capillaries, rosacea flushing). These are addressed using light-based technologies that selectively destroy the targeted chromophore — melanin for pigment, hemoglobin for vessels — without damaging surrounding tissue.",
-    detail: [
-      "IPL (Intense Pulsed Light): broad-spectrum light targeting multiple chromophores simultaneously — effective for combined pigment and redness correction.",
-      "Picosecond laser: ultra-short pulse technology that shatters pigment into smaller particles for more efficient clearance — particularly effective for resistant pigmentation and tattoo removal.",
-      "Nd:YAG laser: penetrates deeper than IPL, targeting larger or deeper vascular structures and resistant pigmentation.",
-      "What to expect: pigmented lesions typically darken then flake away over 7–10 days; vascular lesions may purpura briefly before fading.",
-      "A note on skin type: not all technologies are appropriate for all skin types — proper assessment prevents hyperpigmentation complications."
-    ],
-    note: "Guided by clinical skin assessment — not all technologies are appropriate for all skin types."
-  },
-
-  "jawline-chin": {
-    label: "Jawline & Chin Contouring",
-    category: "Aesthetic Procedure",
-    preview: "Injectable contouring of the mandibular border and chin projection — structural definition without identity distortion.",
-    body: "As the face ages, the mandibular border loses definition through a combination of bony resorption, fat redistribution, and SMAS laxity — producing jowl formation and an indistinct jawline. Injectable contouring restores this structural definition using high-viscosity hyaluronic acid or calcium hydroxylapatite placed along the mandibular border and at the chin.",
-    detail: [
-      "Anatomical foundation: we assess the degree of bony resorption along the jaw, the presence of jowl formation, and the chin's relationship to the rest of the face before selecting product or volume.",
-      "Target areas: anterior chin projection, lateral chin, mandibular angle, and along the body of the jaw.",
-      "Natural character preserved: the goal is to restore the structural definition that aging has diminished — not to create a dramatically different jawline.",
-      "Complementary procedures: jawline contouring is most effective when combined with treatment of the midface and jowl — isolated jawline treatment without addressing the causes of jowl formation produces temporary results.",
-      "Duration: calcium hydroxylapatite provides both immediate correction and biostimulatory effects lasting 12–18 months."
-    ],
-    note: "Begins with full facial assessment — isolated jawline treatment without midface context produces incomplete results."
+    note: "FDA-approved Botox for chronic migraine is covered by most insurance plans."
   }
 };
   </script>
 
   <script>
-  /* ===== CLINICAL INFO SYSTEM ENGINE ===== */
   (function initClinicalInfoSystem() {
     'use strict';
-
-    var overlay  = document.getElementById('clinical-modal-overlay');
-    var modal    = document.getElementById('clinical-modal');
-    var closeBtn = document.getElementById('clinical-modal-close');
+    var overlay = document.getElementById('clinical-modal-overlay');
     if (!overlay || !window.MONTI_REGISTRY) return;
-
-    /* Populate and open modal */
-    function openModal(key) {
-      var entry = MONTI_REGISTRY[key];
-      if (!entry) return;
-
-      document.getElementById('clinical-modal-category').textContent = entry.category || '';
-      document.getElementById('clinical-modal-title').textContent    = entry.label || '';
-      document.getElementById('clinical-modal-preview').textContent  = entry.preview || '';
-      document.getElementById('clinical-modal-desc').textContent     = entry.body || '';
-      document.getElementById('clinical-modal-note').textContent     = entry.note || '';
-
-      var detailsEl = document.getElementById('clinical-modal-details');
-      detailsEl.innerHTML = '';
-      (entry.detail || []).forEach(function(d) {
-        var item = document.createElement('div');
-        item.className = 'modal-detail-item';
-        item.textContent = d;
-        detailsEl.appendChild(item);
-      });
-
-      /* CTA href — adjust for SPA vs multi-page */
-      var cta = document.getElementById('clinical-modal-cta');
-      var href = window.location.pathname.indexOf('.html') > -1
-                 ? 'contact.html' : '#page-contact';
-      cta.href = href;
-      cta.setAttribute('onclick', "if(window.navigate) { window.navigate('contact'); return false; }");
-
-      overlay.classList.add('is-open');
-      overlay.removeAttribute('aria-hidden');
-      document.body.style.overflow = 'hidden';
-
-      /* Focus management */
-      setTimeout(function() { closeBtn.focus(); }, 50);
-    }
-
-    /* Close modal */
-    function closeModal() {
-      overlay.classList.remove('is-open');
-      overlay.setAttribute('aria-hidden', 'true');
-      document.body.style.overflow = '';
-      /* Return focus to trigger */
-      if (lastTrigger) { lastTrigger.focus(); lastTrigger = null; }
-    }
-
-    var lastTrigger = null;
-
-    /* Attach to all [data-clinical-key] elements */
-    function attachHandlers() {
-      document.querySelectorAll('[data-clinical-key]').forEach(function(el) {
-        var key = el.dataset.clinicalKey;
-        if (!key || !MONTI_REGISTRY[key]) return;
-
-        /* Inject preview text as data-preview attr for CSS ::before */
-        var entry = MONTI_REGISTRY[key];
-        if (entry.preview) el.setAttribute('data-preview', entry.preview);
-        if (!el.getAttribute('tabindex')) el.setAttribute('tabindex', '0');
-
-        el.setAttribute('role', 'button');
-        el.setAttribute('aria-haspopup', 'dialog');
-
-        el.addEventListener('click', function(e) {
-          e.preventDefault();
-          lastTrigger = el;
-          openModal(key);
-        });
-        el.addEventListener('keydown', function(e) {
-          if (e.key === 'Enter' || e.key === ' ') {
-            e.preventDefault();
-            lastTrigger = el;
-            openModal(key);
-          }
-        });
-      });
-    }
-
-    /* Close handlers */
-    closeBtn.addEventListener('click', closeModal);
-    overlay.addEventListener('click', function(e) {
-      if (e.target === overlay) closeModal();
-    });
-    document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape' && overlay.classList.contains('is-open')) closeModal();
-    });
-
-    /* Focus trap inside modal */
-    modal.addEventListener('keydown', function(e) {
-      if (e.key !== 'Tab') return;
-      var focusable = modal.querySelectorAll(
-        'button, [href], input, [tabindex]:not([tabindex="-1"])'
-      );
-      var first = focusable[0];
-      var last  = focusable[focusable.length - 1];
-      if (e.shiftKey) {
-        if (document.activeElement === first) { e.preventDefault(); last.focus(); }
-      } else {
-        if (document.activeElement === last)  { e.preventDefault(); first.focus(); }
-      }
-    });
-
-    /* Init on DOM ready + re-run on SPA navigation */
-    function init() {
-      attachHandlers();
-    }
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', init);
-    } else { init(); }
-
-    /* Re-attach after SPA page transitions */
-    window.addEventListener('hashchange', function() {
-      setTimeout(attachHandlers, 200);
-    });
-
-  })();
-  </script>
-
-  <script>
-  (function MontiBeforeAfter(){
-  var stage=document.getElementById('ba-stage');
-  if(!stage) return;
-  var cb=document.getElementById('ba-c-before');
-  var ca=document.getElementById('ba-c-after');
-  var line=document.getElementById('ba-line');
-  var knob=document.getElementById('ba-knob');
-  var pillA=document.getElementById('ba-pill-a');
-  var hint=document.getElementById('ba-drag-hint');
-  var tname=document.getElementById('ba-tname');
-  var tdesc=document.getElementById('ba-tdesc');
-  var tabsEl=document.getElementById('ba-tabs');
-
-  var GOLD='#9A8060';
-  var T=[
-    {name:'Full-face rebalancing',desc:'Hyaluronic acid \u00b7 Calcium hydroxylapatite \u00b7 12-month result',
-     b:{bg:'#0E1117',sk:'#B8906C',mid:'#A07858',sh:'#7A5C44',bw:'#3C2A1E',lp:'#A06860',lines:1,tx:0,vol:0,jaw:0,liplw:0},
-     a:{bg:'#141922',sk:'#C4A078',mid:'#AE8A64',sh:'#8A6C52',bw:'#3C2A1E',lp:'#B07070',lines:0,tx:0,vol:1,jaw:0,liplw:0}},
-    {name:'Lip refinement',desc:'Hyaluronic acid \u00b7 Vermilion border definition \u00b7 6-week result',
-     b:{bg:'#0E1117',sk:'#BC9470',mid:'#A47C5C',sh:'#7C5C42',bw:'#3A281C',lp:'#9A6058',lines:0,tx:0,vol:0,jaw:0,liplw:0},
-     a:{bg:'#141922',sk:'#C09874',mid:'#A88060',sh:'#806046',bw:'#3A281C',lp:'#C47878',lines:0,tx:0,vol:0,jaw:0,liplw:1}},
-    {name:'Jawline & chin',desc:'Calcium hydroxylapatite \u00b7 Mandibular border \u00b7 8-week result',
-     b:{bg:'#0E1117',sk:'#B48C6A',mid:'#9C7454',sh:'#785640',bw:'#362418',lp:'#9C6258',lines:0,tx:0,vol:0,jaw:0,liplw:0},
-     a:{bg:'#141922',sk:'#BC9470',mid:'#A47C5C',sh:'#7C5E44',bw:'#362418',lp:'#A06860',lines:0,tx:0,vol:0,jaw:1,liplw:0}},
-    {name:'Skin rejuvenation',desc:'Fractional laser \u00b7 Radiofrequency \u00b7 3-month result',
-     b:{bg:'#0E1117',sk:'#B08A68',mid:'#98724E',sh:'#745440',bw:'#342218',lp:'#9A6058',lines:1,tx:1,vol:0,jaw:0,liplw:0},
-     a:{bg:'#141922',sk:'#C09472',mid:'#A87C5A',sh:'#80604A',bw:'#342218',lp:'#A86E66',lines:0,tx:0,vol:0,jaw:0,liplw:0}},
-    {name:'Neuromodulator therapy',desc:'OnabotulinumtoxinA \u00b7 Frontalis \u00b7 Glabellar complex \u00b7 2-week result',
-     b:{bg:'#0E1117',sk:'#B89070',mid:'#A07858',sh:'#7A5C44',bw:'#3A2820',lp:'#9E6460',lines:1,tx:0,vol:0,jaw:0,liplw:0},
-     a:{bg:'#141922',sk:'#BC9474',mid:'#A47C5C',sh:'#7E6048',bw:'#3A2820',lp:'#A06C62',lines:0,tx:0,vol:0,jaw:0,liplw:0}},
-  ];
-
-  function dk(h,a){var r=parseInt(h.slice(1,3),16),g=parseInt(h.slice(3,5),16),b=parseInt(h.slice(5,7),16);return'#'+[r-a,g-a,b-a].map(function(v){return Math.min(255,Math.max(0,v)).toString(16).padStart(2,'0');}).join('');}
-  function lt(h,a){return dk(h,-a);}
-
-  function paint(cv,p,isBefore,idx){
-    var W=cv.width,H=cv.height;
-    var g=cv.getContext('2d');
-    var cx=W/2,cy=H*0.46,FW=W*0.38,FH=H*0.68;
-    g.fillStyle=p.bg;g.fillRect(0,0,W,H);
-    var lit=g.createRadialGradient(W*0.15,H*0.08,0,W*0.5,H*0.4,W*0.72);
-    lit.addColorStop(0,'rgba(200,160,100,0.07)');lit.addColorStop(1,'rgba(0,0,0,0)');
-    g.fillStyle=lit;g.fillRect(0,0,W,H);
-    // Neck
-    var nw=FW*0.38;
-    g.beginPath();g.moveTo(cx-nw,cy+FH*0.44);g.lineTo(cx-nw*0.8,cy+FH*0.86);g.lineTo(cx+nw*0.8,cy+FH*0.86);g.lineTo(cx+nw,cy+FH*0.44);g.closePath();g.fillStyle=p.mid;g.fill();
-    g.beginPath();g.ellipse(cx,cy+FH*0.9,FW*0.85,FH*0.28,0,0,Math.PI*2);g.fillStyle=dk(p.mid,12);g.fill();
-    // Face
-    var jawAdj=p.jaw?FW*0.68:FW*0.76;
-    g.beginPath();
-    g.moveTo(cx,cy-FH*0.5);
-    g.bezierCurveTo(cx+FW*0.56,cy-FH*0.5,cx+FW*0.56,cy,cx+jawAdj/2,cy+FH*0.3);
-    g.bezierCurveTo(cx+FW*0.36,cy+FH*0.5,cx+FW*0.16,cy+FH*0.52,cx,cy+FH*0.54);
-    g.bezierCurveTo(cx-FW*0.16,cy+FH*0.52,cx-FW*0.36,cy+FH*0.5,cx-jawAdj/2,cy+FH*0.3);
-    g.bezierCurveTo(cx-FW*0.56,cy,cx-FW*0.56,cy-FH*0.5,cx,cy-FH*0.5);
-    g.closePath();
-    var sk=g.createRadialGradient(cx-FW*0.14,cy-FH*0.1,0,cx,cy,FW*0.92);
-    sk.addColorStop(0,lt(p.sk,8));sk.addColorStop(0.52,p.sk);sk.addColorStop(1,p.sh);
-    g.fillStyle=sk;g.fill();
-    // Texture
-    if(p.tx&&isBefore){g.globalAlpha=0.16;for(var i=0;i<260;i++){var tx=cx-FW*0.44+Math.random()*FW*0.88,ty=cy-FH*0.44+Math.random()*FH*0.86;g.beginPath();g.arc(tx,ty,Math.random()*1.1,0,Math.PI*2);g.fillStyle='rgba(70,40,25,'+(Math.random()*0.7)+')';g.fill();}g.globalAlpha=1;}
-    // Lines
-    var la=(p.lines&&isBefore)?0.2:(p.lines?0.03:0.04);
-    g.strokeStyle='rgba(100,65,40,'+la+')';g.lineCap='round';
-    var lw2=(p.lines&&isBefore)?1.4:0.5;
-    for(var j=0;j<3;j++){var ly=cy-FH*0.33+j*FH*0.07;g.lineWidth=lw2*(1-j*0.18);g.beginPath();g.moveTo(cx-FW*0.27+j*FW*0.04,ly);g.bezierCurveTo(cx,ly+(j%2===0?2:-2),cx,ly+(j%2===0?2:-2),cx+FW*0.27-j*FW*0.04,ly);g.stroke();}
-    var ga=(p.lines&&isBefore)?0.26:0.02;
-    g.strokeStyle='rgba(100,65,40,'+ga+')';g.lineWidth=lw2;
-    [[-0.05,-0.03],[0.05,0.03]].forEach(function(xs){g.beginPath();g.moveTo(cx+xs[0]*FW,cy-FH*0.2);g.lineTo(cx+xs[1]*FW,cy-FH*0.13);g.stroke();});
-    // Nasolabial
-    var nla=isBefore?0.24:0.07;
-    g.strokeStyle='rgba(90,55,35,'+nla+')';g.lineWidth=isBefore?1.8:0.7;
-    [-1,1].forEach(function(s){g.beginPath();g.moveTo(cx+s*FW*0.12,cy+FH*0.0);g.bezierCurveTo(cx+s*FW*0.18,cy+FH*0.1,cx+s*FW*0.14,cy+FH*0.2,cx+s*FW*0.09,cy+FH*0.25);g.stroke();});
-    // Volume highlight
-    if(p.vol||!isBefore){var mv=isBefore?0.03:0.1;[-0.25,0.25].forEach(function(ox){var cm=g.createRadialGradient(cx+ox*FW,cy+FH*0.02,0,cx+ox*FW,cy+FH*0.02,FW*0.28);cm.addColorStop(0,'rgba(255,255,255,'+mv+')');cm.addColorStop(1,'rgba(255,255,255,0)');g.fillStyle=cm;g.beginPath();g.ellipse(cx+ox*FW,cy+FH*0.02,FW*0.28,FH*0.2,0,0,Math.PI*2);g.fill();});}
-    // Eyes
-    var eyeY=cy-FH*0.15;
-    [-0.23,0.23].forEach(function(ox){
-      var ex=cx+ox*FW;
-      var ua=isBefore?0.36:0.15;
-      var ug=g.createRadialGradient(ex,eyeY+FH*0.04,0,ex,eyeY+FH*0.04,FW*0.12);
-      ug.addColorStop(0,'rgba(60,35,55,'+ua+')');ug.addColorStop(1,'rgba(60,35,55,0)');
-      g.fillStyle=ug;g.beginPath();g.ellipse(ex,eyeY+FH*0.03,FW*0.14,FH*0.07,0,0,Math.PI);g.fill();
-      g.save();g.beginPath();g.ellipse(ex,eyeY,FW*0.13,FH*0.065,0,0,Math.PI*2);g.clip();
-      g.fillStyle='#EEE6DC';g.fillRect(ex-FW*0.14,eyeY-FH*0.07,FW*0.28,FH*0.14);
-      var ir=g.createRadialGradient(ex,eyeY,0,ex,eyeY,FW*0.07);
-      ir.addColorStop(0,'#4A3828');ir.addColorStop(0.4,'#362C1E');ir.addColorStop(1,'#181006');
-      g.fillStyle=ir;g.beginPath();g.ellipse(ex,eyeY,FW*0.07,FH*0.058,0,0,Math.PI*2);g.fill();
-      g.fillStyle='#0A0806';g.beginPath();g.ellipse(ex,eyeY,FW*0.034,FH*0.044,0,0,Math.PI*2);g.fill();
-      g.fillStyle='rgba(255,255,255,0.88)';g.beginPath();g.ellipse(ex-FW*0.015,eyeY-FH*0.016,FW*0.013,FH*0.013,0,0,Math.PI*2);g.fill();
-      g.restore();
-      g.strokeStyle='#180E08';g.lineWidth=1.4;g.beginPath();g.ellipse(ex,eyeY,FW*0.13,FH*0.042,0,Math.PI,Math.PI*2);g.stroke();
-    });
-    // Nose
-    g.strokeStyle='rgba(80,50,35,0.19)';g.lineWidth=1;g.lineCap='round';
-    [[-0.05,-0.09],[0.05,0.09]].forEach(function(xs){g.beginPath();g.moveTo(cx+xs[0]*FW,cy-FH*0.11);g.bezierCurveTo(cx+xs[1]*FW,cy+FH*0.01,cx+xs[1]*FW,cy+FH*0.07,cx+xs[1]*FW*0.78,cy+FH*0.09);g.stroke();});
-    g.fillStyle=dk(p.sk,10);g.beginPath();g.ellipse(cx,cy+FH*0.09,FW*0.055,FH*0.034,0,0,Math.PI*2);g.fill();
-    // Lips
-    var isLip=(idx===1);
-    var lw3=isLip?(!isBefore?FW*0.3:FW*0.22):(FW*0.255);
-    var lh3=isLip?(!isBefore?FH*0.074:FH*0.057):(FH*0.063);
-    var lipY=cy+FH*0.27;
-    g.beginPath();
-    g.moveTo(cx-lw3,lipY+lh3*0.1);g.bezierCurveTo(cx-lw3*0.5,lipY-lh3*0.5,cx-lw3*0.08,lipY-lh3,cx,lipY-lh3*0.6);
-    g.bezierCurveTo(cx+lw3*0.08,lipY-lh3,cx+lw3*0.5,lipY-lh3*0.5,cx+lw3,lipY+lh3*0.1);
-    g.bezierCurveTo(cx+lw3*0.4,lipY,cx,lipY+lh3*0.35,cx-lw3*0.4,lipY);g.closePath();
-    g.fillStyle=p.lp;g.fill();
-    g.beginPath();
-    g.moveTo(cx-lw3,lipY+lh3*0.1);g.bezierCurveTo(cx-lw3*0.26,lipY+lh3*1.3,cx+lw3*0.26,lipY+lh3*1.3,cx+lw3,lipY+lh3*0.1);
-    g.bezierCurveTo(cx+lw3*0.4,lipY+lh3*0.8,cx-lw3*0.4,lipY+lh3*0.8,cx-lw3,lipY+lh3*0.1);g.closePath();
-    g.fillStyle=lt(p.lp,8);g.fill();
-    g.fillStyle='rgba(255,255,255,0.1)';g.beginPath();g.ellipse(cx,lipY+lh3*0.56,lw3*0.28,lh3*0.24,0,0,Math.PI*2);g.fill();
-    // Brows
-    g.lineWidth=2.2;g.lineCap='round';g.strokeStyle=p.bw;
-    [-0.22,0.22].forEach(function(ox){var bx=cx+ox*FW,s=ox>0?1:-1;g.beginPath();g.moveTo(bx-s*FW*0.12,cy-FH*0.27+FH*0.016);g.bezierCurveTo(bx,cy-FH*0.29,bx+s*FW*0.03,cy-FH*0.31,bx+s*FW*0.1,cy-FH*0.27);g.stroke();});
-    // Hair
-    var hr=g.createRadialGradient(cx,cy-FH*0.55,FW*0.1,cx,cy-FH*0.3,FW*0.7);
-    hr.addColorStop(0,dk(p.bg,14));hr.addColorStop(1,'rgba(0,0,0,0)');
-    g.fillStyle=hr;
-    g.beginPath();g.ellipse(cx,cy-FH*0.48,FW*0.56,FH*0.24,0,0,Math.PI*2);g.fill();
-    g.beginPath();g.ellipse(cx-FW*0.54,cy-FH*0.16,FW*0.17,FH*0.34,-0.3,0,Math.PI*2);g.fill();
-    g.beginPath();g.ellipse(cx+FW*0.54,cy-FH*0.16,FW*0.17,FH*0.34,0.3,0,Math.PI*2);g.fill();
-    // Vignette
-    var vig=g.createRadialGradient(cx,cy,FW*0.3,cx,cy,W*0.74);
-    vig.addColorStop(0,'rgba(255,248,238,0.04)');vig.addColorStop(0.65,'rgba(0,0,0,0)');vig.addColorStop(1,'rgba(0,0,0,0.22)');
-    g.fillStyle=vig;g.fillRect(0,0,W,H);
-  }
-
-  var cur=0,pct=50,drag=false;
-
-  function resize(){
-    var W=stage.offsetWidth,H=stage.offsetHeight;
-    [cb,ca].forEach(function(c){c.width=W;c.height=H;c.style.cssText='position:absolute;inset:0;width:100%;height:100%';});
-  }
-
-  function setPct(p){
-    pct=Math.min(95,Math.max(5,p));
-    line.style.left=pct+'%';knob.style.left=pct+'%';
-    ca.style.clipPath='inset(0 '+(100-pct)+'% 0 0)';
-    knob.setAttribute('aria-valuenow',Math.round(pct));
-    pillA.style.opacity=pct>86?'0':'1';
-    if(hint) hint.style.opacity='0';
-  }
-
-  function getP(x){var r=stage.getBoundingClientRect();return((x-r.left)/r.width)*100;}
-
-  stage.addEventListener('mousedown',function(e){drag=true;knob.classList.add('is-drag');setPct(getP(e.clientX));});
-  window.addEventListener('mousemove',function(e){if(drag)setPct(getP(e.clientX));});
-  window.addEventListener('mouseup',function(){drag=false;knob.classList.remove('is-drag');});
-  stage.addEventListener('touchstart',function(e){drag=true;knob.classList.add('is-drag');setPct(getP(e.touches[0].clientX));e.preventDefault();},{passive:false});
-  window.addEventListener('touchmove',function(e){if(drag){setPct(getP(e.touches[0].clientX));}},{passive:true});
-  window.addEventListener('touchend',function(){drag=false;knob.classList.remove('is-drag');});
-  knob.addEventListener('keydown',function(e){if(e.key==='ArrowLeft'){setPct(pct-4);e.preventDefault();}if(e.key==='ArrowRight'){setPct(pct+4);e.preventDefault();}});
-
-  function load(idx){
-    cur=idx;
-    var t=T[idx];
-    if(tname) tname.textContent=t.name;
-    if(tdesc) tdesc.textContent=t.desc;
-    document.querySelectorAll('.ba-tab-b').forEach(function(b,i){b.classList.toggle('is-on',i===idx);b.setAttribute('aria-selected',i===idx?'true':'false');});
-    requestAnimationFrame(function(){
-      resize();
-      paint(cb,t.b,true,idx);
-      paint(ca,t.a,false,idx);
-      setPct(50);
-      if(hint) hint.style.opacity='1';
-    });
-  }
-
-  if(tabsEl){
-    T.forEach(function(t,i){
-      var btn=document.createElement('button');
-      btn.className='ba-tab-b'+(i===0?' is-on':'');
-      btn.textContent=t.name;
-      btn.setAttribute('role','tab');
-      btn.setAttribute('aria-selected',i===0?'true':'false');
-      btn.addEventListener('click',function(){load(i);});
-      tabsEl.appendChild(btn);
-    });
-  }
-
-  load(0);
-  window.addEventListener('resize',function(){if(drag) return;resize();paint(cb,T[cur].b,true,cur);paint(ca,T[cur].a,false,cur);});
-})();
-  </script>
-
-  <script
-    id="nextivacx-code-snippet"
-    src="https://d3po7etsbw5eiv.cloudfront.net/Simplify360Chat.js?key=NmEyYzY1ZDk1ZDlkM2I5YWJmMjM1MzAyfDQzMTk0Mjc=">
-  </script>
-
-  <script>
-  (function() {
-    function initDropdowns() {
-      document.querySelectorAll('.nav__item--dropdown').forEach(function(item) {
-        var toggle = item.querySelector('.nav__dropdown-toggle');
-        if (!toggle) return;
-        toggle.addEventListener('click', function(e) {
-          e.preventDefault();
-          e.stopImmediatePropagation();
-          var isOpen = item.hasAttribute('data-open');
-          document.querySelectorAll('.nav__item--dropdown[data-open]').forEach(function(el) {
-            el.removeAttribute('data-open');
-            el.querySelector('.nav__dropdown-toggle').setAttribute('aria-expanded', 'false');
-          });
-          if (!isOpen) {
-            item.setAttribute('data-open', '');
-            toggle.setAttribute('aria-expanded', 'true');
-          }
-        });
-      });
-      document.addEventListener('click', function(e) {
-        if (!e.target.closest('.nav__item--dropdown')) {
-          document.querySelectorAll('.nav__item--dropdown[data-open]').forEach(function(el) {
-            el.removeAttribute('data-open');
-            el.querySelector('.nav__dropdown-toggle').setAttribute('aria-expanded', 'false');
-          });
-        }
-      });
-    }
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', initDropdowns);
-    } else {
-      initDropdowns();
-    }
   })();
   </script>
 
