@@ -7,10 +7,10 @@
   <meta name="description" content="Physician-led aesthetic medicine at Monti Institute in Reno, Nevada. Injectables, skin health, and facial refinement with a clinical approach.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@200;300;400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@200;300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <style>
-    /* Global Layout & Overflow Protections */
+    /* Global Layout & Accessibility Protections */
     *, *::before, *::after {
       box-sizing: border-box;
     }
@@ -21,10 +21,35 @@
     }
 
     main {
-      padding-bottom: clamp(4rem, 8vw, 7rem); /* Clearance for floating chat widgets */
+      padding-bottom: clamp(5rem, 9vw, 8rem); /* Clearance for floating chat widgets */
     }
 
-    /* Text Wrap & Padding Protections */
+    /* High-Contrast Color Variables for Accessibility */
+    :root {
+      --gold-accessible: #D4B98B; /* Lifted contrast for AAA readability */
+      --text-muted-dark: rgba(255, 255, 255, 0.92); /* Higher contrast body on dark backgrounds */
+      --text-subtle-dark: rgba(255, 255, 255, 0.82);
+    }
+
+    /* Typography Contrast Adjustments */
+    .inner-page__lead, 
+    .ae-hero-cta p,
+    .ae-program-cta p,
+    .service-item__desc,
+    .team-card__bio {
+      color: var(--text-muted-dark) !important;
+      line-height: 1.65;
+    }
+
+    .section__label, 
+    .inner-page__eyebrow, 
+    .ae-cta-footer__eyebrow {
+      color: var(--gold-accessible) !important;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+    }
+
+    /* Text & Card Overflow Protections */
     .inner-page__title, 
     .inner-page__lead, 
     .team-card__name, 
@@ -38,30 +63,61 @@
       word-break: break-word;
     }
 
-    /* Secondary Outlined Button Styling */
+    /* Secondary Outlined Button — High Contrast */
     .btn--secondary-outline {
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
-      padding: 0.75rem 1.5rem;
+      padding: 0.8rem 1.6rem;
       font-family: 'DM Sans', sans-serif;
       font-size: 0.85rem;
-      letter-spacing: 0.08em;
+      font-weight: 500;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: var(--gold, #C4A97D);
+      color: var(--gold-accessible);
       background: transparent;
-      border: 1px solid rgba(196, 169, 125, 0.4);
+      border: 1px solid rgba(212, 185, 139, 0.6);
       border-radius: 4px;
       text-decoration: none;
       transition: all 0.3s ease;
       max-width: 100%;
-      box-sizing: border-box;
     }
     .btn--secondary-outline:hover {
-      background: rgba(196, 169, 125, 0.1);
-      border-color: var(--gold, #C4A97D);
+      background: rgba(212, 185, 139, 0.15);
+      border-color: #FFFFFF;
       color: #FFFFFF;
       transform: translateY(-1px);
+    }
+
+    /* Rhythmic Section Spacing & Visual Variety */
+    .neuro-section {
+      padding-block: clamp(3rem, 6vw, 5.5rem);
+    }
+
+    .neuro-section--alt {
+      background: rgba(26, 22, 20, 0.35);
+      border-y: 1px solid rgba(154, 128, 96, 0.15);
+      padding-inline: clamp(1rem, 4vw, 2.5rem);
+      margin-inline: calc(clamp(1rem, 4vw, 2.5rem) * -1);
+      border-radius: 4px;
+    }
+
+    /* Anatomical Vector Line Art Accents */
+    .anatomy-bg-art {
+      position: absolute;
+      right: 2rem;
+      top: 50%;
+      transform: translateY(-50%);
+      width: clamp(220px, 30vw, 420px);
+      height: auto;
+      opacity: 0.08;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .ae-hero-cta, .ae-program-cta {
+      position: relative;
+      overflow: hidden;
     }
 
     /* Responsive Padding & Safe Margins for Cards/Banners */
@@ -101,7 +157,7 @@
   <div id="scroll-progress" role="progressbar" aria-hidden="true"></div>
 
   <button id="back-to-top" type="button" aria-label="Back to top">
-    <svg viewBox="0 0 24 24" aria-hidden="true" style="width:14px;height:14px;stroke:var(--gold);stroke-width:1.5;fill:none;stroke-linecap:round;stroke-linejoin:round">
+    <svg viewBox="0 0 24 24" aria-hidden="true" style="width:14px;height:14px;stroke:var(--gold-accessible);stroke-width:1.5;fill:none;stroke-linecap:round;stroke-linejoin:round">
       <path d="M12 19V5M5 12l7-7 7 7"/>
     </svg>
   </button>
@@ -164,7 +220,7 @@
   </nav>
 
   <main id="js-outlet" tabindex="-1">
-    <!-- Aesthetic atmosphere [PHOTO-READY: add portrait img behind content] -->
+    <!-- Aesthetic atmosphere -->
     <div class="aesthetic-page-bg" aria-hidden="true"></div>
     <div class="inner-page">
       <div class="inner-page__inner" style="padding-inline: clamp(1rem, 4vw, 2.5rem);">
@@ -184,14 +240,22 @@
           refined, natural, and genuinely lasting.
         </p>
 
-        <!-- ===== HERO CALL TO ACTION BANNER ===== -->
-        <section class="ae-hero-cta reveal" aria-label="Schedule Aesthetic Consultation" style="margin-block: 2rem 3rem; padding: clamp(1.5rem, 4vw, 2.5rem); background: rgba(26, 22, 20, 0.6); border: 1px solid rgba(154, 128, 96, 0.3); border-radius: 4px; backdrop-filter: blur(8px);">
-          <div style="max-width: 68ch;">
-            <span class="section__label" style="color: var(--gold, #C4A97D); text-transform: uppercase; letter-spacing: 0.15em; font-size: 0.75rem;">Physician-Led Evaluation</span>
-            <h2 style="font-family: 'Cormorant Garamond', serif; font-size: clamp(1.5rem, 3vw, 2.2rem); color: var(--paper, #F9F8F6); margin-block: 0.5rem 1rem; font-weight: 300; line-height: 1.25;">
+        <!-- ===== HERO CALL TO ACTION BANNER WITH ANATOMICAL SVG ART ===== -->
+        <section class="ae-hero-cta reveal" aria-label="Schedule Aesthetic Consultation" style="margin-block: 2.5rem 3.5rem; padding: clamp(1.75rem, 5vw, 3rem); background: rgba(26, 22, 20, 0.65); border: 1px solid rgba(212, 185, 139, 0.35); border-radius: 4px; backdrop-filter: blur(10px);">
+          <!-- Subtle Line Art Accent -->
+          <svg class="anatomy-bg-art" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M100 20 C130 20 160 50 160 90 C160 140 120 180 100 190 C80 180 40 140 40 90 C40 50 70 20 100 20 Z" stroke="#D4B98B" stroke-width="1.2" stroke-dasharray="3 3"/>
+            <circle cx="100" cy="70" r="25" stroke="#D4B98B" stroke-width="1"/>
+            <line x1="40" y1="90" x2="160" y2="90" stroke="#D4B98B" stroke-width="0.8"/>
+            <line x1="100" y1="20" x2="100" y2="190" stroke="#D4B98B" stroke-width="0.8"/>
+          </svg>
+
+          <div style="max-width: 68ch; position: relative; z-index: 1;">
+            <span class="section__label">Physician-Led Evaluation</span>
+            <h2 style="font-family: 'Cormorant Garamond', serif; font-size: clamp(1.6rem, 3.2vw, 2.3rem); color: var(--paper, #F9F8F6); margin-block: 0.5rem 1rem; font-weight: 300; line-height: 1.25;">
               Begin Your Customized Aesthetic Protocol
             </h2>
-            <p style="color: rgba(255, 255, 255, 0.8); font-size: clamp(0.88rem, 1.5vw, 0.95rem); line-height: 1.6; margin-bottom: 1.5rem;">
+            <p style="font-size: clamp(0.9rem, 1.5vw, 0.98rem); margin-bottom: 1.75rem;">
               Every treatment begins with a comprehensive anatomical analysis of facial structure, muscle dynamics, and dermal integrity to deliver conservative, balanced refinement.
             </p>
             <div class="neuro-ctas" style="margin-top: 1rem; display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;">
@@ -239,8 +303,8 @@
           </div>
         </div>
 
-        <!-- WHO THIS IS FOR -->
-        <section class="neuro-section" aria-labelledby="ae-who-heading">
+        <!-- WHO THIS IS FOR — ALT SECTION BACKGROUND -->
+        <section class="neuro-section neuro-section--alt" aria-labelledby="ae-who-heading">
           <div class="neuro-section__header reveal">
             <span class="section__label">Patient Fit</span>
             <h2 class="inner-page__col-heading" id="ae-who-heading"
@@ -273,7 +337,7 @@
         </section>
 
         <!-- AESTHETIC APPROACH -->
-        <section class="neuro-section" aria-labelledby="ae-approach-heading">
+        <section class="neuro-section neuro-section--alt" aria-labelledby="ae-approach-heading">
           <div class="neuro-section__header reveal">
             <span class="section__label">Methodology</span>
             <h2 class="inner-page__col-heading" id="ae-approach-heading" style="font-size:clamp(1.4rem,2.5vw,2rem);color:var(--deep);margin-block-start:0.25rem">Aesthetic Approach</h2>
@@ -336,13 +400,13 @@
             </article>
           </div>
 
-          <!-- REFINED PROGRAM CTA CALLOUT BANNER WITH PADDING & MARGIN SAFETY -->
-          <div class="ae-program-cta reveal" style="margin-block-start: 2.5rem; padding: clamp(1.5rem, 4vw, 2.5rem); background: rgba(26, 22, 20, 0.5); border: 1px solid rgba(154, 128, 96, 0.25); border-radius: 4px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem; backdrop-filter: blur(6px);">
+          <!-- REFINED PROGRAM CTA CALLOUT BANNER -->
+          <div class="ae-program-cta reveal" style="margin-block-start: 2.5rem; padding: clamp(1.5rem, 4vw, 2.5rem); background: rgba(26, 22, 20, 0.55); border: 1px solid rgba(212, 185, 139, 0.3); border-radius: 4px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem; backdrop-filter: blur(6px);">
             <div style="max-width: 52ch; width: 100%;">
               <h3 style="font-family: 'Cormorant Garamond', serif; font-size: clamp(1.25rem, 2.5vw, 1.5rem); color: var(--paper, #F9F8F6); margin: 0 0 0.35rem 0; font-weight: 400; line-height: 1.3;">
                 Ready to Begin Your Care Pathway?
               </h3>
-              <p style="font-size: clamp(0.85rem, 1.2vw, 0.9rem); color: rgba(255, 255, 255, 0.7); margin: 0; line-height: 1.5;">
+              <p style="font-size: clamp(0.85rem, 1.2vw, 0.92rem); margin: 0; line-height: 1.5;">
                 Schedule an initial evaluation to review treatment horizons and build a tailored 12-month aesthetic plan designed for your individual facial architecture.
               </p>
             </div>
@@ -354,7 +418,7 @@
         </section>
 
         <!-- CLINICAL PROCESS -->
-        <section class="neuro-section" aria-labelledby="ae-process-heading">
+        <section class="neuro-section neuro-section--alt" aria-labelledby="ae-process-heading">
           <div class="neuro-section__header reveal">
             <span class="section__label">Our Process</span>
             <h2 class="inner-page__col-heading" id="ae-process-heading" style="font-size:clamp(1.4rem,2.5vw,2rem);color:var(--deep);margin-block-start:0.25rem">Clinical Process</h2>
@@ -382,11 +446,11 @@
         </section>
 
         <!-- BEGIN YOUR PROTOCOL CTA -->
-        <div class="ae-cta-footer reveal" role="region" aria-label="Begin your aesthetic protocol" style="padding: clamp(1.5rem, 4vw, 3rem);">
+        <div class="ae-cta-footer reveal" role="region" aria-label="Begin your aesthetic protocol" style="padding: clamp(1.75rem, 5vw, 3.5rem);">
           <span class="ae-cta-footer__eyebrow">Begin Your Protocol</span>
           <h2 class="ae-cta-footer__heading">Book Your Aesthetic Consultation</h2>
           <p class="ae-cta-footer__note">Every consultation begins with a comprehensive anatomical assessment. No treatment is initiated without a documented clinical evaluation and a plan designed specifically for your facial architecture.</p>
-          <a href="contact.html" class="btn btn--primary" style="background:rgba(154,128,96,0.9);border:1px solid rgba(196,169,125,0.4);text-decoration:none">Schedule Consult<svg viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></a>
+          <a href="contact.html" class="btn btn--primary" style="background:rgba(154,128,96,0.9);border:1px solid rgba(212,185,139,0.5);text-decoration:none">Schedule Consult<svg viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></a>
         </div>
 
         <!-- ===== CLINICAL LEADERSHIP ===== -->
@@ -707,7 +771,7 @@
         </div>
 
         <!-- PROGRAM OVERVIEW CARDS -->
-        <section class="neuro-section" aria-labelledby="cp-overview-heading"
+        <section class="neuro-section neuro-section--alt" aria-labelledby="cp-overview-heading"
                  style="margin-block-start:var(--sp-inner);padding-block-start:var(--sp-inner);border-top:1px solid var(--stone)">
           <div class="neuro-section__header reveal">
             <span class="section__label">Overview</span>
@@ -949,7 +1013,7 @@
     </section>
 
     <!-- ===== CLINICAL GLOSSARY ===== -->
-    <section class="glossary-section" aria-labelledby="glossary-heading" style="padding-inline: clamp(1rem, 4vw, 2.5rem);">
+    <section class="glossary-section neuro-section--alt" aria-labelledby="glossary-heading" style="padding-inline: clamp(1rem, 4vw, 2.5rem);">
       <span class="hp-trust-section__label">Clinical Lexicon</span>
       <h2 class="inner-page__col-heading" id="glossary-heading"
           style="font-size:clamp(1.6rem,3vw,2.2rem);color:var(--deep)">
@@ -1203,12 +1267,12 @@
   </div>
 
   <footer style="background:rgba(26,22,20,0.95);border-top:1px solid rgba(154,128,96,0.25);padding:32px 40px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;margin-top:4rem;">
-    <p style="margin:0;font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.55);">&copy; 2026 Monti Institute of Neuro Aesthetics. All Rights Reserved.</p>
+    <p style="margin:0;font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.75);">&copy; 2026 Monti Institute of Neuro Aesthetics. All Rights Reserved.</p>
     <nav aria-label="Footer navigation" style="display:flex;gap:2.5rem;align-items:center;flex-wrap:wrap;">
-      <a href="privacy-policy.html" style="font-size:0.72rem;letter-spacing:0.15em;text-transform:uppercase;color:rgba(154,128,96,0.85);text-decoration:none;" onmouseover="this.style.color='#C4A97D'" onmouseout="this.style.color='rgba(154,128,96,0.85)'">Privacy Policy</a>
-      <a href="medical-disclaimer.html" style="font-size:0.72rem;letter-spacing:0.15em;text-transform:uppercase;color:rgba(154,128,96,0.85);text-decoration:none;" onmouseover="this.style.color='#C4A97D'" onmouseout="this.style.color='rgba(154,128,96,0.85)'">Medical Disclaimer</a>
-      <a href="accessibility.html" style="font-size:0.72rem;letter-spacing:0.15em;text-transform:uppercase;color:rgba(154,128,96,0.85);text-decoration:none;" onmouseover="this.style.color='#C4A97D'" onmouseout="this.style.color='rgba(154,128,96,0.85)'">Accessibility</a>
-      <a href="contact.html" style="font-size:0.72rem;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.55);text-decoration:none;" onmouseover="this.style.color='rgba(154,128,96,0.85)'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Contact</a>
+      <a href="privacy-policy.html" style="font-size:0.72rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold-accessible);text-decoration:none;" onmouseover="this.style.color='#FFFFFF'" onmouseout="this.style.color='var(--gold-accessible)'">Privacy Policy</a>
+      <a href="medical-disclaimer.html" style="font-size:0.72rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold-accessible);text-decoration:none;" onmouseover="this.style.color='#FFFFFF'" onmouseout="this.style.color='var(--gold-accessible)'">Medical Disclaimer</a>
+      <a href="accessibility.html" style="font-size:0.72rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold-accessible);text-decoration:none;" onmouseover="this.style.color='#FFFFFF'" onmouseout="this.style.color='var(--gold-accessible)'">Accessibility</a>
+      <a href="contact.html" style="font-size:0.72rem;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.75);text-decoration:none;" onmouseover="this.style.color='var(--gold-accessible)'" onmouseout="this.style.color='rgba(255,255,255,0.75)'">Contact</a>
     </nav>
   </footer>
 
