@@ -10,6 +10,34 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@200;300;400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <style>
+    /* Global Layout & Overflow Protections */
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      max-width: 100vw;
+      overflow-x: hidden;
+    }
+
+    main {
+      padding-bottom: clamp(4rem, 8vw, 7rem); /* Clearance for floating chat widgets */
+    }
+
+    /* Text Wrap & Padding Protections */
+    .inner-page__title, 
+    .inner-page__lead, 
+    .team-card__name, 
+    .team-card__bio, 
+    .neuro-program__name, 
+    .service-item__desc,
+    .ae-cta-footer__heading,
+    .ae-hero-cta h2,
+    .anatomy-pillar__heading {
+      overflow-wrap: break-word;
+      word-break: break-word;
+    }
+
     /* Secondary Outlined Button Styling */
     .btn--secondary-outline {
       display: inline-flex;
@@ -26,12 +54,31 @@
       border-radius: 4px;
       text-decoration: none;
       transition: all 0.3s ease;
+      max-width: 100%;
+      box-sizing: border-box;
     }
     .btn--secondary-outline:hover {
       background: rgba(196, 169, 125, 0.1);
       border-color: var(--gold, #C4A97D);
       color: #FFFFFF;
       transform: translateY(-1px);
+    }
+
+    /* Responsive Padding & Safe Margins for Cards/Banners */
+    .ae-hero-cta,
+    .ae-program-cta,
+    .ae-cta-footer,
+    .team-card,
+    .neuro-program,
+    .anatomy-pillar {
+      width: 100%;
+      max-width: 100%;
+      box-sizing: border-box;
+    }
+
+    /* Floating Widget Clearance for Footer Area */
+    footer {
+      padding-bottom: clamp(3rem, 6vw, 5rem) !important;
     }
   </style>
   <!-- Google tag (gtag.js) -->
@@ -120,7 +167,7 @@
     <!-- Aesthetic atmosphere [PHOTO-READY: add portrait img behind content] -->
     <div class="aesthetic-page-bg" aria-hidden="true"></div>
     <div class="inner-page">
-      <div class="inner-page__inner">
+      <div class="inner-page__inner" style="padding-inline: clamp(1rem, 4vw, 2.5rem);">
         <!-- Page-switch toggle -->
         <a class="page-switch-toggle" href="neurological-medicine.html" style="text-decoration:none">
           <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -138,13 +185,13 @@
         </p>
 
         <!-- ===== HERO CALL TO ACTION BANNER ===== -->
-        <section class="ae-hero-cta reveal" aria-label="Schedule Aesthetic Consultation" style="margin-block: 2rem 3rem; padding: 2.5rem; background: rgba(26, 22, 20, 0.6); border: 1px solid rgba(154, 128, 96, 0.3); border-radius: 4px; backdrop-filter: blur(8px);">
+        <section class="ae-hero-cta reveal" aria-label="Schedule Aesthetic Consultation" style="margin-block: 2rem 3rem; padding: clamp(1.5rem, 4vw, 2.5rem); background: rgba(26, 22, 20, 0.6); border: 1px solid rgba(154, 128, 96, 0.3); border-radius: 4px; backdrop-filter: blur(8px);">
           <div style="max-width: 68ch;">
             <span class="section__label" style="color: var(--gold, #C4A97D); text-transform: uppercase; letter-spacing: 0.15em; font-size: 0.75rem;">Physician-Led Evaluation</span>
-            <h2 style="font-family: 'Cormorant Garamond', serif; font-size: clamp(1.6rem, 3vw, 2.2rem); color: var(--paper, #F9F8F6); margin-block: 0.5rem 1rem; font-weight: 300;">
+            <h2 style="font-family: 'Cormorant Garamond', serif; font-size: clamp(1.5rem, 3vw, 2.2rem); color: var(--paper, #F9F8F6); margin-block: 0.5rem 1rem; font-weight: 300; line-height: 1.25;">
               Begin Your Customized Aesthetic Protocol
             </h2>
-            <p style="color: rgba(255, 255, 255, 0.8); font-size: 0.95rem; line-height: 1.6; margin-bottom: 1.5rem;">
+            <p style="color: rgba(255, 255, 255, 0.8); font-size: clamp(0.88rem, 1.5vw, 0.95rem); line-height: 1.6; margin-bottom: 1.5rem;">
               Every treatment begins with a comprehensive anatomical analysis of facial structure, muscle dynamics, and dermal integrity to deliver conservative, balanced refinement.
             </p>
             <div class="neuro-ctas" style="margin-top: 1rem; display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;">
@@ -289,13 +336,13 @@
             </article>
           </div>
 
-          <!-- REFINED PROGRAM CTA CALLOUT BANNER -->
-          <div class="ae-program-cta reveal" style="margin-block-start: 2.5rem; padding: 2rem 2.5rem; background: rgba(26, 22, 20, 0.5); border: 1px solid rgba(154, 128, 96, 0.25); border-radius: 4px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem; backdrop-filter: blur(6px);">
-            <div style="max-width: 52ch;">
-              <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; color: var(--paper, #F9F8F6); margin: 0 0 0.35rem 0; font-weight: 400;">
+          <!-- REFINED PROGRAM CTA CALLOUT BANNER WITH PADDING & MARGIN SAFETY -->
+          <div class="ae-program-cta reveal" style="margin-block-start: 2.5rem; padding: clamp(1.5rem, 4vw, 2.5rem); background: rgba(26, 22, 20, 0.5); border: 1px solid rgba(154, 128, 96, 0.25); border-radius: 4px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem; backdrop-filter: blur(6px);">
+            <div style="max-width: 52ch; width: 100%;">
+              <h3 style="font-family: 'Cormorant Garamond', serif; font-size: clamp(1.25rem, 2.5vw, 1.5rem); color: var(--paper, #F9F8F6); margin: 0 0 0.35rem 0; font-weight: 400; line-height: 1.3;">
                 Ready to Begin Your Care Pathway?
               </h3>
-              <p style="font-size: 0.88rem; color: rgba(255, 255, 255, 0.7); margin: 0; line-height: 1.5;">
+              <p style="font-size: clamp(0.85rem, 1.2vw, 0.9rem); color: rgba(255, 255, 255, 0.7); margin: 0; line-height: 1.5;">
                 Schedule an initial evaluation to review treatment horizons and build a tailored 12-month aesthetic plan designed for your individual facial architecture.
               </p>
             </div>
@@ -335,7 +382,7 @@
         </section>
 
         <!-- BEGIN YOUR PROTOCOL CTA -->
-        <div class="ae-cta-footer reveal" role="region" aria-label="Begin your aesthetic protocol">
+        <div class="ae-cta-footer reveal" role="region" aria-label="Begin your aesthetic protocol" style="padding: clamp(1.5rem, 4vw, 3rem);">
           <span class="ae-cta-footer__eyebrow">Begin Your Protocol</span>
           <h2 class="ae-cta-footer__heading">Book Your Aesthetic Consultation</h2>
           <p class="ae-cta-footer__note">Every consultation begins with a comprehensive anatomical assessment. No treatment is initiated without a documented clinical evaluation and a plan designed specifically for your facial architecture.</p>
@@ -613,7 +660,7 @@
     </div><!-- /inner-page -->
 
     <div class="inner-page">
-      <div class="inner-page__inner">
+      <div class="inner-page__inner" style="padding-inline: clamp(1rem, 4vw, 2.5rem);">
         <nav class="clinical-breadcrumb" aria-label="Page breadcrumb">
           <button class="clinical-breadcrumb__link" type="button">
             Aesthetic Medicine
@@ -697,7 +744,7 @@
 
     <!-- ===== ANATOMY OF A PROCEDURE MODULE ===== -->
 
-    <section class="ba-section" aria-labelledby="ba-heading" id="before-after">
+    <section class="ba-section" aria-labelledby="ba-heading" id="before-after" style="padding-inline: clamp(1rem, 4vw, 2.5rem);">
       <span class="ba-section__eyebrow">Clinical Aesthetics</span>
       <h2 class="ba-section__heading" id="ba-heading">Before &amp; After</h2>
       <p class="ba-section__sub">
@@ -737,7 +784,7 @@
       </p>
     </section>
 
-    <section class="anatomy-module" aria-labelledby="anatomy-heading">
+    <section class="anatomy-module" aria-labelledby="anatomy-heading" style="padding-inline: clamp(1rem, 4vw, 2.5rem);">
       <div class="anatomy-module__meta">
         <span class="anatomy-module__procedure-label">
           The Anatomy of a Procedure
@@ -902,7 +949,7 @@
     </section>
 
     <!-- ===== CLINICAL GLOSSARY ===== -->
-    <section class="glossary-section" aria-labelledby="glossary-heading">
+    <section class="glossary-section" aria-labelledby="glossary-heading" style="padding-inline: clamp(1rem, 4vw, 2.5rem);">
       <span class="hp-trust-section__label">Clinical Lexicon</span>
       <h2 class="inner-page__col-heading" id="glossary-heading"
           style="font-size:clamp(1.6rem,3vw,2.2rem);color:var(--deep)">
@@ -1157,7 +1204,7 @@
 
   <footer style="background:rgba(26,22,20,0.95);border-top:1px solid rgba(154,128,96,0.25);padding:32px 40px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;margin-top:4rem;">
     <p style="margin:0;font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.55);">&copy; 2026 Monti Institute of Neuro Aesthetics. All Rights Reserved.</p>
-    <nav aria-label="Footer navigation" style="display:flex;gap:2.5rem;align-items:center;">
+    <nav aria-label="Footer navigation" style="display:flex;gap:2.5rem;align-items:center;flex-wrap:wrap;">
       <a href="privacy-policy.html" style="font-size:0.72rem;letter-spacing:0.15em;text-transform:uppercase;color:rgba(154,128,96,0.85);text-decoration:none;" onmouseover="this.style.color='#C4A97D'" onmouseout="this.style.color='rgba(154,128,96,0.85)'">Privacy Policy</a>
       <a href="medical-disclaimer.html" style="font-size:0.72rem;letter-spacing:0.15em;text-transform:uppercase;color:rgba(154,128,96,0.85);text-decoration:none;" onmouseover="this.style.color='#C4A97D'" onmouseout="this.style.color='rgba(154,128,96,0.85)'">Medical Disclaimer</a>
       <a href="accessibility.html" style="font-size:0.72rem;letter-spacing:0.15em;text-transform:uppercase;color:rgba(154,128,96,0.85);text-decoration:none;" onmouseover="this.style.color='#C4A97D'" onmouseout="this.style.color='rgba(154,128,96,0.85)'">Accessibility</a>
