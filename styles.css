@@ -12,6 +12,11 @@
   --gold-lt:    #C4A97D;
   --muted:      #6B6460;
 
+  /* High-Contrast Color Variables for WCAG Accessibility */
+  --gold-accessible: #D4B98B; /* Lifted contrast for AAA readability */
+  --text-muted-dark: rgba(255, 255, 255, 0.92); /* High-contrast body on dark elements */
+  --text-subtle-dark: rgba(255, 255, 255, 0.82);
+
   --f-display: 'Cormorant Garamond', Georgia, serif;
   --f-body:    'DM Sans', system-ui, sans-serif;
 
@@ -27,15 +32,28 @@
   scroll-padding-top: var(--nav-h);
 }
 
-/* RESET & BASE */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; background: var(--warm-white); }
-html.dark-theme { background: #1a1a1a; }
+/* RESET, BASE & OVERFLOW PROTECTIONS */
+*, *::before, *::after { 
+  box-sizing: border-box; 
+  margin: 0; 
+  padding: 0; 
+}
+
+html { 
+  scroll-behavior: smooth; 
+  background: var(--warm-white); 
+}
+
+html.dark-theme { 
+  background: #1a1a1a; 
+}
 
 html, body {
   transition: background-color 0.45s ease, color 0.45s ease, background 0.45s ease;
   margin: 0 !important;
   padding: 0 !important;
+  max-width: 100vw;
+  overflow-x: hidden;
 }
 
 body {
@@ -49,6 +67,10 @@ body {
   text-rendering: optimizeLegibility;
 }
 
+main {
+  padding-bottom: clamp(5rem, 9vw, 8rem); /* Clearance for floating widgets */
+}
+
 a { color: inherit; text-decoration: none; }
 ul { list-style: none; }
 
@@ -56,6 +78,37 @@ ul { list-style: none; }
   position: absolute; width: 1px; height: 1px;
   padding: 0; margin: -1px; overflow: hidden;
   clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+}
+
+/* TYPOGRAPHY CONTRAST & OVERFLOW PROTECTIONS */
+.inner-page__lead, 
+.ae-hero-cta p,
+.ae-program-cta p,
+.service-item__desc,
+.team-card__bio {
+  color: var(--text-muted-dark) !important;
+  line-height: 1.65;
+}
+
+.section__label, 
+.inner-page__eyebrow, 
+.ae-cta-footer__eyebrow {
+  color: var(--gold-accessible) !important;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+}
+
+.inner-page__title, 
+.inner-page__lead, 
+.team-card__name, 
+.team-card__bio, 
+.neuro-program__name, 
+.service-item__desc,
+.ae-cta-footer__heading,
+.ae-hero-cta h2,
+.anatomy-pillar__heading {
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 /* ==========================================================================
@@ -213,7 +266,7 @@ button.nav__dropdown-toggle {
   white-space: nowrap;
 }
 
-/* TOP HEADER CTA BUTTON (BOOK NOW) */
+/* TOP HEADER CTA BUTTON */
 .nav__book-btn,
 .nav .btn-book-now {
   display: inline-flex !important;
@@ -301,7 +354,6 @@ body.dark-theme::before {
   position: relative !important;
 }
 
-/* REMOVE / HIDE SCROLL INDICATOR CLUTTER */
 .hero__scroll,
 .hero__scroll-label,
 .hero__scroll-track,
@@ -347,7 +399,6 @@ div[class*="scroll"],
   color: var(--charcoal, #2C2825) !important;
 }
 
-/* SECONDARY BUTTON READABILITY */
 .disc-panel--neuro .disc-panel__btn--secondary,
 .disc-panel--neuro .disc-panel_btn--secondary {
   background: transparent !important;
@@ -375,8 +426,6 @@ div[class*="scroll"],
 /* ==========================================================================
    HORIZONTAL STATS & INTAKE QUIZ GRID
    ========================================================================== */
-
-/* 4-Column Intake Grid */
 .concierge-options,
 .q-options,
 div[class*="concierge-options"],
@@ -410,7 +459,6 @@ div[class*="concierge-option"] p {
   font-weight: 400 !important;
 }
 
-/* Horizontal Trust Stats Row */
 .hp-trust-section .commitments-grid,
 .hp-trust-section div[class*="grid"],
 div[class*="stat-grid"],
@@ -443,6 +491,113 @@ div[class*="stat-card"] {
 }
 
 /* ==========================================================================
+   SCANNABLE STACKED CARDS ("WHO THIS IS FOR")
+   ========================================================================== */
+.who-treat-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+  width: 100%;
+}
+
+.who-treat-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+  padding: clamp(1.25rem, 3vw, 1.75rem);
+  background: rgba(26, 22, 20, 0.45);
+  border: 1px solid rgba(212, 185, 139, 0.2);
+  border-radius: 4px;
+  backdrop-filter: blur(6px);
+  transition: all 0.3s ease;
+}
+
+.who-treat-card:hover {
+  border-color: rgba(212, 185, 139, 0.5);
+  background: rgba(26, 22, 20, 0.65);
+  transform: translateX(4px);
+}
+
+.who-treat-card__icon {
+  flex-shrink: 0;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(212, 185, 139, 0.1);
+  border: 1px solid rgba(212, 185, 139, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold-accessible);
+  margin-top: 0.1rem;
+}
+
+.who-treat-card__content {
+  flex: 1;
+}
+
+.who-treat-card__title {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: #FFFFFF;
+  margin: 0 0 0.35rem 0;
+  letter-spacing: 0.02em;
+}
+
+.who-treat-card__text {
+  font-size: clamp(0.88rem, 1.2vw, 0.95rem);
+  color: var(--text-muted-dark);
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* ==========================================================================
+   SECTION SPACING, ALTERNATING BACKGROUNDS & VECTOR ART
+   ========================================================================== */
+.neuro-section {
+  padding-block: clamp(3rem, 6vw, 5.5rem);
+}
+
+.neuro-section--alt {
+  background: rgba(26, 22, 20, 0.35);
+  border-top: 1px solid rgba(154, 128, 96, 0.15);
+  border-bottom: 1px solid rgba(154, 128, 96, 0.15);
+  padding-inline: clamp(1rem, 4vw, 2.5rem);
+  margin-inline: calc(clamp(1rem, 4vw, 2.5rem) * -1);
+  border-radius: 4px;
+}
+
+.anatomy-bg-art {
+  position: absolute;
+  right: 2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: clamp(220px, 30vw, 420px);
+  height: auto;
+  opacity: 0.08;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.ae-hero-cta, .ae-program-cta {
+  position: relative;
+  overflow: hidden;
+}
+
+.ae-hero-cta,
+.ae-program-cta,
+.ae-cta-footer,
+.team-card,
+.neuro-program,
+.anatomy-pillar {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* ==========================================================================
    FOOTER, LEGAL LINKS & RESPONSIVE RULES
    ========================================================================== */
 footer,
@@ -450,7 +605,7 @@ footer,
 .footer {
   background: var(--deep) !important;
   padding-block-start: clamp(3rem, 5vw, 4.5rem) !important;
-  padding-block-end: clamp(2rem, 4vw, 3.5rem) !important;
+  padding-block-end: clamp(3rem, 6vw, 5rem) !important; /* Clearance for floating chat widgets */
   padding-inline: var(--sp-inline) !important;
 }
 
@@ -483,7 +638,6 @@ footer,
   color: #c5a059 !important;
 }
 
-/* HIDE STICKY PHONE BAR ON DESKTOP */
 .sticky-bottom-bar,
 .mobile-sticky-cta,
 [class*="sticky-bottom"] {
@@ -528,7 +682,6 @@ footer,
   .nav__toggle { display: flex !important; }
   .nav__brand-text { display: none !important; }
 
-  /* ENABLE STICKY PHONE BAR FOR MOBILE DEVICES ONLY */
   footer, .site-footer {
     padding-bottom: 5.5rem !important;
   }
@@ -569,8 +722,7 @@ footer,
 }
 
 /* ==========================================================================
-   INNER PAGE HEADER SPACING FIX
-   Removes excess top gap between fixed nav and inner-page content
+   INNER PAGE HEADER SPACING
    ========================================================================== */
 .inner-page {
   padding-block-start: calc(var(--nav-h) + 1.5rem) !important;
@@ -597,12 +749,7 @@ footer,
 
 /* ==========================================================================
    SITE-WIDE THEME — NAVY & CHAMPAGNE
-   Pulled from the homepage's inline <style> block so every page (not just
-   index.html) uses the same nav, footer, button, and background treatment
-   without needing a duplicate <style> block pasted into each file.
-   Placed last so it wins the cascade over the warm-brown tokens above.
    ========================================================================== */
-
 html, body {
   overflow-x: hidden !important;
   width: 100% !important;
@@ -685,6 +832,32 @@ body {
   transform: translateY(-2px) !important;
 }
 
+.btn--secondary-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.6rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold-accessible);
+  background: transparent;
+  border: 1px solid rgba(212, 185, 139, 0.6);
+  border-radius: 4px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  max-width: 100%;
+}
+
+.btn--secondary-outline:hover {
+  background: rgba(212, 185, 139, 0.15);
+  border-color: #FFFFFF;
+  color: #FFFFFF;
+  transform: translateY(-1px);
+}
+
 /* DISCLAIMER */
 .site-disclaimer {
   padding: 2.25rem 1.5rem 2.5rem !important;
@@ -728,10 +901,7 @@ footer a:hover,
 }
 
 /* ==========================================================================
-   ARROW ICON FIX
-   Buttons like "Schedule Consultation" and "Request Program Evaluation" use
-   inline SVG arrows with no fill/stroke attribute set, so they render solid
-   black by default instead of inheriting the button's text color.
+   ARROW ICON & BUTTON SVG INHERITANCE
    ========================================================================== */
 svg path[stroke-linecap="round"][stroke-linejoin="round"] {
   fill: none !important;
@@ -739,8 +909,6 @@ svg path[stroke-linecap="round"][stroke-linejoin="round"] {
   stroke-width: 1.5 !important;
 }
 
-/* Belt-and-braces: scoped directly to the known button/link classes in case
-   something elsewhere has higher specificity than the attribute selector above */
 .btn svg,
 .btn svg path,
 .neuro-cta-footer svg,
@@ -759,22 +927,16 @@ svg path[stroke-linecap="round"][stroke-linejoin="round"] {
   stroke: currentColor !important;
   stroke-width: 1.5 !important;
 }
-/* ==========================================================================
-   NEUROLOGICAL MEDICINE PAGE REDESIGN
-   Self-contained "np-" (neuro page) component system matching the homepage's
-   navy/champagne brand identity: Cormorant Garamond display + DM Sans body,
-   card-based layout, subtle shadows, generous whitespace, badge tags.
-   Every class below is fully defined here — no dependency on other rules
-   elsewhere in styles.css.
-   ========================================================================== */
 
+/* ==========================================================================
+   NEUROLOGICAL MEDICINE PAGE COMPONENT SYSTEM ("np-")
+   ========================================================================== */
 .np-wrap {
   max-width: 1150px;
   margin-inline: auto;
   padding-inline: clamp(1.25rem, 4vw, 2rem);
 }
 
-/* ---------- HERO ---------- */
 .np-hero {
   padding-block: calc(var(--nav-h, 64px) + clamp(3rem, 6vw, 5rem)) clamp(3rem, 5vw, 4rem);
   text-align: center;
@@ -848,7 +1010,6 @@ svg path[stroke-linecap="round"][stroke-linejoin="round"] {
   gap: 0.5rem;
 }
 
-/* ---------- SECTION SHELL ---------- */
 .np-section {
   padding-block: clamp(3.5rem, 6vw, 5.5rem);
   border-top: 1px solid #EAE3D9;
@@ -889,7 +1050,6 @@ svg path[stroke-linecap="round"][stroke-linejoin="round"] {
   font-size: 0.98rem;
 }
 
-/* ---------- DARK SECTION VARIANT ---------- */
 .np-section--dark {
   background: #0A1628;
   border-top: none;
@@ -904,7 +1064,6 @@ svg path[stroke-linecap="round"][stroke-linejoin="round"] {
 .np-section--dark .np-section__heading { color: #FFFFFF; }
 .np-section--dark .np-section__intro { color: rgba(255, 255, 255, 0.72); }
 
-/* ---------- CARD GRID ---------- */
 .np-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -923,7 +1082,6 @@ svg path[stroke-linecap="round"][stroke-linejoin="round"] {
   .np-grid--3col { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
 }
 
-/* ---------- CARD ---------- */
 .np-card {
   background: #FFFFFF;
   border: 1px solid #EAE3D9;
@@ -977,7 +1135,6 @@ svg path[stroke-linecap="round"][stroke-linejoin="round"] {
 .np-section--dark .np-card__desc { color: rgba(255, 255, 255, 0.75); }
 .np-section--dark .np-card__num { background: rgba(184, 151, 104, 0.15); color: #C9AC7E; }
 
-/* ---------- CHECKLIST CARD (Who We Treat / Why Continue) ---------- */
 .np-check-list {
   display: flex;
   flex-direction: column;
@@ -1016,7 +1173,6 @@ svg path[stroke-linecap="round"][stroke-linejoin="round"] {
 
 .np-section--dark .np-check-item__text { color: rgba(255, 255, 255, 0.85); }
 
-/* ---------- BADGES ---------- */
 .np-badge {
   display: inline-flex;
   align-items: center;
@@ -1046,7 +1202,6 @@ svg path[stroke-linecap="round"][stroke-linejoin="round"] {
   color: #8C6F43;
 }
 
-/* ---------- CONDITION CARDS ---------- */
 .np-condition-card {
   display: flex;
   flex-direction: column;
@@ -1082,7 +1237,6 @@ svg path[stroke-linecap="round"][stroke-linejoin="round"] {
   border-top: 1px solid #F0EAE0;
 }
 
-/* ---------- PROTOCOL CARDS ---------- */
 .np-protocol-card__category {
   font-size: 0.7rem;
   text-transform: uppercase;
@@ -1128,7 +1282,6 @@ svg path[stroke-linecap="round"][stroke-linejoin="round"] {
   color: #2D3748;
 }
 
-/* ---------- NUMBERED PROCESS ---------- */
 .np-process-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -1158,7 +1311,6 @@ svg path[stroke-linecap="round"][stroke-linejoin="round"] {
   line-height: 1.7;
 }
 
-/* ---------- PROGRAM CARDS ---------- */
 .np-program-card {
   display: flex;
   flex-direction: column;
@@ -1212,7 +1364,6 @@ svg path[stroke-linecap="round"][stroke-linejoin="round"] {
   margin-bottom: 1.25rem;
 }
 
-/* ---------- CTA BAND ---------- */
 .np-cta-band {
   background: linear-gradient(145deg, #0A1628 0%, #132038 100%);
   border: 1px solid rgba(184, 151, 104, 0.3);
@@ -1257,7 +1408,6 @@ svg path[stroke-linecap="round"][stroke-linejoin="round"] {
   flex-wrap: wrap;
 }
 
-/* ---------- TEAM CARDS ---------- */
 .np-team-card {
   background: #FFFFFF;
   border: 1px solid #EAE3D9;
@@ -1321,7 +1471,6 @@ svg path[stroke-linecap="round"][stroke-linejoin="round"] {
   gap: 0.5rem;
 }
 
-/* ---------- GLOSSARY ---------- */
 .np-glossary-item {
   background: #FFFFFF;
   border: 1px solid #EAE3D9;
@@ -1397,7 +1546,6 @@ svg path[stroke-linecap="round"][stroke-linejoin="round"] {
   font-weight: 600;
 }
 
-/* ---------- INSURANCE STRIP ---------- */
 .np-insurance-strip {
   display: flex;
   flex-wrap: wrap;
@@ -1405,7 +1553,6 @@ svg path[stroke-linecap="round"][stroke-linejoin="round"] {
   align-items: center;
 }
 
-/* ---------- RESPONSIVE ---------- */
 @media (max-width: 640px) {
   .np-hero__ctas { flex-direction: column; align-items: stretch; }
   .np-cta-band { flex-direction: column; align-items: flex-start; }
@@ -1413,18 +1560,11 @@ svg path[stroke-linecap="round"][stroke-linejoin="round"] {
   .np-cta-band__btns .btn { flex: 1 1 auto; text-align: center; justify-content: center; }
 }
 
-
 /* ==========================================================================
-   COMPONENT STYLES FOR ACTUAL PAGE MARKUP
-   Append this entire block to the end of styles.css.
-   Covers every class used in the Aesthetic Medicine / Care Programs page
-   markup that had no matching rules (.inner-page, .neuro-section,
-   .team-card, .glossary-term, .ba-*, .anatomy-*, .reveal, etc.)
-   Palette matches the navy/champagne theme already set further up:
-   navy #0A1628 · gold #B89768 · ink #4A5568 · card border #EAE3D9
+   SHARED PAGE MARKUP COMPONENTS (.inner-page, .team-card, .ba-*, .anatomy-*)
    ========================================================================== */
 
-/* ---------- REVEAL-ON-SCROLL ANIMATION ---------- */
+/* REVEAL-ON-SCROLL ANIMATION */
 .reveal {
   opacity: 0;
   transform: translateY(18px);
@@ -1435,7 +1575,6 @@ svg path[stroke-linecap="round"][stroke-linejoin="round"] {
   transform: none;
 }
 
-/* ---------- DECORATIVE PAGE BACKGROUND ---------- */
 .aesthetic-page-bg {
   position: absolute;
   top: 0;
@@ -1446,7 +1585,7 @@ svg path[stroke-linecap="round"][stroke-linejoin="round"] {
   pointer-events: none;
 }
 
-/* ---------- INNER PAGE SHELL ---------- */
+/* INNER PAGE SHELL */
 .inner-page {
   position: relative;
   z-index: 1;
@@ -1510,7 +1649,6 @@ svg path[stroke-linecap="round"][stroke-linejoin="round"] {
   font-size: 0.95rem;
 }
 
-/* ---------- PAGE-SWITCH TOGGLE & HERO CTAs ---------- */
 .page-switch-toggle {
   display: inline-flex;
   align-items: center;
@@ -1541,7 +1679,6 @@ svg path[stroke-linecap="round"][stroke-linejoin="round"] {
   margin-top: 1.5rem;
 }
 
-/* ---------- SERVICE LIST (hero summary cards) ---------- */
 .service-list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -1579,12 +1716,6 @@ svg path[stroke-linecap="round"][stroke-linejoin="round"] {
   line-height: 1.65;
 }
 
-/* ---------- SECTION SHELL (.neuro-section reused across pages) ---------- */
-.neuro-section {
-  padding-block: clamp(3rem, 5vw, 4.5rem);
-  border-top: 1px solid #EAE3D9;
-}
-
 .neuro-section__header {
   max-width: 640px;
   margin-bottom: clamp(1.75rem, 3vw, 2.5rem);
@@ -1600,7 +1731,6 @@ svg path[stroke-linecap="round"][stroke-linejoin="round"] {
   font-weight: 600;
 }
 
-/* ---------- WHO-TREAT LIST ---------- */
 .who-treat-list {
   display: flex;
   flex-direction: column;
@@ -1632,7 +1762,6 @@ svg path[stroke-linecap="round"][stroke-linejoin="round"] {
   line-height: 1.65;
 }
 
-/* ---------- CONDITION PILLS ---------- */
 .conditions-grid {
   display: flex;
   flex-wrap: wrap;
@@ -1651,7 +1780,6 @@ svg path[stroke-linecap="round"][stroke-linejoin="round"] {
   font-weight: 500;
 }
 
-/* ---------- NUMBERED LISTS (approach / process) ---------- */
 .neuro-numbered-list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -1684,7 +1812,6 @@ svg path[stroke-linecap="round"][stroke-linejoin="round"] {
   line-height: 1.7;
 }
 
-/* ---------- PROTOCOL LIST ---------- */
 .protocol-list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -1737,7 +1864,6 @@ svg path[stroke-linecap="round"][stroke-linejoin="round"] {
 .neuro-text-link svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.5; }
 .neuro-text-link:hover { color: #0A1628; }
 
-/* ---------- PROGRAM CARDS (aesthetic care programs) ---------- */
 .neuro-programs-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -1780,7 +1906,6 @@ svg path[stroke-linecap="round"][stroke-linejoin="round"] {
   font-weight: 600;
 }
 
-/* ---------- STANDARDS LIST ---------- */
 .standards-list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -1796,7 +1921,6 @@ svg path[stroke-linecap="round"][stroke-linejoin="round"] {
   line-height: 1.6;
 }
 
-/* ---------- BOTTOM CTA BAND ---------- */
 .ae-cta-footer {
   background: linear-gradient(145deg, #0A1628 0%, #132038 100%);
   border: 1px solid rgba(184, 151, 104, 0.3);
@@ -1830,7 +1954,6 @@ svg path[stroke-linecap="round"][stroke-linejoin="round"] {
   margin: 0 auto 1.75rem;
 }
 
-/* ---------- TEAM SECTION ---------- */
 .team-section {
   padding-block: clamp(3rem, 5vw, 4.5rem);
   border-top: 1px solid #EAE3D9;
@@ -1958,7 +2081,6 @@ svg path[stroke-linecap="round"][stroke-linejoin="round"] {
 .team-card__contact:hover { background: #1A2B42; }
 .team-card__contact svg { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 1.5; }
 
-/* ---------- BREADCRUMB ---------- */
 .clinical-breadcrumb {
   display: flex;
   align-items: center;
@@ -1980,7 +2102,6 @@ svg path[stroke-linecap="round"][stroke-linejoin="round"] {
 .clinical-breadcrumb__sep { color: #B8AD9E; }
 .clinical-breadcrumb__current { color: #4A5568; }
 
-/* ---------- CARE PROGRAMS OVERVIEW GRID ---------- */
 .programs__grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -2084,10 +2205,6 @@ svg path[stroke-linecap="round"][stroke-linejoin="round"] {
   color: #6B6460;
 }
 
-/* This is the rule that fixes the full-viewport "face blob" bug:
-   .ba-stage is now a positioned container, so the JS-inserted
-   position:absolute canvases size themselves to it instead of the
-   whole browser window. */
 .ba-stage {
   position: relative;
   width: 100%;
@@ -2287,7 +2404,7 @@ svg path[stroke-linecap="round"][stroke-linejoin="round"] {
 }
 
 /* ==========================================================================
-   CLINICAL GLOSSARY
+   CLINICAL GLOSSARY & MODAL
    ========================================================================== */
 .glossary-section {
   max-width: 1150px;
@@ -2377,7 +2494,6 @@ svg path[stroke-linecap="round"][stroke-linejoin="round"] {
   font-weight: 600;
 }
 
-/* ---------- CLINICAL INFO MODAL (opened by data-clinical-key elements) ---------- */
 [data-clinical-key] {
   cursor: pointer;
 }
@@ -2417,7 +2533,6 @@ svg path[stroke-linecap="round"][stroke-linejoin="round"] {
   line-height: 1;
 }
 
-/* ---------- RESPONSIVE ---------- */
 @media (max-width: 640px) {
   .neuro-ctas { flex-direction: column; align-items: stretch; }
   .anatomy-horizon { grid-template-columns: 1fr; }
