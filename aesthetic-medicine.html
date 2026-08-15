@@ -1,38 +1,1762 @@
-Lumina IPL Photo-Facial | nuCORE Photo-Rejuvenation
-Overview:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aesthetic Medicine — Monti Institute of Neuro Aesthetics</title>
+  <meta name="description" content="Physician-led aesthetic medicine at Monti Institute in Reno, Nevada. Injectables, skin health, and facial refinement with a clinical approach.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@200;300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Global Layout & Accessibility Protections */
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
 
-Erase sun damage, fade stubborn dark spots, and restore luminous skin clarity. Powered by targeted, broad-spectrum intense pulsed light (IPL) technology on the advanced nuCORE platform, the Lumina Photo-Facial delivers light pulses that selectively absorb into excess melanin (pigment) and hemoglobin (vascular redness)—shattering unwanted skin discoloration while leaving surrounding healthy tissue completely unharmed.
+    html, body {
+      max-width: 100vw;
+      overflow-x: hidden;
+    }
 
-Treatable Indications:
+    main {
+      padding-bottom: clamp(5rem, 9vw, 8rem);
+    }
 
-Hyperpigmentation & Sun Damage: Solar lentigines (sun spots), age spots, freckles, and benign dark patches
+    /* ==========================================================================
+       AESTHETIC MEDICINE PAGE — SCOPED THEME TOKENS
+       Reuses the site's navy/champagne palette so every element added on
+       this page (hero CTA, program CTA, who-treat cards, alt sections)
+       is legible against the light page background AND against the
+       opaque navy CTA boxes — nothing here relies on transparency
+       sitting on top of an unknown background color.
+       ========================================================================== */
+    :root {
+      --navy:            #0A1628;
+      --navy-2:          #132038;
+      --gold-onlight:    #8C6F43;   /* gold text on white/light backgrounds — meets contrast */
+      --gold-ondark:     #C9AC7E;   /* lighter gold text on navy backgrounds */
+      --ink:             #2D3748;
+      --ink-muted:       #4A5568;
+      --card-border:     #EAE3D9;
+      --card-tint:       #F4EFE6;
+      --on-navy:         rgba(255, 255, 255, 0.92);
+      --on-navy-soft:    rgba(255, 255, 255, 0.74);
+    }
 
-Uneven Tone & Photo-Aging: Diffuse redness, mottled skin tone, and overall photo-damaged skin across the face, neck, chest, or hands
+    /* Text & Card Overflow Protections */
+    .inner-page__title, 
+    .inner-page__lead, 
+    .team-card__name, 
+    .team-card__bio, 
+    .neuro-program__name, 
+    .service-item__desc,
+    .ae-cta-footer__heading,
+    .ae-hero-cta h2,
+    .anatomy-pillar__heading {
+      overflow-wrap: break-word;
+      word-break: break-word;
+    }
 
-Superficial Vascular Marks: Mild facial redness, fine broken capillaries, and early vascular flushing
+    /* ==========================================================================
+       DARK CTA BANNERS (hero + program) — opaque navy gradient, matching the
+       existing .ae-cta-footer band at the bottom of the page. Because the
+       background is fully opaque, white text here is always legible
+       regardless of what the surrounding page looks like.
+       ========================================================================== */
+    .ae-hero-cta,
+    .ae-program-cta {
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+      max-width: 100%;
+      box-sizing: border-box;
+      background: linear-gradient(145deg, var(--navy) 0%, var(--navy-2) 100%);
+      border: 1px solid rgba(201, 172, 126, 0.3);
+      border-radius: 8px;
+    }
 
-What to Expect During & After Treatment:
+    .ae-hero-cta .section__label,
+    .ae-program-cta .section__label {
+      color: var(--gold-ondark);
+    }
 
-Sensation: Feels like a series of quick, warm snaps against the skin (similar to a small rubber band). Integrated sapphire cooling ensures maximum patient comfort throughout the session.
+    .ae-hero-cta h2,
+    .ae-program-cta h3 {
+      color: #FFFFFF;
+    }
 
-Immediate Response: Mild pinkness and subtle warmth post-treatment, similar to a light sun flush, which subsides within a few hours. Pigmented spots will temporarily darken—taking on a fine "coffee-ground" appearance—before naturally sloughing off over 5 to 7 days to reveal fresh, glowing skin.
+    .ae-hero-cta p,
+    .ae-program-cta p {
+      color: var(--on-navy-soft);
+      line-height: 1.65;
+    }
 
-Downtime: Zero physical downtime. You may apply makeup immediately following your appointment and resume daily routines.
+    .anatomy-bg-art {
+      position: absolute;
+      right: 2rem;
+      top: 50%;
+      transform: translateY(-50%);
+      width: clamp(220px, 30vw, 420px);
+      height: auto;
+      opacity: 0.08;
+      pointer-events: none;
+      z-index: 0;
+    }
+    @media (max-width: 640px) {
+      .anatomy-bg-art { display: none; }
+    }
 
-Treatment Course & Results:
+    /* Secondary outlined button — for use on the navy CTA banners only */
+    .btn--secondary-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.8rem 1.6rem;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold-ondark);
+      background: transparent;
+      border: 1px solid rgba(201, 172, 126, 0.55);
+      border-radius: 4px;
+      text-decoration: none;
+      transition: all 0.25s ease;
+      max-width: 100%;
+    }
+    .btn--secondary-outline:hover {
+      background: rgba(201, 172, 126, 0.14);
+      border-color: #FFFFFF;
+      color: #FFFFFF;
+      transform: translateY(-1px);
+    }
 
-Recommended Protocol: For comprehensive pigment clearance and skin tone transformation, a series of 3 to 4 sessions spaced 3 to 4 weeks apart is recommended.
+    /* ==========================================================================
+       "WHO THIS IS FOR" — SCANNABLE ICON CARDS
+       Light cards on the page's normal background, consistent with every
+       other card system on the site (white surface, warm border, navy
+       heading, gold icon accent) instead of a translucent dark overlay.
+       ========================================================================== */
+    .who-treat-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 1.1rem;
+      margin-top: 1.5rem;
+      width: 100%;
+    }
 
-Results: Noticeably brighter, clearer, and more even skin tone within 1 to 2 weeks after your first session, with cumulative improvements over the series.
+    .who-treat-card {
+      display: flex;
+      align-items: flex-start;
+      gap: 1.25rem;
+      padding: clamp(1.25rem, 3vw, 1.75rem);
+      background: #FFFFFF;
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      box-shadow: 0 4px 16px rgba(10, 22, 40, 0.03);
+      transition: all 0.25s ease;
+    }
 
-Key Benefits:
+    .who-treat-card:hover {
+      border-color: rgba(201, 172, 126, 0.55);
+      box-shadow: 0 10px 28px rgba(10, 22, 40, 0.07);
+      transform: translateX(4px);
+    }
 
-Non-invasive, non-ablative rejuvenation with zero skin-barrier breakdown
+    .who-treat-card__icon {
+      flex-shrink: 0;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: var(--card-tint);
+      border: 1px solid rgba(201, 172, 126, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold-onlight);
+      margin-top: 0.1rem;
+    }
 
-Simultaneous targeting of brown spots and background red tones
+    .who-treat-card__content { flex: 1; }
 
-Fast 30-minute session time with immediate return to daily activities
+    .who-treat-card__title {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 500;
+      color: var(--navy);
+      margin: 0 0 0.35rem 0;
+      letter-spacing: 0.02em;
+    }
 
-Physician-supervised, provider-directed clinical care
+    .who-treat-card__text {
+      font-size: clamp(0.88rem, 1.2vw, 0.95rem);
+      color: var(--ink-muted);
+      margin: 0;
+      line-height: 1.6;
+    }
 
-Appointment Note: A clinical skin assessment is included with your visit. Please avoid direct sun exposure, tanning beds, self-tanning products, and photosensitizing medications for 2 to 4 weeks prior to treatment. Discontinue topical retinoids (Tretinoin, Retin-A) and AHA/BHA exfoliants 3 days prior.
+    /* ==========================================================================
+       SECTION RHYTHM — light tint band instead of a dark overlay, matching
+       the cream tone already used elsewhere on the site (.standards-item)
+       ========================================================================== */
+    .neuro-section {
+      padding-block: clamp(3rem, 6vw, 5.5rem);
+    }
+
+    .neuro-section--alt {
+      background: var(--card-tint);
+      border-top: 1px solid var(--card-border);
+      border-bottom: 1px solid var(--card-border);
+      padding-inline: clamp(1rem, 4vw, 2.5rem);
+      margin-inline: calc(clamp(1rem, 4vw, 2.5rem) * -1);
+      border-radius: 4px;
+    }
+
+    /* Responsive Padding & Safe Margins for Cards/Banners */
+    .ae-cta-footer,
+    .team-card,
+    .neuro-program,
+    .anatomy-pillar {
+      width: 100%;
+      max-width: 100%;
+      box-sizing: border-box;
+    }
+
+    /* ==========================================================================
+       TEAM PHOTO CONSISTENCY
+       Every team photo — regardless of its native crop or aspect ratio —
+       fills the same 3:4 frame the same way, so the grid stays even.
+       ========================================================================== */
+    .team-card__photo-wrap {
+      aspect-ratio: 3 / 4;
+      overflow: hidden;
+    }
+    .team-card__photo {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+
+    /* ==========================================================================
+       CLINICAL INFO MODAL — styling for the overlay/panel restored above.
+       Uses the same navy/gold/light-card language as the rest of the page.
+       ========================================================================== */
+    #clinical-modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(10, 22, 40, 0.55);
+      z-index: 500;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+    #clinical-modal-overlay.is-open { display: flex; }
+
+    #clinical-modal {
+      background: #FFFFFF;
+      border-radius: 10px;
+      max-width: 560px;
+      width: 100%;
+      max-height: 85vh;
+      overflow-y: auto;
+      padding: clamp(1.75rem, 4vw, 2.5rem);
+      position: relative;
+    }
+
+    #clinical-modal-close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 1.5rem;
+      line-height: 1;
+      color: var(--ink-muted);
+    }
+    #clinical-modal-close:hover { color: var(--navy); }
+
+    .clinical-modal__category {
+      display: block;
+      color: var(--gold-onlight);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 0.72rem;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+    }
+
+    .clinical-modal__title {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.6rem;
+      color: var(--navy);
+      margin: 0 0 0.75rem;
+      line-height: 1.25;
+      padding-right: 2rem;
+    }
+
+    .clinical-modal__preview {
+      font-size: 0.95rem;
+      color: var(--ink);
+      font-weight: 500;
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+
+    .clinical-modal__desc {
+      font-size: 0.9rem;
+      color: var(--ink-muted);
+      line-height: 1.75;
+      margin-bottom: 1.25rem;
+    }
+
+    .clinical-modal__details {
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .modal-detail-item {
+      font-size: 0.85rem;
+      color: var(--ink);
+      line-height: 1.6;
+      padding: 0.75rem 1rem;
+      background: var(--card-tint);
+      border-radius: 6px;
+    }
+
+    .clinical-modal__note {
+      font-size: 0.82rem;
+      color: var(--gold-onlight);
+      font-weight: 500;
+      margin-bottom: 1.5rem;
+    }
+  </style>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-M7QTXDPY24"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-M7QTXDPY24');
+  </script>
+</head>
+<body>
+  <a href="#js-outlet" class="skip-to-main" id="skip-to-main">Skip to main content</a>
+
+  <div id="dark-toast" role="status" aria-live="polite" aria-atomic="true">
+    <span id="dark-toast__title"></span>
+    <span id="dark-toast__body"></span>
+  </div>
+
+  <div id="scroll-progress" role="progressbar" aria-hidden="true"></div>
+
+  <button id="back-to-top" type="button" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" aria-hidden="true" style="width:14px;height:14px;stroke:var(--gold-ondark);stroke-width:1.5;fill:none;stroke-linecap:round;stroke-linejoin:round">
+      <path d="M12 19V5M5 12l7-7 7 7"/>
+    </svg>
+  </button>
+
+  <!-- ==========================================================================
+       CLINICAL INFO MODAL
+       Opened by any element with [data-clinical-key] (see protocol titles
+       below). Markup lives once, at the top level of <body>, and is
+       populated dynamically by the registry + engine script near the
+       bottom of the page.
+       ========================================================================== -->
+  <div id="clinical-modal-overlay" aria-hidden="true">
+    <div id="clinical-modal" role="dialog" aria-modal="true" aria-labelledby="clinical-modal-title">
+      <button id="clinical-modal-close" type="button" aria-label="Close">&times;</button>
+      <span id="clinical-modal-category" class="clinical-modal__category"></span>
+      <h2 id="clinical-modal-title" class="clinical-modal__title"></h2>
+      <p id="clinical-modal-preview" class="clinical-modal__preview"></p>
+      <p id="clinical-modal-desc" class="clinical-modal__desc"></p>
+      <div id="clinical-modal-details" class="clinical-modal__details"></div>
+      <p id="clinical-modal-note" class="clinical-modal__note"></p>
+      <a id="clinical-modal-cta" class="btn btn--primary" href="contact.html">
+        Schedule a Consultation
+        <svg viewBox="0 0 24 24" aria-hidden="true" style="width:14px;height:14px;stroke:currentColor;stroke-width:1.5;fill:none;stroke-linecap:round;stroke-linejoin:round"><path d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <nav class="nav" id="js-nav" role="navigation" aria-label="Main navigation">
+    <div class="nav__inner">
+      <a href="/" class="nav__brand" aria-label="Monti Institute — Home">
+        <img src="images/official-logo.png" alt="Monti Institute" class="nav__logo-img site-logo">
+        <span class="nav__brand-text">Monti Institute</span>
+      </a>
+      <button class="nav__toggle" id="js-nav-toggle"
+              aria-expanded="false" aria-controls="js-nav-list" aria-label="Toggle navigation menu">
+        <i aria-hidden="true"></i>
+        <i aria-hidden="true"></i>
+        <i aria-hidden="true"></i>
+      </button>
+      <ul class="nav__list" id="js-nav-list" role="list">
+        <li><a href="/" class="nav__link">Home</a></li>
+        <li class="nav__item--dropdown">
+          <button class="nav__link nav__dropdown-toggle" aria-expanded="false" aria-haspopup="true">
+            Services
+            <svg viewBox="0 0 12 12" aria-hidden="true" class="nav__chevron"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <ul class="nav__dropdown" role="list">
+            <li><a href="neurological-medicine.html" class="nav__dropdown-link">Neurological Medicine</a></li>
+            <li><a href="aesthetic-medicine.html" class="nav__dropdown-link is-active" aria-current="page">Aesthetic Medicine</a></li>
+            <li><a href="infusion-center.html" class="nav__dropdown-link">Infusion Center</a></li>
+          </ul>
+        </li>
+        <li class="nav__item--dropdown">
+          <button class="nav__link nav__dropdown-toggle" aria-expanded="false" aria-haspopup="true">
+            About
+            <svg viewBox="0 0 12 12" aria-hidden="true" class="nav__chevron"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <ul class="nav__dropdown" role="list">
+            <li><a href="about.html" class="nav__dropdown-link">Our Team &amp; Philosophy</a></li>
+            <li><a href="clinical-standards.html" class="nav__dropdown-link">Clinical Standards</a></li>
+            <li><a href="financing-memberships.html" class="nav__dropdown-link">Memberships &amp; Financing</a></li>
+          </ul>
+        </li>
+        <li><a href="wellness-store.html" class="nav__link">Store</a></li>
+        <li><a href="contact.html" class="nav__link">Contact</a></li>
+      </ul>
+
+      <button class="dark-toggle nav__migraine-toggle"
+              id="dark-mode-toggle"
+              type="button"
+              aria-label="Toggle Migraine-Friendly Viewing Mode"
+              aria-pressed="false"
+              title="Migraine Mode — reduces brightness for light-sensitive viewing">
+        <svg class="dark-toggle__icon" viewBox="0 0 24 24" aria-hidden="true" width="14" height="14">
+          <ellipse cx="12" cy="12" rx="4" ry="4" fill="none" stroke="currentColor" stroke-width="1.5"/>
+          <path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"
+                fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        <span class="dark-toggle__label">Migraine Mode</span>
+        <span class="dark-toggle__switch" aria-hidden="true"></span>
+      </button>
+    </div>
+  </nav>
+
+  <main id="js-outlet" tabindex="-1">
+    <!-- Aesthetic atmosphere -->
+    <div class="aesthetic-page-bg" aria-hidden="true"></div>
+    <div class="inner-page">
+      <div class="inner-page__inner" style="padding-inline: clamp(1rem, 4vw, 2.5rem);">
+        <!-- Page-switch toggle -->
+        <a class="page-switch-toggle" href="neurological-medicine.html" style="text-decoration:none">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M7 16L3 12m0 0l4-4M3 12h18"/>
+          </svg>
+          Switch to Neurological Medicine
+        </a>
+        <span class="inner-page__eyebrow">Advanced Facial Therapeutics &middot; Monti Institute</span>
+        <h1 class="inner-page__title">Aesthetic<br><em>Medicine</em></h1>
+        <p class="inner-page__lead">
+          Physician-supervised aesthetic medicine grounded in facial anatomy,
+          structural integrity, and clinical restraint &mdash; injectables,
+          energy-based devices, and regenerative therapies for outcomes that are
+          refined, natural, and genuinely lasting.
+        </p>
+
+        <!-- ===== HERO CALL TO ACTION BANNER WITH ANATOMICAL SVG ART ===== -->
+        <section class="ae-hero-cta reveal" aria-label="Schedule Aesthetic Consultation" style="margin-block: 2.5rem 3.5rem; padding: clamp(1.75rem, 5vw, 3rem);">
+          <svg class="anatomy-bg-art" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M100 20 C130 20 160 50 160 90 C160 140 120 180 100 190 C80 180 40 140 40 90 C40 50 70 20 100 20 Z" stroke="#C9AC7E" stroke-width="1.2" stroke-dasharray="3 3"/>
+            <circle cx="100" cy="70" r="25" stroke="#C9AC7E" stroke-width="1"/>
+            <line x1="40" y1="90" x2="160" y2="90" stroke="#C9AC7E" stroke-width="0.8"/>
+            <line x1="100" y1="20" x2="100" y2="190" stroke="#C9AC7E" stroke-width="0.8"/>
+          </svg>
+
+          <div style="max-width: 68ch; position: relative; z-index: 1;">
+            <span class="section__label">Physician-Led Evaluation</span>
+            <h2 style="font-family: 'Cormorant Garamond', serif; font-size: clamp(1.6rem, 3.2vw, 2.3rem); margin-block: 0.5rem 1rem; font-weight: 300; line-height: 1.25;">
+              Begin Your Customized Aesthetic Protocol
+            </h2>
+            <p style="font-size: clamp(0.9rem, 1.5vw, 0.98rem); margin-bottom: 1.75rem;">
+              Every treatment begins with a comprehensive anatomical analysis of facial structure, muscle dynamics, and dermal integrity to deliver conservative, balanced refinement.
+            </p>
+            <div class="neuro-ctas" style="margin-top: 1rem; display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;">
+              <a href="contact.html" class="btn btn--primary" style="text-decoration:none">
+                Schedule a Consultation
+                <svg viewBox="0 0 24 24" aria-hidden="true" style="width:14px;height:14px;stroke:currentColor;stroke-width:1.5;fill:none;stroke-linecap:round;stroke-linejoin:round"><path d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+              </a>
+              <a href="#ae-services" class="btn btn--secondary-outline">
+                Explore Treatment Options
+                <svg viewBox="0 0 24 24" aria-hidden="true" style="width:14px;height:14px;stroke:currentColor;stroke-width:1.5;fill:none;stroke-linecap:round;stroke-linejoin:round"><path d="M19 9l-7 7-7-7"/></svg>
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <div class="inner-page__rule" id="ae-services"></div>
+        <div class="service-list">
+          <div class="service-item">
+            <span class="service-item__num">01</span>
+            <div class="service-item__body">
+              <h3 class="service-item__name">Neuromodulator Therapy</h3>
+              <p class="service-item__desc">Neuromodulator placement guided by a precise understanding of facial neurovascular anatomy &mdash; targeting specific muscle groups to soften expression without erasing the character that defines your face.</p>
+            </div>
+          </div>
+          <div class="service-item">
+            <span class="service-item__num">02</span>
+            <div class="service-item__body">
+              <h3 class="service-item__name">Restorative Skin Medicine</h3>
+              <p class="service-item__desc">Physician-supervised protocols addressing dermal matrix integrity, epidermal renewal, and collagen architecture &mdash; restoring skin health from within, not merely at the surface.</p>
+            </div>
+          </div>
+          <div class="service-item">
+            <span class="service-item__num">03</span>
+            <div class="service-item__body">
+              <h3 class="service-item__name">Regenerative Aesthetics</h3>
+              <p class="service-item__desc">Biostimulatory therapies that activate the body's intrinsic collagenous scaffold &mdash; stimulating the dermal matrix to rebuild volume, texture, and structural integrity from within.</p>
+            </div>
+          </div>
+          <div class="service-item">
+            <span class="service-item__num">04</span>
+            <div class="service-item__body">
+              <h3 class="service-item__name">Facial Architecture Consultation</h3>
+              <p class="service-item__desc">A comprehensive evaluation of your facial anatomy, bony architecture, adipose compartment distribution, and soft-tissue aging trajectory &mdash; the clinical foundation for every treatment plan we design.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- WHO THIS IS FOR — SCANNABLE VERTICAL STACK WITH REFINED ICONS -->
+        <section class="neuro-section neuro-section--alt" aria-labelledby="ae-who-heading">
+          <div class="neuro-section__header reveal">
+            <span class="section__label">Patient Fit</span>
+            <h2 class="inner-page__col-heading" id="ae-who-heading"
+                style="font-size:clamp(1.4rem,2.5vw,2rem);color:var(--deep);margin-block-start:0.25rem">
+              Who This Is For
+            </h2>
+          </div>
+          
+          <div class="who-treat-stack reveal">
+            
+            <!-- Item 1 -->
+            <div class="who-treat-card">
+              <div class="who-treat-card__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                  <path d="M9 12l2 2 4-4"/>
+                </svg>
+              </div>
+              <div class="who-treat-card__content">
+                <h3 class="who-treat-card__title">Refined, Undetectable Refinement</h3>
+                <p class="who-treat-card__text">Designed for those seeking natural aesthetic improvement that preserves identity &mdash; avoiding visible transformation, frozen movement, or artificial alteration.</p>
+              </div>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="who-treat-card" style="transition-delay: .06s">
+              <div class="who-treat-card__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="9"/>
+                  <path d="M12 3v18M3 12h18"/>
+                </svg>
+              </div>
+              <div class="who-treat-card__content">
+                <h3 class="who-treat-card__title">Anatomically Guided Precision</h3>
+                <p class="who-treat-card__text">Structural enhancement centered on proportional integrity, osteology, and conservative technique rather than fleeting trends.</p>
+              </div>
+            </div>
+
+            <!-- Item 3 -->
+            <div class="who-treat-card" style="transition-delay: .12s">
+              <div class="who-treat-card__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                  <polyline points="14 2 14 8 20 8"/>
+                  <line x1="16" y1="13" x2="8" y2="13"/>
+                  <line x1="16" y1="17" x2="8" y2="17"/>
+                  <polyline points="10 9 9 9 8 9"/>
+                </svg>
+              </div>
+              <div class="who-treat-card__content">
+                <h3 class="who-treat-card__title">Physician-Led Clinical Care</h3>
+                <p class="who-treat-card__text">Every evaluation includes a documented clinical indication, medical oversight, and tailored anatomical reasoning for every procedure.</p>
+              </div>
+            </div>
+
+            <!-- Item 4 -->
+            <div class="who-treat-card" style="transition-delay: .18s">
+              <div class="who-treat-card__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+                </svg>
+              </div>
+              <div class="who-treat-card__content">
+                <h3 class="who-treat-card__title">Long-Term Longitudinal Evolution</h3>
+                <p class="who-treat-card__text">A forward-looking 12-month horizon strategy that builds results incrementally in alignment with your natural facial aging trajectory.</p>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- TREATMENT CATEGORIES -->
+        <section class="neuro-section" aria-labelledby="ae-cat-heading">
+          <div class="neuro-section__header reveal">
+            <span class="section__label">Services</span>
+            <h2 class="inner-page__col-heading" id="ae-cat-heading" style="font-size:clamp(1.4rem,2.5vw,2rem);color:var(--deep);margin-block-start:0.25rem">Treatment Categories</h2>
+          </div>
+          <div class="conditions-grid reveal">
+            <span class="condition-pill">Neuromodulators</span>
+            <span class="condition-pill">Dermal Fillers</span>
+            <span class="condition-pill">Laser &amp; Energy Devices</span>
+            <span class="condition-pill">Skin Rejuvenation</span>
+            <span class="condition-pill">Regenerative Aesthetics</span>
+            <span class="condition-pill">Body Contouring</span>
+          </div>
+        </section>
+
+        <!-- AESTHETIC APPROACH -->
+        <section class="neuro-section neuro-section--alt" aria-labelledby="ae-approach-heading">
+          <div class="neuro-section__header reveal">
+            <span class="section__label">Methodology</span>
+            <h2 class="inner-page__col-heading" id="ae-approach-heading" style="font-size:clamp(1.4rem,2.5vw,2rem);color:var(--deep);margin-block-start:0.25rem">Aesthetic Approach</h2>
+          </div>
+          <div class="neuro-numbered-list">
+            <div class="neuro-numbered-item reveal"><span class="neuro-numbered-item__num">01</span><div class="neuro-numbered-item__body"><h3 class="neuro-numbered-item__title">Conservative, Buildable Results</h3><p class="neuro-numbered-item__desc">Every treatment is staged incrementally and calibrated to tissue response &mdash; preserving natural movement and avoiding the cumulative distortion that accompanies overtreatment.</p></div></div>
+            <div class="neuro-numbered-item reveal" style="transition-delay:.08s"><span class="neuro-numbered-item__num">02</span><div class="neuro-numbered-item__body"><h3 class="neuro-numbered-item__title">Anatomically Guided Planning</h3><p class="neuro-numbered-item__desc">Treatment selection follows facial osteology, adipose compartment dynamics, and SMAS integrity &mdash; not aesthetic trends or patient volume requests.</p></div></div>
+            <div class="neuro-numbered-item reveal" style="transition-delay:.16s"><span class="neuro-numbered-item__num">03</span><div class="neuro-numbered-item__body"><h3 class="neuro-numbered-item__title">Facial Balance Over Volume</h3><p class="neuro-numbered-item__desc">We address the face as an integrated anatomical structure. Proportional integrity, light reflection, and three-dimensional balance take precedence over isolated volume correction.</p></div></div>
+            <div class="neuro-numbered-item reveal" style="transition-delay:.24s"><span class="neuro-numbered-item__num">04</span><div class="neuro-numbered-item__body"><h3 class="neuro-numbered-item__title">Long-Term Aesthetic Evolution</h3><p class="neuro-numbered-item__desc">Aesthetic care must account for the long arc of facial aging &mdash; including bony resorption, ligamentous laxity, and volumetric redistribution. Each intervention is designed with that trajectory in mind.</p></div></div>
+          </div>
+        </section>
+
+        <!-- AESTHETIC PROTOCOLS -->
+        <section class="neuro-section" aria-labelledby="ae-protocols-heading">
+          <div class="neuro-section__header reveal">
+            <span class="section__label">Clinical Protocols</span>
+            <h2 class="inner-page__col-heading" id="ae-protocols-heading" style="font-size:clamp(1.4rem,2.5vw,2rem);color:var(--deep);margin-block-start:0.25rem">Aesthetic Protocols</h2>
+          </div>
+          <div class="protocol-list">
+            <div class="protocol-item reveal"><span class="protocol-item__num">01</span><div class="protocol-item__body"><h3 class="protocol-item__title" data-clinical-key="full-face-rebalancing">Full-Face Rebalancing</h3><p class="protocol-item__desc">A comprehensive injectable assessment addressing volumetric loss, midface descent, and facial unit imbalance &mdash; restoring structural coherence across all anatomical zones.</p></div></div>
+            <div class="protocol-item reveal" style="transition-delay:.07s"><span class="protocol-item__num">02</span><div class="protocol-item__body"><h3 class="protocol-item__title" data-clinical-key="lip-refinement">Lip Refinement</h3><p class="protocol-item__desc">Hyaluronic acid lip refinement guided by Cupid's bow architecture, philtral column definition, and vermilion proportion &mdash; never at the expense of natural movement or facial harmony.</p></div></div>
+            <div class="protocol-item reveal" style="transition-delay:.14s"><span class="protocol-item__num">03</span><div class="protocol-item__body"><h3 class="protocol-item__title" data-clinical-key="jawline-chin">Jawline &amp; Chin Contouring</h3><p class="protocol-item__desc">Injectable contouring of the mandibular border and chin projection &mdash; restoring structural definition without compromising the anatomical character of the face.</p></div></div>
+            <div class="protocol-item reveal" style="transition-delay:.21s"><span class="protocol-item__num">04</span><div class="protocol-item__body"><h3 class="protocol-item__title" data-clinical-key="skin-tightening">Skin Tightening &amp; Resurfacing</h3><p class="protocol-item__desc">Fractional laser and radiofrequency modalities targeting the dermal matrix &mdash; stimulating neocollagenesis and improving surface texture, tone, and structural tightening at the tissue level.</p></div></div>
+            <div class="protocol-item reveal" style="transition-delay:.28s"><span class="protocol-item__num">05</span><div class="protocol-item__body"><h3 class="protocol-item__title" data-clinical-key="collagen-stimulating">Collagen-Stimulating Therapies</h3><p class="protocol-item__desc">Poly-L-lactic acid (Sculptra) and complementary biostimulatory agents &mdash; delivered to restore the collagenous scaffold and address volume loss driven by dermal matrix degradation and bony resorption.</p></div></div>
+            <div class="protocol-item reveal" style="transition-delay:.35s"><span class="protocol-item__num">06</span><div class="protocol-item__body"><h3 class="protocol-item__title" data-clinical-key="pigment-vascular">Pigment &amp; Vascular Correction</h3><p class="protocol-item__desc">Intense Pulsed Light, Picosecond, and Nd:YAG laser modalities &mdash; targeting superficial and deeper chromophores for precise correction of pigmentation irregularity and vascular disruption.</p></div></div>
+          </div>
+          <button class="neuro-text-link reveal" type="button">Explore Clinical Services<svg viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></button>
+        </section>
+
+        <!-- AESTHETIC CARE PROGRAMS -->
+        <section class="neuro-section" aria-labelledby="ae-progs-heading">
+          <div class="neuro-section__header reveal">
+            <span class="section__label">Structured Pathways</span>
+            <h2 class="inner-page__col-heading" id="ae-progs-heading" style="font-size:clamp(1.4rem,2.5vw,2rem);color:var(--deep);margin-block-start:0.25rem">Aesthetic Care Programs</h2>
+          </div>
+          <div class="neuro-programs-grid">
+            <article class="neuro-program reveal" aria-label="Preventive Aesthetic Care">
+              <h3 class="neuro-program__name">Preventive Aesthetic Care</h3>
+              <div class="neuro-program__divider" aria-hidden="true"></div>
+              <div class="neuro-program__features">
+                <p class="neuro-program__feature">Quarterly physician assessment, conservative neuromodulator and filler maintenance, and ongoing dermal health monitoring</p>
+              </div>
+              <span class="neuro-program__cycle">Annual review</span>
+            </article>
+            <article class="neuro-program reveal" style="transition-delay:.1s" aria-label="Facial Optimization">
+              <h3 class="neuro-program__name">Facial Optimization</h3>
+              <div class="neuro-program__divider" aria-hidden="true"></div>
+              <div class="neuro-program__features">
+                <p class="neuro-program__feature">Integrated injectable and energy-based device planning across a 12-month aesthetic horizon &mdash; designed for measurable, progressive improvement</p>
+              </div>
+              <span class="neuro-program__cycle">12-month horizon</span>
+            </article>
+            <article class="neuro-program reveal" style="transition-delay:.2s" aria-label="Regenerative Skin Health">
+              <h3 class="neuro-program__name">Regenerative Skin Health</h3>
+              <div class="neuro-program__divider" aria-hidden="true"></div>
+              <div class="neuro-program__features">
+                <p class="neuro-program__feature">Sequential collagen-stimulation and laser therapy cycles, staged monthly or quarterly &mdash; rebuilding dermal matrix integrity from within</p>
+              </div>
+              <span class="neuro-program__cycle">Monthly/quarterly staging</span>
+            </article>
+          </div>
+
+          <!-- REFINED PROGRAM CTA CALLOUT BANNER -->
+          <div class="ae-program-cta reveal" style="margin-block-start: 2.5rem; padding: clamp(1.5rem, 4vw, 2.5rem); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem;">
+            <div style="max-width: 52ch; width: 100%; position: relative; z-index: 1;">
+              <h3 style="font-family: 'Cormorant Garamond', serif; font-size: clamp(1.25rem, 2.5vw, 1.5rem); margin: 0 0 0.35rem 0; font-weight: 400; line-height: 1.3;">
+                Ready to Begin Your Care Pathway?
+              </h3>
+              <p style="font-size: clamp(0.85rem, 1.2vw, 0.92rem); margin: 0; line-height: 1.5;">
+                Schedule an initial evaluation to review treatment horizons and build a tailored 12-month aesthetic plan designed for your individual facial architecture.
+              </p>
+            </div>
+            <a href="contact.html" class="btn btn--primary" style="text-decoration: none; white-space: nowrap; position: relative; z-index: 1;">
+              Begin Consultation
+              <svg viewBox="0 0 24 24" aria-hidden="true" style="width:14px;height:14px;stroke:currentColor;stroke-width:1.5;fill:none;stroke-linecap:round;stroke-linejoin:round"><path d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </a>
+          </div>
+        </section>
+
+        <!-- CLINICAL PROCESS -->
+        <section class="neuro-section neuro-section--alt" aria-labelledby="ae-process-heading">
+          <div class="neuro-section__header reveal">
+            <span class="section__label">Our Process</span>
+            <h2 class="inner-page__col-heading" id="ae-process-heading" style="font-size:clamp(1.4rem,2.5vw,2rem);color:var(--deep);margin-block-start:0.25rem">Clinical Process</h2>
+          </div>
+          <div class="neuro-numbered-list">
+            <div class="neuro-numbered-item reveal"><span class="neuro-numbered-item__num">01</span><div class="neuro-numbered-item__body"><h3 class="neuro-numbered-item__title">Anatomical Assessment</h3><p class="neuro-numbered-item__desc">Full-face analysis encompassing bony structure, adipose compartment distribution, SMAS integrity, dermal matrix quality, and the surface manifestation of underlying anatomical aging.</p></div></div>
+            <div class="neuro-numbered-item reveal" style="transition-delay:.08s"><span class="neuro-numbered-item__num">02</span><div class="neuro-numbered-item__body"><h3 class="neuro-numbered-item__title">Treatment Design</h3><p class="neuro-numbered-item__desc">Your plan is designed from your anatomy &mdash; not assembled from a pre-set menu. Every selection reflects a clinical rationale specific to your facial architecture and aesthetic goals.</p></div></div>
+            <div class="neuro-numbered-item reveal" style="transition-delay:.16s"><span class="neuro-numbered-item__num">03</span><div class="neuro-numbered-item__body"><h3 class="neuro-numbered-item__title">Staged Execution</h3><p class="neuro-numbered-item__desc">Treatments are executed sequentially, with tissue response data informing the timing, modality, and volume of each subsequent intervention.</p></div></div>
+            <div class="neuro-numbered-item reveal" style="transition-delay:.24s"><span class="neuro-numbered-item__num">04</span><div class="neuro-numbered-item__body"><h3 class="neuro-numbered-item__title">12-Month Horizon Review</h3><p class="neuro-numbered-item__desc">Annual evaluation against a documented baseline &mdash; reviewing the response of every treated zone and refining the forward plan in alignment with your evolving anatomy.</p></div></div>
+          </div>
+        </section>
+
+        <!-- CLINICAL STANDARDS -->
+        <section class="neuro-section" aria-labelledby="ae-standards-heading">
+          <div class="neuro-section__header reveal">
+            <span class="section__label">Our Commitment</span>
+            <h2 class="inner-page__col-heading" id="ae-standards-heading" style="font-size:clamp(1.4rem,2.5vw,2rem);color:var(--deep);margin-block-start:0.25rem">Clinical Standards</h2>
+          </div>
+          <div class="standards-list reveal">
+            <p class="standards-item">No procedure is performed without a documented, clinically substantiated indication</p>
+            <p class="standards-item">Every treatment decision is guided by anatomical findings and clinical evidence &mdash; not by patient volume requests or aesthetic trends</p>
+            <p class="standards-item">Conservative calibration is our standard &mdash; we measure refinement in subtlety, not in quantity</p>
+            <p class="standards-item">Clinical restraint — knowing when not to intervene — is as important as knowing when to act</p>
+          </div>
+        </section>
+
+        <!-- BEGIN YOUR PROTOCOL CTA -->
+        <div class="ae-cta-footer reveal" role="region" aria-label="Begin your aesthetic protocol" style="padding: clamp(1.75rem, 5vw, 3.5rem);">
+          <span class="ae-cta-footer__eyebrow">Begin Your Protocol</span>
+          <h2 class="ae-cta-footer__heading">Book Your Aesthetic Consultation</h2>
+          <p class="ae-cta-footer__note">Every consultation begins with a comprehensive anatomical assessment. No treatment is initiated without a documented clinical evaluation and a plan designed specifically for your facial architecture.</p>
+          <a href="contact.html" class="btn btn--primary" style="background:rgba(154,128,96,0.9);border:1px solid rgba(212,185,139,0.5);text-decoration:none">Schedule Consult<svg viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></a>
+        </div>
+
+        <!-- ===== CLINICAL LEADERSHIP ===== -->
+        <section class="team-section" aria-labelledby="cl-heading">
+
+          <div class="team-section__header reveal">
+            <span class="section__label" id="cl-eyebrow">Aesthetic Team</span>
+            <h2 class="inner-page__col-heading" id="cl-heading"
+                style="font-size:clamp(1.6rem,2.8vw,2.4rem);
+                       color:var(--deep);margin-block-start:0.25rem">
+              Clinical Leadership
+            </h2>
+            <p class="team-section__lead">
+              Our aesthetic team combines physician-led oversight with advanced
+              clinical expertise — ensuring every treatment decision is grounded
+              in anatomical precision, neurological insight, and a commitment to
+              conservative, enduring outcomes.
+            </p>
+          </div>
+
+          <div class="team-grid">
+
+            <!-- 01 — Dr. Ryan Monti, MD -->
+            <article class="team-card reveal"
+                     aria-label="Dr. Ryan Monti, MD — Founder and Medical Director">
+              <div class="team-card__photo-wrap">
+                <img class="team-card__photo"
+                     src="images/dr-monti.jpg"
+                     alt="Dr. Ryan Monti, MD — Founder &amp; Medical Director, Monti Institute"
+                     width="800" height="600"
+                     loading="lazy" decoding="async"/>
+              </div>
+              <div class="team-card__body">
+                <span class="team-card__role">Founder &amp; Medical Director</span>
+                <h3 class="team-card__name">Ryan Monti, MD</h3>
+                <p class="team-card__credentials">
+                  Board-Certified Internal Medicine
+                  &nbsp;&middot;&nbsp; ACP &nbsp;&middot;&nbsp; NBPAS
+                  &nbsp;&middot;&nbsp; FAACM<sup style="font-size:0.55em">&reg;</sup>
+                </p>
+                <div class="team-card__divider" aria-hidden="true"></div>
+                <p class="team-card__bio">
+                  Medical Aesthetics &middot; Migraine Medicine. Aesthetic
+                  philosophy centered on anatomical precision and conservative,
+                  enduring outcomes.
+                </p>
+                <div class="team-card__specialties">
+                  <span class="team-card__tag">MD &middot; Board-Certified</span>
+                  <span class="team-card__tag">Medical Aesthetics</span>
+                  <span class="team-card__tag">Assoc. Prof. MCG</span>
+                </div>
+                <a class="team-card__contact" href="contact.html" style="text-decoration:none;"
+                        aria-label="Request a consultation with Dr. Ryan Monti">
+                  Request Consultation
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                          d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                  </svg>
+                </a>
+              </div>
+            </article>
+
+            <!-- 02 — Sydney Stansell, BSN, RN, AACM-CI -->
+            <article class="team-card reveal"
+                     style="transition-delay:0.06s"
+                     aria-label="Sydney Stansell, BSN, RN, AACM-CI — Aesthetic Registered Nurse">
+              <div class="team-card__photo-wrap">
+                <img class="team-card__photo"
+                     src="images/sydney-stansell.jpg"
+                     alt="Sydney Stansell, BSN, RN, AACM-CI — Aesthetic Nurse, Monti Institute"
+                     width="800" height="600"
+                     loading="lazy" decoding="async"/>
+              </div>
+              <div class="team-card__body">
+                <span class="team-card__role">Aesthetic Nurse</span>
+                <h3 class="team-card__name">Sydney Stansell</h3>
+                <p class="team-card__credentials">
+                  BSN, RN, AACM-CI
+                </p>
+                <div class="team-card__divider" aria-hidden="true"></div>
+                <p class="team-card__bio">
+                  Sydney Stansell brings nearly nine years of healthcare experience,
+                  including four years as an EMT and five years as a Registered Nurse
+                  in critical care, post-operative orthopedic care, and hospice. Her
+                  extensive clinical background has cultivated a meticulous attention
+                  to detail, commitment to patient safety, and passion for delivering
+                  exceptional patient experiences. Sydney specializes in creating
+                  customized treatment plans that enhance her patients' natural beauty
+                  while achieving balanced, refreshed, and confidence-boosting results.
+                  She is currently pursuing her Doctor of Nursing Practice&mdash;Family
+                  Nurse Practitioner degree to further expand her expertise and
+                  commitment to excellence in patient care.
+                </p>
+                <div class="team-card__specialties">
+                  <span class="team-card__tag">BSN, RN, AACM-CI</span>
+                  <span class="team-card__tag">Critical Care Background</span>
+                  <span class="team-card__tag">Customized Treatment Plans</span>
+                </div>
+                <a class="team-card__contact" href="contact.html" style="text-decoration:none;"
+                        aria-label="Request a consultation with Sydney Stansell">
+                  Request Consultation
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                          d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                  </svg>
+                </a>
+              </div>
+            </article>
+
+            <!-- 03 — William Tyler Petty, BSN, RN, CCRN -->
+            <article class="team-card reveal"
+                     style="transition-delay:0.09s"
+                     aria-label="William Tyler Petty, BSN, RN, CCRN — Aesthetic Nurse">
+              <div class="team-card__photo-wrap">
+                <img class="team-card__photo"
+                     src="images/ty-petty.jpg"
+                     alt="William Tyler Petty, BSN, RN, CCRN — Aesthetic Nurse, Monti Institute"
+                     width="800" height="600"
+                     loading="lazy" decoding="async"/>
+              </div>
+              <div class="team-card__body">
+                <span class="team-card__role">Aesthetic Registered Nurse</span>
+                <h3 class="team-card__name">Ty Petty</h3>
+                <p class="team-card__credentials">
+                  BSN, RN, CCRN
+                </p>
+                <div class="team-card__divider" aria-hidden="true"></div>
+                <p class="team-card__bio">
+                  William Tyler Petty brings over 13 years of healthcare experience,
+                  including five years in EMS and eight years as a Critical Care RN,
+                  to the field of aesthetic medicine. Known for his precision,
+                  attention to detail, and commitment to safety, Ty specializes in
+                  delivering natural-looking results through personalized treatment
+                  plans designed to help clients look and feel their best.
+                </p>
+                <div class="team-card__specialties">
+                  <span class="team-card__tag">BSN, RN, CCRN</span>
+                  <span class="team-card__tag">Critical Care Background</span>
+                  <span class="team-card__tag">Natural-Looking Results</span>
+                </div>
+                <a class="team-card__contact" href="contact.html" style="text-decoration:none;"
+                        aria-label="Request a consultation with Ty Petty">
+                  Request Consultation
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                          d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                  </svg>
+                </a>
+              </div>
+            </article>
+
+            <!-- 04 — Morgan Melton, MSN, APRN, CPNP-PC -->
+            <article class="team-card reveal"
+                     style="transition-delay:0.12s"
+                     aria-label="Morgan Melton, MSN APRN CPNP-PC — Aesthetic Registered Nurse">
+              <div class="team-card__photo-wrap">
+                <img class="team-card__photo team-member-img"
+                     src="images/morgan-melton-navy-scrubs.jpg"
+                     alt="Morgan Melton, MSN, APRN, CPNP-PC — Aesthetic Clinician &amp; Lead Injector, Monti Institute"
+                     width="1024" height="1024"
+                     loading="lazy" decoding="async"/>
+              </div>
+              <div class="team-card__body">
+                <span class="team-card__role">Aesthetic Clinician &amp; Lead Injector</span>
+                <h3 class="team-card__name">Morgan Melton</h3>
+                <p class="team-card__credentials">
+                  MSN, APRN, CPNP-PC &nbsp;&middot;&nbsp; FAACM<sup style="font-size:0.55em">&reg;</sup>
+                </p>
+                <div class="team-card__divider" aria-hidden="true"></div>
+                <p class="team-card__bio">
+                  Morgan Melton is a board-certified nurse practitioner with over
+                  11 years of clinical experience. She specializes in advanced
+                  injectables, laser-based skin rejuvenation, and facial structural
+                  refinement &mdash; with an approach distinguished by anatomical
+                  attentiveness and genuine clinical restraint.
+                </p>
+                <div class="team-card__specialties">
+                  <span class="team-card__tag">MSN, APRN, CPNP-PC</span>
+                  <span class="team-card__tag">Laser &amp; Injectables</span>
+                  <span class="team-card__tag">Skin Rejuvenation</span>
+                </div>
+                <a class="team-card__contact" href="contact.html" style="text-decoration:none;"
+                        aria-label="Request a consultation with Morgan Melton">
+                  Request Consultation
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                          d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                  </svg>
+                </a>
+              </div>
+            </article>
+
+            <!-- 05 — Addison Jensen, RN -->
+            <article class="team-card reveal"
+                     style="transition-delay:0.24s"
+                     aria-label="Addison Jensen, RN — Aesthetic Registered Nurse">
+              <div class="team-card__photo-wrap">
+                <img class="team-card__photo"
+                     src="images/addison-jensen.jpg"
+                     alt="Addison Jensen, RN — Aesthetic RN and Migraine Therapeutics, Monti Institute"
+                     width="708" height="944"
+                     loading="lazy" decoding="async"/>
+              </div>
+              <div class="team-card__body">
+                <span class="team-card__role">Aesthetic RN &middot; Migraine &amp; Facial Therapeutics</span>
+                <h3 class="team-card__name">Addison Jensen, RN</h3>
+                <p class="team-card__credentials">
+                  RN &nbsp;&middot;&nbsp; Critical Care
+                  &nbsp;&middot;&nbsp; Facial Therapeutics
+                </p>
+                <div class="team-card__divider" aria-hidden="true"></div>
+                <p class="team-card__bio">
+                  Addison Jensen is a registered nurse with over eight years in
+                  critical care &mdash; bringing exceptional clinical precision to
+                  facial therapeutics and advanced injectables within a
+                  physician-supervised framework. Meticulous, patient-centered approach.
+                </p>
+                <div class="team-card__specialties">
+                  <span class="team-card__tag">RN &middot; Critical Care</span>
+                  <span class="team-card__tag">Facial Therapeutics</span>
+                  <span class="team-card__tag">Advanced Injectables</span>
+                </div>
+                <a class="team-card__contact" href="contact.html" style="text-decoration:none;"
+                        aria-label="Request a consultation with Addison Jensen">
+                  Request Consultation
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                          d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                  </svg>
+                </a>
+              </div>
+            </article>
+
+            <!-- 06 — Megan Phares, RN, Director of Operations -->
+            <article class="team-card reveal"
+                     aria-label="Megan Phares, Director of Operations">
+              <div class="team-card__photo-wrap">
+                <img class="team-card__photo"
+                     src="images/megan-phares.jpg"
+                     alt="Megan Phares, RN — Director of Operations, Monti Institute"
+                     width="768" height="1024"
+                     loading="lazy" decoding="async"/>
+              </div>
+              <div class="team-card__body">
+                <span class="team-card__role">Director of Operations</span>
+                <h3 class="team-card__name">Megan Phares</h3>
+                <p class="team-card__credentials">RN &nbsp;&middot;&nbsp; Operations &amp; Clinical Leadership</p>
+                <div class="team-card__divider" aria-hidden="true"></div>
+                <p class="team-card__bio">
+                  Megan leads the operational and clinical infrastructure of the
+                  Institute, overseeing care coordination, staff development, and
+                  patient experience across both neurological and aesthetic divisions.
+                </p>
+                <ul class="team-card__specialties" aria-label="Focus areas">
+                  <li class="team-card__tag">RN</li>
+                  <li class="team-card__tag">Clinical Operations</li>
+                  <li class="team-card__tag">Care Coordination</li>
+                </ul>
+              </div>
+            </article>
+
+          </div><!-- /team-grid -->
+
+        </section><!-- /clinical-leadership -->
+
+      </div><!-- /inner-page__inner -->
+    </div><!-- /inner-page -->
+
+    <div class="inner-page">
+      <div class="inner-page__inner" style="padding-inline: clamp(1rem, 4vw, 2.5rem);">
+        <nav class="clinical-breadcrumb" aria-label="Page breadcrumb">
+          <button class="clinical-breadcrumb__link" type="button">
+            Aesthetic Medicine
+          </button>
+          <span class="clinical-breadcrumb__sep" aria-hidden="true">&#8250;</span>
+          <span class="clinical-breadcrumb__current">Care Programs</span>
+        </nav>
+        <span class="inner-page__eyebrow">Aesthetic Medicine &middot; Structured Pathways</span>
+        <h1 class="inner-page__title">Care<br><em>Programs</em></h1>
+        <p class="inner-page__lead">
+          Integrated, physician-designed programs that address the full arc of neurological
+          and aesthetic wellbeing — from first consultation to long-term maintenance.
+        </p>
+        <div class="inner-page__rule"></div>
+        <div class="service-list">
+          <div class="service-item">
+            <span class="service-item__num">01</span>
+            <div class="service-item__body">
+              <h3 class="service-item__name">Cognitive Wellness Program</h3>
+              <p class="service-item__desc">Comprehensive neurocognitive evaluation, lifestyle intervention, and ongoing support protocols.</p>
+            </div>
+          </div>
+          <div class="service-item">
+            <span class="service-item__num">02</span>
+            <div class="service-item__body">
+              <h3 class="service-item__name">Neuro-Aesthetic Renewal</h3>
+              <p class="service-item__desc">An integrative program bridging neurological wellness with aesthetic restoration over 12 weeks.</p>
+            </div>
+          </div>
+          <div class="service-item">
+            <span class="service-item__num">03</span>
+            <div class="service-item__body">
+              <h3 class="service-item__name">Movement &amp; Balance</h3>
+              <p class="service-item__desc">Specialist-led programs for movement disorders and long-term motor health optimisation.</p>
+            </div>
+          </div>
+          <div class="service-item">
+            <span class="service-item__num">04</span>
+            <div class="service-item__body">
+              <h3 class="service-item__name">Annual Wellness Membership</h3>
+              <p class="service-item__desc">Priority access, quarterly reviews, and coordinated care across both divisions.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- PROGRAM OVERVIEW CARDS -->
+        <section class="neuro-section neuro-section--alt" aria-labelledby="cp-overview-heading"
+                 style="margin-block-start:var(--sp-inner);padding-block-start:var(--sp-inner);border-top:1px solid var(--stone)">
+          <div class="neuro-section__header reveal">
+            <span class="section__label">Overview</span>
+            <h2 class="inner-page__col-heading" id="cp-overview-heading"
+                style="font-size:clamp(1.4rem,2.5vw,2rem);color:var(--deep);margin-block-start:0.25rem">
+              Structured Paths to Sustained Wellness
+            </h2>
+          </div>
+          <div class="programs__grid" style="margin-block-start:0.5rem">
+            <div class="program reveal">
+              <h3 class="program__name">Cognitive Wellness</h3>
+              <p class="program__desc">Comprehensive neurocognitive evaluation and ongoing support protocols.</p>
+            </div>
+            <div class="program reveal" style="transition-delay:0.1s">
+              <h3 class="program__name">Neuro-Aesthetic Renewal</h3>
+              <p class="program__desc">Integrative programs bridging neurological care with aesthetic restoration.</p>
+            </div>
+            <div class="program reveal" style="transition-delay:0.2s">
+              <h3 class="program__name">Movement &amp; Balance</h3>
+              <p class="program__desc">Specialist-led programs for movement disorders and long-term motor health.</p>
+            </div>
+          </div>
+          <div style="margin-block-start:2rem">
+            <a href="contact.html" class="btn btn--primary" style="text-decoration:none">
+              Request Programme Evaluation
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+              </svg>
+            </a>
+          </div>
+        </section>
+      </div><!-- /inner-page__inner -->
+    </div><!-- /inner-page -->
+
+    <!-- ===== ANATOMY OF A PROCEDURE MODULE ===== -->
+
+    <section class="ba-section" aria-labelledby="ba-heading" id="before-after" style="padding-inline: clamp(1rem, 4vw, 2.5rem);">
+      <span class="ba-section__eyebrow">Clinical Aesthetics</span>
+      <h2 class="ba-section__heading" id="ba-heading">Before &amp; After</h2>
+      <p class="ba-section__sub">
+        Drag the divider to reveal the progression of each treatment.
+        Every result reflects the physician-led, anatomically conservative
+        approach that defines care at Monti Institute.
+      </p>
+      <div class="ba-tabs" id="ba-tabs" role="tablist" aria-label="Select treatment"></div>
+      <div class="ba-meta">
+        <span class="ba-tname" id="ba-tname">Full-face rebalancing</span>
+        <span class="ba-tdesc" id="ba-tdesc">Hyaluronic acid &middot; Calcium hydroxylapatite &middot; 12-month result</span>
+      </div>
+      <div class="ba-stage" id="ba-stage"
+           role="img" aria-label="Before and after comparison — drag divider to reveal results">
+        <canvas class="ba-canvas-el" id="ba-c-before"></canvas>
+        <canvas class="ba-canvas-el ba-after" id="ba-c-after"></canvas>
+        <div class="ba-line" id="ba-line"></div>
+        <div class="ba-knob" id="ba-knob"
+             role="slider" tabindex="0"
+             aria-label="Comparison divider handle"
+             aria-valuemin="5" aria-valuemax="95" aria-valuenow="50">
+          <svg viewBox="0 0 20 20" aria-hidden="true">
+            <path d="M7 4L3 10l4 6M13 4l4 6-4 6"/>
+          </svg>
+        </div>
+        <span class="ba-pill ba-pill-b">Before</span>
+        <span class="ba-pill ba-pill-a" id="ba-pill-a">After</span>
+      </div>
+      <p class="ba-drag-hint" id="ba-drag-hint">&larr; Drag the handle to compare &rarr;</p>
+      <p class="ba-disclaimer">
+        Results depicted are illustrative and represent the aesthetic philosophy
+        and clinical approach of Monti Institute of Neuro Aesthetics. Individual
+        outcomes vary based on anatomy, treatment plan, and patient response.
+        All treatments are physician-led with documented clinical indication.
+        Actual patient photography is protected under HIPAA and is never
+        published without explicit written informed consent.
+      </p>
+    </section>
+
+    <section class="anatomy-module" aria-labelledby="anatomy-heading" style="padding-inline: clamp(1rem, 4vw, 2.5rem);">
+      <div class="anatomy-module__meta">
+        <span class="anatomy-module__procedure-label">
+          The Anatomy of a Procedure
+        </span>
+      </div>
+
+      <h2 class="anatomy-module__procedure-name" id="anatomy-heading">
+        Full-Face Rebalancing
+      </h2>
+      <p class="anatomy-module__procedure-sub">
+        A comprehensive injectable assessment that addresses volumetric loss,
+        midface descent, and facial unit imbalance simultaneously &mdash;
+        restoring structural coherence across all anatomical zones rather
+        than treating isolated features in isolation.
+      </p>
+
+      <div class="anatomy-pillars">
+
+        <!-- PILLAR I: Anatomical Indication -->
+        <div class="anatomy-pillar">
+          <span class="anatomy-pillar__num">Pillar I</span>
+          <h3 class="anatomy-pillar__heading">Anatomical Indication</h3>
+          <div class="anatomy-pillar__body">
+            <p>
+              Full-Face Rebalancing is indicated when the clinical evaluation
+              reveals multi-zone involvement in facial aging that cannot be
+              effectively addressed through single-site intervention. The
+              primary anatomical triggers include:
+            </p>
+            <ul class="anatomy-pillar__list">
+              <li>
+                Midface descent secondary to malar fat compartment migration
+                and bony resorption of the zygoma and infraorbital rim
+              </li>
+              <li>
+                SMAS laxity producing jowl formation and effacement of the
+                mandibular border definition
+              </li>
+              <li>
+                Periorbital hollowing driven by loss of the suborbicularis
+                oculi fat (SOOF) compartment
+              </li>
+              <li>
+                Temporal hollowing and frontotemporal volume deflation
+                altering upper-face proportional integrity
+              </li>
+              <li>
+                Labiomental groove deepening from lip thinning and chin
+                pad volumetric reduction
+              </li>
+            </ul>
+            <p style="margin-block-start:0.85rem">
+              This procedure is not indicated for patients seeking isolated
+              feature enhancement. It is reserved for presentations where
+              the physician&rsquo;s anatomical assessment reveals that
+              treating any single zone without addressing the surrounding
+              structural context would produce a discordant result.
+            </p>
+          </div>
+        </div>
+
+        <!-- PILLAR II: Clinical Execution -->
+        <div class="anatomy-pillar">
+          <span class="anatomy-pillar__num">Pillar II</span>
+          <h3 class="anatomy-pillar__heading">Clinical Execution</h3>
+          <div class="anatomy-pillar__body">
+            <p>
+              Execution follows a structured sequencing protocol designed
+              around anatomical hierarchy &mdash; restoring deep structural
+              foundations before addressing intermediate and superficial layers.
+            </p>
+            <ul class="anatomy-pillar__list">
+              <li>
+                <strong style="font-weight:400;color:var(--charcoal)">
+                  Phase 1 &mdash; Deep Structural Foundation:</strong>
+                Periosteal and deep fat compartment restoration using
+                high-G&prime; hyaluronic acid (HA) or calcium hydroxylapatite
+                at the malar eminence, lateral cheek, and temporal fossa.
+              </li>
+              <li>
+                <strong style="font-weight:400;color:var(--charcoal)">
+                  Phase 2 &mdash; Mid-Layer Integration:</strong>
+                Intermediate fat compartment correction and tear trough
+                addressing with low-viscosity HA for natural tissue integration
+                and avoidance of the Tyndall effect.
+              </li>
+              <li>
+                <strong style="font-weight:400;color:var(--charcoal)">
+                  Phase 3 &mdash; Superficial Refinement:</strong>
+                Lip rhytid softening, vermilion refinement, and perioral
+                correction with precision microdroplet technique.
+              </li>
+              <li>
+                <strong style="font-weight:400;color:var(--charcoal)">
+                  Phase 4 &mdash; Structural Definition:</strong>
+                Mandibular border and chin projection using cohesive HA or
+                biostimulatory agents based on tissue response and patient
+                anatomy.
+              </li>
+            </ul>
+            <p style="margin-block-start:0.85rem">
+              All injections are performed under direct physician oversight.
+              Product selection, volume, and depth are determined
+              intraoperatively based on real-time tissue response, not
+              predetermined by a standing protocol.
+            </p>
+          </div>
+        </div>
+
+        <!-- PILLAR III: 12-Month Horizon Profile -->
+        <div class="anatomy-pillar">
+          <span class="anatomy-pillar__num">Pillar III</span>
+          <h3 class="anatomy-pillar__heading">The 12-Month Horizon Profile</h3>
+          <div class="anatomy-pillar__body">
+            <p>
+              Structural aesthetic outcomes develop and evolve over time.
+              Understanding the treatment arc allows patients and clinicians
+              to evaluate results against realistic anatomical benchmarks
+              rather than immediate post-procedure appearance.
+            </p>
+            <div class="anatomy-horizon">
+              <div class="anatomy-horizon__item">
+                <span class="anatomy-horizon__period">Days 1&ndash;14</span>
+                <span class="anatomy-horizon__desc">
+                  Initial edema and soft-tissue displacement resolve.
+                  Structural correction begins to emerge as inflammatory
+                  response subsides. True result evaluation is not
+                  appropriate at this stage.
+                </span>
+              </div>
+              <div class="anatomy-horizon__item">
+                <span class="anatomy-horizon__period">Weeks 3&ndash;6</span>
+                <span class="anatomy-horizon__desc">
+                  Product integration into surrounding tissue architecture.
+                  Midface lift effect becomes apparent. Patient and physician
+                  review outcomes against documented baseline photography.
+                </span>
+              </div>
+              <div class="anatomy-horizon__item">
+                <span class="anatomy-horizon__period">Months 3&ndash;6</span>
+                <span class="anatomy-horizon__desc">
+                  Biostimulatory agents (if used) produce neocollagenesis
+                  in the treated dermis and subdermis. Skin quality and
+                  structural firmness continue to improve beyond the
+                  initial volumetric correction.
+                </span>
+              </div>
+              <div class="anatomy-horizon__item">
+                <span class="anatomy-horizon__period">Months 6&ndash;12</span>
+                <span class="anatomy-horizon__desc">
+                  Formal 12-month horizon review. Clinical photography
+                  compared against baseline. Residual product volume assessed.
+                  Forward plan for maintenance or augmentation designed
+                  based on tissue response and ongoing aging trajectory.
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /anatomy-pillars -->
+    </section>
+
+    <!-- ===== CLINICAL GLOSSARY ===== -->
+    <section class="glossary-section neuro-section--alt" aria-labelledby="glossary-heading" style="padding-inline: clamp(1rem, 4vw, 2.5rem);">
+      <span class="hp-trust-section__label">Clinical Lexicon</span>
+      <h2 class="inner-page__col-heading" id="glossary-heading"
+          style="font-size:clamp(1.6rem,3vw,2.2rem);color:var(--deep)">
+        Clinical Glossary
+      </h2>
+      <p class="inner-page__col-body" style="max-width:58ch;margin-block-start:0.5rem">
+        Precision medicine requires precise language. The following definitions
+        are provided to support informed, substantive conversations between
+        patient and physician &mdash; not to replace one.
+      </p>
+
+      <div class="glossary-grid">
+
+        <!-- 1. SMAS Integrity -->
+        <details class="glossary-term">
+          <summary class="glossary-term__trigger">
+            <div class="glossary-term__trigger-inner">
+              <span class="glossary-term__discipline">Aesthetic Anatomy</span>
+              <span class="glossary-term__word">SMAS Integrity</span>
+            </div>
+            <svg class="glossary-term__chevron" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M6 9l6 6 6-6"/>
+            </svg>
+          </summary>
+          <div class="glossary-term__body">
+            <div class="glossary-term__definition">
+              <p>
+                The <strong style="font-weight:400;color:var(--charcoal)">
+                Superficial Musculoaponeurotic System (SMAS)</strong> is the
+                fibromuscular layer that connects the facial muscles to the
+                overlying dermis, functioning as the structural scaffold
+                of the mid- and lower face. SMAS integrity refers to the
+                tensile strength, cohesion, and vertical positioning of
+                this anatomical layer.
+              </p>
+              <p>
+                As the SMAS loses integrity with age &mdash; through a process
+                of fibrous thinning, gravitational descent, and ligamentous
+                attenuation &mdash; the overlying soft tissue structures migrate
+                inferiorly, producing jowl formation, nasolabial deepening,
+                and effacement of the mandibular border. SMAS integrity is
+                assessed as part of every comprehensive facial evaluation
+                at this practice.
+              </p>
+            </div>
+            <div class="glossary-term__clinical-note">
+              <strong>Clinical Relevance at Monti Institute</strong>
+              Assessment of SMAS integrity informs whether volumetric
+              correction alone will produce a stable result, or whether
+              the underlying structural descent requires biostimulatory
+              agents or device-based support to address the foundational
+              layer of facial laxity.
+            </div>
+          </div>
+        </details>
+
+        <!-- 2. Bony Resorption -->
+        <details class="glossary-term">
+          <summary class="glossary-term__trigger">
+            <div class="glossary-term__trigger-inner">
+              <span class="glossary-term__discipline">Facial Osteology &amp; Aging</span>
+              <span class="glossary-term__word">Bony Resorption</span>
+            </div>
+            <svg class="glossary-term__chevron" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M6 9l6 6 6-6"/>
+            </svg>
+          </summary>
+          <div class="glossary-term__body">
+            <div class="glossary-term__definition">
+              <p>
+                Bony resorption refers to the progressive reduction in craniofacial
+                skeletal volume that occurs throughout adult life. The facial
+                skeleton is not a static structure &mdash; the maxilla, zygoma,
+                mandible, and orbital rims undergo measurable volumetric loss
+                beginning in the third decade and accelerating after menopause
+                in women.
+              </p>
+              <p>
+                The clinical consequence is a reduction in the osseous foundation
+                upon which soft tissue structures rest. As the skeletal scaffold
+                recedes, overlying skin and fat compartments lose their anatomical
+                support, producing the characteristic signs of facial aging that
+                are not attributable to soft tissue changes alone. Correcting soft
+                tissue without accounting for underlying bony resorption produces
+                results that are volumetrically incongruent with the patient&rsquo;s
+                skeletal architecture.
+              </p>
+            </div>
+            <div class="glossary-term__clinical-note">
+              <strong>Clinical Relevance at Monti Institute</strong>
+              Identification of bony resorption patterns &mdash; particularly at
+              the infraorbital rim, malar eminence, and pyriform aperture &mdash;
+              directly informs filler placement depth, product selection, and
+              the long-term sequencing of any injectable treatment plan.
+            </div>
+          </div>
+        </details>
+
+        <!-- 3. CGRP Pathway -->
+        <details class="glossary-term">
+          <summary class="glossary-term__trigger">
+            <div class="glossary-term__trigger-inner">
+              <span class="glossary-term__discipline">Migraine Neuroscience</span>
+              <span class="glossary-term__word">CGRP Pathway</span>
+            </div>
+            <svg class="glossary-term__chevron" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M6 9l6 6 6-6"/>
+            </svg>
+          </summary>
+          <div class="glossary-term__body">
+            <div class="glossary-term__definition">
+              <p>
+                <strong style="font-weight:400;color:var(--charcoal)">
+                Calcitonin Gene-Related Peptide (CGRP)</strong> is a
+                neuropeptide released from trigeminal nerve terminals that
+                plays a central role in migraine pathophysiology. During
+                a migraine attack, CGRP is released in elevated concentrations
+                from both peripheral trigeminal afferents and central neurons,
+                producing vasodilation, neurogenic inflammation, and the
+                sensitization of pain pathways that characterize the full
+                migraine episode.
+              </p>
+              <p>
+                The CGRP pathway has become one of the most significant
+                pharmacological targets in modern migraine medicine. CGRP
+                receptor antagonists (gepants) block the peptide&rsquo;s
+                action at the receptor level; anti-CGRP monoclonal antibodies
+                target the peptide or its receptor directly, providing
+                monthly or quarterly preventive coverage with a mechanism
+                of action specific to migraine biology.
+              </p>
+            </div>
+            <div class="glossary-term__clinical-note">
+              <strong>Clinical Relevance at Monti Institute</strong>
+              CGRP pathway agents are a core component of the interventional
+              toolkit for eligible migraine patients at this practice. Candidate
+              selection, dosing intervals, and combination with Botox or
+              infusion protocols are determined through individualized clinical
+              evaluation — not a standard formulary approach.
+            </div>
+          </div>
+        </details>
+
+        <!-- 4. Regenerative Biostimulation -->
+        <details class="glossary-term">
+          <summary class="glossary-term__trigger">
+            <div class="glossary-term__trigger-inner">
+              <span class="glossary-term__discipline">Regenerative Aesthetics</span>
+              <span class="glossary-term__word">Regenerative Biostimulation</span>
+            </div>
+            <svg class="glossary-term__chevron" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M6 9l6 6 6-6"/>
+            </svg>
+          </summary>
+          <div class="glossary-term__body">
+            <div class="glossary-term__definition">
+              <p>
+                Regenerative biostimulation refers to a class of aesthetic
+                interventions that do not simply add volume or block neuromuscular
+                activity, but instead activate the body&rsquo;s intrinsic cellular
+                mechanisms of collagen synthesis, dermal matrix renewal, and
+                structural tissue regeneration. The result is improvement in skin
+                quality, firmness, and structural integrity that develops
+                progressively over months rather than immediately.
+              </p>
+              <p>
+                Primary biostimulatory agents include Poly-L-lactic acid (PLLA,
+                marketed as Sculptra), calcium hydroxylapatite (CaHA, marketed as
+                Radiesse), and polynucleotide complexes. Each activates fibroblast
+                activity through distinct mechanisms, producing neocollagenesis
+                &mdash; the synthesis of new collagen within the treated dermis
+                and subdermis &mdash; rather than mechanical displacement of
+                existing tissue structures.
+              </p>
+            </div>
+            <div class="glossary-term__clinical-note">
+              <strong>Clinical Relevance at Monti Institute</strong>
+              Biostimulatory agents are staged within a 12-month horizon plan
+              and evaluated at defined intervals. Because results develop over
+              time, patient selection for these agents requires a commitment to
+              longitudinal follow-up and an understanding that the full outcome
+              is not visible at the time of treatment.
+            </div>
+          </div>
+        </details>
+
+        <!-- 5. Documented Clinical Indication -->
+        <details class="glossary-term">
+          <summary class="glossary-term__trigger">
+            <div class="glossary-term__trigger-inner">
+              <span class="glossary-term__discipline">Clinical Standards</span>
+              <span class="glossary-term__word">Documented Clinical Indication</span>
+            </div>
+            <svg class="glossary-term__chevron" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M6 9l6 6 6-6"/>
+            </svg>
+          </summary>
+          <div class="glossary-term__body">
+            <div class="glossary-term__definition">
+              <p>
+                A documented clinical indication is a formally recorded,
+                evidence-based rationale that justifies a specific medical
+                or aesthetic intervention for a specific patient at a specific
+                point in their clinical course. At Monti Institute, no
+                procedure &mdash; neurological or aesthetic &mdash; is performed
+                without one.
+              </p>
+              <p>
+                In neurological practice, a documented clinical indication for
+                Botox for chronic migraine, for example, requires a confirmed
+                diagnosis of chronic migraine (&ge;15 headache days per month,
+                &ge;8 of which meet migraine criteria), documented inadequacy
+                of prior preventive treatments, and physician-recorded clinical
+                reasoning supporting this intervention for this patient.
+              </p>
+              <p>
+                In aesthetic practice, it means that the choice of treatment,
+                product, volume, and injection site is recorded in the clinical
+                record with a specific anatomical rationale &mdash; not simply
+                selected from a standard menu. This standard distinguishes
+                physician-led aesthetic care from high-volume aesthetic practice.
+              </p>
+            </div>
+            <div class="glossary-term__clinical-note">
+              <strong>Clinical Relevance at Monti Institute</strong>
+              This standard is not a compliance formality &mdash; it is the
+              mechanism through which clinical accountability is maintained over
+              time. A documented indication creates a record against which future
+              outcomes can be evaluated, and a rationale that can be revisited,
+              revised, or defended as the patient&rsquo;s case evolves.
+            </div>
+          </div>
+        </details>
+
+      </div><!-- /glossary-grid -->
+    </section>
+
+  </main>
+
+  <div class="site-disclaimer" role="note" aria-label="Medical and legal disclaimer">
+    <p class="site-disclaimer__text">
+      The content on this website is for informational purposes only and does not
+      constitute medical advice, diagnosis, or treatment, and does not establish a
+      provider-patient relationship. Always consult a qualified healthcare professional
+      regarding your individual health circumstances. In a medical emergency, call 911.
+      &nbsp;&middot;&nbsp;
+      <a href="medical-disclaimer.html">Full Medical Disclaimer</a>
+      &nbsp;&middot;&nbsp;
+      <a href="privacy-policy.html">Privacy Policy</a>
+    </p>
+  </div>
+
+  <footer style="background:rgba(26,22,20,0.95);border-top:1px solid rgba(154,128,96,0.25);padding:32px 40px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;margin-top:4rem;">
+    <p style="margin:0;font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.75);">&copy; 2026 Monti Institute of Neuro Aesthetics. All Rights Reserved.</p>
+    <nav aria-label="Footer navigation" style="display:flex;gap:2.5rem;align-items:center;flex-wrap:wrap;">
+      <a href="privacy-policy.html" style="font-size:0.72rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold-ondark);text-decoration:none;" onmouseover="this.style.color='#FFFFFF'" onmouseout="this.style.color='var(--gold-ondark)'">Privacy Policy</a>
+      <a href="medical-disclaimer.html" style="font-size:0.72rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold-ondark);text-decoration:none;" onmouseover="this.style.color='#FFFFFF'" onmouseout="this.style.color='var(--gold-ondark)'">Medical Disclaimer</a>
+      <a href="accessibility.html" style="font-size:0.72rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold-ondark);text-decoration:none;" onmouseover="this.style.color='#FFFFFF'" onmouseout="this.style.color='var(--gold-ondark)'">Accessibility</a>
+      <a href="contact.html" style="font-size:0.72rem;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.75);text-decoration:none;" onmouseover="this.style.color='var(--gold-ondark)'" onmouseout="this.style.color='rgba(255,255,255,0.75)'">Contact</a>
+    </nav>
+  </footer>
+
+  <script src="script.js"></script>
+
+  <script>
+  /* ==========================================================================
+     MONTI INSTITUTE — CLINICAL INFORMATION REGISTRY
+     Powers the modal opened by any [data-clinical-key] element (the
+     protocol titles under "Aesthetic Protocols").
+     ========================================================================== */
+window.MONTI_REGISTRY = {
+  "full-face-rebalancing": {
+    label: "Full-Face Rebalancing",
+    category: "Aesthetic Procedure",
+    preview: "A comprehensive injectable restoration addressing volume loss and structural aging across all facial zones simultaneously.",
+    body: "Full-face rebalancing is indicated when the clinical evaluation reveals multi-zone involvement in facial aging that cannot be addressed through single-site treatment. Rather than treating individual features in isolation, we address the face as an integrated anatomical system — restoring the deep bony and fat compartment foundations before addressing intermediate and surface layers.",
+    detail: [
+      "Phase 1 — Deep structural restoration: periosteal volumization at the malar eminence, infraorbital rim, and temporal fossa using high-G filler or calcium hydroxylapatite.",
+      "Phase 2 — Mid-layer integration: intermediate fat compartment correction and tear trough treatment with precision-placed hyaluronic acid.",
+      "Phase 3 — Superficial refinement: lip rhytids, vermilion border, and perioral correction.",
+      "Phase 4 — Structural definition: mandibular border and chin projection.",
+      "The 12-month horizon: results continue to develop over months — biostimulatory agents activate collagen synthesis that improves skin quality beyond the initial volumetric correction."
+    ],
+    note: "Begins with a comprehensive anatomical assessment — no treatment without a documented clinical rationale."
+  },
+
+  "lip-refinement": {
+    label: "Lip Refinement",
+    category: "Aesthetic Procedure",
+    preview: "Hyaluronic acid lip treatment guided by precise anatomical proportions — natural movement preserved.",
+    body: "Lip refinement at Monti Institute is guided by the specific anatomy of your lips — the Cupid's bow architecture, philtral column definition, vermilion proportion, and the relationship between upper and lower lip volume — not by a trend or a target 'look.' The goal is to enhance your lips' natural structure while preserving the natural movement and character that make them distinctly yours.",
+    detail: [
+      "Anatomical assessment first: we evaluate your lip anatomy, the proportion of upper to lower lip, and the definition of your philtral columns before selecting product or volume.",
+      "Product selection: low-to-medium viscosity hyaluronic acid fillers optimized for dynamic lip movement.",
+      "Technique: precise microbolus and retrograde linear threading, placed to define architecture without creating an 'overfilled' appearance.",
+      "Natural movement: we prioritize maintaining the natural movement and softness of lips — the most visible giveaway of poorly done lip work.",
+      "Duration: 6–12 months depending on product selected and individual metabolism."
+    ],
+    note: "Guided by anatomy, not trend — our philosophy is refinement, not augmentation."
+  },
+
+  "jawline-chin": {
+    label: "Jawline & Chin Contouring",
+    category: "Aesthetic Procedure",
+    preview: "Injectable contouring of the mandibular border and chin projection — structural definition without identity distortion.",
+    body: "As the face ages, the mandibular border loses definition through a combination of bony resorption, fat redistribution, and SMAS laxity — producing jowl formation and an indistinct jawline. Injectable contouring restores this structural definition using high-viscosity hyaluronic acid or calcium hydroxylapatite placed along the mandibular border and at the chin.",
+    detail: [
+      "Anatomical foundation: we assess the degree of bony resorption along the jaw, the presence of jowl formation, and the chin's relationship to the rest of the face before selecting product or volume.",
+      "Target areas: anterior chin projection, lateral chin, mandibular angle, and along the body of the jaw.",
+      "Natural character preserved: the goal is to restore the structural definition that aging has diminished — not to create a dramatically different jawline.",
+      "Complementary procedures: jawline contouring is most effective when combined with treatment of the midface and jowl — isolated jawline treatment without addressing the causes of jowl formation produces temporary results.",
+      "Duration: calcium hydroxylapatite provides both immediate correction and biostimulatory effects lasting 12–18 months."
+    ],
+    note: "Begins with full facial assessment — isolated jawline treatment without midface context produces incomplete results."
+  },
+
+  "skin-tightening": {
+    label: "Skin Tightening & Resurfacing",
+    category: "Aesthetic Procedure",
+    preview: "Fractional and radiofrequency modalities that stimulate neocollagenesis — tighter, clearer skin over weeks.",
+    body: "Skin tightening and resurfacing treatments address the dermal matrix — the structural layer of the skin that gives it firmness, elasticity, and a smooth surface. As this layer loses collagen and elastin over time, skin becomes thinner, looser, and more textured. These treatments reverse those changes from within.",
+    detail: [
+      "Neocollagenesis: the production of new collagen fibers in response to controlled thermal or mechanical stimulation — the underlying mechanism of all effective skin tightening treatments.",
+      "Resurfacing component: ablative or semi-ablative fractional laser also removes the outermost damaged layers of skin, revealing healthier cells beneath.",
+      "Best candidates: patients with mild to moderate skin laxity, uneven texture, acne scarring, or photodamage.",
+      "Treatment course: most skin tightening protocols involve 2–4 sessions spaced several weeks apart for optimal collagen remodeling.",
+      "Complementary role: skin tightening is particularly valuable as a companion to injectable treatments — addressing what injectables cannot."
+    ],
+    note: "Part of comprehensive skin health programs — staged and evaluated at defined intervals."
+  },
+
+  "collagen-stimulating": {
+    label: "Collagen-Stimulating Therapies",
+    category: "Aesthetic Procedure",
+    preview: "Biostimulatory agents that rebuild the skin's collagen scaffold from within — results develop over months, not days.",
+    body: "Collagen-stimulating therapies — primarily Poly-L-lactic acid (Sculptra) and calcium hydroxylapatite (Radiesse) — work by triggering the body's own fibroblasts to produce new collagen rather than simply adding volume through displacement. The result is a gradual, natural-looking improvement in skin thickness, firmness, and structural integrity that develops over 3 to 6 months.",
+    detail: [
+      "How it works: the injected agent creates a mild inflammatory response that stimulates fibroblast activity — the cells responsible for producing collagen.",
+      "Sculptra (PLLA): typically administered in 2–3 sessions over several months; results last up to 2 years.",
+      "Radiesse (CaHA): can provide both immediate volumetric correction and longer-term biostimulation.",
+      "Who it's for: patients with early to moderate facial volume loss, skin laxity, or those seeking a prevention-focused approach that works with the body rather than replacing it.",
+      "Patient commitment: these agents require patience — the full result is not visible at the time of treatment."
+    ],
+    note: "Staged within a 12-month horizon plan — evaluated at defined intervals."
+  },
+
+  "pigment-vascular": {
+    label: "Pigment & Vascular Correction",
+    category: "Aesthetic Procedure",
+    preview: "IPL, Picosecond, and Nd:YAG laser treatments for precise correction of sun damage, redness, and vascular irregularity.",
+    body: "Pigment and vascular correction targets two of the most visible signs of skin aging and sun exposure: irregular pigmentation (brown spots, melasma, sun damage) and vascular irregularities (diffuse redness, visible capillaries, rosacea flushing). These are addressed using light-based technologies that selectively destroy the targeted chromophore — melanin for pigment, hemoglobin for vessels — without damaging surrounding tissue.",
+    detail: [
+      "IPL (Intense Pulsed Light): broad-spectrum light targeting multiple chromophores simultaneously — effective for combined pigment and redness correction.",
+      "Picosecond laser: ultra-short pulse technology that shatters pigment into smaller particles for more efficient clearance — particularly effective for resistant pigmentation and tattoo removal.",
+      "Nd:YAG laser: penetrates deeper than IPL, targeting larger or deeper vascular structures and resistant pigmentation.",
+      "What to expect: pigmented lesions typically darken then flake away over 7–10 days; vascular lesions may purpura briefly before fading.",
+      "A note on skin type: not all technologies are appropriate for all skin types — proper assessment prevents hyperpigmentation complications."
+    ],
+    note: "Guided by clinical skin assessment — not all technologies are appropriate for all skin types."
+  }
+};
+  </script>
+
+  <script>
+  /* ===== CLINICAL INFO SYSTEM ENGINE ===== */
+  (function initClinicalInfoSystem() {
+    'use strict';
+
+    var overlay  = document.getElementById('clinical-modal-overlay');
+    var modal    = document.getElementById('clinical-modal');
+    var closeBtn = document.getElementById('clinical-modal-close');
+    if (!overlay || !window.MONTI_REGISTRY) return;
+
+    function openModal(key) {
+      var entry = MONTI_REGISTRY[key];
+      if (!entry) return;
+
+      document.getElementById('clinical-modal-category').textContent = entry.category || '';
+      document.getElementById('clinical-modal-title').textContent    = entry.label || '';
+      document.getElementById('clinical-modal-preview').textContent  = entry.preview || '';
+      document.getElementById('clinical-modal-desc').textContent     = entry.body || '';
+      document.getElementById('clinical-modal-note').textContent     = entry.note || '';
+
+      var detailsEl = document.getElementById('clinical-modal-details');
+      detailsEl.innerHTML = '';
+      (entry.detail || []).forEach(function(d) {
+        var item = document.createElement('div');
+        item.className = 'modal-detail-item';
+        item.textContent = d;
+        detailsEl.appendChild(item);
+      });
+
+      overlay.classList.add('is-open');
+      overlay.removeAttribute('aria-hidden');
+      document.body.style.overflow = 'hidden';
+      setTimeout(function() { closeBtn.focus(); }, 50);
+    }
+
+    function closeModal() {
+      overlay.classList.remove('is-open');
+      overlay.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      if (lastTrigger) { lastTrigger.focus(); lastTrigger = null; }
+    }
+
+    var lastTrigger = null;
+
+    function attachHandlers() {
+      document.querySelectorAll('[data-clinical-key]').forEach(function(el) {
+        var key = el.dataset.clinicalKey;
+        if (!key || !MONTI_REGISTRY[key]) return;
+
+        var entry = MONTI_REGISTRY[key];
+        if (entry.preview) el.setAttribute('data-preview', entry.preview);
+        if (!el.getAttribute('tabindex')) el.setAttribute('tabindex', '0');
+
+        el.setAttribute('role', 'button');
+        el.setAttribute('aria-haspopup', 'dialog');
+
+        el.addEventListener('click', function(e) {
+          e.preventDefault();
+          lastTrigger = el;
+          openModal(key);
+        });
+        el.addEventListener('keydown', function(e) {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            lastTrigger = el;
+            openModal(key);
+          }
+        });
+      });
+    }
+
+    closeBtn.addEventListener('click', closeModal);
+    overlay.addEventListener('click', function(e) {
+      if (e.target === overlay) closeModal();
+    });
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && overlay.classList.contains('is-open')) closeModal();
+    });
+
+    modal.addEventListener('keydown', function(e) {
+      if (e.key !== 'Tab') return;
+      var focusable = modal.querySelectorAll(
+        'button, [href], input, [tabindex]:not([tabindex="-1"])'
+      );
+      var first = focusable[0];
+      var last  = focusable[focusable.length - 1];
+      if (e.shiftKey) {
+        if (document.activeElement === first) { e.preventDefault(); last.focus(); }
+      } else {
+        if (document.activeElement === last)  { e.preventDefault(); first.focus(); }
+      }
+    });
+
+    function init() { attachHandlers(); }
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', init);
+    } else { init(); }
+
+    window.addEventListener('hashchange', function() {
+      setTimeout(attachHandlers, 200);
+    });
+
+  })();
+  </script>
+
+</body>
+</html>
